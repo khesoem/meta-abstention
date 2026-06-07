@@ -9,14 +9,14 @@ from meta_abstention.llm.invocation import Prompt
 
 logger = logging.getLogger(__name__)
 
-_SYSTEM = "You are an expert Python programmer."
+_SYSTEM = "You are an expert Python programmer. You are given a function signature and a docstring. You need to complete the function body and also specify your confidence of your completion."
 
 _USER_TEMPLATE = """{prompt}
 
-Complete the function body above. Return a JSON object with no markdown fences:
+Complete the function body above and specify your confidence in your completion. You should return the entire completed code, including the imports, the function signature, the function body, the docstring. The returned code should be a valid and executable Python code block. Return a JSON object with no markdown fences:
 {{
-  "code": "<function body only — lines after the closing docstring quote, correctly indented>",
-  "confidence": <float from 0.0 to 1.0>
+  "code": "<entire completed code including imports, function signature, function body, and docstring>",
+  "confidence": <integer from 0 to 100 indicating your confidence in your completion>
 }}"""
 
 
@@ -26,11 +26,13 @@ def _parse_completion(raw: str) -> dict:
     parsed = json.loads(raw)
     return {
         'generated_code': parsed['code'],
-        'confidence': float(parsed['confidence']),
+        'confidence': int(parsed['confidence']),
     }
 
 
 def _complete(adapter: LLMAdapter, prompt_text: str) -> dict:
+    if not prompt_text.endswith('\n'):
+        prompt_text += '\n'
     messages = [
         Prompt.Message("system", _SYSTEM),
         Prompt.Message("user", _USER_TEMPLATE.format(prompt=prompt_text)),

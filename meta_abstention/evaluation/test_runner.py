@@ -14,7 +14,7 @@ _TIMEOUT = 10  # seconds per test execution
 
 
 def _run_test(prompt: str, generated_code: str, test: str, entry_point: str) -> bool:
-    program = prompt + generated_code + '\n\n' + test + '\n\ncheck(' + entry_point + ')'
+    program = generated_code + '\n\n' + test + '\n\ncheck(' + entry_point + ')'
 
     with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:
         f.write(program)

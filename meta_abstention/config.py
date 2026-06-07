@@ -8,7 +8,7 @@ data = {
 
 completion = {
     'output-file': 'humanevalplus_completions.json',
-    'model': 'xiaomi/mimo-v2.5',
+    'model': 'mistralai/codestral-2508',
 }
 
 llm = {
