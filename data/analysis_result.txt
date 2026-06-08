@@ -1,0 +1,30 @@
+Tasks total: 162  |  valid (5 completions): 160  |  skipped: 2
+
+Total completions: 800
+  Confidence = 100 : 149/800 (18.6%)
+  Confidence < 100 : 651/800 (81.4%)
+
+Pass rate within Confidence = 100 : 139/149 (93.3%)
+Pass rate within Confidence < 100 : 527/651 (81.0%)
+
+--- Per-subset breakdown (uniform = all 5 completions of the task share the same confidence) ---
+
+  Confidence=100, Passed:
+    Total                       : 139
+    Uniform task confidence     : 95/139 (68.3%)
+    Non-uniform task confidence : 44/139 (31.7%)
+
+  Confidence=100, Failed:
+    Total                       : 10
+    Uniform task confidence     : 5/10 (50.0%)
+    Non-uniform task confidence : 5/10 (50.0%)
+
+  Confidence<100, Passed:
+    Total                       : 527
+    Uniform task confidence     : 168/527 (31.9%)
+    Non-uniform task confidence : 359/527 (68.1%)
+
+  Confidence<100, Failed:
+    Total                       : 124
+    Uniform task confidence     : 42/124 (33.9%)
+    Non-uniform task confidence : 82/124 (66.1%)
