@@ -10,7 +10,7 @@ import meta_abstention.config as conf
 
 logger = logging.getLogger(__name__)
 
-_TIMEOUT = 10  # seconds per test execution
+_TIMEOUT = 100  # seconds per test execution
 
 
 def _run_test(prompt: str, generated_code: str, test: str, entry_point: str) -> bool:

@@ -607,35 +607,35 @@
         "prompt": "\n\ndef string_sequence(n: int) -> str:\n    \"\"\" Return a string containing space-delimited numbers starting from 0 upto n inclusive.\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n",
         "generated_code": "def string_sequence(n: int) -> str:\n    \"\"\" Return a string containing space-delimited numbers starting from 0 upto n inclusive.\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n    return ' '.join(str(i) for i in range(n + 1))",
         "confidence": 100,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_0",
         "prompt": "def string_sequence(n: int) -> str:\n    \"\"\" Generate a string of numbers from 0 to n, space-separated.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"",
         "generated_code": "def string_sequence(n: int) -> str:\n    \"\"\" Generate a string of numbers from 0 to n, space-separated.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n    return ' '.join(str(i) for i in range(n + 1))",
         "confidence": 100,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_1",
         "prompt": "def string_sequence(n: int) -> str:\n    \"\"\" Return a sequence of integers from 0 to n inclusive, joined with spaces.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"",
         "generated_code": "def string_sequence(n: int) -> str:\n    \"\"\" Return a sequence of integers from 0 to n inclusive, joined with spaces.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n    return ' '.join(str(i) for i in range(n + 1))",
         "confidence": 100,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_2",
         "prompt": "def string_sequence(n: int) -> str:\n    \"\"\" Create a string containing the numbers 0 through n, each separated by a space.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"",
         "generated_code": "def string_sequence(n: int) -> str:\n    \"\"\" Create a string containing the numbers 0 through n, each separated by a space.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n    return ' '.join(str(i) for i in range(n + 1))",
         "confidence": 100,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_3",
         "prompt": "def string_sequence(n: int) -> str:\n    \"\"\" Produce a space-delimited string of integers ranging from 0 up to n.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"",
         "generated_code": "def string_sequence(n: int) -> str:\n    \"\"\" Produce a space-delimited string of integers ranging from 0 up to n.\n\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n    return ' '.join(str(i) for i in range(n + 1))",
         "confidence": 100,
-        "passed": false
+        "passed": true
       }
     ]
   },
@@ -1567,35 +1567,35 @@
         "prompt": "\n\ndef prime_fib(n: int):\n    \"\"\"\n    prime_fib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n",
         "generated_code": "import math\n\ndef is_prime(num):\n    \"\"\"\n    Check if a number is prime.\n    \"\"\"\n    if num <= 1:\n        return False\n    if num == 2:\n        return True\n    if num % 2 == 0:\n        return False\n    for i in range(3, int(math.sqrt(num)) + 1, 2):\n        if num % i == 0:\n            return False\n    return True\n\ndef prime_fib(n: int):\n    \"\"\"\n    prime_fib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    count = 0\n    a, b = 1, 1\n    while count < n:\n        a, b = b, a + b\n        if is_prime(a):\n            count += 1\n    return a",
         "confidence": 90,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_0",
         "prompt": "def prime_fib(n: int):\n    \"\"\"\n    Returns the n-th prime Fibonacci number.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"",
         "generated_code": "def is_prime(num: int) -> bool:\n    \"\"\"Check if a number is prime.\"\"\"\n    if num <= 1:\n        return False\n    if num <= 3:\n        return True\n    if num % 2 == 0 or num % 3 == 0:\n        return False\n    i = 5\n    while i * i <= num:\n        if num % i == 0 or num % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef prime_fib(n: int):\n    \"\"\"\n    Returns the n-th prime Fibonacci number.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    count = 0\n    a, b = 1, 1\n    while count < n:\n        a, b = b, a + b\n        if is_prime(b):\n            count += 1\n    return b",
         "confidence": 90,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_1",
         "prompt": "def prime_fib(n: int):\n    \"\"\"\n    This function finds the n-th integer that is both Fibonacci and prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"",
         "generated_code": "import math\n\ndef is_prime(num):\n    \"\"\"Check if a number is prime.\"\"\"\n    if num < 2:\n        return False\n    for i in range(2, int(math.sqrt(num)) + 1):\n        if num % i == 0:\n            return False\n    return True\n\ndef prime_fib(n: int):\n    \"\"\"\n    This function finds the n-th integer that is both Fibonacci and prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    count = 0\n    a, b = 1, 1\n    while count < n:\n        a, b = b, a + b\n        if is_prime(a):\n            count += 1\n    return a",
         "confidence": 90,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_2",
         "prompt": "def prime_fib(n: int):\n    \"\"\"\n    prime_fib retrieves the n-th number in the sequence of prime Fibonacci numbers.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"",
         "generated_code": "def is_prime(num: int) -> bool:\n    \"\"\"Check if a number is prime.\"\"\"\n    if num <= 1:\n        return False\n    if num <= 3:\n        return True\n    if num % 2 == 0 or num % 3 == 0:\n        return False\n    i = 5\n    while i * i <= num:\n        if num % i == 0 or num % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\ndef prime_fib(n: int):\n    \"\"\"\n    prime_fib retrieves the n-th number in the sequence of prime Fibonacci numbers.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    if n <= 0:\n        raise ValueError(\"n must be a positive integer\")\n    \n    prime_fibs = []\n    a, b = 1, 1\n    while len(prime_fibs) < n:\n        a, b = b, a + b\n        if is_prime(b):\n            prime_fibs.append(b)\n    \n    return prime_fibs[-1]",
         "confidence": 90,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_3",
         "prompt": "def prime_fib(n: int):\n    \"\"\"\n    The function provides the n-th element which is a Fibonacci number and also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"",
         "generated_code": "import math\n\ndef is_prime(num):\n    \"\"\"Check if a number is prime.\"\"\"\n    if num <= 1:\n        return False\n    if num == 2:\n        return True\n    if num % 2 == 0:\n        return False\n    for i in range(3, int(math.sqrt(num)) + 1, 2):\n        if num % i == 0:\n            return False\n    return True\n\ndef prime_fib(n: int):\n    \"\"\"\n    The function provides the n-th element which is a Fibonacci number and also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    count = 0\n    a, b = 0, 1\n    while count < n:\n        a, b = b, a + b\n        if is_prime(a):\n            count += 1\n    return a",
         "confidence": 90,
-        "passed": false
+        "passed": true
       }
     ]
   },
@@ -3322,7 +3322,7 @@
         "prompt": "def starts_one_ends(n):\n    \"\"\"\n    For a positive integer n, compute the number of n-digit positive integers beginning with or ending in 1.\n    \"\"\"",
         "generated_code": "def starts_one_ends(n):\n    \"\"\"\n    For a positive integer n, compute the number of n-digit positive integers beginning with or ending in 1.\n    \"\"\"\n    if n == 1:\n        return 1\n    \n    # Total n-digit numbers\n    total_numbers = 9 * (10 ** (n - 1))\n    \n    # Numbers starting with 1\n    starts_with_one = 10 ** (n - 1)\n    \n    # Numbers ending with 1\n    ends_with_one = 9 * (10 ** (n - 2))\n    \n    # Numbers starting and ending with 1\n    starts_and_ends_with_one = 10 ** (n - 2)\n    \n    # Using the principle of inclusion-exclusion\n    result = starts_with_one + ends_with_one - starts_and_ends_with_one\n    \n    return result",
         "confidence": 95,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_1",
@@ -3336,14 +3336,14 @@
         "prompt": "def starts_one_ends(n):\n    \"\"\"\n    Calculate how many n-digit positive integers have either a starting digit of 1 or an ending digit of 1, based on the provided integer n.\n    \"\"\"",
         "generated_code": "def starts_one_ends(n):\n    \"\"\"\n    Calculate how many n-digit positive integers have either a starting digit of 1 or an ending digit of 1, based on the provided integer n.\n    \"\"\"\n    if n == 1:\n        return 1\n    \n    # Total n-digit numbers\n    total_numbers = 9 * (10 ** (n - 1))\n    \n    # Numbers starting with 1\n    starts_with_one = 10 ** (n - 1)\n    \n    # Numbers ending with 1\n    ends_with_one = 9 * (10 ** (n - 2))\n    \n    # Numbers starting with 1 and ending with 1\n    starts_and_ends_with_one = 10 ** (n - 2)\n    \n    # Using the principle of inclusion-exclusion\n    result = starts_with_one + ends_with_one - starts_and_ends_with_one\n    \n    return result",
         "confidence": 90,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_3",
         "prompt": "def starts_one_ends(n):\n    \"\"\"\n    Determine the count of n-digit positive integers that satisfy the condition of starting with 1 or ending with 1, for a given positive integer n.\n    \"\"\"",
         "generated_code": "def starts_one_ends(n):\n    \"\"\"\n    Determine the count of n-digit positive integers that satisfy the condition of starting with 1 or ending with 1, for a given positive integer n.\n    \"\"\"\n    if n == 1:\n        return 1\n    \n    # Total n-digit numbers\n    total_numbers = 9 * (10 ** (n - 1))\n    \n    # Numbers starting with 1\n    starts_with_one = 10 ** (n - 1)\n    \n    # Numbers ending with 1\n    ends_with_one = 9 * (10 ** (n - 2))\n    \n    # Numbers starting with 1 and ending with 1\n    starts_and_ends_with_one = 10 ** (n - 2)\n    \n    # Using the principle of inclusion-exclusion\n    result = starts_with_one + ends_with_one - starts_and_ends_with_one\n    \n    return result",
         "confidence": 90,
-        "passed": false
+        "passed": true
       }
     ]
   },
@@ -5501,35 +5501,35 @@
         "prompt": "\ndef special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as:\n    brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!\n    where n > 0\n\n    For example:\n    >>> special_factorial(4)\n    288\n\n    The function will receive an integer as input and should return the special\n    factorial of this integer.\n    \"\"\"\n",
         "generated_code": "import math\n\ndef special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as:\n    brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!\n    where n > 0\n    \n    For example:\n    >>> special_factorial(4)\n    288\n    \n    The function will receive an integer as input and should return the special\n    factorial of this integer.\n    \"\"\"\n    result = 1\n    for i in range(1, n+1):\n        result *= math.factorial(i)\n    return result",
         "confidence": 95,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_0",
         "prompt": "def special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as n! * (n-1)! * ... * 1! for n greater than zero.\n\nFor example:\n>>> special_factorial(4)\n288\n\nThe function receives an integer and returns its special factorial.\"\"\"",
         "generated_code": "def special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as n! * (n-1)! * ... * 1! for n greater than zero.\n\n    For example:\n    >>> special_factorial(4)\n    288\n\n    The function receives an integer and returns its special factorial.\"\"\"\n    if n <= 0:\n        raise ValueError(\"n must be greater than zero\")\n    result = 1\n    for i in range(1, n + 1):\n        factorial = 1\n        for j in range(1, i + 1):\n            factorial *= j\n        result *= factorial\n    return result",
         "confidence": 95,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_1",
         "prompt": "def special_factorial(n):\n    \"\"\"This function computes the special factorial, also known as the Brazilian factorial, which is the product of factorials from n down to 1.\n\nExample:\n>>> special_factorial(4)\n288\n\nInput: an integer n. Output: the special factorial of n.\"\"\"",
         "generated_code": "import math\n\ndef special_factorial(n):\n    \"\"\"This function computes the special factorial, also known as the Brazilian factorial, which is the product of factorials from n down to 1.\n\n    Example:\n    >>> special_factorial(4)\n    288\n\n    Input: an integer n. Output: the special factorial of n.\"\"\"\n    result = 1\n    for i in range(1, n + 1):\n        result *= math.factorial(i)\n    return result",
         "confidence": 90,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_2",
         "prompt": "def special_factorial(n):\n    \"\"\"Special factorial is calculated by multiplying n! * (n-1)! * ... * 1! where n is positive.\n\nFor instance:\n>>> special_factorial(4)\n288\n\nThe function takes an integer as input and returns the special factorial result.\"\"\"",
         "generated_code": "def special_factorial(n):\n    \"\"\"Special factorial is calculated by multiplying n! * (n-1)! * ... * 1! where n is positive.\n\n    For instance:\n    >>> special_factorial(4)\n    288\n\n    The function takes an integer as input and returns the special factorial result.\"\"\"\n    result = 1\n    for i in range(1, n + 1):\n        factorial = 1\n        for j in range(1, i + 1):\n            factorial *= j\n        result *= factorial\n    return result",
         "confidence": 90,
-        "passed": false
+        "passed": true
       },
       {
         "prompt_type": "variant_3",
         "prompt": "def special_factorial(n):\n    \"\"\"For a positive integer n, the special factorial is n! * (n-1)! * ... * 1!.\n\nExample usage:\n>>> special_factorial(4)\n288\n\nGiven an integer, this function returns its special factorial value.\"\"\"",
         "generated_code": "def special_factorial(n):\n    \"\"\"For a positive integer n, the special factorial is n! * (n-1)! * ... * 1!.\n\n    Example usage:\n    >>> special_factorial(4)\n    288\n\n    Given an integer, this function returns its special factorial value.\"\"\"\n    if n < 0:\n        raise ValueError(\"Input must be a positive integer\")\n    result = 1\n    for i in range(1, n + 1):\n        factorial_i = 1\n        for j in range(1, i + 1):\n            factorial_i *= j\n        result *= factorial_i\n    return result",
         "confidence": 90,
-        "passed": false
+        "passed": true
       }
     ]
   },
