@@ -7,22 +7,22 @@ Total completions: 800
 
 --- Per-subset breakdown (all completions of the task share the same confidence) ---
 
-  Confidence=100, Uniform code:
+  Confidence=100, Uniform confidence:
     Total  : 100
     Passed : 100/100 (100.0%)
     Failed : 0/100 (0.0%)
 
-  Confidence=100, Non-uniform code:
+  Confidence=100, Non-uniform confidence:
     Total  : 49
     Passed : 44/49 (89.8%)
     Failed : 5/49 (10.2%)
 
-  Confidence<100, Uniform code:
+  Confidence<100, Uniform confidence:
     Total  : 210
     Passed : 173/210 (82.4%)
     Failed : 37/210 (17.6%)
 
-  Confidence<100, Non-uniform code:
+  Confidence<100, Non-uniform confidence:
     Total  : 441
     Passed : 367/441 (83.2%)
     Failed : 74/441 (16.8%)
