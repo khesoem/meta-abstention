@@ -54,6 +54,8 @@ def run(
             logger.warning("No test metadata found for %s, skipping", task_id)
             continue
 
+        # logger.info("Testing %s", task_id)
+
         for completion in task['completions']:
             prompt_type = completion['prompt_type']
             logger.info("Testing %s / %s", task_id, prompt_type)

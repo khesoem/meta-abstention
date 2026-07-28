@@ -38,10 +38,10 @@ def run_confidence_consistency(
 
     # Bucket every completion into one of 4 subsets
     subsets = {
-        ('high', True):  [],   # confidence == 100, uniform code across the task's completions
-        ('high', False): [],   # confidence == 100, non-uniform code
-        ('low',  True):  [],   # confidence < 100,  uniform code
-        ('low',  False): [],   # confidence < 100,  non-uniform code
+        ('high', True):  [],   # confidence == 100, uniform confidence across the task's completions
+        ('high', False): [],   # confidence == 100, non-uniform confidence
+        ('low',  True):  [],   # confidence < 100,  uniform confidence
+        ('low',  False): [],   # confidence < 100,  non-uniform confidence
     }
 
     for task in valid_tasks:
@@ -60,10 +60,10 @@ def run_confidence_consistency(
     print(f"  Confidence < 100 : {_ratio(len(low),  total)}")
 
     labels = {
-        ('high', True):  "Confidence=100, Uniform code",
-        ('high', False): "Confidence=100, Non-uniform code",
-        ('low',  True):  "Confidence<100, Uniform code",
-        ('low',  False): "Confidence<100, Non-uniform code",
+        ('high', True):  "Confidence=100, Uniform confidence",
+        ('high', False): "Confidence=100, Non-uniform confidence",
+        ('low',  True):  "Confidence<100, Uniform confidence",
+        ('low',  False): "Confidence<100, Non-uniform confidence",
     }
 
     print("\n--- Per-subset breakdown (all completions of the task share the same confidence) ---")

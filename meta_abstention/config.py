@@ -18,6 +18,6 @@ llm = {
     'default-temp': 0,
     'default-sample-size': 1,
     'default-improvement-iterations': 0,
-    'default-model': 'xiaomi/mimo-v2.5',
+    'default-model': 'mistralai/codestral-2508',
     'max-o4-tokens': 10000,
 }

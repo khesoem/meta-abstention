@@ -11,18 +11,21 @@ from meta_abstention.llm.invocation import Prompt
 
 logger = logging.getLogger(__name__)
 
-_PARAPHRASE_SYSTEM = (
-    "You are a technical writing assistant. You rephrase Python function docstrings "
-    "while preserving their exact semantics.\n"
-    "Rules:\n"
-    "- Keep the function signature (name, parameters, return type annotation) exactly unchanged.\n"
-    "- Keep any import statements exactly unchanged.\n"
-    "- Keep doctest examples (lines starting with >>> or ...) exactly unchanged.\n"
-    "- Rephrase only the natural language description inside the docstring.\n"
-    "- Make each variant meaningfully different from the others.\n"
-    "- Return a JSON array of {n} strings, each containing one complete paraphrased function. "
-    "No markdown fences, no other text."
-)
+_PARAPHRASE_SYSTEM = "You are a technical writing assistant specializing in Python documentation."
+
+_PARAPHRASE_USER_TEMPLATE = """\
+Produce {n} paraphrased variants of the Python code block below. Each variant must:
+- Preserve every function present — do not add, remove, or reorder functions.
+- Keep all import statements exactly as-is.
+- Keep every function signature (name, parameters, return type annotation) exactly as-is.
+- Keep all doctest examples (>>> and ...) exactly as-is.
+- Rephrase only the natural language description text within each docstring.
+- Do NOT include any implementation code — each variant must end after the closing \"\"\" of the last docstring, just like the original.
+- Make the {n} variants meaningfully different from one another.
+
+Return a JSON array of {n} strings. No markdown fences, no other text.
+
+{prompt}"""
 
 
 def _parse_variants(raw: str, n: int) -> list[str]:
@@ -36,11 +39,10 @@ def _parse_variants(raw: str, n: int) -> list[str]:
 
 def _paraphrase_all(adapter: LLMAdapter, original_prompt: str, n_variants: int) -> list[str]:
     messages = [
-        Prompt.Message("system", _PARAPHRASE_SYSTEM.format(n=n_variants)),
-        Prompt.Message("user", original_prompt),
+        Prompt.Message("system", _PARAPHRASE_SYSTEM),
+        Prompt.Message("user", _PARAPHRASE_USER_TEMPLATE.format(n=n_variants, prompt=original_prompt)),
     ]
-    prompt = Prompt(messages)
-    raw = adapter.get_response(prompt).first_content
+    raw = adapter.get_response(Prompt(messages)).first_content
     return _parse_variants(raw, n_variants)
 
 

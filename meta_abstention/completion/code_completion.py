@@ -59,6 +59,8 @@ def run(
             (f'variant_{i}', p) for i, p in enumerate(task['modified_prompts'])
         ]
 
+        logger.info("Completing %s", task_id)
+
         completions = []
         for prompt_type, prompt_text in prompts:
             logger.info("Completing %s / %s", task_id, prompt_type)
