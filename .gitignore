@@ -32,3 +32,5 @@ Thumbs.db
 # cache/
 logs/
 tmp/
+tmp*.py
+tmp_**
