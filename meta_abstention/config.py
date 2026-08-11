@@ -21,3 +21,11 @@ llm = {
     'default-model': 'mistralai/codestral-2508',
     'max-o4-tokens': 10000,
 }
+
+exec_eval = {
+    'api-url': 'http://localhost:5000/api/execute_code'
+}
+
+translation = {
+    'default-model': 'openai/gpt-4.1-nano',
+}
