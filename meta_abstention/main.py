@@ -11,6 +11,8 @@ from meta_abstention.xcodeeval.dataset_sanity_check import run_tests as run_xcod
 from meta_abstention.xcodeeval.code_translation import run_translation as run_code_translation
 from meta_abstention.xcodeeval.code_execution import execute_translated_code as execute_translated_code
 from meta_abstention.xcodeeval.confidence_analysis import run_confidence_analysis as run_confidence_analysis
+from meta_abstention.xcodeeval.confidence_measurement import compute_similarities as compute_similarities
+from meta_abstention.xcodeeval.confidence_measurement import compute_confidence as compute_confidence
 
 # logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
 #                     filemode='a',
@@ -21,7 +23,9 @@ from meta_abstention.xcodeeval.confidence_analysis import run_confidence_analysi
 def main() -> None:
     # run_code_translation('data/code_translation/xcodeeval/selected_python_filtered.json', 'data/code_translation/xcodeeval/python-to-java.json', 'Java 8')
     # execute_translated_code('data/code_translation/xcodeeval/python-to-java.json', 'data/code_translation/xcodeeval/python-to-java-executed.json')
-    run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed-confidence.json')
+    run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed2.json')
+    # compute_similarities('data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-similarities.json')
+    # compute_confidence('data/code_translation/xcodeeval/python-to-java-similarities.json', 'data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed.json')
 
 if __name__ == "__main__":
     main()

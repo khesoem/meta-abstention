@@ -34,3 +34,6 @@ logs/
 tmp/
 tmp*.py
 tmp_**
+
+*.log
+*.err
