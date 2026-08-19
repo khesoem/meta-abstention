@@ -3,128 +3,137 @@ import json
 import random
 import copy
 
+_SIMILARITY_FNS = {
+    'codebertscore': codebertscore_sim,
+    'codebertcosine': codebert_cosine_sim,
+    'unixcoder': unixcoder_sim,
+}
+
+# (source_code similarity key, translation similarity key) for each metric.
+_METRIC_KEYS = {
+    'codebertscore': ('code_codebertscore', 'translation_codebertscore'),
+    'codebertcosine': ('code_codebertcosine', 'translation_codebertcosine'),
+    'unixcoder': ('code_unixcoder', 'translation_unixcoder'),
+}
+
+# SPUQ variants: confidence field name, metric, whether to invert source-code similarity,
+# and whether to include a self-pair of (weight=1, translation_sim=1).
+_SPUQ_VARIANTS = [
+    ('spuq_codebert_score', 'codebertscore', False, True),
+    ('spuq_codebert_cosine', 'codebertcosine', False, True),
+    ('spuq_unixcoder', 'unixcoder', False, True),
+    ('spuq_codebert_score_reverse', 'codebertscore', True, False),
+    ('spuq_codebert_cosine_reverse', 'codebertcosine', True, False),
+    ('spuq_unixcoder_reverse', 'unixcoder', True, False),
+]
+
+_VERBALIZED_WEIGHTED = [
+    ('average_verbalized_confidence_codebert_score_weighted', 'codebertscore'),
+    ('average_verbalized_confidence_codebert_cosine_weighted', 'codebertcosine'),
+    ('average_verbalized_confidence_unixcoder_weighted', 'unixcoder'),
+]
+
+
+def _pair_similarities(text_a: str, text_b: str) -> dict:
+    return {name: fn(text_a, text_b) for name, fn in _SIMILARITY_FNS.items()}
+
+
 def compute_similarities(translations: str, output_path: str):
     similarities = {}
     with open(translations, 'r') as t:
         data = json.load(t)
         for _, item in data.items():
             try:
-                submission_codes = []
-                translation_codes = []
-                code_uids = []
-                for submission in item['submissions']:
-                    code_uid = submission['code_uid']
-                    code_uids.append(code_uid)
-                    code = submission['source_code']
-                    translation = submission['translation'][0]['translated_code']
-                    submission_codes.append(code)
-                    translation_codes.append(translation)
-                
-                for i, code1 in enumerate(submission_codes):
-                    for j, code2 in enumerate(submission_codes):
+                submissions = item['submissions']
+                codes = [s['source_code'] for s in submissions]
+                translations_list = [s['translation'][0]['translated_code'] for s in submissions]
+                code_uids = [s['code_uid'] for s in submissions]
+
+                for i, uid_i in enumerate(code_uids):
+                    similarities.setdefault(uid_i, {})
+                    for j, uid_j in enumerate(code_uids):
                         if i == j:
                             continue
-                        code_codebertscore = codebertscore_sim(code1, code2)
-                        code_codebertcosine = codebert_cosine_sim(code1, code2)
-                        codeunixcoder = unixcoder_sim(code1, code2)
-                        translation_codebertscore = codebertscore_sim(translation_codes[i], translation_codes[j])
-                        translation_codebertcosine = codebert_cosine_sim(translation_codes[i], translation_codes[j])
-                        translation_unixcoder = unixcoder_sim(translation_codes[i], translation_codes[j])
-
-                        if code_uids[i] not in similarities:
-                            similarities[code_uids[i]] = {}
-
-                        similarities[code_uids[i]][code_uids[j]] = {
-                            'code_codebertscore': code_codebertscore,
-                            'code_codebertcosine': code_codebertcosine,
-                            'code_unixcoder': codeunixcoder,
-                            'translation_codebertscore': translation_codebertscore,
-                            'translation_codebertcosine': translation_codebertcosine,
-                            'translation_unixcoder': translation_unixcoder
+                        code_sims = _pair_similarities(codes[i], codes[j])
+                        translation_sims = _pair_similarities(translations_list[i], translations_list[j])
+                        similarities[uid_i][uid_j] = {
+                            f'code_{name}': code_sims[name]
+                            for name in _SIMILARITY_FNS
+                        } | {
+                            f'translation_{name}': translation_sims[name]
+                            for name in _SIMILARITY_FNS
                         }
-                            
+
                 with open(output_path, 'w') as f:
                     json.dump(similarities, f)
-            except Exception as e:
+            except Exception:
                 continue
 
+
+def _source_weight(pair_sims: dict, metric: str, reverse: bool) -> float:
+    source_key, _ = _METRIC_KEYS[metric]
+    weight = pair_sims[source_key]
+    return (1 - weight) if reverse else weight
+
+
+def _spuq_score(similarities: dict, code_uid: str, filtered_submissions: list,
+                metric: str, reverse: bool, include_self: bool) -> float:
+    _, translation_key = _METRIC_KEYS[metric]
+    total_translation = 0.0
+    total_source = 0.0
+    for other in filtered_submissions:
+        pair = similarities[code_uid][other['code_uid']]
+        source_sim = _source_weight(pair, metric, reverse)
+        total_translation += pair[translation_key] * source_sim
+        total_source += source_sim
+    if include_self:
+        total_source += 1
+        total_translation += 1
+    return total_translation / total_source
+
+
+def _verbalized_weighted_average(similarities: dict, submission: dict,
+                                 filtered_submissions: list, metric: str) -> float:
+    source_key, _ = _METRIC_KEYS[metric]
+    code_uid = submission['code_uid']
+    own = submission['translation'][0]['confidence']['verbalization']
+    weighted = own
+    total_source = 1.0
+    for other in filtered_submissions:
+        source_sim = similarities[code_uid][other['code_uid']][source_key]
+        weighted += other['translation'][0]['confidence']['verbalization'] * source_sim
+        total_source += source_sim
+    return weighted / total_source
+
+
 def _add_similarity_based_confidence(similarities: dict, submission: dict, filtered_submissions: list):
+    confidence = submission['translation'][0]['confidence']
     code_uid = submission['code_uid']
 
-    ### SPUQ method-codebert: average similarity of translations weighted by the similarity of the source codes
-    total_translation_similarity = 0
-    total_source_code_similarity = 0
-    for other_submission in filtered_submissions:
-        other_code_uid = other_submission['code_uid']
-        source_code_similarity = similarities[code_uid][other_code_uid]['code_codebertscore']
-        translation_similarity = similarities[code_uid][other_code_uid]['translation_codebertscore']
-        total_translation_similarity += translation_similarity * source_code_similarity
-        total_source_code_similarity += source_code_similarity
-    total_source_code_similarity += 1
-    total_translation_similarity += 1
-    submission['translation'][0]['confidence']['spuq_codebert_score'] = total_translation_similarity / total_source_code_similarity
+    for field, metric, reverse, include_self in _SPUQ_VARIANTS:
+        confidence[field] = _spuq_score(
+            similarities, code_uid, filtered_submissions, metric, reverse, include_self
+        )
 
-    ### SPUQ method-codebert-cosine: average similarity of translations weighted by the similarity of the source codes
-    total_translation_similarity = 0
-    total_source_code_similarity = 0
-    for other_submission in filtered_submissions:
-        other_code_uid = other_submission['code_uid']
-        source_code_similarity = similarities[code_uid][other_code_uid]['code_codebertcosine']
-        translation_similarity = similarities[code_uid][other_code_uid]['translation_codebertcosine']
-        total_translation_similarity += translation_similarity * source_code_similarity
-        total_source_code_similarity += source_code_similarity
-    total_source_code_similarity += 1
-    total_translation_similarity += 1
-    submission['translation'][0]['confidence']['spuq_codebert_cosine'] = total_translation_similarity / total_source_code_similarity
-    
-    ### SPUQ method-unixcoder: average similarity of translations weighted by the similarity of the source codes
-    total_translation_similarity = 0
-    total_source_code_similarity = 0
-    for other_submission in filtered_submissions:
-        other_code_uid = other_submission['code_uid']
-        source_code_similarity = similarities[code_uid][other_code_uid]['code_unixcoder']
-        translation_similarity = similarities[code_uid][other_code_uid]['translation_unixcoder']
-        total_translation_similarity += translation_similarity * source_code_similarity
-        total_source_code_similarity += source_code_similarity
-    total_source_code_similarity += 1
-    total_translation_similarity += 1
-    submission['translation'][0]['confidence']['spuq_unixcoder'] = total_translation_similarity / total_source_code_similarity
+    n = len(filtered_submissions) + 1
+    total_verbalized = confidence['verbalization'] + sum(
+        other['translation'][0]['confidence']['verbalization']
+        for other in filtered_submissions
+    )
+    confidence['average_verbalized_confidence'] = total_verbalized / n
 
-    ### Average verbalized confidence: average of the confidence of the translations
-    total_confidence = 0
-    total_confidence_codebert_score_weighted = 0
-    total_confidence_codebert_cosine_weighted = 0
-    total_confidence_unixcoder_weighted = 0
-    total_source_code_similarity_codebert = 0
-    total_source_code_similarity_codebert_cosine = 0
-    total_source_code_similarity_unixcoder = 0
-    for other_submission in filtered_submissions:
-        other_code_uid = other_submission['code_uid']
-        total_confidence += other_submission['translation'][0]['confidence']['verbalization']
-        total_confidence_codebert_score_weighted += other_submission['translation'][0]['confidence']['verbalization'] * similarities[code_uid][other_code_uid]['code_codebertscore']
-        total_confidence_codebert_cosine_weighted += other_submission['translation'][0]['confidence']['verbalization'] * similarities[code_uid][other_code_uid]['code_codebertcosine']
-        total_confidence_unixcoder_weighted += other_submission['translation'][0]['confidence']['verbalization'] * similarities[code_uid][other_code_uid]['code_unixcoder']
-        total_source_code_similarity_codebert += similarities[code_uid][other_code_uid]['code_codebertscore']
-        total_source_code_similarity_codebert_cosine += similarities[code_uid][other_code_uid]['code_codebertcosine']
-        total_source_code_similarity_unixcoder += similarities[code_uid][other_code_uid]['code_unixcoder']
-    total_confidence += submission['translation'][0]['confidence']['verbalization']
-    total_confidence_codebert_score_weighted += submission['translation'][0]['confidence']['verbalization']
-    total_confidence_codebert_cosine_weighted += submission['translation'][0]['confidence']['verbalization']
-    total_confidence_unixcoder_weighted += submission['translation'][0]['confidence']['verbalization']
-    total_source_code_similarity_codebert += 1
-    total_source_code_similarity_codebert_cosine += 1
-    total_source_code_similarity_unixcoder += 1
-    submission['translation'][0]['confidence']['average_verbalized_confidence'] = total_confidence / (len(filtered_submissions) + 1)
-    submission['translation'][0]['confidence']['average_verbalized_confidence_codebert_score_weighted'] = total_confidence_codebert_score_weighted / total_source_code_similarity_codebert
-    submission['translation'][0]['confidence']['average_verbalized_confidence_codebert_cosine_weighted'] = total_confidence_codebert_cosine_weighted / total_source_code_similarity_codebert_cosine
-    submission['translation'][0]['confidence']['average_verbalized_confidence_unixcoder_weighted'] = total_confidence_unixcoder_weighted / total_source_code_similarity_unixcoder
+    for field, metric in _VERBALIZED_WEIGHTED:
+        confidence[field] = _verbalized_weighted_average(
+            similarities, submission, filtered_submissions, metric
+        )
+
 
 def compute_confidence(similarities_path: str, translation_exec_results_path: str, output_path: str, n_perturbations: int = 5, seed: int = 42):
     with open(similarities_path, 'r') as s:
         similarities = json.load(s)
     with open(translation_exec_results_path, 'r') as e:
         translation_exec_results = json.load(e)
-    
+
     rand = random.Random(seed)
 
     for _, item in translation_exec_results.items():
@@ -136,6 +145,6 @@ def compute_confidence(similarities_path: str, translation_exec_results_path: st
             filtered_submissions = [s for s in submissions if s['code_uid'] != code_uid][:n_perturbations]
 
             _add_similarity_based_confidence(similarities, submission, filtered_submissions)
-        
+
     with open(output_path, 'w') as e:
         json.dump(translation_exec_results, e, indent=4)

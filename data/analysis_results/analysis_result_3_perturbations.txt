@@ -1,0 +1,87 @@
+=== Simple Verbalized  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.566   95% CI [ 0.471,  0.660]
+  Brier          :  0.524   95% CI [ 0.447,  0.599]
+  Skill Score    : -1.282   95% CI [-2.058, -0.814]
+  ECE (10 bins)  :  0.548   95% CI [ 0.459,  0.637]
+  Spearman rho   :  0.121   95% CI [-0.054,  0.290]
+  Pearson r      :  0.167   95% CI [ 0.067,  0.256]
+
+=== SPUQ CodeBERT Score  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.643   95% CI [ 0.535,  0.746]
+  Brier          :  0.494   95% CI [ 0.426,  0.563]
+  Skill Score    : -1.152   95% CI [-1.879, -0.723]
+  ECE (10 bins)  :  0.520   95% CI [ 0.431,  0.610]
+  Spearman rho   :  0.238   95% CI [ 0.058,  0.404]
+  Pearson r      :  0.226   95% CI [ 0.072,  0.357]
+
+=== SPUQ CodeBERT Score Reverse  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.643   95% CI [ 0.536,  0.747]
+  Brier          :  0.434   95% CI [ 0.375,  0.493]
+  Skill Score    : -0.888   95% CI [-1.520, -0.518]
+  ECE (10 bins)  :  0.461   95% CI [ 0.372,  0.551]
+  Spearman rho   :  0.238   95% CI [ 0.059,  0.405]
+  Pearson r      :  0.236   95% CI [ 0.095,  0.362]
+
+=== SPUQ CodeBERT Cosine  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.630   95% CI [ 0.507,  0.739]
+  Brier          :  0.628   95% CI [ 0.540,  0.717]
+  Skill Score    : -1.736   95% CI [-2.657, -1.186]
+  ECE (10 bins)  :  0.633   95% CI [ 0.544,  0.723]
+  Spearman rho   :  0.216   95% CI [ 0.012,  0.395]
+  Pearson r      :  0.165   95% CI [ 0.026,  0.267]
+
+=== SPUQ CodeBERT Cosine Reverse  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.634   95% CI [ 0.512,  0.740]
+  Brier          :  0.622   95% CI [ 0.535,  0.711]
+  Skill Score    : -1.710   95% CI [-2.630, -1.163]
+  ECE (10 bins)  :  0.629   95% CI [ 0.540,  0.719]
+  Spearman rho   :  0.222   95% CI [ 0.020,  0.398]
+  Pearson r      :  0.172   95% CI [ 0.036,  0.273]
+
+=== SPUQ Unixcoder  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.616   95% CI [ 0.508,  0.719]
+  Brier          :  0.457   95% CI [ 0.393,  0.523]
+  Skill Score    : -0.992   95% CI [-1.673, -0.593]
+  ECE (10 bins)  :  0.488   95% CI [ 0.401,  0.577]
+  Spearman rho   :  0.192   95% CI [ 0.014,  0.362]
+  Pearson r      :  0.219   95% CI [ 0.052,  0.369]
+
+=== SPUQ Unixcoder Reverse  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.642   95% CI [ 0.539,  0.743]
+  Brier          :  0.369   95% CI [ 0.315,  0.423]
+  Skill Score    : -0.607   95% CI [-1.140, -0.285]
+  ECE (10 bins)  :  0.388   95% CI [ 0.308,  0.478]
+  Spearman rho   :  0.236   95% CI [ 0.064,  0.401]
+  Pearson r      :  0.238   95% CI [ 0.071,  0.390]
+
+=== Average Verbalized  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.543   95% CI [ 0.432,  0.645]
+  Brier          :  0.526   95% CI [ 0.452,  0.600]
+  Skill Score    : -1.293   95% CI [-2.075, -0.831]
+  ECE (10 bins)  :  0.547   95% CI [ 0.457,  0.637]
+  Spearman rho   :  0.072   95% CI [-0.112,  0.242]
+  Pearson r      :  0.099   95% CI [-0.078,  0.248]
+
+=== Average Verbalized CodeBERT Score  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.541   95% CI [ 0.430,  0.644]
+  Brier          :  0.526   95% CI [ 0.452,  0.599]
+  Skill Score    : -1.291   95% CI [-2.071, -0.827]
+  ECE (10 bins)  :  0.547   95% CI [ 0.458,  0.637]
+  Spearman rho   :  0.068   95% CI [-0.116,  0.239]
+  Pearson r      :  0.112   95% CI [-0.063,  0.256]
+
+=== Average Verbalized CodeBERT Cosine  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.542   95% CI [ 0.430,  0.646]
+  Brier          :  0.526   95% CI [ 0.452,  0.600]
+  Skill Score    : -1.293   95% CI [-2.074, -0.830]
+  ECE (10 bins)  :  0.547   95% CI [ 0.457,  0.637]
+  Spearman rho   :  0.070   95% CI [-0.116,  0.242]
+  Pearson r      :  0.100   95% CI [-0.076,  0.249]
+
+=== Average Verbalized Unixcoder  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.541   95% CI [ 0.432,  0.643]
+  Brier          :  0.526   95% CI [ 0.452,  0.600]
+  Skill Score    : -1.290   95% CI [-2.071, -0.827]
+  ECE (10 bins)  :  0.547   95% CI [ 0.457,  0.637]
+  Spearman rho   :  0.069   95% CI [-0.114,  0.238]
+  Pearson r      :  0.121   95% CI [-0.051,  0.260]
