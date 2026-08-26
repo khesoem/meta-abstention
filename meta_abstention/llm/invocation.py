@@ -15,10 +15,12 @@ class Prompt:
             return Prompt.Message(j['role'], j['content'])
 
     def __init__(self, messages: List[Message], temp: float = llm['default-temp'],
-                 sample_size: int = llm['default-sample-size']):
+                 sample_size: int = llm['default-sample-size'],
+                 logprobs: bool = False):
         self.messages = messages
         self.temp = temp
         self.sample_size = sample_size
+        self.logprobs = logprobs
         self.model = None
 
     def hash(self):
@@ -31,16 +33,23 @@ class Prompt:
     def load_from_json(j):
         return Prompt([Prompt.Message.load_from_json(m) for m in j['messages']],
                       j['temp'],
-                      j['sample_size'])
+                      j['sample_size'],
+                      j.get('logprobs', False))
 
 class Response:
     class Sample:
-        def __init__(self, content: str):
+        def __init__(self, content: str,
+                     token_logprobs: List[float] | None = None,
+                     tokens: List[str] | None = None):
             self.content = content
+            self.token_logprobs = token_logprobs
+            self.tokens = tokens
 
         @staticmethod
         def load_from_json(j):
-            return Response.Sample(j['content'])
+            return Response.Sample(j['content'],
+                                   j.get('token_logprobs'),
+                                   j.get('tokens'))
 
     def __init__(self, samples: List[Sample]):
         self.samples = samples
@@ -50,6 +59,12 @@ class Response:
         if not self.samples:
             raise ValueError("Response has no samples")
         return self.samples[0].content
+
+    @property
+    def first_sample(self) -> Sample:
+        if not self.samples:
+            raise ValueError("Response has no samples")
+        return self.samples[0]
 
     @staticmethod
     def load_from_json(j):

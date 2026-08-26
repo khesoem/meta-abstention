@@ -46,7 +46,7 @@ def compute_similarities(translations: str, output_path: str):
             try:
                 submissions = item['submissions']
                 codes = [s['source_code'] for s in submissions]
-                translations_list = [s['translation'][0]['translated_code'] for s in submissions]
+                translations_list = [s['translation'][1]['translated_code'] for s in submissions]
                 code_uids = [s['code_uid'] for s in submissions]
 
                 for i, uid_i in enumerate(code_uids):
@@ -93,21 +93,21 @@ def _spuq_score(similarities: dict, code_uid: str, filtered_submissions: list,
 
 
 def _verbalized_weighted_average(similarities: dict, submission: dict,
-                                 filtered_submissions: list, metric: str) -> float:
+                                 filtered_submissions: list, metric: str, translation_index: int) -> float:
     source_key, _ = _METRIC_KEYS[metric]
     code_uid = submission['code_uid']
-    own = submission['translation'][0]['confidence']['verbalization']
+    own = submission['translation'][translation_index]['confidence']['verbalization']
     weighted = own
     total_source = 1.0
     for other in filtered_submissions:
         source_sim = similarities[code_uid][other['code_uid']][source_key]
-        weighted += other['translation'][0]['confidence']['verbalization'] * source_sim
+        weighted += other['translation'][translation_index]['confidence']['verbalization'] * source_sim
         total_source += source_sim
     return weighted / total_source
 
 
-def _add_similarity_based_confidence(similarities: dict, submission: dict, filtered_submissions: list):
-    confidence = submission['translation'][0]['confidence']
+def _add_similarity_based_confidence(similarities: dict, submission: dict, filtered_submissions: list, translation_index: int):
+    confidence = submission['translation'][translation_index]['confidence']
     code_uid = submission['code_uid']
 
     for field, metric, reverse, include_self in _SPUQ_VARIANTS:
@@ -117,18 +117,18 @@ def _add_similarity_based_confidence(similarities: dict, submission: dict, filte
 
     n = len(filtered_submissions) + 1
     total_verbalized = confidence['verbalization'] + sum(
-        other['translation'][0]['confidence']['verbalization']
+        other['translation'][translation_index]['confidence']['verbalization']
         for other in filtered_submissions
     )
     confidence['average_verbalized_confidence'] = total_verbalized / n
 
     for field, metric in _VERBALIZED_WEIGHTED:
         confidence[field] = _verbalized_weighted_average(
-            similarities, submission, filtered_submissions, metric
+            similarities, submission, filtered_submissions, metric, translation_index
         )
 
 
-def compute_confidence(similarities_path: str, translation_exec_results_path: str, output_path: str, n_perturbations: int = 5, seed: int = 42):
+def compute_confidence(similarities_path: str, translation_exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = 42):
     with open(similarities_path, 'r') as s:
         similarities = json.load(s)
     with open(translation_exec_results_path, 'r') as e:
@@ -144,7 +144,7 @@ def compute_confidence(similarities_path: str, translation_exec_results_path: st
             rand.shuffle(submissions)
             filtered_submissions = [s for s in submissions if s['code_uid'] != code_uid][:n_perturbations]
 
-            _add_similarity_based_confidence(similarities, submission, filtered_submissions)
+            _add_similarity_based_confidence(similarities, submission, filtered_submissions, translation_index)
 
     with open(output_path, 'w') as e:
         json.dump(translation_exec_results, e, indent=4)

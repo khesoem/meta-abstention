@@ -21,11 +21,11 @@ from meta_abstention.xcodeeval.confidence_measurement import compute_confidence 
 #                     level=logging.INFO)
 
 def main() -> None:
-    # run_code_translation('data/code_translation/xcodeeval/selected_python_filtered.json', 'data/code_translation/xcodeeval/python-to-java.json', 'Java 8')
-    # execute_translated_code('data/code_translation/xcodeeval/python-to-java.json', 'data/code_translation/xcodeeval/python-to-java-executed.json')
-    run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed-filtered-3-perturbations.json')
-    # compute_similarities('data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-similarities.json')
-    # compute_confidence('data/code_translation/xcodeeval/python-to-java-similarities.json', 'data/code_translation/xcodeeval/python-to-java-executed-filtered.json', 'data/code_translation/xcodeeval/python-to-java-executed-filtered.json')
+    # run_code_translation('data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json', 'Java 8')
+    # execute_translated_code('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json')
+    run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed2.json', 1)
+    # compute_similarities('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-similarities2.json')
+    # compute_confidence('data/code_translation/xcodeeval/python-to-java-similarities2.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json', 1)
 
 if __name__ == "__main__":
     main()

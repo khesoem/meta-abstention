@@ -83,12 +83,14 @@ def calibration_report(confidences, correctness, name="method",
         print(f"  {k:15s}: {v:6.3f}   95% CI [{lo:6.3f}, {hi:6.3f}]")
     return point, boot
 
-def run_confidence_analysis(execution_results_path: str):
+def run_confidence_analysis(execution_results_path: str, translation_index: int = 0):
     with open(execution_results_path, 'r') as f:
         execution_results = json.load(f)
 
     correct_cnt = 0
     simple_verbalized = []
+    average_token_probability = []
+    generated_sequence_probability = []
     spuq_codebert_score = []
     spuq_codebert_cosine = []
     spuq_unixcoder = []
@@ -102,26 +104,30 @@ def run_confidence_analysis(execution_results_path: str):
     correctness_scores = []
     for _, item in execution_results.items():
         for submission in item['submissions']:
-            translation = submission['translation'][0]
-            simple_verbalized.append(translation['confidence']['verbalization'])
-            spuq_codebert_score.append(translation['confidence']['spuq_codebert_score'])
-            spuq_codebert_cosine.append(translation['confidence']['spuq_codebert_cosine'])
-            spuq_unixcoder.append(translation['confidence']['spuq_unixcoder'])
-            average_verbalized.append(translation['confidence']['average_verbalized_confidence'])
-            average_verbalized_codebert_score.append(translation['confidence']['average_verbalized_confidence_codebert_score_weighted'])
-            average_verbalized_codebert_cosine.append(translation['confidence']['average_verbalized_confidence_codebert_cosine_weighted'])
-            average_verbalized_unixcoder.append(translation['confidence']['average_verbalized_confidence_unixcoder_weighted'])
-            spuq_codebert_score_reverse.append(translation['confidence']['spuq_codebert_score_reverse'])
-            spuq_codebert_cosine_reverse.append(translation['confidence']['spuq_codebert_cosine_reverse'])
-            spuq_unixcoder_reverse.append(translation['confidence']['spuq_unixcoder_reverse'])
+            translation = submission['translation'][translation_index]
+            conf = translation['confidence']
+            simple_verbalized.append(conf['verbalization'])
+            average_token_probability.append(conf['average_token_probability'])
+            generated_sequence_probability.append(conf['generated_sequence_probability'])
+            spuq_codebert_score.append(conf['spuq_codebert_score'])
+            spuq_codebert_cosine.append(conf['spuq_codebert_cosine'])
+            spuq_unixcoder.append(conf['spuq_unixcoder'])
+            average_verbalized.append(conf['average_verbalized_confidence'])
+            average_verbalized_codebert_score.append(conf['average_verbalized_confidence_codebert_score_weighted'])
+            average_verbalized_codebert_cosine.append(conf['average_verbalized_confidence_codebert_cosine_weighted'])
+            average_verbalized_unixcoder.append(conf['average_verbalized_confidence_unixcoder_weighted'])
+            spuq_codebert_score_reverse.append(conf['spuq_codebert_score_reverse'])
+            spuq_codebert_cosine_reverse.append(conf['spuq_codebert_cosine_reverse'])
+            spuq_unixcoder_reverse.append(conf['spuq_unixcoder_reverse'])
 
             # It is correct if for all items in exec_result['data']['exec_outcome'] are 'PASSED'
             correctness = 1 if all(item['exec_outcome'] == 'PASSED' for item in translation['exec_result']['data']) else 0
             correct_cnt += correctness
             correctness_scores.append(correctness)
-    
-    print(f'Correctness rate: {correct_cnt}')
+
     calibration_report(simple_verbalized, correctness_scores, "Simple Verbalized")
+    calibration_report(average_token_probability, correctness_scores, "Average Token Probability")
+    calibration_report(generated_sequence_probability, correctness_scores, "Generated Sequence Probability")
     calibration_report(spuq_codebert_score, correctness_scores, "SPUQ CodeBERT Score")
     calibration_report(spuq_codebert_score_reverse, correctness_scores, "SPUQ CodeBERT Score Reverse")
     calibration_report(spuq_codebert_cosine, correctness_scores, "SPUQ CodeBERT Cosine")

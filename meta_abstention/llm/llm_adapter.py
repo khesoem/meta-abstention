@@ -25,12 +25,25 @@ class LLMAdapter:
         if cached_invocation:
             return cached_invocation.response
 
-        completion = self.client.chat.completions.create(
-            model=self.model,
-            messages=[m.__dict__ for m in prompt.messages]
-        )
-        response = Response([Response.Sample(c.message.content)
-                             for c in completion.choices])
+        create_kwargs = {
+            'model': self.model,
+            'messages': [m.__dict__ for m in prompt.messages],
+        }
+        if prompt.logprobs:
+            create_kwargs['logprobs'] = True
+
+        completion = self.client.chat.completions.create(**create_kwargs)
+
+        samples = []
+        for c in completion.choices:
+            token_logprobs = None
+            tokens = None
+            if c.logprobs and c.logprobs.content:
+                token_logprobs = [t.logprob for t in c.logprobs.content]
+                tokens = [t.token for t in c.logprobs.content]
+            samples.append(Response.Sample(c.message.content, token_logprobs, tokens))
+
+        response = Response(samples)
 
         self.save_cache(Invocation(prompt, response))
         return response
