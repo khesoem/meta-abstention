@@ -38,7 +38,7 @@ def _pair_similarities(text_a: str, text_b: str) -> dict:
     return {name: fn(text_a, text_b) for name, fn in _SIMILARITY_FNS.items()}
 
 
-def compute_similarities(translations: str, output_path: str):
+def compute_similarities(translations: str, output_path: str, translation_index: int = 0):
     similarities = {}
     with open(translations, 'r') as t:
         data = json.load(t)
@@ -46,7 +46,7 @@ def compute_similarities(translations: str, output_path: str):
             try:
                 submissions = item['submissions']
                 codes = [s['source_code'] for s in submissions]
-                translations_list = [s['translation'][1]['translated_code'] for s in submissions]
+                translations_list = [s['translation'][translation_index]['translated_code'] for s in submissions]
                 code_uids = [s['code_uid'] for s in submissions]
 
                 for i, uid_i in enumerate(code_uids):
@@ -128,10 +128,10 @@ def _add_similarity_based_confidence(similarities: dict, submission: dict, filte
         )
 
 
-def compute_confidence(similarities_path: str, translation_exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = 42):
+def compute_confidence(similarities_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = 42):
     with open(similarities_path, 'r') as s:
         similarities = json.load(s)
-    with open(translation_exec_results_path, 'r') as e:
+    with open(exec_results_path, 'r') as e:
         translation_exec_results = json.load(e)
 
     rand = random.Random(seed)
