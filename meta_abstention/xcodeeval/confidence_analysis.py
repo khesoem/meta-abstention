@@ -90,6 +90,7 @@ def run_confidence_analysis(execution_results_path: str, translation_index: int 
     correct_cnt = 0
     simple_verbalized = []
     average_token_probability = []
+    average_token_probability_geometric = []
     generated_sequence_probability = []
     spuq_codebert_score = []
     spuq_codebert_cosine = []
@@ -108,6 +109,7 @@ def run_confidence_analysis(execution_results_path: str, translation_index: int 
             conf = translation['confidence']
             simple_verbalized.append(conf['verbalization'])
             average_token_probability.append(conf['average_token_probability'])
+            average_token_probability_geometric.append(conf['average_token_probability_geometric'])
             generated_sequence_probability.append(conf['generated_sequence_probability'])
             spuq_codebert_score.append(conf['spuq_codebert_score'])
             spuq_codebert_cosine.append(conf['spuq_codebert_cosine'])
@@ -127,6 +129,7 @@ def run_confidence_analysis(execution_results_path: str, translation_index: int 
 
     calibration_report(simple_verbalized, correctness_scores, "Simple Verbalized")
     calibration_report(average_token_probability, correctness_scores, "Average Token Probability")
+    calibration_report(average_token_probability_geometric, correctness_scores, "Average Token Probability Geometric")
     calibration_report(generated_sequence_probability, correctness_scores, "Generated Sequence Probability")
     calibration_report(spuq_codebert_score, correctness_scores, "SPUQ CodeBERT Score")
     calibration_report(spuq_codebert_score_reverse, correctness_scores, "SPUQ CodeBERT Score Reverse")

@@ -23,7 +23,7 @@ from meta_abstention.xcodeeval.confidence_measurement import compute_confidence 
 def main() -> None:
     # run_code_translation('data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json', 'Java 8')
     # execute_translated_code('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json')
-    run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed-3-perturbations.json')
+    run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed2.json')
     # compute_similarities('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-similarities2.json')
     # compute_confidence('data/code_translation/xcodeeval/python-to-java-similarities.json', 'data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed-3-perturbations.json', n_perturbations=3)
 

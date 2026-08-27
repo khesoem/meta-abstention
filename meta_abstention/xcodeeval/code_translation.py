@@ -133,6 +133,7 @@ def _intrinsic_confidence(sample: Response.Sample) -> dict[str, float]:
         raise ValueError("No token probabilities available for intrinsic confidence")
     return {
         "average_token_probability": sum(probs) / len(probs),
+        "average_token_probability_geometric": math.prod(probs) ** (1/len(probs)),
         "generated_sequence_probability": math.prod(probs),
     }
 

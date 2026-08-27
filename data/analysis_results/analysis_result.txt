@@ -14,6 +14,14 @@
   Spearman rho   :  0.032   95% CI [-0.142,  0.208]
   Pearson r      :  0.132   95% CI [-0.014,  0.252]
 
+=== Average Token Probability Geometric  (n=112, accuracy=35.71%) ===
+  AUROC          :  0.533   95% CI [ 0.431,  0.639]
+  Brier          :  0.555   95% CI [ 0.476,  0.637]
+  Skill Score    : -1.417   95% CI [-2.249, -0.930]
+  ECE (10 bins)  :  0.568   95% CI [ 0.480,  0.659]
+  Spearman rho   :  0.055   95% CI [-0.114,  0.231]
+  Pearson r      :  0.144   95% CI [ 0.059,  0.210]
+
 === Generated Sequence Probability  (n=112, accuracy=35.71%) ===
   AUROC          :  0.568   95% CI [ 0.459,  0.671]
   Brier          :  0.342   95% CI [ 0.255,  0.429]
