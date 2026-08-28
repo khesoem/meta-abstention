@@ -57,7 +57,7 @@ class LLMAdapter:
                         and prompt_hash in f]
 
         if len(cached_files) > 0:
-            with open(os.path.join(self.cache_dir, cached_files[0]), 'r') as f:
+            with open(os.path.join(self.cache_dir, cached_files[-1]), 'r') as f:
                 return Invocation.load_from_json(json.load(f))
 
         return None
