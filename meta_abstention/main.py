@@ -13,19 +13,21 @@ from meta_abstention.xcodeeval.code_execution import execute_translated_code as 
 from meta_abstention.xcodeeval.confidence_analysis import run_confidence_analysis as run_confidence_analysis
 from meta_abstention.xcodeeval.confidence_measurement import compute_similarities as compute_similarities
 from meta_abstention.xcodeeval.confidence_measurement import compute_confidence as compute_confidence
+from meta_abstention.xcodeeval.extract_submissions import run_select_submissions as run_select_submissions
 
-# logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
-#                     filemode='a',
-#                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-#                     datefmt='%H:%M:%S',
-#                     level=logging.INFO)
+logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.INFO)
 
 def main() -> None:
     # run_code_translation('data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json', 'Java 8')
     # execute_translated_code('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json')
-    run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed2.json')
+    # run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed2.json')
     # compute_similarities('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-similarities2.json')
     # compute_confidence('data/code_translation/xcodeeval/python-to-java-similarities.json', 'data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed-3-perturbations.json', n_perturbations=3)
+    run_select_submissions('c++', 'data/code_translation/xcodeeval/cpp-original-submissions.json', 6)
 
 if __name__ == "__main__":
     main()

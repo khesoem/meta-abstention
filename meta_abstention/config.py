@@ -29,3 +29,7 @@ exec_eval = {
 translation = {
     'default-model': 'openai/gpt-4.1-nano',
 }
+
+xcodeeval = {
+    'path': os.environ['XCODEEVAL_PATH'],
+}
