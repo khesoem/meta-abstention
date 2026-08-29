@@ -168,5 +168,5 @@ def run_translation(selected_problems_path: str, output_file: str, target_lang: 
             except Exception as e:
                 logging.error(f"Error translating code for {submission['code_uid']} to {target_lang}: {e}")
 
-    # with open(output_file, 'w') as f:
-    #     json.dump(data, f, indent=4)
+    with open(output_file, 'w') as f:
+        json.dump(data, f, indent=4)

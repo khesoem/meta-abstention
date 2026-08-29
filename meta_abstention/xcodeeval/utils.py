@@ -2,7 +2,7 @@ import requests
 from meta_abstention import config
 
 
-def execute_code(language, source_code, unittests, timeout=120):
+def execute_code(language, source_code, unittests, timeout=600):
     payload = {
         "language": language,          # e.g. "Python 3" — must match a runtime_name
         "source_code": source_code,

@@ -22,8 +22,8 @@ logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetim
                     level=logging.INFO)
 
 def main() -> None:
-    run_code_translation('data/code_translation/xcodeeval/cpp-to-java.json', 'data/code_translation/xcodeeval/cpp-to-java.json', 'Java 8')
-    # execute_translated_code('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-executed2.json')
+    # run_code_translation('data/code_translation/xcodeeval/cpp-to-java.json', 'data/code_translation/xcodeeval/cpp-to-java.json', 'Java 8')
+    execute_translated_code('data/code_translation/xcodeeval/cpp-to-java-executed.json', 'data/code_translation/xcodeeval/cpp-to-java-executed.json', repeat_execution=True)
     # run_confidence_analysis('data/code_translation/xcodeeval/python-to-java-executed2.json')
     # compute_similarities('data/code_translation/xcodeeval/python-to-java-executed2.json', 'data/code_translation/xcodeeval/python-to-java-similarities2.json')
     # compute_confidence('data/code_translation/xcodeeval/python-to-java-similarities.json', 'data/code_translation/xcodeeval/python-to-java-executed.json', 'data/code_translation/xcodeeval/python-to-java-executed-3-perturbations.json', n_perturbations=3)

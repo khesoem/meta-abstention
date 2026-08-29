@@ -2,16 +2,20 @@ import json
 from meta_abstention.xcodeeval.utils import execute_code
 import logging
 
+with open('logs/logging_2026-08-28-14-27.log', 'r') as f:
+    log_str = f.read()
+
 def execute_translated_code(translated_code_path: str, output_path: str, repeat_execution: bool = False):
     with open(translated_code_path, 'r') as f:
         data = json.load(f)
 
     for _, item in data.items():
         for submission in item['submissions']:
-            if submission['code_uid'] not in ['06cf78df8bf74d24e2565f531d3b8023', '1cbe48cdca5ba76721d4ddeed42e8a9b']:
-                continue
+
             for translation in submission['translation']:
                 if 'exec_result' in translation and not repeat_execution:
+                    continue
+                if not f"ERROR Error executing code for {submission['code_uid']}" in log_str:
                     continue
                 lang = translation['lang']
                 translated_code = translation['translated_code']
