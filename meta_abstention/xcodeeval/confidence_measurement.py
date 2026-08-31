@@ -2,6 +2,7 @@ from meta_abstention.untils.similarity_computation import codebertscore_sim, cod
 import json
 import random
 import copy
+import os
 
 _SIMILARITY_FNS = {
     'codebertscore': codebertscore_sim,
@@ -39,7 +40,13 @@ def _pair_similarities(text_a: str, text_b: str) -> dict:
 
 
 def compute_similarities(translations: str, output_path: str, translation_index: int = 0):
-    similarities = {}
+    # if output_path exists, load existing similarities
+    if os.path.exists(output_path):
+        with open(output_path, 'r') as s:
+            similarities = json.load(s)
+    else:
+        similarities = {}
+
     with open(translations, 'r') as t:
         data = json.load(t)
         for _, item in data.items():
@@ -49,10 +56,11 @@ def compute_similarities(translations: str, output_path: str, translation_index:
                 translations_list = [s['translation'][translation_index]['translated_code'] for s in submissions]
                 code_uids = [s['code_uid'] for s in submissions]
 
+                new_similarity_computed = False
                 for i, uid_i in enumerate(code_uids):
                     similarities.setdefault(uid_i, {})
                     for j, uid_j in enumerate(code_uids):
-                        if i == j:
+                        if i == j or (uid_i in similarities and uid_j in similarities[uid_i]):
                             continue
                         code_sims = _pair_similarities(codes[i], codes[j])
                         translation_sims = _pair_similarities(translations_list[i], translations_list[j])
@@ -63,9 +71,11 @@ def compute_similarities(translations: str, output_path: str, translation_index:
                             f'translation_{name}': translation_sims[name]
                             for name in _SIMILARITY_FNS
                         }
+                        new_similarity_computed = True
 
-                with open(output_path, 'w') as f:
-                    json.dump(similarities, f)
+                if new_similarity_computed:
+                    with open(output_path, 'w') as f:
+                        json.dump(similarities, f)
             except Exception:
                 continue
 
