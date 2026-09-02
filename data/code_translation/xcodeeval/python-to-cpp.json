@@ -4791,6 +4791,16 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "lang": "GNU C++11",
+                        "translated_code": "#include <bits/stdc++.h>\nusing namespace std;\n\nlong long factorial(long long n) {\n    long long res = 1;\n    for (long long i = 2; i <= n; ++i)\n        res *= i;\n    return res;\n}\n\nlong long A(long long n, long long k) {\n    return factorial(n) / factorial(n - k);\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    int n, mod;\n    cin >> n >> mod;\n\n    if (n == 1) {\n        cout << 0 << \"\\n\";\n        return 0;\n    }\n\n    vector<long long> z(1, 1);\n    long long aaa = 0;\n\n    for (int i = 2; i <= n; ++i) {\n        int sz = i * i / 2;\n        vector<long long> nz(sz,0);\n\n        for (int j = 0; j < (int)z.size(); ++j) {\n            for (int k = 0; k < i; ++k) {\n                if (z[j] > 0) {\n                    int idx = i - k - 1 + j;\n                    if (idx < sz)\n                        nz[idx] += z[j];\n                }\n            }\n        }\n\n        vector<long long> d(z.size() + 1, 0);\n        for (int w = (int)z.size() - 1; w >= 0; --w) {\n            d[w] = (d[w+1] + z[w]) % mod;\n        }\n\n        vector<long long> e(d.size() + 1, 0), f(d.size() + 1, 0);\n        for (int w = 0; w < (int)d.size(); ++w) {\n            e[w+1] = (e[w] + d[w]) % mod;\n            f[w+1] = ((f[w] - (long long)w * d[w]) % mod + mod) % mod;\n        }\n\n        long long bbb = 0;\n        for (int jj = 0; jj < (int)z.size(); ++jj) {\n            long long ccc = 0;\n            int L = jj + 2;\n            int R = min((int)z.size() - 1, i + jj);\n            if (R >= L) {\n                ccc = ((e[R+1] - e[L]) % mod + mod) % mod;\n                ccc = (ccc * ((long long)(i + 1 + jj))) % mod;\n                ccc = (ccc + ((f[R+1] - f[L]) % mod + mod) % mod) % mod;\n            }\n            bbb = (bbb + ccc * z[jj]) % mod;\n        }\n\n        aaa = (aaa + bbb * A(n, n - i)) % mod;\n        z = nz;\n    }\n\n    cout << aaa % mod << \"\\n\";\n\n    return 0;\n}",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9645397797850678,
+                            "average_token_probability_geometric": 0.9303231704737565,
+                            "generated_sequence_probability": 7.839527257167508e-21
+                        }
                     }
                 ]
             },

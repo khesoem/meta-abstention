@@ -3263,7 +3263,19 @@
                 "code_uid": "79ecd5d3befc13eb473f92dee4d48e73",
                 "src_uid": "ded299fa1cd010822c60f2389a3ba1a3",
                 "difficulty": 2100.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "GNU C++11",
+                        "translated_code": "#include <bits/stdc++.h>\nusing namespace std;\n\n/*****Author: Satyajeet Singh, Delhi Technological University************************************/\n\nstatic long mod = (long)1e9+7;\nstatic long mod1=998244353;\n\nlong modulo(long a, long b, long c){\n    long x=1;\n    long y=a%c;\n    while(b > 0){\n        if(b%2 == 1)\n            x = (x*y)%c;\n        y = (y*y)%c;\n        b /= 2;\n    }\n    return x%c;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    long n, m, l, r;\n    cin >> n >> m >> l >> r;\n\n    long d = r - l + 1;\n    long a = d / 2;\n    long b = d - a;\n    long nm = n * m;\n\n    long ans;\n    if(m%n == 0){\n        long total = (modulo((a + b), nm, mod) + modulo(abs(a - b), nm, mod)) % mod;\n        ans = (total * modulo(2, mod - 2, mod)) % mod;\n        if(nm % 2 == 1){\n            ans = modulo(d, nm, mod);\n        }\n    } else {\n        // Since original code is not handling the case when n != m explicitly,\n        // but based on the pattern, the same logic applies as in the original code.\n        long total = (modulo((a + b), nm, mod) + modulo(abs(a - b), nm, mod)) % mod;\n        ans = (total * modulo(2, mod - 2, mod)) % mod;\n        if(nm % 2 == 1){\n            ans = modulo(d, nm, mod);\n        }\n    }\n    cout << ans << \"\\n\";\n\n    return 0;\n}",
+                        "confidence": {
+                            "verbalization": 0.9,
+                            "average_token_probability": 0.9103398388836635,
+                            "average_token_probability_geometric": 0.8265387608781324,
+                            "generated_sequence_probability": 2.563712204310385e-34
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 11",
@@ -7446,6 +7458,16 @@
                             "average_token_probability_geometric": 0.9385597767522604,
                             "generated_sequence_probability": 8.369857529591078e-08
                         }
+                    },
+                    {
+                        "lang": "GNU C++11",
+                        "translated_code": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <climits>\n\nusing namespace std;\n\nclass E {\npublic:\n    void solver() {\n        long long n;\n        cin >> n;\n        vector<long long> ar(3);\n        vector<long long> br(3);\n        for (int i = 0; i < 3; i++) {\n            cin >> ar[i];\n        }\n        for (int i = 0; i < 3; i++) {\n            cin >> br[i];\n        }\n\n        long long mxWins = 0;\n        long long mxLosesOrDraw = 0;\n        long long draws = 0;\n        for (int i = 0; i < 3; i++) {\n            mxWins += min(ar[i], br[(i + 1) % 3]);\n            long long mxLose = min(br[i], ar[(i + 1) % 3]);\n            long long mxDraw = min(br[i], ar[i]);\n            mxLosesOrDraw += min(br[i], mxLose + mxDraw);\n        }\n        cout << (n - mxLosesOrDraw) << \" \" << mxWins << \"\\n\";\n    }\n};\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    E e;\n    e.solver();\n    return 0;\n}",
+                        "confidence": {
+                            "verbalization": 0.9,
+                            "average_token_probability": 0.971057847521688,
+                            "average_token_probability_geometric": 0.9581685277433123,
+                            "generated_sequence_probability": 5.364140105656087e-06
+                        }
                     }
                 ]
             },
@@ -10443,6 +10465,16 @@
                             "average_token_probability": 0.9725153014325046,
                             "average_token_probability_geometric": 0.9536181618325532,
                             "generated_sequence_probability": 4.1816468879474905e-23
+                        }
+                    },
+                    {
+                        "lang": "GNU C++11",
+                        "translated_code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <cassert>\n\nusing namespace std;\n\nclass NumberTheory {\npublic:\n    class Modulus {\n    public:\n        vector<long long> factorial;\n        vector<long long> invFactorial;\n\n        Modulus() {\n            factorial.push_back(1);\n            invFactorial.push_back(1);\n        }\n\n        virtual long long modulus() const = 0;\n\n        long long fact(int n) {\n            while (static_cast<int>(factorial.size()) <= n) {\n                factorial.push_back(mult(factorial.back(), factorial.size()));\n            }\n            return factorial[n];\n        }\n\n        long long fInv(int n) {\n            int lastKnown = (int)invFactorial.size() - 1;\n            if (lastKnown < n) {\n                vector<long long> fInvArr(n - lastKnown);\n                fInvArr[0] = inv(fact(n));\n                for (int i = 1; i < (int)fInvArr.size(); i++) {\n                    fInvArr[i] = mult(fInvArr[i - 1], n - i + 1);\n                }\n                for (int i = (int)fInvArr.size() - 1; i >= 0; i--) {\n                    invFactorial.push_back(fInvArr[i]);\n                }\n            }\n            return invFactorial[n];\n        }\n\n        long long paritySign(long long k) const {\n            return (k & 1) ? modulus() - 1 : 1;\n        }\n\n        long long ncr(int n, int r) {\n            assert(n >= 0);\n            if (r < 0 || n < r) return 0;\n            return mult(fact(n), mult(fInv(r), fInv(n - r)));\n        }\n\n        long long normalize(long long x) const {\n            x %= modulus();\n            if (x < 0) x += modulus();\n            return x;\n        }\n\n        long long add(long long a, long long b) const {\n            long long v = a + b;\n            return v < modulus() ? v : v - modulus();\n        }\n\n        long long mult(long long a, long long b) const {\n            return (a % modulus()) * (b % modulus()) % modulus();\n        }\n\n        long long mult(const vector<long long>& vals) const {\n            long long r = 1;\n            for (auto v : vals) {\n                r = mult(r, v);\n            }\n            return r;\n        }\n\n        long long pow(long long x, int e) const {\n            if (e < 0) {\n                x = inv(x);\n                e = -e;\n            }\n            long long result = 1;\n            long long base = x % modulus();\n            while (e > 0) {\n                if (e & 1) {\n                    result = mult(result, base);\n                }\n                base = mult(base, base);\n                e >>= 1;\n            }\n            return result;\n        }\n\n        long long inv(long long value) const {\n            long long g = modulus(), x = 0, y = 1;\n            for (long long r = value; r != 0; ) {\n                long long q = g / r;\n                long long temp = g % r;\n                g = r;\n                r = temp;\n                long long t = x - q * y;\n                x = y;\n                y = t;\n            }\n\n            assert(g == 1);\n            assert(y == modulus() || y == -modulus());\n\n            return normalize(x);\n        }\n    };\n\n    class Mod998 : public Modulus {\n    public:\n        long long modulus() const override {\n            return 998244353LL;\n        }\n    };\n};\n\nstruct Solver {\n    NumberTheory::Mod998 mod;\n\n    void solve() {\n        int n;\n        long long k;\n        cin >> n >> k;\n        if (k == 0) {\n            cout << mod.fact(n) << \"\\n\";\n            return;\n        }\n        if (k > n - 1) {\n            cout << 0 << \"\\n\";\n            return;\n        }\n\n        int c = n - k; // number of columns that are non-empty\n        long long answer = 0;\n        for (int i = 1; i <= c; i++) {\n            long long sign = mod.paritySign(c - i);\n            long long comb = mod.ncr(c, i);\n            long long powerTerm = mod.pow(i, n);\n            long long term = mod.mult({sign, comb, powerTerm});\n            answer = mod.add(answer, term);\n        }\n\n        long long combN = mod.ncr(n, c);\n        answer = mod.mult({answer, 2LL, combN});\n        cout << answer << \"\\n\";\n    }\n};\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    Solver solver;\n    solver.solve();\n    return 0;\n}",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9695765281122737,
+                            "average_token_probability_geometric": 0.9416526387974186,
+                            "generated_sequence_probability": 7.917269383895555e-28
                         }
                     }
                 ]
