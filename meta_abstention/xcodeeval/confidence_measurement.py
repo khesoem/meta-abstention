@@ -3,6 +3,7 @@ import json
 import random
 import copy
 import os
+import logging
 
 _SIMILARITY_FNS = {
     'codebertscore': codebertscore_sim,
@@ -35,11 +36,16 @@ _VERBALIZED_WEIGHTED = [
 ]
 
 
-def _pair_similarities(text_a: str, text_b: str) -> dict:
-    return {name: fn(text_a, text_b) for name, fn in _SIMILARITY_FNS.items()}
+def _pair_similarities(text_a: str, text_b: str, lang: str = "python") -> dict:
+    return {
+        'codebertscore': codebertscore_sim(text_a, text_b, lang=lang),
+        'codebertcosine': codebert_cosine_sim(text_a, text_b),
+        'unixcoder': unixcoder_sim(text_a, text_b),
+    }
 
 
-def compute_similarities(translations: str, output_path: str, translation_index: int = 0):
+def compute_similarities(translations: str, output_path: str, translation_index: int = 0,
+        source_lang: str = "java", target_lang: str = "python"):
     # if output_path exists, load existing similarities
     if os.path.exists(output_path):
         with open(output_path, 'r') as s:
@@ -61,22 +67,29 @@ def compute_similarities(translations: str, output_path: str, translation_index:
                     similarities.setdefault(uid_i, {})
                     for j, uid_j in enumerate(code_uids):
                         if i == j or (uid_i in similarities and uid_j in similarities[uid_i]):
+                            logging.info(f"Similarity for {uid_i} and {uid_j} already computed")
                             continue
-                        code_sims = _pair_similarities(codes[i], codes[j])
-                        translation_sims = _pair_similarities(translations_list[i], translations_list[j])
-                        similarities[uid_i][uid_j] = {
-                            f'code_{name}': code_sims[name]
-                            for name in _SIMILARITY_FNS
-                        } | {
-                            f'translation_{name}': translation_sims[name]
-                            for name in _SIMILARITY_FNS
-                        }
-                        new_similarity_computed = True
+
+                        if (uid_j in similarities and uid_i in similarities[uid_j]):
+                            similarities[uid_i][uid_j] = similarities[uid_j][uid_i]
+                        else:
+                            code_sims = _pair_similarities(codes[i], codes[j], lang=source_lang)
+                            translation_sims = _pair_similarities(translations_list[i], translations_list[j], lang=target_lang)
+                            similarities[uid_i][uid_j] = {
+                                f'code_{name}': code_sims[name]
+                                for name in _SIMILARITY_FNS
+                            } | {
+                                f'translation_{name}': translation_sims[name]
+                                for name in _SIMILARITY_FNS
+                            }
+                            new_similarity_computed = True
+
+                        logging.info(f"Computed similarities for {uid_i} and {uid_j}")
 
                 if new_similarity_computed:
                     with open(output_path, 'w') as f:
                         json.dump(similarities, f)
-            except Exception:
+            except Exception as e:
                 continue
 
 

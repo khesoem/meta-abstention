@@ -15,19 +15,20 @@ from meta_abstention.xcodeeval.confidence_measurement import compute_similaritie
 from meta_abstention.xcodeeval.confidence_measurement import compute_confidence as compute_confidence
 from meta_abstention.xcodeeval.extract_submissions import run_select_submissions as run_select_submissions
 
-# logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
-#                     filemode='a',
-#                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-#                     datefmt='%H:%M:%S',
-#                     level=logging.INFO)
+logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.INFO)
 
 def main() -> None:
-    # run_code_translation('data/code_translation/xcodeeval/cpp-to-java.json', 'data/code_translation/xcodeeval/cpp-to-java.json', 'Java 8')
-    # execute_translated_code('data/code_translation/xcodeeval/cpp-to-java-executed.json', 'data/code_translation/xcodeeval/cpp-to-java-executed.json', repeat_execution=True)
-    run_confidence_analysis('data/code_translation/xcodeeval/cpp-to-java-3-perturbations.json')
-    # compute_similarities('data/code_translation/xcodeeval/cpp-to-java.json', 'data/code_translation/xcodeeval/cpp-to-java-similarities.json')
+    # run_select_submissions('java', 'data/code_translation/xcodeeval/java-original-submissions.json', 6)
+    run_code_translation('data/code_translation/xcodeeval/java-original-submissions.json', 'data/code_translation/xcodeeval/java-to-cpp.json', 'GNU C++11')
+    # execute_translated_code('data/code_translation/xcodeeval/java-to-python.json', 'data/code_translation/xcodeeval/java-to-python.json', lang='Python 3')
+    # compute_similarities('data/code_translation/xcodeeval/java-to-python.json', 'data/code_translation/xcodeeval/java-to-python-similarities.json', source_lang='java', target_lang='python')
     # compute_confidence('data/code_translation/xcodeeval/cpp-to-java-similarities.json', 'data/code_translation/xcodeeval/cpp-to-java.json', 'data/code_translation/xcodeeval/cpp-to-java-3-perturbations.json', n_perturbations=3)
-    # run_select_submissions('c++', 'data/code_translation/xcodeeval/cpp-original-submissions.json', 6)
+    # run_confidence_analysis('data/code_translation/xcodeeval/cpp-to-java-3-perturbations.json')
+    
 
 if __name__ == "__main__":
     main()

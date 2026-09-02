@@ -14,6 +14,7 @@ import torch
 import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
 import code_bert_score
+from code_bert_score import BERTScorer
 
 
 # # ---------- CodeBLEU (symmetrized) ----------
@@ -25,10 +26,12 @@ import code_bert_score
 #     return (a + b) / 2
 
 
-# ---------- CodeBERTScore F1 (symmetric by construction) ----------
+@lru_cache(maxsize=None)
+def _bertscorer(lang: str = "python"):
+    return BERTScorer(lang=lang)  # loads model + tokenizer once
 
 def codebertscore_sim(code1: str, code2: str, lang: str = "python") -> float:
-    _, _, f1, _ = code_bert_score.score(cands=[code1], refs=[code2], lang=lang)
+    _, _, f1 = _bertscorer(lang).score(cands=[code1], refs=[code2])
     return f1.item()
 
 # ---------- CodeBERT cosine ----------
