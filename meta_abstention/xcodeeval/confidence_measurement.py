@@ -82,8 +82,8 @@ def compute_similarities(translations: str, output_path: str, translation_index:
                                 f'translation_{name}': translation_sims[name]
                                 for name in _SIMILARITY_FNS
                             }
-                            new_similarity_computed = True
 
+                        new_similarity_computed = True
                         logging.info(f"Computed similarities for {uid_i} and {uid_j}")
 
                 if new_similarity_computed:

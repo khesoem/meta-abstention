@@ -155,10 +155,14 @@ def run_translation(selected_problems_path: str, output_file: str, target_lang: 
     adapter = LLMAdapter(read_from_cache=True, save_to_cache=True, model=conf.translation['default-model'])
     for _, item in data.items():
         for submission in item['submissions']:
-            try:
+            try:            
+                if 'translation' in submission and len(submission['translation']) > 0:
+                    continue
+
                 translated_code, confidence = _translate_code(adapter, submission['source_code'], submission['lang'], submission['lang_cluster'], target_lang)
                 if not 'translation' in submission:
                     submission['translation'] = []
+                
                 submission['translation'].append({
                     'lang': target_lang,
                     'translated_code': translated_code,
