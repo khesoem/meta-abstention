@@ -83,21 +83,39 @@ def calibration_report(confidences, correctness, name="method",
         print(f"  {k:15s}: {v:6.3f}   95% CI [{lo:6.3f}, {hi:6.3f}]")
     return point, boot
 
+# (confidence dict key, report display name)
+_CONFIDENCE_METRICS = [
+    ('verbalization', 'Simple Verbalized'),
+    ('average_token_probability', 'Average Token Probability'),
+    ('average_token_probability_geometric', 'Average Token Probability Geometric'),
+    ('generated_sequence_probability', 'Generated Sequence Probability'),
+    ('spuq_codebert_score', 'SPUQ CodeBERT Score'),
+    ('spuq_codebert_score_reverse', 'SPUQ CodeBERT Score Reverse'),
+    ('spuq_codebert_cosine', 'SPUQ CodeBERT Cosine'),
+    ('spuq_codebert_cosine_reverse', 'SPUQ CodeBERT Cosine Reverse'),
+    ('spuq_unixcoder', 'SPUQ Unixcoder'),
+    ('spuq_unixcoder_reverse', 'SPUQ Unixcoder Reverse'),
+    ('average_verbalized_confidence', 'Average Verbalized'),
+    ('average_verbalized_confidence_codebert_score_weighted', 'Average Verbalized CodeBERT Score'),
+    ('average_verbalized_confidence_codebert_cosine_weighted', 'Average Verbalized CodeBERT Cosine'),
+    ('average_verbalized_confidence_unixcoder_weighted', 'Average Verbalized Unixcoder'),
+    ('average_average_token_probability', 'Average of Average Token Probability'),
+    ('average_average_token_probability_codebert_score_weighted', 'Average of Average Token Probability CodeBERT Score'),
+    ('average_average_token_probability_codebert_cosine_weighted', 'Average of Average Token Probability CodeBERT Cosine'),
+    ('average_average_token_probability_unixcoder_weighted', 'Average of Average Token Probability Unixcoder'),
+    ('average_average_token_probability_geometric', 'Average of Average Token Probability Geometric'),
+    ('average_average_token_probability_geometric_codebert_score_weighted', 'Average of Average Token Probability Geometric CodeBERT Score'),
+    ('average_average_token_probability_geometric_codebert_cosine_weighted', 'Average of Average Token Probability Geometric CodeBERT Cosine'),
+    ('average_average_token_probability_geometric_unixcoder_weighted', 'Average of Average Token Probability Geometric Unixcoder'),
+    ('average_generated_sequence_probability', 'Average Generated Sequence Probability'),
+    ('average_generated_sequence_probability_codebert_score_weighted', 'Average Generated Sequence Probability CodeBERT Score'),
+    ('average_generated_sequence_probability_codebert_cosine_weighted', 'Average Generated Sequence Probability CodeBERT Cosine'),
+    ('average_generated_sequence_probability_unixcoder_weighted', 'Average Generated Sequence Probability Unixcoder'),
+]
+
+
 def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0):
-    simple_verbalized = []
-    average_token_probability = []
-    average_token_probability_geometric = []
-    generated_sequence_probability = []
-    spuq_codebert_score = []
-    spuq_codebert_cosine = []
-    spuq_unixcoder = []
-    average_verbalized = []
-    average_verbalized_codebert_score = []
-    average_verbalized_codebert_cosine = []
-    average_verbalized_unixcoder = []
-    spuq_codebert_score_reverse = []
-    spuq_codebert_cosine_reverse = []
-    spuq_unixcoder_reverse = []
+    scores = {key: [] for key, _ in _CONFIDENCE_METRICS}
     correctness_scores = []
 
     for execution_results_path in execution_results_paths:
@@ -107,39 +125,15 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
             for submission in item['submissions']:
                 translation = submission['translation'][translation_index]
                 conf = translation['confidence']
-                simple_verbalized.append(conf['verbalization'])
-                average_token_probability.append(conf['average_token_probability'])
-                average_token_probability_geometric.append(conf['average_token_probability_geometric'])
-                generated_sequence_probability.append(conf['generated_sequence_probability'])
-                spuq_codebert_score.append(conf['spuq_codebert_score'])
-                spuq_codebert_cosine.append(conf['spuq_codebert_cosine'])
-                spuq_unixcoder.append(conf['spuq_unixcoder'])
-                average_verbalized.append(conf['average_verbalized_confidence'])
-                average_verbalized_codebert_score.append(conf['average_verbalized_confidence_codebert_score_weighted'])
-                average_verbalized_codebert_cosine.append(conf['average_verbalized_confidence_codebert_cosine_weighted'])
-                average_verbalized_unixcoder.append(conf['average_verbalized_confidence_unixcoder_weighted'])
-                spuq_codebert_score_reverse.append(conf['spuq_codebert_score_reverse'])
-                spuq_codebert_cosine_reverse.append(conf['spuq_codebert_cosine_reverse'])
-                spuq_unixcoder_reverse.append(conf['spuq_unixcoder_reverse'])
+                for key, _ in _CONFIDENCE_METRICS:
+                    scores[key].append(conf[key])
 
                 # It is correct if for all items in exec_result['data']['exec_outcome'] are 'PASSED'
                 correctness = 1 if all(item['exec_outcome'] == 'PASSED' for item in translation['exec_result']['data']) else 0
                 correctness_scores.append(correctness)
 
-    calibration_report(simple_verbalized, correctness_scores, "Simple Verbalized")
-    calibration_report(average_token_probability, correctness_scores, "Average Token Probability")
-    calibration_report(average_token_probability_geometric, correctness_scores, "Average Token Probability Geometric")
-    calibration_report(generated_sequence_probability, correctness_scores, "Generated Sequence Probability")
-    calibration_report(spuq_codebert_score, correctness_scores, "SPUQ CodeBERT Score")
-    calibration_report(spuq_codebert_score_reverse, correctness_scores, "SPUQ CodeBERT Score Reverse")
-    calibration_report(spuq_codebert_cosine, correctness_scores, "SPUQ CodeBERT Cosine")
-    calibration_report(spuq_codebert_cosine_reverse, correctness_scores, "SPUQ CodeBERT Cosine Reverse")
-    calibration_report(spuq_unixcoder, correctness_scores, "SPUQ Unixcoder")
-    calibration_report(spuq_unixcoder_reverse, correctness_scores, "SPUQ Unixcoder Reverse")
-    calibration_report(average_verbalized, correctness_scores, "Average Verbalized")
-    calibration_report(average_verbalized_codebert_score, correctness_scores, "Average Verbalized CodeBERT Score")
-    calibration_report(average_verbalized_codebert_cosine, correctness_scores, "Average Verbalized CodeBERT Cosine")
-    calibration_report(average_verbalized_unixcoder, correctness_scores, "Average Verbalized Unixcoder")
+    for key, name in _CONFIDENCE_METRICS:
+        calibration_report(scores[key], correctness_scores, name)
 
 def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0):
     execution_results_paths = []

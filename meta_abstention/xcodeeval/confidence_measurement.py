@@ -29,10 +29,18 @@ _SPUQ_VARIANTS = [
     ('spuq_unixcoder_reverse', 'unixcoder', True, False),
 ]
 
-_VERBALIZED_WEIGHTED = [
-    ('average_verbalized_confidence_codebert_score_weighted', 'codebertscore'),
-    ('average_verbalized_confidence_codebert_cosine_weighted', 'codebertcosine'),
-    ('average_verbalized_confidence_unixcoder_weighted', 'unixcoder'),
+# (output field prefix, confidence source key). Prefixes get `_codebert_score_weighted` etc.
+_AGGREGATED_CONFIDENCE_FIELDS = [
+    ('average_verbalized_confidence', 'verbalization'),
+    ('average_average_token_probability', 'average_token_probability'),
+    ('average_average_token_probability_geometric', 'average_token_probability_geometric'),
+    ('average_generated_sequence_probability', 'generated_sequence_probability'),
+]
+
+_WEIGHTED_METRIC_SUFFIXES = [
+    ('codebert_score', 'codebertscore'),
+    ('codebert_cosine', 'codebertcosine'),
+    ('unixcoder', 'unixcoder'),
 ]
 
 
@@ -115,16 +123,17 @@ def _spuq_score(similarities: dict, code_uid: str, filtered_submissions: list,
     return total_translation / total_source
 
 
-def _verbalized_weighted_average(similarities: dict, submission: dict,
-                                 filtered_submissions: list, metric: str, translation_index: int) -> float:
+def _confidence_weighted_average(similarities: dict, submission: dict,
+                                 filtered_submissions: list, metric: str,
+                                 translation_index: int, confidence_key: str) -> float:
     source_key, _ = _METRIC_KEYS[metric]
     code_uid = submission['code_uid']
-    own = submission['translation'][translation_index]['confidence']['verbalization']
+    own = submission['translation'][translation_index]['confidence'][confidence_key]
     weighted = own
     total_source = 1.0
     for other in filtered_submissions:
         source_sim = similarities[code_uid][other['code_uid']][source_key]
-        weighted += other['translation'][translation_index]['confidence']['verbalization'] * source_sim
+        weighted += other['translation'][translation_index]['confidence'][confidence_key] * source_sim
         total_source += source_sim
     return weighted / total_source
 
@@ -139,16 +148,18 @@ def _add_similarity_based_confidence(similarities: dict, submission: dict, filte
         )
 
     n = len(filtered_submissions) + 1
-    total_verbalized = confidence['verbalization'] + sum(
-        other['translation'][translation_index]['confidence']['verbalization']
-        for other in filtered_submissions
-    )
-    confidence['average_verbalized_confidence'] = total_verbalized / n
-
-    for field, metric in _VERBALIZED_WEIGHTED:
-        confidence[field] = _verbalized_weighted_average(
-            similarities, submission, filtered_submissions, metric, translation_index
+    for out_prefix, confidence_key in _AGGREGATED_CONFIDENCE_FIELDS:
+        total = confidence[confidence_key] + sum(
+            other['translation'][translation_index]['confidence'][confidence_key]
+            for other in filtered_submissions
         )
+        confidence[out_prefix] = total / n
+
+        for suffix, metric in _WEIGHTED_METRIC_SUFFIXES:
+            confidence[f'{out_prefix}_{suffix}_weighted'] = _confidence_weighted_average(
+                similarities, submission, filtered_submissions, metric,
+                translation_index, confidence_key
+            )
 
 
 def compute_confidence(similarities_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = 42):
