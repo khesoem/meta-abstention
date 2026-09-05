@@ -10,18 +10,24 @@ def execute_translated_code(translated_code_path: str, output_path: str, repeat_
         for submission in item['submissions']:
 
             for translation in submission['translation']:
-                if 'exec_result' in translation and not repeat_execution:
+                if 'exec_result' in translation and not isinstance(translation['exec_result'], str) and not repeat_execution:
                     continue
 
                 lang = lang if lang else translation['lang']
                 translated_code = translation['translated_code']
                 try:
-                    exec_result = execute_code(lang, translated_code, item['unittests'], max(600, len(item['unittests']) * 5))
+                    exec_result = execute_code(lang, translated_code, item['unittests'], 5)
                     translation['exec_result'] = exec_result
                     logging.info(f'Executed translated code for {submission['code_uid']}')
                 except Exception as e:
-                    translation['exec_result'] = f'Error: {str(e)}'
-                    logging.error(f'Error executing code for {submission['code_uid']} to {lang}: {e}')
+                    if 'Read timed out' in str(e):
+                        translation['exec_result'] = {'data': [{
+                                    "exec_outcome": "TIMEOUT_ERROR",
+                                    "result": str(e),
+                                }]}
+                    else:
+                        translation['exec_result'] = f'Error: {str(e)}'
+                        logging.error(f'Error executing code for {submission['code_uid']} to {lang}: {e}')
 
     with open(output_path, 'w') as f:
         json.dump(data, f, indent=4)
