@@ -46,21 +46,21 @@
   Spearman rho   : -0.011   95% CI [-0.053,  0.031]
   Pearson r      :  0.003   95% CI [-0.038,  0.044]
 
-=== SPUQ CodeBERT Cosine  (n=2302, accuracy=45.79%) ===
-  AUROC          :  0.483   95% CI [ 0.459,  0.507]
-  Brier          :  0.533   95% CI [ 0.512,  0.553]
-  Skill Score    : -1.148   95% CI [-1.246, -1.054]
-  ECE (10 bins)  :  0.534   95% CI [ 0.513,  0.554]
-  Spearman rho   : -0.029   95% CI [-0.070,  0.012]
-  Pearson r      : -0.004   95% CI [-0.046,  0.035]
+=== SPUQ CodeBLEU  (n=2302, accuracy=45.79%) ===
+  AUROC          :  0.549   95% CI [ 0.526,  0.573]
+  Brier          :  0.272   95% CI [ 0.266,  0.277]
+  Skill Score    : -0.094   95% CI [-0.124, -0.068]
+  ECE (10 bins)  :  0.159   95% CI [ 0.138,  0.179]
+  Spearman rho   :  0.085   95% CI [ 0.045,  0.125]
+  Pearson r      :  0.083   95% CI [ 0.043,  0.124]
 
-=== SPUQ CodeBERT Cosine Reverse  (n=2302, accuracy=45.79%) ===
-  AUROC          :  0.488   95% CI [ 0.465,  0.512]
-  Brier          :  0.530   95% CI [ 0.510,  0.550]
-  Skill Score    : -1.137   95% CI [-1.235, -1.044]
-  ECE (10 bins)  :  0.531   95% CI [ 0.510,  0.551]
-  Spearman rho   : -0.020   95% CI [-0.061,  0.021]
-  Pearson r      :  0.010   95% CI [-0.031,  0.050]
+=== SPUQ CodeBLEU Reverse  (n=2302, accuracy=45.79%) ===
+  AUROC          :  0.586   95% CI [ 0.563,  0.610]
+  Brier          :  0.271   95% CI [ 0.262,  0.280]
+  Skill Score    : -0.092   95% CI [-0.124, -0.064]
+  ECE (10 bins)  :  0.169   95% CI [ 0.150,  0.190]
+  Spearman rho   :  0.148   95% CI [ 0.108,  0.189]
+  Pearson r      :  0.150   95% CI [ 0.110,  0.191]
 
 === SPUQ Unixcoder  (n=2302, accuracy=45.79%) ===
   AUROC          :  0.507   95% CI [ 0.484,  0.531]
@@ -94,13 +94,13 @@
   Spearman rho   :  0.431   95% CI [ 0.397,  0.466]
   Pearson r      :  0.420   95% CI [ 0.390,  0.451]
 
-=== Average Verbalized CodeBERT Cosine  (n=2302, accuracy=45.79%) ===
-  AUROC          :  0.748   95% CI [ 0.729,  0.768]
-  Brier          :  0.435   95% CI [ 0.418,  0.451]
-  Skill Score    : -0.752   95% CI [-0.833, -0.677]
+=== Average Verbalized CodeBLEU  (n=2302, accuracy=45.79%) ===
+  AUROC          :  0.754   95% CI [ 0.735,  0.774]
+  Brier          :  0.433   95% CI [ 0.417,  0.450]
+  Skill Score    : -0.746   95% CI [-0.826, -0.670]
   ECE (10 bins)  :  0.450   95% CI [ 0.430,  0.470]
-  Spearman rho   :  0.428   95% CI [ 0.394,  0.463]
-  Pearson r      :  0.416   95% CI [ 0.385,  0.447]
+  Spearman rho   :  0.439   95% CI [ 0.405,  0.473]
+  Pearson r      :  0.418   95% CI [ 0.391,  0.447]
 
 === Average Verbalized Unixcoder  (n=2302, accuracy=45.79%) ===
   AUROC          :  0.752   95% CI [ 0.732,  0.773]
@@ -126,13 +126,13 @@
   Spearman rho   :  0.186   95% CI [ 0.144,  0.225]
   Pearson r      :  0.186   95% CI [ 0.148,  0.222]
 
-=== Average of Average Token Probability CodeBERT Cosine  (n=2302, accuracy=45.79%) ===
-  AUROC          :  0.604   95% CI [ 0.580,  0.626]
-  Brier          :  0.509   95% CI [ 0.490,  0.528]
-  Skill Score    : -1.052   95% CI [-1.145, -0.962]
-  ECE (10 bins)  :  0.512   95% CI [ 0.492,  0.532]
-  Spearman rho   :  0.179   95% CI [ 0.138,  0.217]
-  Pearson r      :  0.179   95% CI [ 0.140,  0.215]
+=== Average of Average Token Probability CodeBLEU  (n=2302, accuracy=45.79%) ===
+  AUROC          :  0.628   95% CI [ 0.604,  0.651]
+  Brier          :  0.509   95% CI [ 0.489,  0.527]
+  Skill Score    : -1.049   95% CI [-1.143, -0.959]
+  ECE (10 bins)  :  0.512   95% CI [ 0.491,  0.532]
+  Spearman rho   :  0.220   95% CI [ 0.180,  0.260]
+  Pearson r      :  0.217   95% CI [ 0.180,  0.252]
 
 === Average of Average Token Probability Unixcoder  (n=2302, accuracy=45.79%) ===
   AUROC          :  0.612   95% CI [ 0.588,  0.635]
@@ -158,13 +158,13 @@
   Spearman rho   :  0.288   95% CI [ 0.249,  0.325]
   Pearson r      :  0.278   95% CI [ 0.244,  0.312]
 
-=== Average of Average Token Probability Geometric CodeBERT Cosine  (n=2302, accuracy=45.79%) ===
-  AUROC          :  0.663   95% CI [ 0.640,  0.685]
-  Brier          :  0.402   95% CI [ 0.386,  0.418]
-  Skill Score    : -0.620   95% CI [-0.697, -0.549]
-  ECE (10 bins)  :  0.415   95% CI [ 0.395,  0.434]
-  Spearman rho   :  0.282   95% CI [ 0.243,  0.319]
-  Pearson r      :  0.272   95% CI [ 0.238,  0.307]
+=== Average of Average Token Probability Geometric CodeBLEU  (n=2302, accuracy=45.79%) ===
+  AUROC          :  0.676   95% CI [ 0.654,  0.698]
+  Brier          :  0.400   95% CI [ 0.384,  0.417]
+  Skill Score    : -0.613   95% CI [-0.692, -0.540]
+  ECE (10 bins)  :  0.415   95% CI [ 0.396,  0.435]
+  Spearman rho   :  0.304   95% CI [ 0.266,  0.341]
+  Pearson r      :  0.286   95% CI [ 0.257,  0.315]
 
 === Average of Average Token Probability Geometric Unixcoder  (n=2302, accuracy=45.79%) ===
   AUROC          :  0.667   95% CI [ 0.645,  0.689]
@@ -190,13 +190,13 @@
   Spearman rho   :  0.381   95% CI [ 0.346,  0.418]
   Pearson r      :  0.131   95% CI [ 0.091,  0.172]
 
-=== Average Generated Sequence Probability CodeBERT Cosine  (n=2302, accuracy=45.79%) ===
-  AUROC          :  0.720   95% CI [ 0.700,  0.741]
-  Brier          :  0.439   95% CI [ 0.420,  0.459]
-  Skill Score    : -0.769   95% CI [-0.840, -0.705]
-  ECE (10 bins)  :  0.442   95% CI [ 0.422,  0.463]
-  Spearman rho   :  0.380   95% CI [ 0.345,  0.417]
-  Pearson r      :  0.130   95% CI [ 0.089,  0.171]
+=== Average Generated Sequence Probability CodeBLEU  (n=2302, accuracy=45.79%) ===
+  AUROC          :  0.725   95% CI [ 0.705,  0.746]
+  Brier          :  0.438   95% CI [ 0.419,  0.458]
+  Skill Score    : -0.767   95% CI [-0.837, -0.702]
+  ECE (10 bins)  :  0.442   95% CI [ 0.422,  0.462]
+  Spearman rho   :  0.389   95% CI [ 0.354,  0.425]
+  Pearson r      :  0.134   95% CI [ 0.093,  0.173]
 
 === Average Generated Sequence Probability Unixcoder  (n=2302, accuracy=45.79%) ===
   AUROC          :  0.721   95% CI [ 0.701,  0.742]

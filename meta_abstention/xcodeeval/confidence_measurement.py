@@ -1,4 +1,9 @@
-from meta_abstention.untils.similarity_computation import codebertscore_sim, codebert_cosine_sim, unixcoder_sim
+from meta_abstention.untils.similarity_computation import (
+    codebleu_sim,
+    codebertscore_sim,
+    codebert_cosine_sim,
+    unixcoder_sim,
+)
 import json
 import random
 import copy
@@ -6,6 +11,7 @@ import os
 import logging
 
 _SIMILARITY_FNS = {
+    'codebleu': codebleu_sim,
     'codebertscore': codebertscore_sim,
     'codebertcosine': codebert_cosine_sim,
     'unixcoder': unixcoder_sim,
@@ -13,17 +19,22 @@ _SIMILARITY_FNS = {
 
 # (source_code similarity key, translation similarity key) for each metric.
 _METRIC_KEYS = {
+    'codebleu': ('code_codebleu', 'translation_codebleu'),
     'codebertscore': ('code_codebertscore', 'translation_codebertscore'),
     'codebertcosine': ('code_codebertcosine', 'translation_codebertcosine'),
     'unixcoder': ('code_unixcoder', 'translation_unixcoder'),
 }
 
+_REQUIRED_PAIR_KEYS = {key for pair in _METRIC_KEYS.values() for key in pair}
+
 # SPUQ variants: confidence field name, metric, whether to invert source-code similarity,
 # and whether to include a self-pair of (weight=1, translation_sim=1).
 _SPUQ_VARIANTS = [
+    ('spuq_codebleu', 'codebleu', False, True),
     ('spuq_codebert_score', 'codebertscore', False, True),
     ('spuq_codebert_cosine', 'codebertcosine', False, True),
     ('spuq_unixcoder', 'unixcoder', False, True),
+    ('spuq_codebleu_reverse', 'codebleu', True, False),
     ('spuq_codebert_score_reverse', 'codebertscore', True, False),
     ('spuq_codebert_cosine_reverse', 'codebertcosine', True, False),
     ('spuq_unixcoder_reverse', 'unixcoder', True, False),
@@ -38,18 +49,46 @@ _AGGREGATED_CONFIDENCE_FIELDS = [
 ]
 
 _WEIGHTED_METRIC_SUFFIXES = [
+    ('codebleu', 'codebleu'),
     ('codebert_score', 'codebertscore'),
     ('codebert_cosine', 'codebertcosine'),
     ('unixcoder', 'unixcoder'),
 ]
 
 
-def _pair_similarities(text_a: str, text_b: str, lang: str = "python") -> dict:
-    return {
-        'codebertscore': codebertscore_sim(text_a, text_b, lang=lang),
-        'codebertcosine': codebert_cosine_sim(text_a, text_b),
-        'unixcoder': unixcoder_sim(text_a, text_b),
-    }
+_LANG_AWARE_METRICS = {'codebleu', 'codebertscore'}
+
+
+def _pair_complete(pair_sims: dict) -> bool:
+    return _REQUIRED_PAIR_KEYS.issubset(pair_sims.keys())
+
+
+def _metric_sim(name: str, text_a: str, text_b: str, lang: str) -> float:
+    fn = _SIMILARITY_FNS[name]
+    if name in _LANG_AWARE_METRICS:
+        return fn(text_a, text_b, lang=lang)
+    return fn(text_a, text_b)
+
+
+def _fill_missing_similarities(
+    pair_sims: dict,
+    code_a: str,
+    code_b: str,
+    translation_a: str,
+    translation_b: str,
+    source_lang: str,
+    target_lang: str,
+) -> dict:
+    """Compute only missing metric keys; leave already-present values untouched."""
+    result = dict(pair_sims)
+    for name, (code_key, translation_key) in _METRIC_KEYS.items():
+        if code_key not in result:
+            result[code_key] = _metric_sim(name, code_a, code_b, source_lang)
+        if translation_key not in result:
+            result[translation_key] = _metric_sim(
+                name, translation_a, translation_b, target_lang
+            )
+    return result
 
 
 def compute_similarities(translations: str, output_path: str, translation_index: int = 0,
@@ -74,25 +113,36 @@ def compute_similarities(translations: str, output_path: str, translation_index:
                 for i, uid_i in enumerate(code_uids):
                     similarities.setdefault(uid_i, {})
                     for j, uid_j in enumerate(code_uids):
-                        if i == j or (uid_i in similarities and uid_j in similarities[uid_i]):
-                            logging.info(f"Similarity for {uid_i} and {uid_j} already computed")
+                        if i == j:
                             continue
 
-                        if (uid_j in similarities and uid_i in similarities[uid_j]):
-                            similarities[uid_i][uid_j] = similarities[uid_j][uid_i]
-                        else:
-                            code_sims = _pair_similarities(codes[i], codes[j], lang=source_lang)
-                            translation_sims = _pair_similarities(translations_list[i], translations_list[j], lang=target_lang)
-                            similarities[uid_i][uid_j] = {
-                                f'code_{name}': code_sims[name]
-                                for name in _SIMILARITY_FNS
-                            } | {
-                                f'translation_{name}': translation_sims[name]
-                                for name in _SIMILARITY_FNS
-                            }
+                        existing = similarities.get(uid_i, {}).get(uid_j) or {}
+                        reverse = similarities.get(uid_j, {}).get(uid_i) or {}
+                        # Prefer values already stored for this direction; fill gaps from reverse.
+                        pair = {**reverse, **existing}
 
+                        if _pair_complete(pair):
+                            if not _pair_complete(existing):
+                                similarities[uid_i][uid_j] = pair
+                                new_similarity_computed = True
+                                logging.info(f"Filled similarities for {uid_i} and {uid_j} from reverse")
+                            else:
+                                logging.info(f"Similarity for {uid_i} and {uid_j} already computed")
+                            continue
+
+                        pair = _fill_missing_similarities(
+                            pair,
+                            codes[i],
+                            codes[j],
+                            translations_list[i],
+                            translations_list[j],
+                            source_lang,
+                            target_lang,
+                        )
+                        similarities[uid_i][uid_j] = pair
+                        similarities.setdefault(uid_j, {})[uid_i] = pair
                         new_similarity_computed = True
-                        logging.info(f"Computed similarities for {uid_i} and {uid_j}")
+                        logging.info(f"Computed missing similarities for {uid_i} and {uid_j}")
 
                 if new_similarity_computed:
                     with open(output_path, 'w') as f:

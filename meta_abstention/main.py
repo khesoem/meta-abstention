@@ -25,11 +25,12 @@ def main() -> None:
     # run_select_submissions('java', 'data/code_translation/xcodeeval/java-original-submissions.json', 6)
     # run_code_translation('data/code_translation/xcodeeval/gpt-4.1-nano/java-to-cpp.json', 'data/code_translation/xcodeeval/gpt-4.1-nano/java-to-cpp.json', 'GNU C++11')
     # execute_translated_code('data/code_translation/xcodeeval/gpt-4.1-nano/cpp-to-python.json', 'data/code_translation/xcodeeval/gpt-4.1-nano/cpp-to-python.json', lang='Python 3')
-    # compute_similarities('data/code_translation/xcodeeval/gpt-4.1-nano/java-to-cpp.json', 'data/code_translation/xcodeeval/gpt-4.1-nano/java-to-cpp-similarities.json', source_lang='java', target_lang='cpp')
+    # compute_similarities('data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations/cpp-to-java.json', 'data/code_translation/xcodeeval/gpt-4.1-nano/similarities/cpp-to-java-similarities.json', source_lang='cpp', target_lang='java')
     # compute_confidence(
-    #     'data/code_translation/xcodeeval/gpt-4.1-nano/similarities/cpp-to-java-similarities.json',
-    #     'data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations/cpp-to-java.json', 
-    #     'data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations/cpp-to-java.json')
+    #     'data/code_translation/xcodeeval/gpt-4.1-nano/similarities/python-to-java-similarities.json',
+    #     'data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations/python-to-java.json', 
+    #     'data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations/python-to-java.json')
+    # run_confidence_analysis(['data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations/cpp-to-java.json'])
     run_confidence_analysis_for_batch('data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations')
     
 

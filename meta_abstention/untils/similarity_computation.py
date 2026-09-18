@@ -2,7 +2,7 @@
 Pairwise code similarity: CodeBLEU (symmetrized), CodeBERT cosine, UniXcoder-base cosine.
 
 Install:
-    pip install codebleu tree-sitter-python transformers torch
+    pip install codebleu tree-sitter-python tree-sitter-java tree-sitter-cpp transformers torch
 
 For CPU-only, the default `pip install torch` works, but the CPU-only wheel is
 much smaller:
@@ -15,15 +15,16 @@ import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
 import code_bert_score
 from code_bert_score import BERTScorer
+from codebleu import calc_codebleu
 
 
-# # ---------- CodeBLEU (symmetrized) ----------
+# ---------- CodeBLEU ----------
 
-# def codebleu_sim(code1: str, code2: str, lang: str = "python") -> float:
-#     """Mean of both directions since CodeBLEU is asymmetric (ref vs. pred)."""
-#     a = calc_codebleu([code1], [code2], lang=lang)["codebleu"]
-#     b = calc_codebleu([code2], [code1], lang=lang)["codebleu"]
-#     return (a + b) / 2
+def codebleu_sim(code1: str, code2: str, lang: str = "python") -> float:
+    """Symmetrized CodeBLEU similarity in [0, 1]."""
+    ab = calc_codebleu(references=[code1], predictions=[code2], lang=lang)["codebleu"]
+    ba = calc_codebleu(references=[code2], predictions=[code1], lang=lang)["codebleu"]
+    return (ab + ba) / 2.0
 
 
 @lru_cache(maxsize=None)
@@ -83,6 +84,6 @@ def unixcoder_sim(code1: str, code2: str) -> float:
 if __name__ == "__main__":
     a = "def add(x, y):\n    return x + y\n"
     b = "def sum_two(first, second):\n    return second + first\n"
-    # print(f"CodeBLEU:         {codebleu_sim(a, b):.4f}")
-    print(f"CodeBERT cosine:  {codebert_sim(a, b):.4f}")
+    print(f"CodeBLEU:         {codebleu_sim(a, b):.4f}")
+    print(f"CodeBERT cosine:  {codebert_cosine_sim(a, b):.4f}")
     print(f"UniXcoder cosine: {unixcoder_sim(a, b):.4f}")

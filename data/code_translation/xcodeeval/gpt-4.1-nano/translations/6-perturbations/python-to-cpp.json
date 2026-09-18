@@ -80,7 +80,13 @@
                             "average_generated_sequence_probability": 1.8727186022592575e-08,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.774557125499432e-08,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.8760173771836588e-08,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.0858770615049762e-08
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.0858770615049762e-08,
+                            "spuq_codebleu": 0.6618457513212106,
+                            "spuq_codebleu_reverse": 0.2686797362188008,
+                            "average_verbalized_confidence_codebleu_weighted": 0.881584995571382,
+                            "average_average_token_probability_codebleu_weighted": 0.964145816050925,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.4424173475761403,
+                            "average_generated_sequence_probability_codebleu_weighted": 9.276487932475948e-09
                         },
                         "exec_result": {
                             "data": [
@@ -142,7 +148,13 @@
                             "average_generated_sequence_probability": 1.8727185668200918e-08,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.7415725051233403e-08,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.8502277113711227e-08,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.4583542300551458e-08
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.4583542300551458e-08,
+                            "spuq_codebleu": 0.6901614813496989,
+                            "spuq_codebleu_reverse": 0.30690430799143864,
+                            "average_verbalized_confidence_codebleu_weighted": 0.7894278444544209,
+                            "average_average_token_probability_codebleu_weighted": 0.9496257476108839,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.3325718818274367,
+                            "average_generated_sequence_probability_codebleu_weighted": 6.995663623623653e-09
                         },
                         "exec_result": {
                             "data": [
@@ -204,7 +216,13 @@
                             "average_generated_sequence_probability": 0.0002816594177946461,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00026904016212161107,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0002812310397176862,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00020454103795235836
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00020454103795235836,
+                            "spuq_codebleu": 0.6880094568353468,
+                            "spuq_codebleu_reverse": 0.2918247550839299,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8840554371154615,
+                            "average_average_token_probability_codebleu_weighted": 0.965495790125641,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.771532793163412,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0001525597340234792
                         },
                         "exec_result": {
                             "data": [
@@ -658,7 +676,13 @@
                             "average_generated_sequence_probability": 1.8727185572593706e-08,
                             "average_generated_sequence_probability_codebert_score_weighted": 2.3126189099183206e-08,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.9076619270663496e-08,
-                            "average_generated_sequence_probability_unixcoder_weighted": 3.264342999234612e-08
+                            "average_generated_sequence_probability_unixcoder_weighted": 3.264342999234612e-08,
+                            "spuq_codebleu": 0.7215665064271336,
+                            "spuq_codebleu_reverse": 0.30187366172926594,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8897116095855753,
+                            "average_average_token_probability_codebleu_weighted": 0.9676148990347255,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.7978367453427989,
+                            "average_generated_sequence_probability_codebleu_weighted": 6.757661337144247e-08
                         },
                         "exec_result": {
                             "data": [
@@ -1112,7 +1136,13 @@
                             "average_generated_sequence_probability": 1.8727186022592575e-08,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.8124442251542894e-08,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.8707937207204896e-08,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.6684992978715896e-08
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.6684992978715896e-08,
+                            "spuq_codebleu": 0.7309924970226477,
+                            "spuq_codebleu_reverse": 0.31293680563031934,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9297790135306753,
+                            "average_average_token_probability_codebleu_weighted": 0.9592749684283158,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8542447249015385,
+                            "average_generated_sequence_probability_codebleu_weighted": 1.0011390419953467e-08
                         },
                         "exec_result": {
                             "data": [
@@ -1566,7 +1596,13 @@
                             "average_generated_sequence_probability": 0.00028164069060964764,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00034218307404648864,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00028530547332029276,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0005007598322831316
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0005007598322831316,
+                            "spuq_codebleu": 0.6578320980503731,
+                            "spuq_codebleu_reverse": 0.2729653927451154,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9099612133063619,
+                            "average_average_token_probability_codebleu_weighted": 0.9681007991068465,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.7547244910618591,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0008907724281475246
                         },
                         "exec_result": {
                             "data": [
@@ -2020,7 +2056,13 @@
                             "average_generated_sequence_probability": 0.0002816406906100977,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00027675291623742085,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0002836147703757381,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00023967077250098092
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00023967077250098092,
+                            "spuq_codebleu": 0.6864340185532009,
+                            "spuq_codebleu_reverse": 0.3021510059256989,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9307171808712651,
+                            "average_average_token_probability_codebleu_weighted": 0.9691146900382628,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.852849202584018,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00016902487178784776
                         },
                         "exec_result": {
                             "data": [
@@ -2474,7 +2516,13 @@
                             "average_generated_sequence_probability": 0.0002816594177945505,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0002727853012065365,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00028136487164395687,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00021644702663135566
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00021644702663135566,
+                            "spuq_codebleu": 0.6721590675143456,
+                            "spuq_codebleu_reverse": 0.2743367075842054,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8957179863850198,
+                            "average_average_token_probability_codebleu_weighted": 0.9642145906749089,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.854943939984863,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00017965045109421916
                         },
                         "exec_result": {
                             "data": [
@@ -2812,7 +2860,13 @@
                             "average_generated_sequence_probability": 9.891109682419432e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 9.39865743284165e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 9.872842010419436e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 7.900243489796505e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 7.900243489796505e-05,
+                            "spuq_codebleu": 0.6584631536139751,
+                            "spuq_codebleu_reverse": 0.3011731188274427,
+                            "average_verbalized_confidence_codebleu_weighted": 0.95,
+                            "average_average_token_probability_codebleu_weighted": 0.9552337525790197,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9197245517176159,
+                            "average_generated_sequence_probability_codebleu_weighted": 5.324061463274322e-05
                         },
                         "exec_result": {
                             "data": [
@@ -3192,7 +3246,13 @@
                             "average_generated_sequence_probability": 0.0006128313104213842,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0006985814206738086,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0006170081962025875,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0007419639234757408
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0007419639234757408,
+                            "spuq_codebleu": 0.692449515267984,
+                            "spuq_codebleu_reverse": 0.4047594512138066,
+                            "average_verbalized_confidence_codebleu_weighted": 0.963486978646261,
+                            "average_average_token_probability_codebleu_weighted": 0.9711067932010701,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.947784040800864,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00158988159998528
                         },
                         "exec_result": {
                             "data": [
@@ -3572,7 +3632,13 @@
                             "average_generated_sequence_probability": 0.000710571484449754,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0006840711269739874,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0007102262430224998,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0006587677473321195
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0006587677473321195,
+                            "spuq_codebleu": 0.6774697076069179,
+                            "spuq_codebleu_reverse": 0.3637668281825147,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9537990754139402,
+                            "average_average_token_probability_codebleu_weighted": 0.9672553696825876,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.947777280143189,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0004002621887266935
                         },
                         "exec_result": {
                             "data": [
@@ -3952,7 +4018,13 @@
                             "average_generated_sequence_probability": 0.0006128313104213842,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0005961513523438285,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0006142832002192301,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.000593228794679572
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.000593228794679572,
+                            "spuq_codebleu": 0.7002289217616146,
+                            "spuq_codebleu_reverse": 0.35430516420992625,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9484394673691593,
+                            "average_average_token_probability_codebleu_weighted": 0.964793668324729,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9317226159106444,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0003625241479884691
                         },
                         "exec_result": {
                             "data": [
@@ -4332,7 +4404,13 @@
                             "average_generated_sequence_probability": 0.0007105714162065423,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0006964711496161669,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.000712173193509366,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.000680315448411847
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.000680315448411847,
+                            "spuq_codebleu": 0.7172508870502751,
+                            "spuq_codebleu_reverse": 0.36012706252432813,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9531580865454861,
+                            "average_average_token_probability_codebleu_weighted": 0.9764957906508731,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9640358567143543,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0006122411238816087
                         },
                         "exec_result": {
                             "data": [
@@ -4712,7 +4790,13 @@
                             "average_generated_sequence_probability": 0.00010063522799815303,
                             "average_generated_sequence_probability_codebert_score_weighted": 9.371881534415076e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0001008612836128454,
-                            "average_generated_sequence_probability_unixcoder_weighted": 7.76613795964495e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 7.76613795964495e-05,
+                            "spuq_codebleu": 0.7058369758213394,
+                            "spuq_codebleu_reverse": 0.2973966234041347,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9169828218924424,
+                            "average_average_token_probability_codebleu_weighted": 0.9398212844073195,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8831185750824768,
+                            "average_generated_sequence_probability_codebleu_weighted": 4.835881352288326e-05
                         },
                         "exec_result": {
                             "data": [
@@ -5092,7 +5176,13 @@
                             "average_generated_sequence_probability": 0.0007122956162661864,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0006876082801791032,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0007146230764848499,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0006832360478681527
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0006832360478681527,
+                            "spuq_codebleu": 0.6907621625155556,
+                            "spuq_codebleu_reverse": 0.38138660683084696,
+                            "average_verbalized_confidence_codebleu_weighted": 0.949987573180079,
+                            "average_average_token_probability_codebleu_weighted": 0.9661113742230294,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9447929820226815,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0003974808364184951
                         },
                         "exec_result": {
                             "data": [
@@ -5472,7 +5562,13 @@
                             "average_generated_sequence_probability": 9.891100745827345e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 9.305743847566427e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 9.821173279944914e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 8.324418127887321e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 8.324418127887321e-05,
+                            "spuq_codebleu": 0.710712620709896,
+                            "spuq_codebleu_reverse": 0.2961902562284096,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9460560155332718,
+                            "average_average_token_probability_codebleu_weighted": 0.9690874892042363,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9523299180001985,
+                            "average_generated_sequence_probability_codebleu_weighted": 5.3967258118094715e-05
                         },
                         "exec_result": {
                             "data": [
@@ -5852,7 +5948,13 @@
                             "average_generated_sequence_probability": 2.7054369302486007e-06,
                             "average_generated_sequence_probability_codebert_score_weighted": 2.9770023647185687e-06,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.7457403124170074e-06,
-                            "average_generated_sequence_probability_unixcoder_weighted": 3.285123573065906e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 3.285123573065906e-06,
+                            "spuq_codebleu": 0.708299391886143,
+                            "spuq_codebleu_reverse": 0.3345156612702131,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9452258417726194,
+                            "average_average_token_probability_codebleu_weighted": 0.9554856502690567,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9198396867420404,
+                            "average_generated_sequence_probability_codebleu_weighted": 5.468595179415238e-06
                         },
                         "exec_result": {
                             "data": [
@@ -6232,7 +6334,13 @@
                             "average_generated_sequence_probability": 0.0006143657555118133,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0005878637302802677,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0006168034004698556,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0005838111323498312
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0005838111323498312,
+                            "spuq_codebleu": 0.6897836096773794,
+                            "spuq_codebleu_reverse": 0.3528363760536686,
+                            "average_verbalized_confidence_codebleu_weighted": 0.924195378132665,
+                            "average_average_token_probability_codebleu_weighted": 0.9531374245829642,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9129234885929673,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00033854168522989695
                         },
                         "exec_result": {
                             "data": [
@@ -6612,7 +6720,13 @@
                             "average_generated_sequence_probability": 0.0007105714163638796,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0007578945748836426,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0007123496902892587,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0008087404087435869
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0008087404087435869,
+                            "spuq_codebleu": 0.6902862308591141,
+                            "spuq_codebleu_reverse": 0.3434347051586852,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9609008297492032,
+                            "average_average_token_probability_codebleu_weighted": 0.9691031953900845,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9425968778505812,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.001035408186772356
                         },
                         "exec_result": {
                             "data": [
@@ -7270,7 +7384,13 @@
                             "average_generated_sequence_probability": 1.6938155278565617e-08,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.546147886268413e-08,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.6958460410129905e-08,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.0407407927252188e-08
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.0407407927252188e-08,
+                            "spuq_codebleu": 0.6999689717863633,
+                            "spuq_codebleu_reverse": 0.40240340465946056,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9159511037197667,
+                            "average_average_token_probability_codebleu_weighted": 0.9649668951810028,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9404147492862264,
+                            "average_generated_sequence_probability_codebleu_weighted": 5.909024604790108e-09
                         },
                         "exec_result": {
                             "data": [
@@ -7332,7 +7452,13 @@
                             "average_generated_sequence_probability": 1.1228975601579491e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.134410000807069e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.1365367713967549e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 9.816173517182556e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 9.816173517182556e-06,
+                            "spuq_codebleu": 0.6809984613548351,
+                            "spuq_codebleu_reverse": 0.32153624524161256,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9349346807038565,
+                            "average_average_token_probability_codebleu_weighted": 0.971642311078803,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9491197689060655,
+                            "average_generated_sequence_probability_codebleu_weighted": 6.160926059096303e-06
                         },
                         "exec_result": {
                             "data": [
@@ -7926,7 +8052,13 @@
                             "average_generated_sequence_probability": 1.1912732003380681e-06,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.1490566717083243e-06,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.1953842667017769e-06,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.1512412246072177e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.1512412246072177e-06,
+                            "spuq_codebleu": 0.715927451430255,
+                            "spuq_codebleu_reverse": 0.4145804565209631,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9209362600169844,
+                            "average_average_token_probability_codebleu_weighted": 0.9652948921437812,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9350393182714848,
+                            "average_generated_sequence_probability_codebleu_weighted": 7.812416494159852e-07
                         },
                         "exec_result": {
                             "data": [
@@ -8519,7 +8651,13 @@
                             "average_generated_sequence_probability": 1.2769580199858546e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.4933940107036285e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.3057091379324741e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.6848454419424065e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.6848454419424065e-05,
+                            "spuq_codebleu": 0.6724402989434205,
+                            "spuq_codebleu_reverse": 0.34240201313148594,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9159805864766942,
+                            "average_average_token_probability_codebleu_weighted": 0.9782504985354514,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9621957264074227,
+                            "average_generated_sequence_probability_codebleu_weighted": 3.366625420257886e-05
                         },
                         "exec_result": {
                             "data": [
@@ -9113,7 +9251,13 @@
                             "average_generated_sequence_probability": 1.2038883327000138e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.088978574266446e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.1735138367155646e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.0849965799735314e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.0849965799735314e-05,
+                            "spuq_codebleu": 0.7616470965943455,
+                            "spuq_codebleu_reverse": 0.37441743274929007,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9427079684926285,
+                            "average_average_token_probability_codebleu_weighted": 0.9680676886827444,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9474575113730294,
+                            "average_generated_sequence_probability_codebleu_weighted": 6.180456757600502e-06
                         },
                         "exec_result": {
                             "data": [
@@ -9706,7 +9850,13 @@
                             "average_generated_sequence_probability": 8.576028908209091e-06,
                             "average_generated_sequence_probability_codebert_score_weighted": 7.999493571968238e-06,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.564417518653148e-06,
-                            "average_generated_sequence_probability_unixcoder_weighted": 7.741601044249648e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 7.741601044249648e-06,
+                            "spuq_codebleu": 0.7276204711816522,
+                            "spuq_codebleu_reverse": 0.4231108880442555,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9380730675918942,
+                            "average_average_token_probability_codebleu_weighted": 0.9738341804311635,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9596062286859194,
+                            "average_generated_sequence_probability_codebleu_weighted": 3.961944836417462e-06
                         },
                         "exec_result": {
                             "data": [
@@ -10299,7 +10449,13 @@
                             "average_generated_sequence_probability": 3.1710323709121384e-07,
                             "average_generated_sequence_probability_codebert_score_weighted": 2.4538056835104194e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.9821386966902953e-07,
-                            "average_generated_sequence_probability_unixcoder_weighted": 2.0375327354846751e-07
+                            "average_generated_sequence_probability_unixcoder_weighted": 2.0375327354846751e-07,
+                            "spuq_codebleu": 0.6259301842172599,
+                            "spuq_codebleu_reverse": 0.3287993645553377,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9189713320799393,
+                            "average_average_token_probability_codebleu_weighted": 0.9642239725758204,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.939684249145955,
+                            "average_generated_sequence_probability_codebleu_weighted": 9.136325976926973e-08
                         },
                         "exec_result": {
                             "data": [
@@ -10892,7 +11048,13 @@
                             "average_generated_sequence_probability": 8.486099443097968e-06,
                             "average_generated_sequence_probability_codebert_score_weighted": 8.348644629169656e-06,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.569554811096422e-06,
-                            "average_generated_sequence_probability_unixcoder_weighted": 7.850146670633502e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 7.850146670633502e-06,
+                            "spuq_codebleu": 0.7090374673878715,
+                            "spuq_codebleu_reverse": 0.37916960128355476,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8967524195538069,
+                            "average_average_token_probability_codebleu_weighted": 0.9735193066044333,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9532112258064286,
+                            "average_generated_sequence_probability_codebleu_weighted": 4.517673961988236e-06
                         },
                         "exec_result": {
                             "data": [
@@ -11485,7 +11647,13 @@
                             "average_generated_sequence_probability": 8.550352883089702e-06,
                             "average_generated_sequence_probability_codebert_score_weighted": 8.342874648767639e-06,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.545503241935669e-06,
-                            "average_generated_sequence_probability_unixcoder_weighted": 8.186786771532941e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 8.186786771532941e-06,
+                            "spuq_codebleu": 0.7021147335835488,
+                            "spuq_codebleu_reverse": 0.3837312982375294,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9339021914663979,
+                            "average_average_token_probability_codebleu_weighted": 0.9688538895214781,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9476681527690742,
+                            "average_generated_sequence_probability_codebleu_weighted": 5.595003747205195e-06
                         },
                         "exec_result": {
                             "data": [
@@ -12078,7 +12246,13 @@
                             "average_generated_sequence_probability": 7.819664806495113e-06,
                             "average_generated_sequence_probability_codebert_score_weighted": 7.570495972575359e-06,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 7.825166869849068e-06,
-                            "average_generated_sequence_probability_unixcoder_weighted": 7.891510164883608e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 7.891510164883608e-06,
+                            "spuq_codebleu": 0.7321672071695121,
+                            "spuq_codebleu_reverse": 0.4063695548399452,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9453011927748562,
+                            "average_average_token_probability_codebleu_weighted": 0.9733105982984948,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.955582943793289,
+                            "average_generated_sequence_probability_codebleu_weighted": 5.4077599438132145e-06
                         },
                         "exec_result": {
                             "data": [
@@ -12671,7 +12845,13 @@
                             "average_generated_sequence_probability": 1.7469760843560086e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.8395785124856238e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.747065251465964e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.8210564339712063e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.8210564339712063e-05,
+                            "spuq_codebleu": 0.6874660677602148,
+                            "spuq_codebleu_reverse": 0.3233240840752111,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9369250317831175,
+                            "average_average_token_probability_codebleu_weighted": 0.9726701366005267,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9557650064258576,
+                            "average_generated_sequence_probability_codebleu_weighted": 2.684061105417253e-05
                         },
                         "exec_result": {
                             "data": [
@@ -13264,7 +13444,13 @@
                             "average_generated_sequence_probability": 7.4880383684858305e-06,
                             "average_generated_sequence_probability_codebert_score_weighted": 6.793871366400597e-06,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 7.3850867394394095e-06,
-                            "average_generated_sequence_probability_unixcoder_weighted": 7.022986358831186e-06
+                            "average_generated_sequence_probability_unixcoder_weighted": 7.022986358831186e-06,
+                            "spuq_codebleu": 0.7179890327709794,
+                            "spuq_codebleu_reverse": 0.33980331360662613,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9160013549235396,
+                            "average_average_token_probability_codebleu_weighted": 0.9698575122997303,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9515257048564819,
+                            "average_generated_sequence_probability_codebleu_weighted": 4.876468955502917e-06
                         },
                         "exec_result": {
                             "data": [
@@ -13326,7 +13512,13 @@
                             "average_generated_sequence_probability": 4.0696093873210376e-07,
                             "average_generated_sequence_probability_codebert_score_weighted": 3.8071090911596134e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 4.0263853413410627e-07,
-                            "average_generated_sequence_probability_unixcoder_weighted": 3.691782890723187e-07
+                            "average_generated_sequence_probability_unixcoder_weighted": 3.691782890723187e-07,
+                            "spuq_codebleu": 0.7026199349785581,
+                            "spuq_codebleu_reverse": 0.34455050767318923,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9076405361704133,
+                            "average_average_token_probability_codebleu_weighted": 0.9693022751925776,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9441263738822593,
+                            "average_generated_sequence_probability_codebleu_weighted": 2.0432242809562948e-07
                         },
                         "exec_result": {
                             "data": [
@@ -13388,7 +13580,13 @@
                             "average_generated_sequence_probability": 1.2211761905376565e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.2254655763515677e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.2113120069291805e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.2443667787696975e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.2443667787696975e-05,
+                            "spuq_codebleu": 0.6768414856526617,
+                            "spuq_codebleu_reverse": 0.3834190863110601,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9267623083940846,
+                            "average_average_token_probability_codebleu_weighted": 0.9717258440787764,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9530983351226812,
+                            "average_generated_sequence_probability_codebleu_weighted": 1.148069737849301e-05
                         },
                         "exec_result": {
                             "data": [
@@ -13981,7 +14179,13 @@
                             "average_generated_sequence_probability": 3.968343072374576e-07,
                             "average_generated_sequence_probability_codebert_score_weighted": 3.595925044468115e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.858012297913303e-07,
-                            "average_generated_sequence_probability_unixcoder_weighted": 4.0007413046044204e-07
+                            "average_generated_sequence_probability_unixcoder_weighted": 4.0007413046044204e-07,
+                            "spuq_codebleu": 0.6956721732089736,
+                            "spuq_codebleu_reverse": 0.38006219901407007,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9150227560917196,
+                            "average_average_token_probability_codebleu_weighted": 0.9709401715778047,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9500270011567405,
+                            "average_generated_sequence_probability_codebleu_weighted": 2.7458203177211926e-07
                         },
                         "exec_result": {
                             "data": [
@@ -14933,7 +15137,13 @@
                             "average_generated_sequence_probability": 0.008637450429822098,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.008550127890314136,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008688357563380171,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.009674237668639361
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.009674237668639361,
+                            "spuq_codebleu": 0.6736261400419838,
+                            "spuq_codebleu_reverse": 0.2493690602480005,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9490784031904056,
+                            "average_average_token_probability_codebleu_weighted": 0.9597183829835702,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9296278738883689,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.004544900445099098
                         },
                         "exec_result": {
                             "data": [
@@ -15605,7 +15815,13 @@
                             "average_generated_sequence_probability": 0.004111084881765377,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.004838272585351249,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.004257985308488229,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.006723762324784568
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.006723762324784568,
+                            "spuq_codebleu": 0.6960268976995596,
+                            "spuq_codebleu_reverse": 0.3013840530900632,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9658027868503666,
+                            "average_average_token_probability_codebleu_weighted": 0.9751194581970476,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.962304349711669,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.011890404329013815
                         },
                         "exec_result": {
                             "data": [
@@ -16277,7 +16493,13 @@
                             "average_generated_sequence_probability": 0.003460250849948702,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.003232712834813652,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.003334622764561529,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0026361751326458276
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0026361751326458276,
+                            "spuq_codebleu": 0.6481099956881674,
+                            "spuq_codebleu_reverse": 0.23491564694876757,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9564000919416674,
+                            "average_average_token_probability_codebleu_weighted": 0.9758901365621869,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9552891087346786,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0020905353586979955
                         },
                         "exec_result": {
                             "data": [
@@ -16949,7 +17171,13 @@
                             "average_generated_sequence_probability": 0.008639077340807844,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.008249732386016236,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008765984165658623,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.007587087239004126
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.007587087239004126,
+                            "spuq_codebleu": 0.614540204520884,
+                            "spuq_codebleu_reverse": 0.274772459444987,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9306467441025935,
+                            "average_average_token_probability_codebleu_weighted": 0.9688730245365536,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9466392121196654,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0035232713389513263
                         },
                         "exec_result": {
                             "data": [
@@ -17621,7 +17849,13 @@
                             "average_generated_sequence_probability": 0.012656111662036021,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.011594181790880932,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.012484721126672,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.008018944099974308
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.008018944099974308,
+                            "spuq_codebleu": 0.7381571434463672,
+                            "spuq_codebleu_reverse": 0.32057288638071646,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9248974339146029,
+                            "average_average_token_probability_codebleu_weighted": 0.9705173328460053,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9560208605006539,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.005556729924545622
                         },
                         "exec_result": {
                             "data": [
@@ -18293,7 +18527,13 @@
                             "average_generated_sequence_probability": 0.009288947700162095,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.008833724306174177,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.009245743139176222,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.010261053750055144
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.010261053750055144,
+                            "spuq_codebleu": 0.6721122002087018,
+                            "spuq_codebleu_reverse": 0.2775946003441933,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9594628916877543,
+                            "average_average_token_probability_codebleu_weighted": 0.968653198624325,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9458973792260297,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.003962046735956311
                         },
                         "exec_result": {
                             "data": [
@@ -18965,7 +19205,13 @@
                             "average_generated_sequence_probability": 0.012746793072713798,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.012006802215943232,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.012640468393793769,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.011892663281629832
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.011892663281629832,
+                            "spuq_codebleu": 0.6465450043697997,
+                            "spuq_codebleu_reverse": 0.23769950132249357,
+                            "average_verbalized_confidence_codebleu_weighted": 0.956676246816822,
+                            "average_average_token_probability_codebleu_weighted": 0.9756823748522852,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9650048861116384,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.006418671975737551
                         },
                         "exec_result": {
                             "data": [
@@ -19637,7 +19883,13 @@
                             "average_generated_sequence_probability": 0.0007437870406339857,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0007103512078483082,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0007313046722546415,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0007495713633344246
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0007495713633344246,
+                            "spuq_codebleu": 0.672691758943698,
+                            "spuq_codebleu_reverse": 0.2703258054638323,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9400053232364536,
+                            "average_average_token_probability_codebleu_weighted": 0.955293653406728,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.931793841315885,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00036860622946879705
                         },
                         "exec_result": {
                             "data": [
@@ -19697,7 +19949,13 @@
                             "average_generated_sequence_probability": 0.004201980985375325,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.004188071753725346,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.004252452914904177,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.004223174910387047
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.004223174910387047,
+                            "spuq_codebleu": 0.6152327876698833,
+                            "spuq_codebleu_reverse": 0.3443955391182861,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9415431120331481,
+                            "average_average_token_probability_codebleu_weighted": 0.9689693201153531,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9515953566362854,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.002592861011561485
                         },
                         "exec_result": {
                             "data": [
@@ -20369,7 +20627,13 @@
                             "average_generated_sequence_probability": 0.0042018265966736225,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.004278595491258546,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.004220257972124764,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00393824197922913
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00393824197922913,
+                            "spuq_codebleu": 0.652393032463623,
+                            "spuq_codebleu_reverse": 0.31419302475744126,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9572355373192237,
+                            "average_average_token_probability_codebleu_weighted": 0.9747082211962815,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9614672402179852,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.004385661907704955
                         },
                         "exec_result": {
                             "data": [
@@ -21041,7 +21305,13 @@
                             "average_generated_sequence_probability": 0.009379843803772043,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.011040801729701889,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00950711369656259,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.012576733207388028
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.012576733207388028,
+                            "spuq_codebleu": 0.6980198687908925,
+                            "spuq_codebleu_reverse": 0.3010053827597952,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9684267646448699,
+                            "average_average_token_probability_codebleu_weighted": 0.981325532417454,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9723219310070657,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.029508123585697727
                         },
                         "exec_result": {
                             "data": [
@@ -22117,7 +22387,13 @@
                             "average_generated_sequence_probability": 0.01724541687945209,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.016065114910572272,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.017159089774122397,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.017516464886442873
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.017516464886442873,
+                            "spuq_codebleu": 0.7067659217997464,
+                            "spuq_codebleu_reverse": 0.32503404446455286,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8769332283716351,
+                            "average_average_token_probability_codebleu_weighted": 0.9694657767605825,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9525423833670836,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.009414443645986101
                         },
                         "exec_result": {
                             "data": [
@@ -22688,7 +22964,13 @@
                             "average_generated_sequence_probability": 0.00023434439457608157,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00023104532099480412,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0002355448586556307,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00022642249363774897
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00022642249363774897,
+                            "spuq_codebleu": 0.6861476058416575,
+                            "spuq_codebleu_reverse": 0.22496531328961825,
+                            "average_verbalized_confidence_codebleu_weighted": 0.5904390207399185,
+                            "average_average_token_probability_codebleu_weighted": 0.9390940178623987,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8911885290176036,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00012329104667470258
                         },
                         "exec_result": {
                             "data": [
@@ -23259,7 +23541,13 @@
                             "average_generated_sequence_probability": 0.0032651784157694624,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0032253972112435345,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0032773151624857903,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0031165186258607903
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0031165186258607903,
+                            "spuq_codebleu": 0.6409049613068974,
+                            "spuq_codebleu_reverse": 0.20815442087664934,
+                            "average_verbalized_confidence_codebleu_weighted": 0.865678140565205,
+                            "average_average_token_probability_codebleu_weighted": 0.9679151753970668,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.42925320656392374,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0016339217298405873
                         },
                         "exec_result": {
                             "data": [
@@ -23830,7 +24118,13 @@
                             "average_generated_sequence_probability": 0.01710192111742912,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.016750115561797736,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.016903746515151204,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.014123681263367995
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.014123681263367995,
+                            "spuq_codebleu": 0.7182905428445322,
+                            "spuq_codebleu_reverse": 0.27589023501281484,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8356324647800654,
+                            "average_average_token_probability_codebleu_weighted": 0.9432027089860172,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.904104180506576,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.010281971338197754
                         },
                         "exec_result": {
                             "data": [
@@ -24401,7 +24695,13 @@
                             "average_generated_sequence_probability": 0.017082626087389093,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.016670937997336596,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01713126709727667,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.018063311626062752
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.018063311626062752,
+                            "spuq_codebleu": 0.7424107717325429,
+                            "spuq_codebleu_reverse": 0.40374292731484374,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8782067931495898,
+                            "average_average_token_probability_codebleu_weighted": 0.9742489576846253,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8599050806361177,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.008816678567124184
                         },
                         "exec_result": {
                             "data": [
@@ -24972,7 +25272,13 @@
                             "average_generated_sequence_probability": 0.03696895127354915,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.041152628307020975,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.03754344467936711,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.04147003478200369
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.04147003478200369,
+                            "spuq_codebleu": 0.6458776575632968,
+                            "spuq_codebleu_reverse": 0.339232550240147,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8356906638631926,
+                            "average_average_token_probability_codebleu_weighted": 0.9722962183037985,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9548744624045583,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.05880835939836858
                         },
                         "exec_result": {
                             "data": [
@@ -25543,7 +25849,13 @@
                             "average_generated_sequence_probability": 0.02197745153897167,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.021413173148379597,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.021881905575363975,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.02088299824512521
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.02088299824512521,
+                            "spuq_codebleu": 0.6740880628637975,
+                            "spuq_codebleu_reverse": 0.3347612061366207,
+                            "average_verbalized_confidence_codebleu_weighted": 0.864475944428582,
+                            "average_average_token_probability_codebleu_weighted": 0.9712078813678844,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.947477742333693,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.01591064200612717
                         },
                         "exec_result": {
                             "data": [
@@ -26114,7 +26426,13 @@
                             "average_generated_sequence_probability": 0.016199618697326328,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.015977299009208662,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.016274327025395472,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.01776210956008937
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.01776210956008937,
+                            "spuq_codebleu": 0.6800181015347743,
+                            "spuq_codebleu_reverse": 0.3069039460922856,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8845703664393244,
+                            "average_average_token_probability_codebleu_weighted": 0.968734585722089,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9514054914759579,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.01265865999980115
                         },
                         "exec_result": {
                             "data": [
@@ -26685,7 +27003,13 @@
                             "average_generated_sequence_probability": 0.021143942448352732,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.019483234237133926,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.020659140757849605,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.020034444667931233
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.020034444667931233,
+                            "spuq_codebleu": 0.7286020313556737,
+                            "spuq_codebleu_reverse": 0.3140518575764697,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9122274080717356,
+                            "average_average_token_probability_codebleu_weighted": 0.9603310854517666,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9330485430591873,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.011172869094088506
                         },
                         "exec_result": {
                             "data": [
@@ -27256,7 +27580,13 @@
                             "average_generated_sequence_probability": 0.002110401415839319,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0020428101480926904,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.002106893672059632,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0020778099765219726
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0020778099765219726,
+                            "spuq_codebleu": 0.6300592356789952,
+                            "spuq_codebleu_reverse": 0.2595178383813484,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8138370993194747,
+                            "average_average_token_probability_codebleu_weighted": 0.9526555546911342,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9125236657172598,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0011400286115258703
                         },
                         "exec_result": {
                             "data": [
@@ -27315,7 +27645,13 @@
                             "average_generated_sequence_probability": 0.018775874665450217,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.019066510469590413,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01905247042600039,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.017676065212216742
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.017676065212216742,
+                            "spuq_codebleu": 0.6539613740490797,
+                            "spuq_codebleu_reverse": 0.29043556299776724,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8219584808323404,
+                            "average_average_token_probability_codebleu_weighted": 0.959374621748945,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8323436696742028,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.01222079502319359
                         },
                         "exec_result": {
                             "data": [
@@ -27886,7 +28222,13 @@
                             "average_generated_sequence_probability": 0.01798063972498529,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.016818865072632565,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.017771304044338833,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.017573953587818884
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.017573953587818884,
+                            "spuq_codebleu": 0.6831324163737993,
+                            "spuq_codebleu_reverse": 0.2964323709162078,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9007171170796584,
+                            "average_average_token_probability_codebleu_weighted": 0.9769592201391076,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9668757226902505,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.013378368627477495
                         },
                         "exec_result": {
                             "data": [
@@ -28457,7 +28799,13 @@
                             "average_generated_sequence_probability": 0.0032651784417682774,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0038547358890744345,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0033269228362443545,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.004296598969306579
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.004296598969306579,
+                            "spuq_codebleu": 0.7023688691165745,
+                            "spuq_codebleu_reverse": 0.3160165632654975,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8722503874732568,
+                            "average_average_token_probability_codebleu_weighted": 0.9708533130840533,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9549566962096562,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00970490516982944
                         },
                         "exec_result": {
                             "data": [
@@ -29028,7 +29376,13 @@
                             "average_generated_sequence_probability": 0.025096333988405956,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.02411528925653835,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.024834193281762677,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.02474599494602011
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.02474599494602011,
+                            "spuq_codebleu": 0.7068147607481735,
+                            "spuq_codebleu_reverse": 0.3380888939294338,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8774316954322424,
+                            "average_average_token_probability_codebleu_weighted": 0.9621575412729904,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9279874748559274,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.018114068127993294
                         },
                         "exec_result": {
                             "data": [
@@ -29599,7 +29953,13 @@
                             "average_generated_sequence_probability": 0.0013784688021044272,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0013430261535169446,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0013881860771401459,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0013449860622193627
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0013449860622193627,
+                            "spuq_codebleu": 0.6597840312797252,
+                            "spuq_codebleu_reverse": 0.2730911957039192,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8965270124260254,
+                            "average_average_token_probability_codebleu_weighted": 0.9727482263278217,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8520599750666916,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0013636067237146295
                         },
                         "exec_result": {
                             "data": [
@@ -30170,7 +30530,13 @@
                             "average_generated_sequence_probability": 0.019507827265832927,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.02068180569026163,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.019650468136847146,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.020990626955785935
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.020990626955785935,
+                            "spuq_codebleu": 0.6637422943387646,
+                            "spuq_codebleu_reverse": 0.36165152006378454,
+                            "average_verbalized_confidence_codebleu_weighted": 0.7825415189070494,
+                            "average_average_token_probability_codebleu_weighted": 0.9671707585580713,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9515163329477377,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.01909515640455764
                         },
                         "exec_result": {
                             "data": [
@@ -30229,7 +30595,13 @@
                             "average_generated_sequence_probability": 0.02440485360123108,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.029013850076075196,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.02490604306822222,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.033886053451286056
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.033886053451286056,
+                            "spuq_codebleu": 0.6966547543015118,
+                            "spuq_codebleu_reverse": 0.3615860116623902,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8986730789477626,
+                            "average_average_token_probability_codebleu_weighted": 0.9787358925112474,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9682471786465895,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0684312524442834
                         },
                         "exec_result": {
                             "data": [
@@ -30800,7 +31172,13 @@
                             "average_generated_sequence_probability": 0.0034002195738980913,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.003052178870323392,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.003347557726171118,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.002834726629985303
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.002834726629985303,
+                            "spuq_codebleu": 0.6946957241724837,
+                            "spuq_codebleu_reverse": 0.27123962678118885,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8132258905932664,
+                            "average_average_token_probability_codebleu_weighted": 0.9558053732608022,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9218030244611295,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0016868918877257376
                         },
                         "exec_result": {
                             "data": [
@@ -31716,7 +32094,13 @@
                             "average_generated_sequence_probability": 1.2790912196874186e-09,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.2554619119425224e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.280302685887968e-09,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.271580691876703e-09
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.271580691876703e-09,
+                            "spuq_codebleu": 0.6902852296414399,
+                            "spuq_codebleu_reverse": 0.3664956472959009,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9404284933696943,
+                            "average_average_token_probability_codebleu_weighted": 0.9627374010359343,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9426143644045256,
+                            "average_generated_sequence_probability_codebleu_weighted": 8.485317881833558e-10
                         },
                         "exec_result": {
                             "data": [
@@ -32138,7 +32522,13 @@
                             "average_generated_sequence_probability": 8.102638190416046e-09,
                             "average_generated_sequence_probability_codebert_score_weighted": 8.692446582445101e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.141190880472704e-09,
-                            "average_generated_sequence_probability_unixcoder_weighted": 9.100729884628857e-09
+                            "average_generated_sequence_probability_unixcoder_weighted": 9.100729884628857e-09,
+                            "spuq_codebleu": 0.7141812022411622,
+                            "spuq_codebleu_reverse": 0.45321332023381006,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9234798552143734,
+                            "average_average_token_probability_codebleu_weighted": 0.9645405150703532,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9393523310660672,
+                            "average_generated_sequence_probability_codebleu_weighted": 1.549632294321054e-08
                         },
                         "exec_result": {
                             "data": [
@@ -32198,7 +32588,13 @@
                             "average_generated_sequence_probability": 8.102505109228375e-09,
                             "average_generated_sequence_probability_codebert_score_weighted": 8.153291279646444e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.127422460720437e-09,
-                            "average_generated_sequence_probability_unixcoder_weighted": 8.218998324362125e-09
+                            "average_generated_sequence_probability_unixcoder_weighted": 8.218998324362125e-09,
+                            "spuq_codebleu": 0.6825168880984,
+                            "spuq_codebleu_reverse": 0.5310270298678363,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9293542134956488,
+                            "average_average_token_probability_codebleu_weighted": 0.9612943449001286,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9315395726109479,
+                            "average_generated_sequence_probability_codebleu_weighted": 7.657627508913308e-09
                         },
                         "exec_result": {
                             "data": [
@@ -32258,7 +32654,13 @@
                             "average_generated_sequence_probability": 5.612505145127031e-10,
                             "average_generated_sequence_probability_codebert_score_weighted": 5.87479344719335e-10,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 5.633321058223614e-10,
-                            "average_generated_sequence_probability_unixcoder_weighted": 6.437004495762889e-10
+                            "average_generated_sequence_probability_unixcoder_weighted": 6.437004495762889e-10,
+                            "spuq_codebleu": 0.6625654853945964,
+                            "spuq_codebleu_reverse": 0.40737085337451623,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9372383093671377,
+                            "average_average_token_probability_codebleu_weighted": 0.9608984583014996,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9306717648155843,
+                            "average_generated_sequence_probability_codebleu_weighted": 7.111027337576363e-10
                         },
                         "exec_result": {
                             "data": [
@@ -32318,7 +32720,13 @@
                             "average_generated_sequence_probability": 5.631922040575332e-10,
                             "average_generated_sequence_probability_codebert_score_weighted": 5.914763322210823e-10,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 5.652739653379282e-10,
-                            "average_generated_sequence_probability_unixcoder_weighted": 6.481169907205664e-10
+                            "average_generated_sequence_probability_unixcoder_weighted": 6.481169907205664e-10,
+                            "spuq_codebleu": 0.6891363662377579,
+                            "spuq_codebleu_reverse": 0.5219375459967937,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9371369576979597,
+                            "average_average_token_probability_codebleu_weighted": 0.9614882386870375,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9304231682902833,
+                            "average_generated_sequence_probability_codebleu_weighted": 9.303928434905464e-10
                         },
                         "exec_result": {
                             "data": [
@@ -32378,7 +32786,13 @@
                             "average_generated_sequence_probability": 6.709233247685167e-10,
                             "average_generated_sequence_probability_codebert_score_weighted": 7.06250091426228e-10,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 6.741098561886777e-10,
-                            "average_generated_sequence_probability_unixcoder_weighted": 7.807926460533463e-10
+                            "average_generated_sequence_probability_unixcoder_weighted": 7.807926460533463e-10,
+                            "spuq_codebleu": 0.7179327950646603,
+                            "spuq_codebleu_reverse": 0.4842844066682359,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9468044880046552,
+                            "average_average_token_probability_codebleu_weighted": 0.9607589649097694,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.936235795212103,
+                            "average_generated_sequence_probability_codebleu_weighted": 7.678789013079434e-10
                         },
                         "exec_result": {
                             "data": [
@@ -32800,7 +33214,13 @@
                             "average_generated_sequence_probability": 1.2792232127639168e-09,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.2692855969687138e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.2803997319011449e-09,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.441947587920821e-09
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.441947587920821e-09,
+                            "spuq_codebleu": 0.7001671745741406,
+                            "spuq_codebleu_reverse": 0.4235907700596793,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9409358513393747,
+                            "average_average_token_probability_codebleu_weighted": 0.9638414762621706,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9424084318955277,
+                            "average_generated_sequence_probability_codebleu_weighted": 1.1698929342088736e-09
                         },
                         "exec_result": {
                             "data": [
@@ -32860,7 +33280,13 @@
                             "average_generated_sequence_probability": 7.215979496365722e-10,
                             "average_generated_sequence_probability_codebert_score_weighted": 8.086319129819658e-10,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 7.25371062199797e-10,
-                            "average_generated_sequence_probability_unixcoder_weighted": 8.50699568330617e-10
+                            "average_generated_sequence_probability_unixcoder_weighted": 8.50699568330617e-10,
+                            "spuq_codebleu": 0.6805409091543795,
+                            "spuq_codebleu_reverse": 0.3887581641110472,
+                            "average_verbalized_confidence_codebleu_weighted": 0.926259469827579,
+                            "average_average_token_probability_codebleu_weighted": 0.9680114245076499,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9497884284458348,
+                            "average_generated_sequence_probability_codebleu_weighted": 1.8067475292625645e-09
                         },
                         "exec_result": {
                             "data": [
@@ -33282,7 +33708,13 @@
                             "average_generated_sequence_probability": 7.54501080166237e-09,
                             "average_generated_sequence_probability_codebert_score_weighted": 7.759631917101772e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 7.593151141008682e-09,
-                            "average_generated_sequence_probability_unixcoder_weighted": 8.49887213037295e-09
+                            "average_generated_sequence_probability_unixcoder_weighted": 8.49887213037295e-09,
+                            "spuq_codebleu": 0.668976186153189,
+                            "spuq_codebleu_reverse": 0.4548682248137144,
+                            "average_verbalized_confidence_codebleu_weighted": 0.930517753972357,
+                            "average_average_token_probability_codebleu_weighted": 0.9619256588518172,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9320263075544081,
+                            "average_generated_sequence_probability_codebleu_weighted": 6.314520035724626e-09
                         },
                         "exec_result": {
                             "data": [
@@ -33704,7 +34136,13 @@
                             "average_generated_sequence_probability": 1.1694189282546393e-09,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.130664085528238e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.1643959376837737e-09,
-                            "average_generated_sequence_probability_unixcoder_weighted": 9.488622191944526e-10
+                            "average_generated_sequence_probability_unixcoder_weighted": 9.488622191944526e-10,
+                            "spuq_codebleu": 0.718320396635105,
+                            "spuq_codebleu_reverse": 0.3889297332323792,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9180454756931462,
+                            "average_average_token_probability_codebleu_weighted": 0.9608849274633315,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9334422091125895,
+                            "average_generated_sequence_probability_codebleu_weighted": 6.660344641653166e-10
                         },
                         "exec_result": {
                             "data": [
@@ -34018,7 +34456,13 @@
                             "average_generated_sequence_probability": 1.2734009229286017e-14,
                             "average_generated_sequence_probability_codebert_score_weighted": 1.1530055712060738e-14,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.2647310766771157e-14,
-                            "average_generated_sequence_probability_unixcoder_weighted": 1.2093374782500915e-14
+                            "average_generated_sequence_probability_unixcoder_weighted": 1.2093374782500915e-14,
+                            "spuq_codebleu": 0.669299743610471,
+                            "spuq_codebleu_reverse": 0.27630681686565983,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8679158222376941,
+                            "average_average_token_probability_codebleu_weighted": 0.9435042668566405,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8981832268081423,
+                            "average_generated_sequence_probability_codebleu_weighted": 6.661451111972973e-15
                         },
                         "exec_result": {
                             "data": [
@@ -34799,7 +35243,13 @@
                             "average_generated_sequence_probability": 0.009260083304639266,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.006675497343684783,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008648633312426999,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.004342613944796735
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.004342613944796735,
+                            "spuq_codebleu": 0.6492807891684563,
+                            "spuq_codebleu_reverse": 0.2672916765676311,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8813842911037918,
+                            "average_average_token_probability_codebleu_weighted": 0.9723515489833223,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9536031904896021,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00460780187170112
                         },
                         "exec_result": {
                             "data": [
@@ -35580,7 +36030,13 @@
                             "average_generated_sequence_probability": 0.009357249551082095,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.006665963076008342,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008857386299875262,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00467517889433139
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00467517889433139,
+                            "spuq_codebleu": 0.6723893383162102,
+                            "spuq_codebleu_reverse": 0.3117488318734468,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8842138981302343,
+                            "average_average_token_probability_codebleu_weighted": 0.9806204532982209,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9615334689524565,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0028695772179112046
                         },
                         "exec_result": {
                             "data": [
@@ -36361,7 +36817,13 @@
                             "average_generated_sequence_probability": 0.008996286870738977,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.013793718330546195,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.009658840468055726,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.021431874580782082
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.021431874580782082,
+                            "spuq_codebleu": 0.6889365244144434,
+                            "spuq_codebleu_reverse": 0.23063035131989149,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9394825126911736,
+                            "average_average_token_probability_codebleu_weighted": 0.984656955873514,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9737270782637822,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.03183522358354222
                         },
                         "exec_result": {
                             "data": [
@@ -37142,7 +37604,13 @@
                             "average_generated_sequence_probability": 0.008899120624306006,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.006359021215640537,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008372865389731065,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00373835128868469
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00373835128868469,
+                            "spuq_codebleu": 0.6652160205378297,
+                            "spuq_codebleu_reverse": 0.294879678238796,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9209126296157749,
+                            "average_average_token_probability_codebleu_weighted": 0.9681209591237477,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9427440619042158,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.003913876362496434
                         },
                         "exec_result": {
                             "data": [
@@ -37923,7 +38391,13 @@
                             "average_generated_sequence_probability": 0.008899120624297006,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.006613391611083958,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008434192814388121,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.004306281325376204
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.004306281325376204,
+                            "spuq_codebleu": 0.652284547440761,
+                            "spuq_codebleu_reverse": 0.23442875947853625,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9012141761717322,
+                            "average_average_token_probability_codebleu_weighted": 0.9726393881949535,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9520762273271896,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.004038472428932675
                         },
                         "exec_result": {
                             "data": [
@@ -39446,7 +39920,13 @@
                             "average_generated_sequence_probability": 0.0003609626803441697,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0003594805996978244,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00036070201675405254,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00029876861371934437
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00029876861371934437,
+                            "spuq_codebleu": 0.6347612387620024,
+                            "spuq_codebleu_reverse": 0.25442423019292,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8852331631359132,
+                            "average_average_token_probability_codebleu_weighted": 0.9680338224988191,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9384550256969141,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00022413344936249923
                         },
                         "exec_result": {
                             "data": [
@@ -40227,7 +40707,13 @@
                             "average_generated_sequence_probability": 0.008996286870749859,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.006560256067248323,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008515043584393634,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.004072960651807948
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.004072960651807948,
+                            "spuq_codebleu": 0.6395319308678397,
+                            "spuq_codebleu_reverse": 0.29721186901253493,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9198864007671129,
+                            "average_average_token_probability_codebleu_weighted": 0.9723992947626124,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9534122713586045,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0033101466310765187
                         },
                         "exec_result": {
                             "data": [
@@ -41008,7 +41494,13 @@
                             "average_generated_sequence_probability": 0.0004581289267851187,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00045007056450008725,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.000456675563722237,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.00038772725814241585
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.00038772725814241585,
+                            "spuq_codebleu": 0.6422297296902841,
+                            "spuq_codebleu_reverse": 0.3138432689074693,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8891526868359853,
+                            "average_average_token_probability_codebleu_weighted": 0.9731689854123481,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9489528058979576,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00031416134585023515
                         },
                         "exec_result": {
                             "data": [
@@ -41789,7 +42281,13 @@
                             "average_generated_sequence_probability": 0.009357249551090295,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0064590237734325935,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008748826173829709,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0034755664851468084
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0034755664851468084,
+                            "spuq_codebleu": 0.7904937012137248,
+                            "spuq_codebleu_reverse": 0.3118296818034208,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9030396203668225,
+                            "average_average_token_probability_codebleu_weighted": 0.9864966885571413,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9783549179739456,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0035360987329999642
                         },
                         "exec_result": {
                             "data": [
@@ -42570,7 +43068,13 @@
                             "average_generated_sequence_probability": 0.008996286870739776,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.006221131599137692,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008397511880284958,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0039981118785492094
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0039981118785492094,
+                            "spuq_codebleu": 0.6505016973209606,
+                            "spuq_codebleu_reverse": 0.27467809384657277,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9011712047253216,
+                            "average_average_token_probability_codebleu_weighted": 0.9774636582432966,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9631399620553365,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.003945179333575056
                         },
                         "exec_result": {
                             "data": [
@@ -43888,7 +44392,13 @@
                             "average_generated_sequence_probability": 0.0031531858256184007,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0031319885447164747,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0031499049783343482,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0029552712000592324
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0029552712000592324,
+                            "spuq_codebleu": 0.7419845610797653,
+                            "spuq_codebleu_reverse": 0.4224751455261174,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9462027502991278,
+                            "average_average_token_probability_codebleu_weighted": 0.9742943367355458,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9580860486338245,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0014834578139876844
                         },
                         "exec_result": {
                             "data": [
@@ -44461,7 +44971,13 @@
                             "average_generated_sequence_probability": 0.019756148629885967,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0191168811576897,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01965082024311549,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.01990472260363235
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.01990472260363235,
+                            "spuq_codebleu": 0.7341241951409205,
+                            "spuq_codebleu_reverse": 0.39622453457039825,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9600565996394462,
+                            "average_average_token_probability_codebleu_weighted": 0.9756510847848732,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.954420732812693,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0067234870901430365
                         },
                         "exec_result": {
                             "data": [
@@ -45034,7 +45550,13 @@
                             "average_generated_sequence_probability": 0.024239250451933786,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.024036421357487767,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.024584985806703468,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.02152515151041594
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.02152515151041594,
+                            "spuq_codebleu": 0.6853380911702903,
+                            "spuq_codebleu_reverse": 0.3154231012011909,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9259213838798622,
+                            "average_average_token_probability_codebleu_weighted": 0.9845457282443363,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.974608983250869,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.020253757610847373
                         },
                         "exec_result": {
                             "data": [
@@ -45607,7 +46129,13 @@
                             "average_generated_sequence_probability": 0.004741087113600246,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.004271638186591693,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.004590978380023739,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0033954463718159464
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0033954463718159464,
+                            "spuq_codebleu": 0.694186047808203,
+                            "spuq_codebleu_reverse": 0.3199418646122978,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9550760123744887,
+                            "average_average_token_probability_codebleu_weighted": 0.9365863491912957,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8834276542719921,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0026223817615395437
                         },
                         "exec_result": {
                             "data": [
@@ -45668,7 +46196,13 @@
                             "average_generated_sequence_probability": 6.731578568203927e-05,
                             "average_generated_sequence_probability_codebert_score_weighted": 6.780451695113698e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 6.891092393917357e-05,
-                            "average_generated_sequence_probability_unixcoder_weighted": 6.416894370045234e-05
+                            "average_generated_sequence_probability_unixcoder_weighted": 6.416894370045234e-05,
+                            "spuq_codebleu": 0.6704261789207567,
+                            "spuq_codebleu_reverse": 0.28522062061425907,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9398406313594517,
+                            "average_average_token_probability_codebleu_weighted": 0.9414665599710226,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8729051938414505,
+                            "average_generated_sequence_probability_codebleu_weighted": 3.8147315118446405e-05
                         },
                         "exec_result": {
                             "data": [
@@ -46241,7 +46775,13 @@
                             "average_generated_sequence_probability": 0.014031385919990412,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.014365496394254674,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.014087482839946517,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.014383403250703523
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.014383403250703523,
+                            "spuq_codebleu": 0.7319826179731984,
+                            "spuq_codebleu_reverse": 0.33222691082135836,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9492779715415317,
+                            "average_average_token_probability_codebleu_weighted": 0.9816284175332463,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9711056386021952,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.008405707450129439
                         },
                         "exec_result": {
                             "data": [
@@ -46814,7 +47354,13 @@
                             "average_generated_sequence_probability": 0.022802318279354052,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.027656931896537992,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.023654380533096424,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.032325785824596824
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.032325785824596824,
+                            "spuq_codebleu": 0.7418596139432997,
+                            "spuq_codebleu_reverse": 0.2886762461766821,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9397044455674419,
+                            "average_average_token_probability_codebleu_weighted": 0.9796410980915756,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9654134804896198,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.07630529529687367
                         },
                         "exec_result": {
                             "data": [
@@ -47387,7 +47933,13 @@
                             "average_generated_sequence_probability": 0.013849316479898078,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.015566840738640965,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.014255409154260799,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.017369648848412418
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.017369648848412418,
+                            "spuq_codebleu": 0.7190258547487342,
+                            "spuq_codebleu_reverse": 0.3785565484436186,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9227869072384988,
+                            "average_average_token_probability_codebleu_weighted": 0.9654671494618351,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9405112986867944,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.011808651020789495
                         },
                         "exec_result": {
                             "data": [
@@ -47960,7 +48512,13 @@
                             "average_generated_sequence_probability": 0.019882991711425265,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.01904790630241077,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01971479899112453,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.016501920326347754
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.016501920326347754,
+                            "spuq_codebleu": 0.6572809719913068,
+                            "spuq_codebleu_reverse": 0.22117862875971922,
+                            "average_verbalized_confidence_codebleu_weighted": 0.946851063459195,
+                            "average_average_token_probability_codebleu_weighted": 0.9662292787419803,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9382328511737108,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.007445231109548925
                         },
                         "exec_result": {
                             "data": [
@@ -48533,7 +49091,13 @@
                             "average_generated_sequence_probability": 0.01986118502071525,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.018576919020076948,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.019342923031499946,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.01445814890389121
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.01445814890389121,
+                            "spuq_codebleu": 0.742318481805945,
+                            "spuq_codebleu_reverse": 0.4181871110864012,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9500000000000001,
+                            "average_average_token_probability_codebleu_weighted": 0.9711928621565897,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.948925557305581,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.012021865441566061
                         },
                         "exec_result": {
                             "data": [
@@ -49106,7 +49670,13 @@
                             "average_generated_sequence_probability": 0.0004395677629853371,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00038915763388952675,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00043180050510528754,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.000341916447214402
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.000341916447214402,
+                            "spuq_codebleu": 0.6717136306752917,
+                            "spuq_codebleu_reverse": 0.3770165899282271,
+                            "average_verbalized_confidence_codebleu_weighted": 0.952539113015595,
+                            "average_average_token_probability_codebleu_weighted": 0.9430294476026874,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.896142046289797,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00019062758555929942
                         },
                         "exec_result": {
                             "data": [
@@ -49679,7 +50249,13 @@
                             "average_generated_sequence_probability": 0.000360574802940756,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0003767937570878327,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0003654238350341138,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0004040639007149334
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0004040639007149334,
+                            "spuq_codebleu": 0.6631609246844683,
+                            "spuq_codebleu_reverse": 0.2627155757738447,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9377842761707831,
+                            "average_average_token_probability_codebleu_weighted": 0.9811101415095537,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9658117616663446,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.00023079276987251443
                         },
                         "exec_result": {
                             "data": [
@@ -50252,7 +50828,13 @@
                             "average_generated_sequence_probability": 0.012876696407989266,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.013425102914382168,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01310921260081774,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.012436783023877553
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.012436783023877553,
+                            "spuq_codebleu": 0.7018679152389622,
+                            "spuq_codebleu_reverse": 0.3714636715544863,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9677742567836475,
+                            "average_average_token_probability_codebleu_weighted": 0.9809797723323036,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9629441653771703,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.011781320527120066
                         },
                         "exec_result": {
                             "data": [
@@ -50825,7 +51407,13 @@
                             "average_generated_sequence_probability": 0.004856850415736607,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.004699139967312541,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.004742924054141825,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0050571561751340775
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0050571561751340775,
+                            "spuq_codebleu": 0.6832790515224696,
+                            "spuq_codebleu_reverse": 0.46959023105130593,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9642770256488312,
+                            "average_average_token_probability_codebleu_weighted": 0.9817034376564171,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.969087521302885,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.003149863433432347
                         },
                         "exec_result": {
                             "data": [
@@ -51398,7 +51986,13 @@
                             "average_generated_sequence_probability": 0.01404065108427715,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.015522343291070464,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01420619250872487,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.017420674194657388
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.017420674194657388,
+                            "spuq_codebleu": 0.7293663421319463,
+                            "spuq_codebleu_reverse": 0.42189795164541,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9526462877010696,
+                            "average_average_token_probability_codebleu_weighted": 0.9839303837127259,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9744281361143967,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.039441031291148655
                         },
                         "exec_result": {
                             "data": [
@@ -51971,7 +52565,13 @@
                             "average_generated_sequence_probability": 0.0139141232461134,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.012174700058021296,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.013650551473327173,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.011095021412911472
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.011095021412911472,
+                            "spuq_codebleu": 0.6425794163243423,
+                            "spuq_codebleu_reverse": 0.353413029407518,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9040067365308492,
+                            "average_average_token_probability_codebleu_weighted": 0.9081818141383691,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.8229645907588395,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.005522344771919118
                         },
                         "exec_result": {
                             "data": [
@@ -52544,7 +53144,13 @@
                             "average_generated_sequence_probability": 0.014154210262269047,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.013923608381061877,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.014382708314816018,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.013819838389659623
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.013819838389659623,
+                            "spuq_codebleu": 0.742140368109805,
+                            "spuq_codebleu_reverse": 0.3356581425753381,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8962961165731873,
+                            "average_average_token_probability_codebleu_weighted": 0.9832524605884484,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9717854373772601,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.005854260217180204
                         },
                         "exec_result": {
                             "data": [
@@ -53117,7 +53723,13 @@
                             "average_generated_sequence_probability": 0.0032325465921866584,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.003355975395100937,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.003308989824677919,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.003980130354892814
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.003980130354892814,
+                            "spuq_codebleu": 0.6562664837937299,
+                            "spuq_codebleu_reverse": 0.2836468278969217,
+                            "average_verbalized_confidence_codebleu_weighted": 0.8166741962963839,
+                            "average_average_token_probability_codebleu_weighted": 0.9634235086403486,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9310649679046026,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0020343202033197777
                         },
                         "exec_result": {
                             "data": [
@@ -53521,7 +54133,13 @@
                             "average_generated_sequence_probability": 0.010026488312232948,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00975222439086911,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.010227947159403443,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.009433931083014222
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.009433931083014222,
+                            "spuq_codebleu": 0.6835269560421485,
+                            "spuq_codebleu_reverse": 0.2898297716773586,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9166268624070594,
+                            "average_average_token_probability_codebleu_weighted": 0.9668100248508407,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9451940597532115,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.005868851057026974
                         },
                         "exec_result": {
                             "data": [
@@ -53581,7 +54199,13 @@
                             "average_generated_sequence_probability": 0.0024573525662522065,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0027060543877902086,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0024912853948450523,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0033503330337995916
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0033503330337995916,
+                            "spuq_codebleu": 0.6985154307473529,
+                            "spuq_codebleu_reverse": 0.31431121677059165,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9399169648279653,
+                            "average_average_token_probability_codebleu_weighted": 0.9796704606978286,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9650930816954503,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.004886401880064775
                         },
                         "exec_result": {
                             "data": [
@@ -54113,7 +54737,13 @@
                             "average_generated_sequence_probability": 0.01121093626888967,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.01031038951605465,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01125053471185004,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.008886311728996062
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.008886311728996062,
+                            "spuq_codebleu": 0.6507767628253524,
+                            "spuq_codebleu_reverse": 0.3551913857593532,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9332120577350602,
+                            "average_average_token_probability_codebleu_weighted": 0.9682285319256358,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9526396098699721,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0044445637437128755
                         },
                         "exec_result": {
                             "data": [
@@ -54645,7 +55275,13 @@
                             "average_generated_sequence_probability": 0.001408993905742769,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0013708345974169326,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0014085254785736446,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.001293771631044242
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.001293771631044242,
+                            "spuq_codebleu": 0.6449662143921607,
+                            "spuq_codebleu_reverse": 0.31202405856926596,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9241197715325468,
+                            "average_average_token_probability_codebleu_weighted": 0.9639125985284773,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9291798184243948,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0007528281194948729
                         },
                         "exec_result": {
                             "data": [
@@ -54705,7 +55341,13 @@
                             "average_generated_sequence_probability": 0.01234298705456579,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.011507542042270525,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.012234748749587382,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.010407005742930308
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.010407005742930308,
+                            "spuq_codebleu": 0.7169266986315793,
+                            "spuq_codebleu_reverse": 0.2594464955640264,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9475828335230496,
+                            "average_average_token_probability_codebleu_weighted": 0.9823248400859571,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9728626610211876,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0065594451681272115
                         },
                         "exec_result": {
                             "data": [
@@ -55237,7 +55879,13 @@
                             "average_generated_sequence_probability": 0.012342595232996745,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.011625162552853341,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.012143675213602198,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.009506980038439274
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.009506980038439274,
+                            "spuq_codebleu": 0.7144289986875898,
+                            "spuq_codebleu_reverse": 0.25196744175592456,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9158839137636057,
+                            "average_average_token_probability_codebleu_weighted": 0.9730671981767713,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9619570725510266,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.005997431011677478
                         },
                         "exec_result": {
                             "data": [
@@ -55769,7 +56417,13 @@
                             "average_generated_sequence_probability": 0.002590677621156737,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0027427411925270147,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0025972286830942344,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.0028959344210749667
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.0028959344210749667,
+                            "spuq_codebleu": 0.6632953809830225,
+                            "spuq_codebleu_reverse": 0.31677893687509745,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9432269793322802,
+                            "average_average_token_probability_codebleu_weighted": 0.9782683673219855,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.965097972905944,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.004299092745928366
                         },
                         "exec_result": {
                             "data": [
@@ -56301,7 +56955,13 @@
                             "average_generated_sequence_probability": 0.010025569055307859,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.012402073345824376,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.010354780626746097,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.01508512992863161
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.01508512992863161,
+                            "spuq_codebleu": 0.6695087683653046,
+                            "spuq_codebleu_reverse": 0.31304810141774764,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9426690076828205,
+                            "average_average_token_probability_codebleu_weighted": 0.9796783012811227,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9660925078174485,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.030322315880356186
                         },
                         "exec_result": {
                             "data": [
@@ -56833,7 +57493,13 @@
                             "average_generated_sequence_probability": 0.010027956339892554,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.009157424694212962,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.009832727308960109,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.009879336162956078
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.009879336162956078,
+                            "spuq_codebleu": 0.6744385250773135,
+                            "spuq_codebleu_reverse": 0.34499552491986074,
+                            "average_verbalized_confidence_codebleu_weighted": 0.9595014297996989,
+                            "average_average_token_probability_codebleu_weighted": 0.9819709814893393,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9661036037202864,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.006964457766341747
                         },
                         "exec_result": {
                             "data": [
@@ -57365,7 +58031,13 @@
                             "average_generated_sequence_probability": 0.0014100849798280206,
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0014049090309370947,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0014292802206267137,
-                            "average_generated_sequence_probability_unixcoder_weighted": 0.001183756092168425
+                            "average_generated_sequence_probability_unixcoder_weighted": 0.001183756092168425,
+                            "spuq_codebleu": 0.6919070456604453,
+                            "spuq_codebleu_reverse": 0.3225462978946412,
+                            "average_verbalized_confidence_codebleu_weighted": 0.946477461700444,
+                            "average_average_token_probability_codebleu_weighted": 0.9770172840675916,
+                            "average_average_token_probability_geometric_codebleu_weighted": 0.9544818578167458,
+                            "average_generated_sequence_probability_codebleu_weighted": 0.0006887985616296621
                         },
                         "exec_result": {
                             "data": [
