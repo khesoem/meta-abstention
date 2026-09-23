@@ -4758,7 +4758,19 @@
                 "code_uid": "d7df0818fd8c98509eaded5fb0b467f6",
                 "src_uid": "fc86df4931e787fa3a1a40e2aecf0b92",
                 "difficulty": 1100.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "# Read and process multiple inputs from console, similar to the Java code\ntry:\n    while True:\n        # Read the number of characters in the line, or break if no more input\n        num_line = input()\n        if not num_line:\n            break\n        Num = int(num_line)\n        Line = input()\n\n        Text = list(Line)\n\n        maxVal = 0\n        wordCount = 0\n        wordLen = 0\n        i = 0\n\n        while i < Num:\n            if Text[i] != '_' and Text[i] != '(' and Text[i] != ')':\n                wordLen += 1\n                i += 1\n            elif Text[i] == '_':\n                if wordLen > maxVal:\n                    maxVal = wordLen\n                wordLen = 0\n                i += 1\n            elif Text[i] == '(':\n                if wordLen > maxVal:\n                    maxVal = wordLen\n                wordLen = 0\n                i += 1\n                while i < Num:\n                    if Text[i] != '_' and Text[i] != '(' and Text[i] != ')':\n                        wordLen += 1\n                        i += 1\n                    elif Text[i] == '_':\n                        if wordLen != 0:\n                            wordCount += 1\n                            wordLen = 0\n                        i += 1\n                        if i < Num and Text[i] == ')':\n                            break\n                    elif Text[i] == ')':\n                        if wordLen != 0:\n                            wordCount += 1\n                            wordLen = 0\n                        i += 1\n                        break\n            else:\n                i += 1\n\n        if wordLen > maxVal:\n            maxVal = wordLen\n\n        print(f\"{maxVal} {wordCount}\")\n\nexcept EOFError:\n    pass\n\n# Note: The program reads until EOF, similar to Java's hasNextLine loop",
+                        "confidence": {
+                            "verbalization": 0.9,
+                            "average_token_probability": 0.9278184179862156,
+                            "average_token_probability_geometric": 0.8598806838460386,
+                            "generated_sequence_probability": 3.25859240669824e-27
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",

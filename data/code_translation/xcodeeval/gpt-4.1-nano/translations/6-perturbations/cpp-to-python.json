@@ -11041,7 +11041,19 @@
                 "code_uid": "7cdd2b7181b5b04ce26202e9c0805687",
                 "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
                 "difficulty": 3400.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "n = int(input())\ntn = [1]\nfor i in range(1, 7):\n    tn.append(tn[-1] * 10)\n\nV = 998244353\nX = 1000000007\n\nans = 0\nc = [[[0] * (tn[i] + 1) for i in range(7)] for _ in range(7)]\ns = [[[0] * (tn[i] + 1) for i in range(7)] for _ in range(7)]\n\np = 0\n\ndef init(x, l, k):\n    global p\n    c[k][l] += 1\n    s[k][l][c[k][l]] -=(p+1) - x\n    p += 1\n    if l == k:\n        return\n    for i in range(10):\n        init(x * 10 + i, l + 1, k)\n\ndef bf(x, l):\n    global p, ans\n    if x > n:\n        return\n    p += 1\n    ans += ((p - x) // V - (p < x) + X) % X\n    for i in range(10):\n        bf(x * 10 + i, l)\n\ndef solve(x, l):\n    global p, ans\n    if l != 6:\n        p += 1\n        ans += ((p - x) // V - (p < x) + X) % X\n        for i in range(10):\n            solve(x * 10 + i, l + 1)\n        return\n    if x == n:\n        return bf(x, 0)\n    k = 0\n    v = x\n    while k <= 6 and v <= n:\n        v *= 10\n        k += 1\n    k -= 1\n    for i in range(k + 1):\n        v_i = p - 1 * x * tn[i]\n        ans += ((v_i // V - (v_i < 0) + X) * tn[i]) % X\n        v_mod = v_i % V\n        v_mod += V\n        idx = (lower_bound(s[k][i][1:tn[i]+1], v_mod) - s[k][i][1:tn[i]+1]) + 1\n        ans += tn[i] - idx + 1\n    for i in range(k + 1):\n        p += tn[i]\n\ndef lower_bound(arr, val):\n    left, right = 0, len(arr)\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] < val:\n            left = mid + 1\n        else:\n            right = mid\n    return left\n\nfor k in range(7):\n    p = 0\n    init(0, 0, k)\n    for i in range(1, tn[k]+1):\n        s[k][i][:tn[k]+1] = sorted(s[k][i][:tn[k]+1])\nif p == 0:\n    for i in range(1, 10):\n        bf(i, 1)\nelse:\n    nn = n\n    while nn >= 10**6:\n        nn //= 10\n    for i in range(1, 10):\n        solve(i, 1)\n\nprint((1 * (X - ans) * V) % X)",
+                        "confidence": {
+                            "verbalization": 0.65,
+                            "average_token_probability": 0.9584382236042971,
+                            "average_token_probability_geometric": 0.9358245009622421,
+                            "generated_sequence_probability": 1.4912806909797345e-21
+                        }
+                    }
+                ]
             },
             {
                 "lang": "GNU C++14",
@@ -14757,7 +14769,19 @@
                 "code_uid": "4e4f03d8a9cce26b375f9f6ed2ac25f0",
                 "src_uid": "a11c9679d8e2dca51be17d466202df6e",
                 "difficulty": 1300.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "def adskiy_razgon():\n    import sys\n    import threading\n    threading.stack_size(1 << 27)\n    sys.setrecursionlimit(1 << 25)\n\ndef nod(a, b):\n    if b > a:\n        a, b = b, a\n    while b > 0:\n        a, b = b, a % b\n    return a\n\ndef nok(a, b):\n    return a * b // nod(a, b)\n\ndef sp(a, b):\n    print(f\"{b:.{a}f}\", end='')\n\ndef binpow(a, n):\n    if n == 0:\n        return 1\n    if n % 2 == 1:\n        return binpow(a, n - 1) * a\n    else:\n        b = binpow(a, n // 2)\n        return b * b\n\ndef solve():\n    s = input()\n    ok = False\n    i = 0\n    s_list = list(s)\n    length = len(s_list)\n    result = []\n    while i < length:\n        if i < length - 1 and s_list[i] == 'a' and s_list[i + 1] == 't' and not ok and i != 0 and (i + 1) != length - 1:\n            ok = True\n            result.append('@')\n            i += 2\n            continue\n        elif i < length - 2 and s_list[i] == 'd' and s_list[i + 1] == 'o' and s_list[i + 2] == 't' and i != 0 and (i + 2) != length - 1:\n            result.append('.')\n            i += 3\n            continue\n        else:\n            result.append(s_list[i])\n            i += 1\n    print(''.join(result))\n\ndef main():\n    adskiy_razgon()\n    t = 1\n    # t = int(input())\n    for _ in range(t):\n        # print(f\"Case #{_+1}: \", end='')\n        solve()\n        \nmain()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9623413296091774,
+                            "average_token_probability_geometric": 0.9316166386447492,
+                            "generated_sequence_probability": 2.528474026848319e-14
+                        }
+                    }
+                ]
             },
             {
                 "lang": "GNU C++",
@@ -17512,7 +17536,19 @@
                 "code_uid": "87c20df002464dc54ca81dcb5d51c71b",
                 "src_uid": "175ce134da7cc5af9c8457e7bd9a40a2",
                 "difficulty": 2900.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\nMod = 10**9 + 7\n\ndef ADD(x, y, m):\n    x += y\n    if x >= m:\n        x -= m\n    return x\n\nclass Matrix:\n    def __init__(self):\n        self.v = [[0 for _ in range(35)] for _ in range(35)]\n        \n    def __mul__(self, a):\n        res = Matrix()\n        for k in range(K+1):\n            for i in range(K+1):\n                if self.v[i][k]:\n                    for j in range(K+1):\n                        if a.v[k][j]:\n                            res.v[i][j] = (self.v[i][k] * a.v[k][j] + res.v[i][j]) % Mod\n        return res\n\ndef work(n):\n    a = []\n    while n:\n        a.append(n % K)\n        n //= K\n    a.reverse()\n    return a\n\n# Read input\nlines = sys.stdin.read().split()\nn = int(lines[0])\nK = int(lines[1])\n\na_list = work(n)\nm = len(a_list)\n\n# Initialize s array\ns = [[Matrix() for _ in range(K+1)] for _ in range(m+1)]\nfor i in range(K):\n    for j in range(K+1):\n        s[0][i].v[j][j] = 1\n    for j in range(K+1):\n        s[0][i].v[i][j] = 1\n\n# Precompute prefix and suffix matrices\npre = [[Matrix() for _ in range(K+1)] for _ in range(m)]\nsuf = [[Matrix() for _ in range(K+1)] for _ in range(m)]\nfor j in range(K+1):\n    pre[0][0] = s[0][0]\n    suf[0][K-1] = s[0][K-1]\n\nfor i in range(1, m):\n    for j in range(K):\n        pre[i-1][j] = pre[i-1][j-1] * s[i-1][j] if j > 0 else s[i-1][j]\n    for j in range(K-2, -1, -1):\n        suf[i-1][j] = s[i-1][j] * suf[i-1][j+1]\n    for j in range(K):\n        if j:\n            s[i][j] = suf[i-1][j] * pre[i-1][j-1]\n        else:\n            s[i][j] = suf[i-1][j]\n\n# Initialize answer matrix\nans = Matrix()\nfor i in range(K+1):\n    ans.v[i][i] = 1\n\nnow = 0\nfor i in range(1, m+1):\n    ai = a_list[i-1]\n    if ai:\n        if now + ai - 1 >= K:\n            for j in range(now, K):\n                ans = ans * s[m - i][j]\n            for j in range((now + ai - 1) - K + 1):\n                ans = ans * s[m - i][j]\n        else:\n            for j in range(now, now + ai):\n                ans = ans * s[m - i][j]\n        now = (now + ai) % K\n\nsum_ = 0\nfor i in range(K+1):\n    sum_ = ADD(sum_, ans.v[i][K], Mod)\n\nprint(sum_)",
+                        "confidence": {
+                            "verbalization": 0.9,
+                            "average_token_probability": 0.9641782994112603,
+                            "average_token_probability_geometric": 0.9399181644990626,
+                            "generated_sequence_probability": 8.417281429029179e-21
+                        }
+                    }
+                ]
             },
             {
                 "lang": "GNU C++11",
