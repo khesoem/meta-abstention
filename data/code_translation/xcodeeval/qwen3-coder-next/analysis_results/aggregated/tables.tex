@@ -1,0 +1,172 @@
+% Requires \usepackage{booktabs,longtable}
+% Point estimates. The best value in each column of a block is bold.
+% 95% confidence intervals are drawn on the accompanying charts.
+{\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{longtable}{@{}lrrrrrrr@{}}
+\caption{ECE, Brier score, and skill score of confidence methods for code translation. Translation accuracy: C++$\rightarrow$Java 57.72\% ($n=615$); C++$\rightarrow$Python 37.24\% ($n=615$); Java$\rightarrow$C++ 69.10\% ($n=424$); Java$\rightarrow$Python 67.45\% ($n=424$); Python$\rightarrow$C++ 50.00\% ($n=112$); Python$\rightarrow$Java 46.43\% ($n=112$); Overall 55.21\% ($n=2302$). Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric mean token probability; Seq = sequence probability; Avg- = mean over perturbations; CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse. J = Java, P = Python, All = all pairs pooled.\label{tab:translation-calibration}}\\
+\toprule
+Method & C++$\to$J & C++$\to$P & J$\to$C++ & J$\to$P & P$\to$C++ & P$\to$J & All \\
+\midrule
+\endfirsthead
+\toprule
+Method & C++$\to$J & C++$\to$P & J$\to$C++ & J$\to$P & P$\to$C++ & P$\to$J & All \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{8}{l}{\textit{ECE (10 bins, lower is better)}} \\
+\midrule
+Verb & 0.335 & 0.515 & 0.227 & 0.235 & 0.421 & 0.471 & 0.355 \\
+\addlinespace
+Tok & 0.413 & 0.611 & 0.296 & 0.312 & 0.489 & 0.525 & 0.435 \\
+Tok-G & 0.411 & 0.607 & 0.293 & 0.309 & 0.487 & 0.523 & 0.432 \\
+\addlinespace
+Seq & 0.536 & 0.338 & 0.651 & 0.638 & 0.439 & 0.425 & 0.508 \\
+\addlinespace
+SPUQ-CB & 0.337 & 0.530 & 0.214 & 0.227 & 0.401 & 0.445 & 0.354 \\
+SPUQ-CB-R & 0.314 & 0.503 & 0.191 & 0.200 & 0.369 & 0.416 & 0.328 \\
+SPUQ-BLEU & \textbf{0.076} & 0.227 & 0.100 & 0.147 & 0.200 & 0.250 & \textbf{0.074} \\
+SPUQ-BLEU-R & 0.248 & \textbf{0.117} & 0.397 & 0.445 & \textbf{0.179} & \textbf{0.134} & 0.264 \\
+SPUQ-UX & 0.238 & 0.453 & 0.107 & 0.140 & 0.324 & 0.371 & 0.260 \\
+SPUQ-UX-R & 0.172 & 0.394 & \textbf{0.071} & \textbf{0.075} & 0.244 & 0.355 & 0.191 \\
+\addlinespace
+Avg-Verb & 0.335 & 0.516 & 0.228 & 0.233 & 0.422 & 0.473 & 0.355 \\
+Avg-Verb-CB & 0.334 & 0.517 & 0.228 & 0.233 & 0.422 & 0.473 & 0.355 \\
+Avg-Verb-BLEU & 0.334 & 0.516 & 0.228 & 0.234 & 0.422 & 0.472 & 0.356 \\
+Avg-Verb-UX & 0.335 & 0.516 & 0.228 & 0.233 & 0.423 & 0.473 & 0.356 \\
+\addlinespace
+Avg-Tok & 0.413 & 0.611 & 0.296 & 0.312 & 0.489 & 0.525 & 0.435 \\
+Avg-Tok-CB & 0.413 & 0.611 & 0.296 & 0.312 & 0.489 & 0.525 & 0.435 \\
+Avg-Tok-BLEU & 0.413 & 0.611 & 0.296 & 0.312 & 0.489 & 0.525 & 0.435 \\
+Avg-Tok-UX & 0.413 & 0.611 & 0.296 & 0.312 & 0.489 & 0.525 & 0.435 \\
+Avg-Tok-G & 0.411 & 0.607 & 0.294 & 0.309 & 0.487 & 0.523 & 0.432 \\
+Avg-Tok-G-CB & 0.411 & 0.607 & 0.294 & 0.309 & 0.487 & 0.523 & 0.432 \\
+Avg-Tok-G-BLEU & 0.411 & 0.607 & 0.293 & 0.309 & 0.487 & 0.523 & 0.432 \\
+Avg-Tok-G-UX & 0.411 & 0.607 & 0.294 & 0.309 & 0.487 & 0.523 & 0.432 \\
+\addlinespace
+Avg-Seq & 0.535 & 0.337 & 0.650 & 0.637 & 0.415 & 0.372 & 0.507 \\
+Avg-Seq-CB & 0.536 & 0.337 & 0.650 & 0.637 & 0.411 & 0.377 & 0.507 \\
+Avg-Seq-BLEU & 0.536 & 0.336 & 0.650 & 0.637 & 0.418 & 0.408 & 0.507 \\
+Avg-Seq-UX & 0.536 & 0.336 & 0.649 & 0.637 & 0.417 & 0.376 & 0.507 \\
+\midrule
+\multicolumn{8}{l}{\textit{Brier score (lower is better)}} \\
+\midrule
+Verb & 0.338 & 0.483 & 0.241 & 0.253 & 0.419 & 0.479 & 0.354 \\
+\addlinespace
+Tok & 0.414 & 0.607 & 0.300 & 0.316 & 0.488 & 0.524 & 0.436 \\
+Tok-G & 0.413 & 0.602 & 0.298 & 0.314 & 0.486 & 0.522 & 0.433 \\
+\addlinespace
+Seq & 0.514 & 0.331 & 0.628 & 0.625 & 0.438 & 0.430 & 0.499 \\
+\addlinespace
+SPUQ-CB & 0.358 & 0.522 & 0.262 & 0.276 & 0.411 & 0.444 & 0.376 \\
+SPUQ-CB-R & 0.343 & 0.498 & 0.252 & 0.264 & 0.386 & 0.420 & 0.359 \\
+SPUQ-BLEU & \textbf{0.246} & 0.285 & 0.224 & 0.237 & 0.293 & 0.302 & \textbf{0.256} \\
+SPUQ-BLEU-R & 0.291 & \textbf{0.249} & 0.369 & 0.410 & \textbf{0.288} & \textbf{0.267} & 0.315 \\
+SPUQ-UX & 0.290 & 0.447 & 0.230 & 0.243 & 0.358 & 0.399 & 0.321 \\
+SPUQ-UX-R & 0.261 & 0.402 & \textbf{0.223} & \textbf{0.228} & 0.315 & 0.360 & 0.293 \\
+\addlinespace
+Avg-Verb & 0.348 & 0.483 & 0.254 & 0.255 & 0.428 & 0.474 & 0.359 \\
+Avg-Verb-CB & 0.347 & 0.482 & 0.253 & 0.255 & 0.427 & 0.474 & 0.359 \\
+Avg-Verb-BLEU & 0.343 & 0.481 & 0.248 & 0.253 & 0.424 & 0.476 & 0.356 \\
+Avg-Verb-UX & 0.347 & 0.483 & 0.252 & 0.255 & 0.427 & 0.475 & 0.359 \\
+\addlinespace
+Avg-Tok & 0.415 & 0.607 & 0.301 & 0.317 & 0.489 & 0.524 & 0.436 \\
+Avg-Tok-CB & 0.415 & 0.607 & 0.301 & 0.317 & 0.489 & 0.524 & 0.436 \\
+Avg-Tok-BLEU & 0.415 & 0.607 & 0.301 & 0.317 & 0.488 & 0.524 & 0.436 \\
+Avg-Tok-UX & 0.415 & 0.607 & 0.301 & 0.317 & 0.489 & 0.524 & 0.436 \\
+Avg-Tok-G & 0.413 & 0.603 & 0.300 & 0.315 & 0.487 & 0.522 & 0.434 \\
+Avg-Tok-G-CB & 0.413 & 0.603 & 0.299 & 0.315 & 0.487 & 0.522 & 0.434 \\
+Avg-Tok-G-BLEU & 0.413 & 0.602 & 0.299 & 0.315 & 0.486 & 0.522 & 0.433 \\
+Avg-Tok-G-UX & 0.413 & 0.603 & 0.299 & 0.315 & 0.487 & 0.522 & 0.434 \\
+\addlinespace
+Avg-Seq & 0.516 & 0.334 & 0.624 & 0.620 & 0.422 & 0.416 & 0.497 \\
+Avg-Seq-CB & 0.516 & 0.333 & 0.624 & 0.620 & 0.423 & 0.416 & 0.497 \\
+Avg-Seq-BLEU & 0.514 & 0.331 & 0.623 & 0.620 & 0.425 & 0.418 & 0.496 \\
+Avg-Seq-UX & 0.515 & 0.333 & 0.623 & 0.619 & 0.425 & 0.416 & 0.496 \\
+\midrule
+\multicolumn{8}{l}{\textit{Skill score (higher is better)}} \\
+\midrule
+Verb & -0.383 & -1.067 & -0.129 & -0.153 & -0.677 & -0.924 & -0.431 \\
+\addlinespace
+Tok & -0.699 & -1.595 & -0.405 & -0.441 & -0.953 & -1.107 & -0.761 \\
+Tok-G & -0.691 & -1.575 & -0.396 & -0.432 & -0.943 & -1.097 & -0.750 \\
+\addlinespace
+Seq & -1.108 & -0.415 & -1.940 & -1.849 & -0.753 & -0.727 & -1.017 \\
+\addlinespace
+SPUQ-CB & -0.469 & -1.233 & -0.229 & -0.255 & -0.646 & -0.786 & -0.520 \\
+SPUQ-CB-R & -0.407 & -1.129 & -0.179 & -0.202 & -0.543 & -0.689 & -0.451 \\
+SPUQ-BLEU & \textbf{-0.009} & -0.220 & -0.047 & -0.078 & -0.172 & -0.213 & \textbf{-0.034} \\
+SPUQ-BLEU-R & -0.193 & \textbf{-0.065} & -0.729 & -0.868 & \textbf{-0.153} & \textbf{-0.073} & -0.273 \\
+SPUQ-UX & -0.190 & -0.911 & -0.076 & -0.105 & -0.433 & -0.606 & -0.297 \\
+SPUQ-UX-R & -0.070 & -0.720 & \textbf{-0.044} & \textbf{-0.039} & -0.261 & -0.449 & -0.185 \\
+\addlinespace
+Avg-Verb & -0.424 & -1.065 & -0.188 & -0.163 & -0.711 & -0.906 & -0.453 \\
+Avg-Verb-CB & -0.422 & -1.064 & -0.185 & -0.162 & -0.709 & -0.906 & -0.452 \\
+Avg-Verb-BLEU & -0.406 & -1.060 & -0.161 & -0.153 & -0.694 & -0.913 & -0.441 \\
+Avg-Verb-UX & -0.421 & -1.065 & -0.180 & -0.161 & -0.709 & -0.908 & -0.451 \\
+\addlinespace
+Avg-Tok & -0.701 & -1.599 & -0.411 & -0.444 & -0.956 & -1.108 & -0.764 \\
+Avg-Tok-CB & -0.701 & -1.599 & -0.411 & -0.444 & -0.956 & -1.108 & -0.764 \\
+Avg-Tok-BLEU & -0.700 & -1.597 & -0.409 & -0.443 & -0.954 & -1.107 & -0.763 \\
+Avg-Tok-UX & -0.701 & -1.598 & -0.410 & -0.444 & -0.956 & -1.108 & -0.764 \\
+Avg-Tok-G & -0.694 & -1.579 & -0.403 & -0.436 & -0.947 & -1.098 & -0.754 \\
+Avg-Tok-G-CB & -0.694 & -1.579 & -0.403 & -0.436 & -0.946 & -1.098 & -0.754 \\
+Avg-Tok-G-BLEU & -0.693 & -1.577 & -0.400 & -0.435 & -0.944 & -1.097 & -0.753 \\
+Avg-Tok-G-UX & -0.694 & -1.578 & -0.402 & -0.436 & -0.947 & -1.098 & -0.754 \\
+\addlinespace
+Avg-Seq & -1.113 & -0.428 & -1.924 & -1.823 & -0.690 & -0.671 & -1.009 \\
+Avg-Seq-CB & -1.113 & -0.426 & -1.924 & -1.823 & -0.691 & -0.672 & -1.009 \\
+Avg-Seq-BLEU & -1.108 & -0.417 & -1.916 & -1.825 & -0.700 & -0.680 & -1.005 \\
+Avg-Seq-UX & -1.112 & -0.426 & -1.918 & -1.819 & -0.698 & -0.671 & -1.007 \\
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{table}[t]
+\centering
+\caption{AUROC of confidence methods for code translation. Translation accuracy: C++$\rightarrow$Java 57.72\% ($n=615$); C++$\rightarrow$Python 37.24\% ($n=615$); Java$\rightarrow$C++ 69.10\% ($n=424$); Java$\rightarrow$Python 67.45\% ($n=424$); Python$\rightarrow$C++ 50.00\% ($n=112$); Python$\rightarrow$Java 46.43\% ($n=112$); Overall 55.21\% ($n=2302$). Higher is better; the best value in each column is bold. Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric mean token probability; Seq = sequence probability; Avg- = mean over perturbations; CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse. J = Java, P = Python, All = all pairs pooled.}
+\label{tab:translation-auroc}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Method & C++$\to$J & C++$\to$P & J$\to$C++ & J$\to$P & P$\to$C++ & P$\to$J & All \\
+\midrule
+Verb & 0.633 & 0.665 & 0.714 & 0.679 & \textbf{0.552} & 0.445 & 0.653 \\
+\addlinespace
+Tok & 0.546 & 0.573 & 0.630 & 0.482 & 0.532 & 0.466 & 0.574 \\
+Tok-G & 0.551 & 0.580 & 0.637 & 0.485 & 0.532 & 0.466 & 0.577 \\
+\addlinespace
+Seq & \textbf{0.768} & \textbf{0.783} & \textbf{0.806} & 0.720 & 0.526 & 0.467 & \textbf{0.724} \\
+\addlinespace
+SPUQ-CB & 0.456 & 0.254 & 0.450 & 0.424 & 0.477 & 0.561 & 0.398 \\
+SPUQ-CB-R & 0.470 & 0.244 & 0.455 & 0.426 & 0.480 & \textbf{0.569} & 0.399 \\
+SPUQ-BLEU & 0.603 & 0.490 & 0.511 & 0.525 & 0.505 & 0.567 & 0.518 \\
+SPUQ-BLEU-R & 0.646 & 0.510 & 0.513 & 0.540 & 0.465 & 0.519 & 0.550 \\
+SPUQ-UX & 0.624 & 0.443 & 0.487 & 0.508 & 0.526 & 0.482 & 0.486 \\
+SPUQ-UX-R & 0.630 & 0.443 & 0.484 & 0.537 & 0.526 & 0.473 & 0.488 \\
+\addlinespace
+Avg-Verb & 0.654 & 0.737 & 0.721 & 0.745 & 0.507 & 0.497 & 0.695 \\
+Avg-Verb-CB & 0.659 & 0.742 & 0.738 & 0.749 & 0.503 & 0.499 & 0.699 \\
+Avg-Verb-BLEU & 0.671 & 0.747 & 0.769 & \textbf{0.771} & 0.525 & 0.477 & 0.711 \\
+Avg-Verb-UX & 0.654 & 0.736 & 0.743 & 0.747 & 0.497 & 0.468 & 0.696 \\
+\addlinespace
+Avg-Tok & 0.448 & 0.483 & 0.521 & 0.426 & 0.509 & 0.506 & 0.526 \\
+Avg-Tok-CB & 0.452 & 0.489 & 0.527 & 0.426 & 0.512 & 0.508 & 0.529 \\
+Avg-Tok-BLEU & 0.486 & 0.525 & 0.587 & 0.443 & 0.533 & 0.501 & 0.554 \\
+Avg-Tok-UX & 0.455 & 0.495 & 0.543 & 0.430 & 0.520 & 0.491 & 0.533 \\
+Avg-Tok-G & 0.453 & 0.494 & 0.526 & 0.434 & 0.508 & 0.517 & 0.530 \\
+Avg-Tok-G-CB & 0.458 & 0.499 & 0.532 & 0.435 & 0.514 & 0.517 & 0.534 \\
+Avg-Tok-G-BLEU & 0.493 & 0.535 & 0.594 & 0.451 & 0.533 & 0.506 & 0.558 \\
+Avg-Tok-G-UX & 0.461 & 0.506 & 0.548 & 0.439 & 0.515 & 0.505 & 0.538 \\
+\addlinespace
+Avg-Seq & 0.721 & 0.767 & 0.746 & 0.657 & 0.449 & 0.359 & 0.701 \\
+Avg-Seq-CB & 0.723 & 0.769 & 0.749 & 0.658 & 0.451 & 0.361 & 0.702 \\
+Avg-Seq-BLEU & 0.737 & 0.777 & 0.770 & 0.670 & 0.480 & 0.395 & 0.714 \\
+Avg-Seq-UX & 0.725 & 0.770 & 0.754 & 0.659 & 0.448 & 0.368 & 0.704 \\
+\bottomrule
+\end{tabular}
+\end{table}
+}
