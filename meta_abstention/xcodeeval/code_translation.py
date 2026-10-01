@@ -138,28 +138,33 @@ def _intrinsic_confidence(sample: Response.Sample) -> dict[str, float]:
     }
 
 
-def _translate_code(adapter: LLMAdapter, source_code: str, source_lang: str, source_lang_cluster: str, target_lang: str) -> tuple[str, dict]:
+def _translate_code(adapter: LLMAdapter, source_code: str, source_lang: str, source_lang_cluster: str, target_lang: str, temp: float) -> tuple[str, dict]:
     messages = [
         Prompt.Message("system", _TRANSLATE_SYSTEM.format(source_lang_cluster=source_lang_cluster, target_lang=target_lang)),
         Prompt.Message("user", _TRANSLATE_USER_TEMPLATE.format(source_lang=source_lang, target_lang=target_lang, source_code=source_code)),
     ]
-    sample = adapter.get_response(Prompt(messages, logprobs=True)).first_sample
+    sample = adapter.get_response(Prompt(messages, logprobs=True, temp=temp)).first_sample
     code, confidence = _parse_translation(sample.content)
     confidence.update(_intrinsic_confidence(sample))
     return code, confidence
 
-def run_translation(selected_problems_path: str, output_file: str, target_lang: str):
+def run_translation(selected_problems_path: str, output_file: str, target_lang: str, model: str = conf.translation['default-model'], temp: float = conf.translation['default-temp']) -> bool:
+    logging.info(f"Running translation for {selected_problems_path} to {target_lang} with model {model} and temp {temp}")
+
     with open(selected_problems_path, 'r') as f:
         data = json.load(f)
 
-    adapter = LLMAdapter(read_from_cache=True, save_to_cache=True, model=conf.translation['default-model'])
+    adapter = LLMAdapter(read_from_cache=True, save_to_cache=True, model=model)
+    new_translations = False
     for _, item in data.items():
         for submission in item['submissions']:
             try:            
                 if 'translation' in submission and len(submission['translation']) > 0:
                     continue
 
-                translated_code, confidence = _translate_code(adapter, submission['source_code'], submission['lang'], submission['lang_cluster'], target_lang)
+                new_translations = True
+
+                translated_code, confidence = _translate_code(adapter, submission['source_code'], submission['lang'], submission['lang_cluster'], target_lang, temp=temp)
                 if not 'translation' in submission:
                     submission['translation'] = []
                 
@@ -174,3 +179,5 @@ def run_translation(selected_problems_path: str, output_file: str, target_lang: 
 
     with open(output_file, 'w') as f:
         json.dump(data, f, indent=4)
+    
+    return new_translations

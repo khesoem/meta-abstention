@@ -3,6 +3,8 @@ from meta_abstention.xcodeeval.utils import execute_code
 import logging
 
 def execute_translated_code(translated_code_path: str, output_path: str, repeat_execution: bool = False, lang: str = None):
+    logging.info(f'Executing translated code for {translated_code_path} with lang {lang}')
+
     with open(translated_code_path, 'r') as f:
         data = json.load(f)
 
@@ -16,9 +18,9 @@ def execute_translated_code(translated_code_path: str, output_path: str, repeat_
                 lang = lang if lang else translation['lang']
                 translated_code = translation['translated_code']
                 try:
-                    exec_result = execute_code(lang, translated_code, item['unittests'], 5)
+                    exec_result = execute_code(lang, translated_code, item['unittests'], max(600, len(item['unittests']) * 5))
                     translation['exec_result'] = exec_result
-                    logging.info(f'Executed translated code for {submission['code_uid']}')
+                    logging.info(f'Executed translated code for {submission['code_uid']} for {lang}')
                 except Exception as e:
                     if 'Read timed out' in str(e):
                         translation['exec_result'] = {'data': [{
@@ -29,5 +31,5 @@ def execute_translated_code(translated_code_path: str, output_path: str, repeat_
                         translation['exec_result'] = f'Error: {str(e)}'
                         logging.error(f'Error executing code for {submission['code_uid']} to {lang}: {e}')
 
-    with open(output_path, 'w') as f:
-        json.dump(data, f, indent=4)
+                with open(output_path, 'w') as f:
+                    json.dump(data, f, indent=4)

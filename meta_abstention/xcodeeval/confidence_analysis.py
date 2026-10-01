@@ -6,6 +6,7 @@ import os
 import numpy as np
 from sklearn.metrics import roc_auc_score, brier_score_loss
 from scipy import stats
+import logging
 
 
 def expected_calibration_error(confidences, correctness, n_bins=10):
@@ -50,7 +51,7 @@ def _safe_metric(y, c, fn):
     return fn(y, c)
 
 
-def calibration_report(confidences, correctness, name="method",
+def calibration_report(confidences, correctness, name="method", output_file=None,
                        n_bins=10, n_boot=5000, seed=0):
     confidences = np.asarray(confidences, dtype=float)
     correctness = np.asarray(correctness, dtype=int)
@@ -76,11 +77,20 @@ def calibration_report(confidences, correctness, name="method",
             if not np.isnan(v):
                 boot[k].append(v)
 
-    print(f"\n=== {name}  (n={n}, accuracy={correctness.mean():.2%}) ===")
-    for k, v in point.items():
-        arr = np.array(boot[k])
-        lo, hi = np.percentile(arr, [2.5, 97.5])
-        print(f"  {k:15s}: {v:6.3f}   95% CI [{lo:6.3f}, {hi:6.3f}]")
+    if output_file:
+        with open(output_file, 'a') as f:
+            f.write(f"\n=== {name}  (n={n}, accuracy={correctness.mean():.2%}) ===\n")
+            for k, v in point.items():
+                arr = np.array(boot[k])
+                lo, hi = np.percentile(arr, [2.5, 97.5])
+                f.write(f"  {k:15s}: {v:6.3f}   95% CI [{lo:6.3f}, {hi:6.3f}]\n")
+    else:
+        print(f"\n=== {name}  (n={n}, accuracy={correctness.mean():.2%}) ===")
+        for k, v in point.items():
+            arr = np.array(boot[k])
+            lo, hi = np.percentile(arr, [2.5, 97.5])
+            print(f"  {k:15s}: {v:6.3f}   95% CI [{lo:6.3f}, {hi:6.3f}]")
+
     return point, boot
 
 # (confidence dict key, report display name)
@@ -95,6 +105,7 @@ _CONFIDENCE_METRICS = [
     ('spuq_codebleu_reverse', 'SPUQ CodeBLEU Reverse'),
     ('spuq_unixcoder', 'SPUQ Unixcoder'),
     ('spuq_unixcoder_reverse', 'SPUQ Unixcoder Reverse'),
+    ('output_consistency_score', 'Output Consistency Score'),
     ('average_verbalized_confidence', 'Average Verbalized'),
     ('average_verbalized_confidence_codebert_score_weighted', 'Average Verbalized CodeBERT Score'),
     ('average_verbalized_confidence_codebleu_weighted', 'Average Verbalized CodeBLEU'),
@@ -114,7 +125,8 @@ _CONFIDENCE_METRICS = [
 ]
 
 
-def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0):
+def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None):
+    logging.info(f"Running confidence analysis for {execution_results_paths}")
     scores = {key: [] for key, _ in _CONFIDENCE_METRICS}
     correctness_scores = []
 
@@ -133,12 +145,12 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
                 correctness_scores.append(correctness)
 
     for key, name in _CONFIDENCE_METRICS:
-        calibration_report(scores[key], correctness_scores, name)
+        calibration_report(scores[key], correctness_scores, name, output_file=output_file)
 
-def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0):
+def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None):
     execution_results_paths = []
 
     for file in os.listdir(execution_results_dir):
         execution_results_paths.append(os.path.join(execution_results_dir, file))
 
-    run_confidence_analysis(execution_results_paths, translation_index)
+    run_confidence_analysis(execution_results_paths, translation_index, output_file=output_file)

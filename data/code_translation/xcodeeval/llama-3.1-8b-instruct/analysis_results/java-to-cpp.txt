@@ -32,12 +32,12 @@
   Pearson r      : -0.028   95% CI [-0.054,  0.032]
 
 === SPUQ CodeBERT Score  (n=424, accuracy=16.51%) ===
-  AUROC          :  0.547   95% CI [ 0.473,  0.622]
-  Brier          :  0.657   95% CI [ 0.629,  0.685]
-  Skill Score    : -3.766   95% CI [-5.059, -2.923]
-  ECE (10 bins)  :  0.720   95% CI [ 0.685,  0.756]
-  Spearman rho   :  0.060   95% CI [-0.034,  0.156]
-  Pearson r      :  0.033   95% CI [-0.062,  0.128]
+  AUROC          :  0.543   95% CI [ 0.470,  0.619]
+  Brier          :  0.619   95% CI [ 0.593,  0.645]
+  Skill Score    : -3.490   95% CI [-4.704, -2.696]
+  ECE (10 bins)  :  0.693   95% CI [ 0.658,  0.729]
+  Spearman rho   :  0.056   95% CI [-0.039,  0.151]
+  Pearson r      :  0.028   95% CI [-0.066,  0.123]
 
 === SPUQ CodeBERT Score Reverse  (n=424, accuracy=16.51%) ===
   AUROC          :  0.566   95% CI [ 0.491,  0.641]
@@ -48,12 +48,12 @@
   Pearson r      :  0.050   95% CI [-0.049,  0.143]
 
 === SPUQ CodeBLEU  (n=424, accuracy=16.51%) ===
-  AUROC          :  0.593   95% CI [ 0.522,  0.661]
-  Brier          :  0.334   95% CI [ 0.325,  0.344]
-  Skill Score    : -1.425   95% CI [-2.034, -1.032]
-  ECE (10 bins)  :  0.445   95% CI [ 0.410,  0.480]
-  Spearman rho   :  0.120   95% CI [ 0.027,  0.208]
-  Pearson r      :  0.107   95% CI [ 0.037,  0.181]
+  AUROC          :  0.570   95% CI [ 0.497,  0.643]
+  Brier          :  0.167   95% CI [ 0.152,  0.182]
+  Skill Score    : -0.211   95% CI [-0.380, -0.107]
+  ECE (10 bins)  :  0.159   95% CI [ 0.126,  0.196]
+  Spearman rho   :  0.090   95% CI [-0.004,  0.185]
+  Pearson r      :  0.031   95% CI [-0.058,  0.127]
 
 === SPUQ CodeBLEU Reverse  (n=424, accuracy=16.51%) ===
   AUROC          :  0.591   95% CI [ 0.515,  0.665]
@@ -64,12 +64,12 @@
   Pearson r      :  0.079   95% CI [-0.017,  0.179]
 
 === SPUQ Unixcoder  (n=424, accuracy=16.51%) ===
-  AUROC          :  0.585   95% CI [ 0.511,  0.658]
-  Brier          :  0.512   95% CI [ 0.491,  0.534]
-  Skill Score    : -2.718   95% CI [-3.714, -2.063]
-  ECE (10 bins)  :  0.613   95% CI [ 0.577,  0.648]
-  Spearman rho   :  0.109   95% CI [ 0.014,  0.203]
-  Pearson r      :  0.100   95% CI [ 0.006,  0.191]
+  AUROC          :  0.581   95% CI [ 0.506,  0.656]
+  Brier          :  0.435   95% CI [ 0.417,  0.453]
+  Skill Score    : -2.158   95% CI [-2.999, -1.609]
+  ECE (10 bins)  :  0.545   95% CI [ 0.509,  0.580]
+  Spearman rho   :  0.104   95% CI [ 0.008,  0.197]
+  Pearson r      :  0.094   95% CI [-0.001,  0.187]
 
 === SPUQ Unixcoder Reverse  (n=424, accuracy=16.51%) ===
   AUROC          :  0.575   95% CI [ 0.502,  0.648]
@@ -206,3 +206,11 @@
   ECE (10 bins)  :  0.162   95% CI [ 0.127,  0.197]
   Spearman rho   :  0.165   95% CI [ 0.071,  0.253]
   Pearson r      :  0.015   95% CI [-0.059,  0.110]
+
+=== Output Consistency Score  (n=424, accuracy=16.51%) ===
+  AUROC          :  0.805   95% CI [ 0.744,  0.861]
+  Brier          :  0.086   95% CI [ 0.063,  0.111]
+  Skill Score    :  0.373   95% CI [ 0.249,  0.495]
+  ECE (10 bins)  :  0.086   95% CI [ 0.063,  0.116]
+  Spearman rho   :  0.682   95% CI [ 0.580,  0.773]
+  Pearson r      :  0.653   95% CI [ 0.567,  0.731]

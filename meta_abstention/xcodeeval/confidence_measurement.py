@@ -1,7 +1,7 @@
 from meta_abstention.untils.similarity_computation import (
     codebleu_sim,
     codebertscore_sim,
-    codebert_cosine_sim,
+    # codebert_cosine_sim,
     unixcoder_sim,
 )
 import json
@@ -13,7 +13,7 @@ import logging
 _SIMILARITY_FNS = {
     'codebleu': codebleu_sim,
     'codebertscore': codebertscore_sim,
-    'codebertcosine': codebert_cosine_sim,
+    # 'codebertcosine': codebert_cosine_sim,
     'unixcoder': unixcoder_sim,
 }
 
@@ -21,7 +21,7 @@ _SIMILARITY_FNS = {
 _METRIC_KEYS = {
     'codebleu': ('code_codebleu', 'translation_codebleu'),
     'codebertscore': ('code_codebertscore', 'translation_codebertscore'),
-    'codebertcosine': ('code_codebertcosine', 'translation_codebertcosine'),
+    # 'codebertcosine': ('code_codebertcosine', 'translation_codebertcosine'),
     'unixcoder': ('code_unixcoder', 'translation_unixcoder'),
 }
 
@@ -30,13 +30,13 @@ _REQUIRED_PAIR_KEYS = {key for pair in _METRIC_KEYS.values() for key in pair}
 # SPUQ variants: confidence field name, metric, whether to invert source-code similarity,
 # and whether to include a self-pair of (weight=1, translation_sim=1).
 _SPUQ_VARIANTS = [
-    ('spuq_codebleu', 'codebleu', False, True),
-    ('spuq_codebert_score', 'codebertscore', False, True),
-    ('spuq_codebert_cosine', 'codebertcosine', False, True),
-    ('spuq_unixcoder', 'unixcoder', False, True),
+    ('spuq_codebleu', 'codebleu', False, False),
+    ('spuq_codebert_score', 'codebertscore', False, False),
+    # ('spuq_codebert_cosine', 'codebertcosine', False, True),
+    ('spuq_unixcoder', 'unixcoder', False, False),
     ('spuq_codebleu_reverse', 'codebleu', True, False),
     ('spuq_codebert_score_reverse', 'codebertscore', True, False),
-    ('spuq_codebert_cosine_reverse', 'codebertcosine', True, False),
+    # ('spuq_codebert_cosine_reverse', 'codebertcosine', True, False),
     ('spuq_unixcoder_reverse', 'unixcoder', True, False),
 ]
 
@@ -51,7 +51,7 @@ _AGGREGATED_CONFIDENCE_FIELDS = [
 _WEIGHTED_METRIC_SUFFIXES = [
     ('codebleu', 'codebleu'),
     ('codebert_score', 'codebertscore'),
-    ('codebert_cosine', 'codebertcosine'),
+    # ('codebert_cosine', 'codebertcosine'),
     ('unixcoder', 'unixcoder'),
 ]
 
@@ -93,6 +93,8 @@ def _fill_missing_similarities(
 
 def compute_similarities(translations: str, output_path: str, translation_index: int = 0,
         source_lang: str = "java", target_lang: str = "python"):
+    logging.info(f"Computing similarities for {translations} to {output_path} with translation index {translation_index} and source lang {source_lang} and target lang {target_lang}")
+
     # if output_path exists, load existing similarities
     if os.path.exists(output_path):
         with open(output_path, 'r') as s:
@@ -148,6 +150,7 @@ def compute_similarities(translations: str, output_path: str, translation_index:
                     with open(output_path, 'w') as f:
                         json.dump(similarities, f)
             except Exception as e:
+                logging.error(f"Error computing similarities for {uid_i} and {uid_j}: {e}")
                 continue
 
 
@@ -211,6 +214,34 @@ def _add_similarity_based_confidence(similarities: dict, submission: dict, filte
                 translation_index, confidence_key
             )
 
+def _add_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int):
+    t_result = submission['translation'][translation_index]['exec_result']['data']
+
+    if len(t_result) <= 1: # Compilation error or Timeout error
+        submission['translation'][translation_index]['confidence']['output_consistency_score'] = 0
+        return
+
+    consistent_translations = 0
+    valid_other_translations = 0
+
+    for other in filtered_submissions:
+        other_result = other['translation'][translation_index]['exec_result']['data']
+
+        if len(other_result) <= 1: # Compilation error or Timeout error
+            continue
+    
+        valid_other_translations += 1
+
+        if len(t_result) != len(other_result):
+            continue
+
+        if [d['result'] for d in t_result] == [d['result'] for d in other_result]:
+            consistent_translations += 1
+
+    if valid_other_translations == 0:
+        submission['translation'][translation_index]['confidence']['output_consistency_score'] = 0
+    else:
+        submission['translation'][translation_index]['confidence']['output_consistency_score'] = consistent_translations / valid_other_translations
 
 def compute_confidence(similarities_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = 42):
     with open(similarities_path, 'r') as s:
@@ -229,6 +260,8 @@ def compute_confidence(similarities_path: str, exec_results_path: str, output_pa
             filtered_submissions = [s for s in submissions if s['code_uid'] != code_uid][:n_perturbations]
 
             _add_similarity_based_confidence(similarities, submission, filtered_submissions, translation_index)
+
+            _add_execution_based_confidence(submission, filtered_submissions, translation_index)
 
     with open(output_path, 'w') as e:
         json.dump(translation_exec_results, e, indent=4)

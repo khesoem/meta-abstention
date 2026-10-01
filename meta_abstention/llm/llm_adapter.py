@@ -28,9 +28,14 @@ class LLMAdapter:
         create_kwargs = {
             'model': self.model,
             'messages': [m.__dict__ for m in prompt.messages],
+            'temperature': prompt.temp,
         }
         if prompt.logprobs:
             create_kwargs['logprobs'] = True
+            create_kwargs['extra_body'] = {
+                'provider': {'require_parameters': True},
+            }
+
 
         completion = self.client.chat.completions.create(**create_kwargs)
 

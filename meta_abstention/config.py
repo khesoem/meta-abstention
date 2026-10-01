@@ -27,7 +27,15 @@ exec_eval = {
 }
 
 translation = {
+    'num-execution-processes': 6,
     'default-model': 'openai/gpt-4.1-nano',
+    'default-temp': 0,
+    'langs': {
+        'python': 'Python 3',
+        'java': 'Java 8',
+        'cpp': 'GNU C++11',
+    },
+    'max-tries': 5,
 }
 
 xcodeeval = {
