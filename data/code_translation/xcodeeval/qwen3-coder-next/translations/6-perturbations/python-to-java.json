@@ -156,7 +156,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0003326611198871273,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.000352750730478735,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0002802069694777333,
-                            "output_consistency_score": 0.75
+                            "output_consistency_score": 0.25
                         },
                         "exec_result": {
                             "data": [
@@ -2000,7 +2000,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.047722982667814134,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.03989871716290308,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.06952125271650227,
-                            "output_consistency_score": 0.75
+                            "output_consistency_score": 0.25
                         },
                         "exec_result": {
                             "data": [
@@ -8194,7 +8194,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.002673108745858836,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0028053913933598893,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0022770208937814593,
-                            "output_consistency_score": 0.6
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -8795,7 +8795,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.01107033486533203,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.011095116776795508,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.009773602671469933,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -9396,7 +9396,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.001949101898528966,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.001994900100963418,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0019074624404036627,
-                            "output_consistency_score": 0.8
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -9996,7 +9996,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.013689616921526471,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0123654007128557,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.015102677406453099,
-                            "output_consistency_score": 0.8
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -10597,7 +10597,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.010245370386711028,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.011009603120311668,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.010030094165185882,
-                            "output_consistency_score": 0.6
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -11197,7 +11197,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.014875504777956279,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0158811844033679,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.01432161764412736,
-                            "output_consistency_score": 0.8
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -11797,7 +11797,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0016822597990851541,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0017065951671356426,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.001645815362093699,
-                            "output_consistency_score": 0.6
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -12997,7 +12997,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.01546088028285,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.015812709843267495,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.015070539193574678,
-                            "output_consistency_score": 0.8
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -13597,7 +13597,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.014458177798978176,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.014940742131835105,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.014802830036454852,
-                            "output_consistency_score": 0.6
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -14197,7 +14197,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.02419380021953258,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.021955120045364485,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.024614241847697543,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -14797,7 +14797,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.013029597244675409,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.013998800738467916,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.013439586731879625,
-                            "output_consistency_score": 0.4
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -16599,7 +16599,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0029375469752950835,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0027395409658109416,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.003393146419453072,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -25431,7 +25431,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12638468382012974,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1223318642590025,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.14521723261103814,
-                            "output_consistency_score": 0.25
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -26587,7 +26587,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.17117269252794784,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.17697490396701399,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1617127159177248,
-                            "output_consistency_score": 0.2
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -27809,7 +27809,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.20700714736164225,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.20577169056746436,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2035074909946029,
-                            "output_consistency_score": 0.2
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -28387,7 +28387,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.30457592469548733,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.30392197861240355,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.30850241265649264,
-                            "output_consistency_score": 0.5
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -30121,7 +30121,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.2436457138662411,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.23793276252933976,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2565245413140301,
-                            "output_consistency_score": 0.75
+                            "output_consistency_score": 0.5
                         },
                         "exec_result": {
                             "data": [
@@ -30699,7 +30699,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1617391049980811,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.16344715352400224,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1571543922071775,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -31277,7 +31277,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.25321061489651897,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.2590804805578633,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.24709805954183875,
-                            "output_consistency_score": 0.4
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -32433,7 +32433,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.2631395434216615,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.26386227900549764,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.27392636943539045,
-                            "output_consistency_score": 0.75
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -33011,7 +33011,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1275832406323358,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12596916896261012,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.12884987891479202,
-                            "output_consistency_score": 0.6
+                            "output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -33589,7 +33589,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.2560808216809828,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.2532283439895185,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.25729341477863354,
-                            "output_consistency_score": 0.2
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -35223,7 +35223,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0013576304290048853,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.001389242681615449,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0013501894020321351,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.5
                         },
                         "exec_result": {
                             "data": [
@@ -35652,7 +35652,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0006930311979347755,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0007238807617985104,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0006914997802755656,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -37368,7 +37368,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.01619833418467626,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.01702152344325248,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.018960995825537643,
-                            "output_consistency_score": 0.3333333333333333
+                            "output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -46021,7 +46021,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.20906974894432073,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.19833930825640228,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2257187919064664,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -47761,7 +47761,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.2522508842922571,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.2659792289480386,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2286894741945011,
-                            "output_consistency_score": 0.2
+                            "output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -48341,7 +48341,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11986579025135051,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12563012822533084,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1254438111589844,
-                            "output_consistency_score": 0.2
+                            "output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -48921,7 +48921,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.28330884924532046,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.2763591849631085,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.29592188477152465,
-                            "output_consistency_score": 0.4
+                            "output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -49501,7 +49501,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.10330007042823297,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.09974957432323617,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.11088343627247547,
-                            "output_consistency_score": 0.5
+                            "output_consistency_score": 0.75
                         },
                         "exec_result": {
                             "data": [
@@ -50081,7 +50081,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.185268333056767,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.16820039115662366,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2066073187845132,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -51241,7 +51241,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11328661371549871,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1112975194292474,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.11909819894993942,
-                            "output_consistency_score": 0.6
+                            "output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -51821,7 +51821,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.19977453873673431,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.22064953386133013,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.17500948636943678,
-                            "output_consistency_score": 0.6
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -52401,7 +52401,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.18604597748775414,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.18116740309890014,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.19985144474263145,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -52981,7 +52981,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.31690097886643476,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.29888811771319423,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.332420840472858,
-                            "output_consistency_score": 0.8
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -53561,7 +53561,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.32237883270185086,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.3265546086312065,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.31465817132832563,
-                            "output_consistency_score": 0.4
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -54141,7 +54141,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.28321919991282957,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.2754878084934679,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2987222316441983,
-                            "output_consistency_score": 0.2
+                            "output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -54789,7 +54789,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.2703195962510277,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.2747048358716596,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.27442110991733415,
-                            "output_consistency_score": 0.4
+                            "output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -56831,7 +56831,7 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.05792398953816986,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0522087670278157,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0716809129394695,
-                            "output_consistency_score": 0.4
+                            "output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
