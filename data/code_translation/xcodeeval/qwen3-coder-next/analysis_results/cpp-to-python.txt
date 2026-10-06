@@ -207,10 +207,4 @@
   Spearman rho   :  0.452   95% CI [ 0.381,  0.518]
   Pearson r      :  0.274   95% CI [ 0.191,  0.363]
 
-=== Output Consistency Score  (n=615, accuracy=37.24%) ===
-  AUROC          :  0.919   95% CI [ 0.895,  0.941]
-  Brier          :  0.107   95% CI [ 0.090,  0.125]
-  Skill Score    :  0.540   95% CI [ 0.471,  0.606]
-  ECE (10 bins)  :  0.114   95% CI [ 0.092,  0.138]
-  Spearman rho   :  0.768   95% CI [ 0.723,  0.809]
-  Pearson r      :  0.769   95% CI [ 0.729,  0.806]
+
