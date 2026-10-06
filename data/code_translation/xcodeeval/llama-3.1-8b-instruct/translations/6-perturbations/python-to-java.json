@@ -87,7 +87,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.601423212977827e-10,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.7039466739619934e-10,
                             "average_generated_sequence_probability_unixcoder_weighted": 2.756185230213461e-10,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -156,7 +165,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 4.208494308891445e-11,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 4.292482389329463e-11,
                             "average_generated_sequence_probability_unixcoder_weighted": 4.009139325092793e-11,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -225,7 +243,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 4.837298754746427e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 5.056375846524521e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.6778042113853274e-07,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -686,7 +713,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.2220401921192213e-10,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.2816553396851744e-10,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.061662276818895e-10,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -755,7 +791,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 4.358536289672754e-10,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.7274073295077585e-10,
                             "average_generated_sequence_probability_unixcoder_weighted": 5.852186533277853e-10,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -824,7 +869,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 6.155169566752395e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 5.132783109597687e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 9.005511729651605e-07,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -1285,7 +1339,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 4.97919749254745e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 5.102810061370663e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 4.3124215277139234e-07,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -1746,7 +1809,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 4.907327469435095e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 5.0616121431221e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.8934381016950497e-07,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -2483,7 +2555,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 1.8022330716046787e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.702035690329049e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.9125222810913905e-05,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -2552,7 +2633,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1244576020697005,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1340320867357177,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.10931920458066549,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -2939,7 +3029,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00029071951522652745,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0003001320707549352,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0002908504946608228,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -3326,7 +3425,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1292451702906392,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13438716439949067,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.11310981553348867,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -3713,7 +3821,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0002769248154819436,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00029220506311108154,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0002559266198775494,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -4100,7 +4217,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12772611496951647,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.134305955658479,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.12044133748262731,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -4169,7 +4295,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0007545316213364225,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0007563615541352684,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0006970182995325739,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -4238,7 +4373,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1302900463279682,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13383864126917175,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.12766032645840175,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -4307,7 +4451,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12383773046685966,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13194810408765242,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.09599143200274309,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -4694,7 +4847,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.15804621282511072,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13601163645904746,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1899297418132703,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -5081,7 +5243,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0010232704416636932,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.001030679108730164,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0010583795094339851,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -5746,7 +5917,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11601808897948201,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12547085425461157,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.10616771258688315,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -6347,7 +6527,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 6.40598633323801e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 6.393692462116596e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 5.531457850366957e-07,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -6416,7 +6605,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.154135545838292,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13265388151999755,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.17077860528842836,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -6484,7 +6682,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.791920993829975e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.691043390652593e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 4.020203733566958e-05,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -7085,7 +7292,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 5.602040410400415e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 6.132899557690953e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 5.538197940134794e-07,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -7153,7 +7369,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.7797047732017595e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.671268669323088e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 4.021284920250481e-05,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -7221,7 +7446,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 1.4823783074661435e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.7965418497737014e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.2342682695165362e-09,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -7821,7 +8055,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.587650758718418e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.6477936884651094e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.492932161912595e-05,
-                            "output_consistency_score": 0.3333333333333333
+                            "output_consistency_score": 0.3333333333333333,
+                            "orginal_test_-4_output_consistency_score": 0.3333333333333333,
+                            "orginal_test_-3_output_consistency_score": 0.3333333333333333,
+                            "orginal_test_-2_output_consistency_score": 0.3333333333333333,
+                            "orginal_test_-1_output_consistency_score": 0.3333333333333333,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.6666666666666666,
+                            "orginal_test_6_output_consistency_score": 0.6666666666666666,
+                            "orginal_test_9_output_consistency_score": 0.6666666666666666,
+                            "orginal_test_12_output_consistency_score": 0.3333333333333333
                         },
                         "exec_result": {
                             "data": [
@@ -8421,7 +8664,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12508176070110705,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12973375180540203,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.12807347105298264,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -8489,7 +8741,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.036054409463696e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.1832729893709244e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 2.909230761160094e-09,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.5,
+                            "orginal_test_6_output_consistency_score": 0.5,
+                            "orginal_test_9_output_consistency_score": 0.5,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -9089,7 +9350,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 8.544642740792389e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.966382666907414e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 8.007315006300545e-07,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -9157,7 +9427,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 1.2502703650970245e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.3747739979795917e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.1302881466855037e-09,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -9758,7 +10037,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12655275892864057,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12962024497972988,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.11048248870276613,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -10359,7 +10647,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.14082620850370317,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1310541981902814,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.14784609983906377,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -10959,7 +11256,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12929466707395088,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12872917818115567,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.12927614788242994,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -11918,7 +12224,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.955047278589312e-08,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 4.105865624345666e-08,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.3793941763938515e-08,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -11985,7 +12300,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.14460020457923722,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1420466342186662,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.14650533451575334,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -12052,7 +12376,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 4.264796160595792e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 4.399059228298548e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.5019215050751684e-07,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -12119,7 +12452,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 4.03246466853091e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 4.365173034166744e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 2.9797825252886994e-07,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -12186,7 +12528,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1320891778543989,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13602681895160962,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.10400358188418712,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -12865,7 +13216,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13615293580213145,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1373165504587234,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.14041149455575408,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -12932,7 +13292,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13741186496581112,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1386114353207575,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.14163451269124758,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -13611,7 +13980,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1329005884833005,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13681579144914566,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1403364146459694,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -13678,7 +14056,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1389798093383291,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14054638071823367,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1278904575106039,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -13745,7 +14132,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.16000226012142607,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14179701273886788,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.19492879000196692,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -14424,7 +14820,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13769656850172926,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13981830790517355,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.14210575204432965,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -14895,7 +15300,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11887510491365384,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1308168525400649,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.07386542548415675,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -14961,7 +15375,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11517849577618906,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12373953583309737,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.07764420077850054,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -15539,7 +15962,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0001237359836974554,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00011286521240741136,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.00013699393720675935,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -15605,7 +16037,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.16455281923643286,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.13428718886090665,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2272308342066994,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16183,7 +16624,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.008357227536959637,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00859020501721334,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.009149964372184075,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16249,7 +16699,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.011504303448772823,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.010076464971729135,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.012047842302648496,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16315,7 +16774,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11335850044350092,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12398474078675267,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.09440520648875761,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16381,7 +16849,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11939303272347512,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.131305205077205,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.07317537126614976,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16447,7 +16924,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.18959906632382265,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.2051809445594694,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.170248963279697,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16513,7 +16999,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1132806418712232,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12188670528153336,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0694397556970381,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16579,7 +17074,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.008866701399146734,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008714983145963855,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.008344043080790604,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16645,7 +17149,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.007778486482406048,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008385565491368947,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.008155320443643492,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16711,7 +17224,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.149515442823888e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 7.54644840271777e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 7.055296986857929e-05,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16777,7 +17299,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11562487509642651,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12426120315413128,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.07463194338325059,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16843,7 +17374,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 8.790579090572198e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 9.117100924602332e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 8.342641177578766e-05,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16909,7 +17449,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.009335590466436122,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.008625853289435177,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.00964787451197099,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -16975,7 +17524,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12209003984112024,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1245881144932847,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.08650156494157471,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -17041,7 +17599,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.10039129292972884,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.08303496155857158,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.10927371802095505,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -17964,7 +18531,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 2.5917704257890325e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.3030320863091115e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.35444880504202e-09,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -18031,7 +18607,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 1.9681400900048613e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.162604070679135e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.5255078624757828e-09,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -18460,7 +19045,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 8.335130354913174e-11,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 9.12019370633009e-11,
                             "average_generated_sequence_probability_unixcoder_weighted": 8.303068258289444e-11,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -18889,7 +19483,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 1.8882780088633468e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.0727201843380617e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.4704975454993612e-09,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -19318,7 +19921,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.248156758181551e-13,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.1805871435575974e-13,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.509313817660009e-13,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -19747,7 +20359,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 2.010322700113538e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.1674466758292103e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.5818732682571463e-09,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -19814,7 +20435,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 2.2026604406511618e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.2703356093990867e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.9250287551873385e-09,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -19881,7 +20511,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 2.2793422404764595e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.2851317003308285e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.9904009571913395e-09,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -19948,7 +20587,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 8.503629574548695e-11,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 9.151385076884726e-11,
                             "average_generated_sequence_probability_unixcoder_weighted": 8.839891584745813e-11,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -20377,7 +21025,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 2.1452917070396183e-09,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 2.191941614637585e-09,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.8927187017922697e-09,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -20698,7 +21355,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 3.2037541451406954e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 3.2636719460401434e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 2.943035685173903e-07,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -20766,7 +21432,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.837079140323381e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00010200852283862622,
                             "average_generated_sequence_probability_unixcoder_weighted": 5.056221858566311e-05,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -20834,7 +21509,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.834481312017431e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00010456950777351567,
                             "average_generated_sequence_probability_unixcoder_weighted": 5.482703653617847e-05,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -21622,7 +22306,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0006488634121569694,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0006429487839617733,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.000686557133988666,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -21690,7 +22383,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.652819236883059e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00010048821360344955,
                             "average_generated_sequence_probability_unixcoder_weighted": 4.537338530881195e-05,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -22478,7 +23180,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0005985004911464396,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0006378815869639154,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0006240237136637066,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -23266,7 +23977,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0006211791925847377,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0005397647780030274,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0007019985725947188,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -24054,7 +24774,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.839584207020013e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00010174330492370912,
                             "average_generated_sequence_probability_unixcoder_weighted": 4.869134333308614e-05,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -24122,7 +24851,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.0005097658439297898,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0005370563585105139,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0005232900852166218,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -24910,7 +25648,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.548215823344309e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00010309375545017403,
                             "average_generated_sequence_probability_unixcoder_weighted": 3.930680570977571e-05,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -25698,7 +26445,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.477943719984167e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.00010075489994373597,
                             "average_generated_sequence_probability_unixcoder_weighted": 4.8263617764703584e-05,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -27023,7 +27779,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 1.7057659120489424e-12,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 1.9531956292090634e-12,
                             "average_generated_sequence_probability_unixcoder_weighted": 1.7086444349700998e-12,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -27091,7 +27856,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.3045149747494325,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.28559729611007956,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.32567030717295337,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -27159,7 +27933,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1283295580623228,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12753604317493952,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.14532286814144016,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -27227,7 +28010,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13940312629248017,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14416050207380884,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.12055108285369708,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -27807,7 +28599,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.15107921838483276,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.15360826510875683,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1845130988177305,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -27875,7 +28676,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00014490011223528506,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0001421157567422963,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.00014359370002174087,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -27943,7 +28753,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.16035277845774462,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.15664403470237592,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.17361310047530243,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -28523,7 +29342,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00022840515092224323,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0002129125005112259,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.00023716634311939986,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -28591,7 +29419,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.4122591308233808,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.4276044299534814,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.3861821799329304,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -28659,7 +29496,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.15422861580571456,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.15507602774491785,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.15635318493604364,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -28727,7 +29573,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.12608448404852926,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14001538140114284,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0982836840538334,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -28795,7 +29650,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.14454307281731096,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14149314813227262,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.15567318772395194,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -28863,7 +29727,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.16906674945909103,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14533749339495747,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.2016784770329922,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -29443,7 +30316,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.2842645076701906,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.27633697329127993,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.28212176644228265,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -30023,7 +30905,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.15126170494910973,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1539189930571035,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.15685356169462897,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -30603,7 +31494,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.11586237941188673,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12963137095225577,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.07681002563343642,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -30671,7 +31571,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.00014513341458250443,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.0001492005154824026,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.0001442550147305585,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -30739,7 +31648,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13227472891090492,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.12833764299150635,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.15557746072948853,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -31150,7 +32068,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 8.695393948174234e-07,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 9.407466626120864e-07,
                             "average_generated_sequence_probability_unixcoder_weighted": 7.267953063052968e-07,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -31217,7 +32144,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 7.579572332876033e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.132518365743183e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 6.498407083244665e-05,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -31284,7 +32220,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1685151266473378,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14801621471492266,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.21167414943691343,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -31351,7 +32296,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13884255740866053,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14392241190703078,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1024501661266033,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -31418,7 +32372,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13839523973791412,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14199848721147887,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1178486162601846,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -31957,7 +32920,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 8.021031076834222e-05,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 8.386380271421086e-05,
                             "average_generated_sequence_probability_unixcoder_weighted": 7.532158089527842e-05,
-                            "output_consistency_score": 0.0
+                            "output_consistency_score": 0.0,
+                            "orginal_test_-4_output_consistency_score": 0.0,
+                            "orginal_test_-3_output_consistency_score": 0.0,
+                            "orginal_test_-2_output_consistency_score": 0.0,
+                            "orginal_test_-1_output_consistency_score": 0.0,
+                            "orginal_test_0_output_consistency_score": 1.0,
+                            "orginal_test_3_output_consistency_score": 0.0,
+                            "orginal_test_6_output_consistency_score": 0.0,
+                            "orginal_test_9_output_consistency_score": 0.0,
+                            "orginal_test_12_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -32496,7 +33468,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13786348106714072,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14245734858295492,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.10928139602724772,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -32563,7 +33544,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.1424604005465737,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14790186491832633,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.1188804393536159,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -32630,7 +33620,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.13811806975769764,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.1411392258296017,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.10631106723608383,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -32697,7 +33696,16 @@
                             "average_generated_sequence_probability_codebert_score_weighted": 0.14044961787141058,
                             "average_generated_sequence_probability_codebert_cosine_weighted": 0.14721405216316605,
                             "average_generated_sequence_probability_unixcoder_weighted": 0.11862987359599252,
-                            "output_consistency_score": 0
+                            "output_consistency_score": 0,
+                            "orginal_test_-4_output_consistency_score": 0,
+                            "orginal_test_-3_output_consistency_score": 0,
+                            "orginal_test_-2_output_consistency_score": 0,
+                            "orginal_test_-1_output_consistency_score": 0,
+                            "orginal_test_0_output_consistency_score": 0,
+                            "orginal_test_3_output_consistency_score": 0,
+                            "orginal_test_6_output_consistency_score": 0,
+                            "orginal_test_9_output_consistency_score": 0,
+                            "orginal_test_12_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [

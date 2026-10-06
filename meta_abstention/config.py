@@ -23,7 +23,7 @@ llm = {
 }
 
 exec_eval = {
-    'api-url': 'http://localhost:5000/api/execute_code'
+    'api-url': 'http://localhost:5003/api/execute_code'
 }
 
 translation = {
@@ -35,7 +35,12 @@ translation = {
         'java': 'Java 8',
         'cpp': 'GNU C++11',
     },
-    'max-tries': 5,
+    'max-tries': 3,
+    'number-of-generated-tests': 40,
+    'number-of-considered-generated-tests': 20,
+    'max-runtime-seconds': 5,
+    'number-of-perturbations': 5,
+    'seed': 42,
 }
 
 xcodeeval = {

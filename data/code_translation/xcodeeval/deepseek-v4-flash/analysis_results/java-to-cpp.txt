@@ -207,10 +207,75 @@
   Spearman rho   :  0.186   95% CI [ 0.087,  0.279]
   Pearson r      :  0.135   95% CI [ 0.071,  0.194]
 
-=== Output Consistency Score  (n=424, accuracy=83.73%) ===
-  AUROC          :  0.996   95% CI [ 0.990,  1.000]
-  Brier          :  0.028   95% CI [ 0.019,  0.038]
-  Skill Score    :  0.794   95% CI [ 0.696,  0.863]
-  ECE (10 bins)  :  0.068   95% CI [ 0.054,  0.083]
-  Spearman rho   :  0.731   95% CI [ 0.671,  0.782]
-  Pearson r      :  0.914   95% CI [ 0.879,  0.942]
+
+=== Original Test -4 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.987
+  Brier          :  0.030
+  Skill Score    :  0.780
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.724
+  Pearson r      :  0.905
+
+=== Original Test -3 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.987
+  Brier          :  0.030
+  Skill Score    :  0.780
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.724
+  Pearson r      :  0.905
+
+=== Original Test -2 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.987
+  Brier          :  0.030
+  Skill Score    :  0.780
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.724
+  Pearson r      :  0.905
+
+=== Original Test -1 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.996
+  Brier          :  0.028
+  Skill Score    :  0.794
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.731
+  Pearson r      :  0.914
+
+=== Original Test 0 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.790
+  Brier          :  0.068
+  Skill Score    :  0.498
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.732
+  Pearson r      :  0.732
+
+=== Original Test 3 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.953
+  Brier          :  0.036
+  Skill Score    :  0.734
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.700
+  Pearson r      :  0.873
+
+=== Original Test 6 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.987
+  Brier          :  0.030
+  Skill Score    :  0.780
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.724
+  Pearson r      :  0.905
+
+=== Original Test 9 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.987
+  Brier          :  0.030
+  Skill Score    :  0.780
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.724
+  Pearson r      :  0.905
+
+=== Original Test 12 Output Consistency Score  (n=424, accuracy=83.73%) ===
+  AUROC          :  0.987
+  Brier          :  0.030
+  Skill Score    :  0.780
+  ECE (10 bins)  :  0.068
+  Spearman rho   :  0.724
+  Pearson r      :  0.905

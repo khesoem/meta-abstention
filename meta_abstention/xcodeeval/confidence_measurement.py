@@ -9,6 +9,7 @@ import random
 import copy
 import os
 import logging
+from meta_abstention import config as conf
 
 _SIMILARITY_FNS = {
     'codebleu': codebleu_sim,
@@ -214,38 +215,79 @@ def _add_similarity_based_confidence(similarities: dict, submission: dict, filte
                 translation_index, confidence_key
             )
 
-def _add_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int):
-    t_result = submission['translation'][translation_index]['exec_result']['data']
+def _add_generated_test_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int, generated_test_execution_results: dict):
+    submission_code_uid = submission['code_uid']
+    submission_exec_result = generated_test_execution_results[submission_code_uid][submission_code_uid]['data']
 
-    if len(t_result) <= 1: # Compilation error or Timeout error
-        submission['translation'][translation_index]['confidence']['output_consistency_score'] = 0
+    if len(submission_exec_result) <= 1: # Compilation error or Timeout error
+        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = 0
         return
-
+    
     consistent_translations = 0
     valid_other_translations = 0
 
     for other in filtered_submissions:
-        other_result = other['translation'][translation_index]['exec_result']['data']
+        other_code_uid = other['code_uid']
+        other_exec_result = generated_test_execution_results[submission_code_uid][other_code_uid]['data']
 
-        if len(other_result) <= 1: # Compilation error or Timeout error
+        if len(other_exec_result) <= 1: # Compilation error or Timeout error
             continue
     
         valid_other_translations += 1
 
-        if len(t_result) != len(other_result):
+        if len(submission_exec_result) != len(other_exec_result):
             continue
 
-        if [d['result'] for d in t_result] == [d['result'] for d in other_result]:
+        if [e['result'] for e in submission_exec_result] == [e['result'] for e in other_exec_result]:
             consistent_translations += 1
 
     if valid_other_translations == 0:
-        submission['translation'][translation_index]['confidence']['output_consistency_score'] = 0
+        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = 0
     else:
-        submission['translation'][translation_index]['confidence']['output_consistency_score'] = consistent_translations / valid_other_translations
+        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = consistent_translations / valid_other_translations
 
-def compute_confidence(similarities_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = 42):
+def _add_original_test_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int):
+    for test_cnt in [-4, -3, -2, -1, 0, 3, 6, 9, 12]:
+
+        submission_exec_result = submission['translation'][translation_index]['exec_result']['data']
+
+        if len(submission_exec_result) <= 1: # Compilation error or Timeout error
+            submission['translation'][translation_index]['confidence'][f'orginal_test_{test_cnt}_output_consistency_score'] = 0
+            continue
+
+        if test_cnt >= 0:
+            selected_indices = random.Random(conf.translation['seed']).sample(range(len(submission_exec_result)), len(submission_exec_result))[:test_cnt]
+        else:
+            selected_indices = random.Random(conf.translation['seed']).sample(range(len(submission_exec_result)), len(submission_exec_result))[:(len(submission_exec_result) // (-test_cnt))]
+
+        consistent_translations = 0
+        valid_other_translations = 0
+
+        for other in filtered_submissions:
+            other_exec_result = other['translation'][translation_index]['exec_result']['data']
+
+            if len(other_exec_result) <= 1: # Compilation error or Timeout error
+                continue
+        
+            valid_other_translations += 1
+
+            if len(submission_exec_result) != len(other_exec_result):
+                continue
+
+            if [submission_exec_result[i]['result'] for i in selected_indices] == [other_exec_result[i]['result'] for i in selected_indices]:
+                consistent_translations += 1
+
+
+        if valid_other_translations == 0:
+            submission['translation'][translation_index]['confidence'][f'orginal_test_{test_cnt}_output_consistency_score'] = 0
+        else:
+            submission['translation'][translation_index]['confidence'][f'orginal_test_{test_cnt}_output_consistency_score'] = consistent_translations / valid_other_translations
+
+def compute_confidence(similarities_path: str, generated_test_execution_results_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = conf.translation['seed']):
     with open(similarities_path, 'r') as s:
         similarities = json.load(s)
+    with open(generated_test_execution_results_path, 'r') as e:
+        generated_test_execution_results = json.load(e)
     with open(exec_results_path, 'r') as e:
         translation_exec_results = json.load(e)
 
@@ -255,13 +297,15 @@ def compute_confidence(similarities_path: str, exec_results_path: str, output_pa
         submissions = copy.deepcopy(item['submissions'])
 
         for submission in item['submissions']:
-            code_uid = submission['code_uid']
             rand.shuffle(submissions)
+            code_uid = submission['code_uid']
             filtered_submissions = [s for s in submissions if s['code_uid'] != code_uid][:n_perturbations]
 
             _add_similarity_based_confidence(similarities, submission, filtered_submissions, translation_index)
 
-            _add_execution_based_confidence(submission, filtered_submissions, translation_index)
+            _add_original_test_execution_based_confidence(submission, filtered_submissions, translation_index)
+
+            _add_generated_test_execution_based_confidence(submission, filtered_submissions, translation_index, generated_test_execution_results)
 
     with open(output_path, 'w') as e:
         json.dump(translation_exec_results, e, indent=4)

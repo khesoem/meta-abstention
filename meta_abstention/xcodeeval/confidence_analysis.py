@@ -45,87 +45,92 @@ def skill_score(confidences, correctness):
 
 
 def _safe_metric(y, c, fn):
-    """Guard AUROC etc. against degenerate bootstrap resamples."""
+    """Guard AUROC etc. when every label is the same class."""
     if y.sum() == 0 or y.sum() == len(y):
         return np.nan
     return fn(y, c)
 
 
 def calibration_report(confidences, correctness, name="method", output_file=None,
-                       n_bins=10, n_boot=5000, seed=0):
+                       n_bins=10):
     confidences = np.asarray(confidences, dtype=float)
     correctness = np.asarray(correctness, dtype=int)
     n = len(confidences)
 
-    def metrics(c, y):
-        return {
-            "AUROC":         _safe_metric(y, c, roc_auc_score),
-            "Brier":         brier_score_loss(y, c),
-            "Skill Score":   skill_score(c, y),
-            f"ECE ({n_bins} bins)": expected_calibration_error(c, y, n_bins),
-            "Spearman rho":  stats.spearmanr(c, y).statistic,
-            "Pearson r":     stats.pearsonr(c, y).statistic,
-        }
+    point = {
+        "AUROC":         _safe_metric(correctness, confidences, roc_auc_score),
+        "Brier":         brier_score_loss(correctness, confidences),
+        "Skill Score":   skill_score(confidences, correctness),
+        f"ECE ({n_bins} bins)": expected_calibration_error(confidences, correctness, n_bins),
+        "Spearman rho":  stats.spearmanr(confidences, correctness).statistic,
+        "Pearson r":     stats.pearsonr(confidences, correctness).statistic,
+    }
 
-    point = metrics(confidences, correctness)
-
-    rng = np.random.default_rng(seed)
-    boot = {k: [] for k in point}
-    for _ in range(n_boot):
-        idx = rng.integers(0, n, n)
-        for k, v in metrics(confidences[idx], correctness[idx]).items():
-            if not np.isnan(v):
-                boot[k].append(v)
+    lines = [f"\n=== {name}  (n={n}, accuracy={correctness.mean():.2%}) ==="]
+    for k, v in point.items():
+        lines.append(f"  {k:15s}: {v:6.3f}")
+    report = "\n".join(lines) + "\n"
 
     if output_file:
         with open(output_file, 'a') as f:
-            f.write(f"\n=== {name}  (n={n}, accuracy={correctness.mean():.2%}) ===\n")
-            for k, v in point.items():
-                arr = np.array(boot[k])
-                lo, hi = np.percentile(arr, [2.5, 97.5])
-                f.write(f"  {k:15s}: {v:6.3f}   95% CI [{lo:6.3f}, {hi:6.3f}]\n")
+            f.write(report)
     else:
-        print(f"\n=== {name}  (n={n}, accuracy={correctness.mean():.2%}) ===")
-        for k, v in point.items():
-            arr = np.array(boot[k])
-            lo, hi = np.percentile(arr, [2.5, 97.5])
-            print(f"  {k:15s}: {v:6.3f}   95% CI [{lo:6.3f}, {hi:6.3f}]")
+        print(report, end="")
 
-    return point, boot
+    return point
 
 # (confidence dict key, report display name)
 _CONFIDENCE_METRICS = [
-    ('verbalization', 'Simple Verbalized'),
-    ('average_token_probability', 'Average Token Probability'),
-    ('average_token_probability_geometric', 'Average Token Probability Geometric'),
-    ('generated_sequence_probability', 'Generated Sequence Probability'),
-    ('spuq_codebert_score', 'SPUQ CodeBERT Score'),
-    ('spuq_codebert_score_reverse', 'SPUQ CodeBERT Score Reverse'),
-    ('spuq_codebleu', 'SPUQ CodeBLEU'),
-    ('spuq_codebleu_reverse', 'SPUQ CodeBLEU Reverse'),
-    ('spuq_unixcoder', 'SPUQ Unixcoder'),
-    ('spuq_unixcoder_reverse', 'SPUQ Unixcoder Reverse'),
-    ('output_consistency_score', 'Output Consistency Score'),
-    ('average_verbalized_confidence', 'Average Verbalized'),
-    ('average_verbalized_confidence_codebert_score_weighted', 'Average Verbalized CodeBERT Score'),
-    ('average_verbalized_confidence_codebleu_weighted', 'Average Verbalized CodeBLEU'),
-    ('average_verbalized_confidence_unixcoder_weighted', 'Average Verbalized Unixcoder'),
-    ('average_average_token_probability', 'Average of Average Token Probability'),
-    ('average_average_token_probability_codebert_score_weighted', 'Average of Average Token Probability CodeBERT Score'),
-    ('average_average_token_probability_codebleu_weighted', 'Average of Average Token Probability CodeBLEU'),
-    ('average_average_token_probability_unixcoder_weighted', 'Average of Average Token Probability Unixcoder'),
-    ('average_average_token_probability_geometric', 'Average of Average Token Probability Geometric'),
-    ('average_average_token_probability_geometric_codebert_score_weighted', 'Average of Average Token Probability Geometric CodeBERT Score'),
-    ('average_average_token_probability_geometric_codebleu_weighted', 'Average of Average Token Probability Geometric CodeBLEU'),
-    ('average_average_token_probability_geometric_unixcoder_weighted', 'Average of Average Token Probability Geometric Unixcoder'),
-    ('average_generated_sequence_probability', 'Average Generated Sequence Probability'),
-    ('average_generated_sequence_probability_codebert_score_weighted', 'Average Generated Sequence Probability CodeBERT Score'),
-    ('average_generated_sequence_probability_codebleu_weighted', 'Average Generated Sequence Probability CodeBLEU'),
-    ('average_generated_sequence_probability_unixcoder_weighted', 'Average Generated Sequence Probability Unixcoder'),
+    # ('verbalization', 'Simple Verbalized'),
+    # ('average_token_probability', 'Average Token Probability'),
+    # ('average_token_probability_geometric', 'Average Token Probability Geometric'),
+    # ('generated_sequence_probability', 'Generated Sequence Probability'),
+    # ('spuq_codebert_score', 'SPUQ CodeBERT Score'),
+    # ('spuq_codebert_score_reverse', 'SPUQ CodeBERT Score Reverse'),
+    # ('spuq_codebleu', 'SPUQ CodeBLEU'),
+    # ('spuq_codebleu_reverse', 'SPUQ CodeBLEU Reverse'),
+    # ('spuq_unixcoder', 'SPUQ Unixcoder'),
+    # ('spuq_unixcoder_reverse', 'SPUQ Unixcoder Reverse'),
+    ('generated_test_output_consistency_score', 'Generated Test Output Consistency Score'),
+    ('orginal_test_-4_output_consistency_score', 'Original Test -4 Output Consistency Score'),
+    ('orginal_test_-3_output_consistency_score', 'Original Test -3 Output Consistency Score'),
+    ('orginal_test_-2_output_consistency_score', 'Original Test -2 Output Consistency Score'),
+    ('orginal_test_-1_output_consistency_score', 'Original Test -1 Output Consistency Score'),
+    ('orginal_test_0_output_consistency_score', 'Original Test 0 Output Consistency Score'),
+    ('orginal_test_3_output_consistency_score', 'Original Test 3 Output Consistency Score'),
+    ('orginal_test_6_output_consistency_score', 'Original Test 6 Output Consistency Score'),
+    ('orginal_test_9_output_consistency_score', 'Original Test 9 Output Consistency Score'),
+    ('orginal_test_12_output_consistency_score', 'Original Test 12 Output Consistency Score'),
+    # ('average_verbalized_confidence', 'Average Verbalized'),
+    # ('average_verbalized_confidence_codebert_score_weighted', 'Average Verbalized CodeBERT Score'),
+    # ('average_verbalized_confidence_codebleu_weighted', 'Average Verbalized CodeBLEU'),
+    # ('average_verbalized_confidence_unixcoder_weighted', 'Average Verbalized Unixcoder'),
+    # ('average_average_token_probability', 'Average of Average Token Probability'),
+    # ('average_average_token_probability_codebert_score_weighted', 'Average of Average Token Probability CodeBERT Score'),
+    # ('average_average_token_probability_codebleu_weighted', 'Average of Average Token Probability CodeBLEU'),
+    # ('average_average_token_probability_unixcoder_weighted', 'Average of Average Token Probability Unixcoder'),
+    # ('average_average_token_probability_geometric', 'Average of Average Token Probability Geometric'),
+    # ('average_average_token_probability_geometric_codebert_score_weighted', 'Average of Average Token Probability Geometric CodeBERT Score'),
+    # ('average_average_token_probability_geometric_codebleu_weighted', 'Average of Average Token Probability Geometric CodeBLEU'),
+    # ('average_average_token_probability_geometric_unixcoder_weighted', 'Average of Average Token Probability Geometric Unixcoder'),
+    # ('average_generated_sequence_probability', 'Average Generated Sequence Probability'),
+    # ('average_generated_sequence_probability_codebert_score_weighted', 'Average Generated Sequence Probability CodeBERT Score'),
+    # ('average_generated_sequence_probability_codebleu_weighted', 'Average Generated Sequence Probability CodeBLEU'),
+    # ('average_generated_sequence_probability_unixcoder_weighted', 'Average Generated Sequence Probability Unixcoder'),
 ]
 
 
 def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None):
+    # remove all lines that come after "Output Consistency Score" in the output file
+    if output_file:
+        with open(output_file, 'r') as f:
+            lines = f.readlines()
+        with open(output_file, 'w') as f:
+            for line in lines:
+                if "Output Consistency Score" in line:
+                    break
+                f.write(line)
+
     logging.info(f"Running confidence analysis for {execution_results_paths}")
     scores = {key: [] for key, _ in _CONFIDENCE_METRICS}
     correctness_scores = []
