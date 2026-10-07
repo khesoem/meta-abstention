@@ -1,11 +1,10 @@
 % Requires \usepackage{booktabs,longtable}
 % Point estimates. The best value in each column of a block is bold.
-% 95% confidence intervals are drawn on the accompanying charts.
 {\scriptsize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{0.95}
 \begin{longtable}{@{}lrrrrrrr@{}}
-\caption{ECE, Brier score, and skill score of confidence methods for code translation. Translation accuracy: C++$\rightarrow$Java 71.38\% ($n=615$); C++$\rightarrow$Python 51.38\% ($n=615$); Java$\rightarrow$C++ 83.73\% ($n=424$); Java$\rightarrow$Python 77.12\% ($n=424$); Python$\rightarrow$C++ 60.71\% ($n=112$); Python$\rightarrow$Java 59.82\% ($n=112$); Overall 68.29\% ($n=2302$). Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric mean token probability; Seq = sequence probability; Avg- = mean over perturbations; CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse. J = Java, P = Python, All = all pairs pooled.\label{tab:translation-calibration}}\\
+\caption{ECE, Brier score, and skill score of confidence methods for code translation. Translation accuracy: C++$\rightarrow$Java 71.38\% ($n=615$); C++$\rightarrow$Python 51.38\% ($n=615$); Java$\rightarrow$C++ 83.73\% ($n=424$); Java$\rightarrow$Python 77.12\% ($n=424$); Python$\rightarrow$C++ 60.71\% ($n=112$); Python$\rightarrow$Java 59.82\% ($n=112$); Overall 68.29\% ($n=2302$). Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric mean token probability; Seq = sequence probability; Avg- = mean over perturbations; CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse; OT$k$ = original-test output consistency on $k$ tests ($k<0$ uses $1/|k|$ of the tests). J = Java, P = Python, All = all pairs pooled.\label{tab:translation-calibration}}\\
 \toprule
 Method & C++$\to$J & C++$\to$P & J$\to$C++ & J$\to$P & P$\to$C++ & P$\to$J & All \\
 \midrule
@@ -51,7 +50,15 @@ Avg-Seq-CB & 0.647 & 0.457 & 0.776 & 0.735 & 0.571 & 0.552 & 0.628 \\
 Avg-Seq-BLEU & 0.647 & 0.458 & 0.776 & 0.735 & 0.576 & 0.555 & 0.628 \\
 Avg-Seq-UX & 0.647 & 0.458 & 0.776 & 0.734 & 0.570 & 0.552 & 0.628 \\
 \addlinespace
-OCS & 0.142 & \textbf{0.108} & 0.068 & 0.123 & \textbf{0.144} & \textbf{0.171} & 0.114 \\
+OT$-4$ & 0.129 & 0.054 & 0.068 & 0.109 & 0.136 & 0.166 & 0.093 \\
+OT$-3$ & 0.134 & 0.075 & 0.068 & 0.111 & 0.136 & 0.166 & 0.101 \\
+OT$-2$ & 0.138 & 0.082 & 0.068 & 0.114 & 0.149 & 0.168 & 0.105 \\
+OT$-1$ & 0.142 & 0.108 & 0.068 & 0.123 & 0.144 & 0.171 & 0.114 \\
+OT0 & 0.223 & 0.478 & 0.068 & 0.222 & 0.375 & 0.375 & 0.277 \\
+OT3 & 0.118 & 0.093 & 0.068 & 0.112 & 0.215 & 0.288 & 0.096 \\
+OT6 & 0.118 & \textbf{0.043} & 0.068 & 0.123 & 0.117 & 0.183 & 0.090 \\
+OT9 & 0.125 & 0.053 & 0.068 & 0.131 & \textbf{0.116} & \textbf{0.144} & 0.095 \\
+OT12 & 0.131 & 0.065 & 0.068 & 0.114 & 0.136 & 0.166 & 0.098 \\
 \midrule
 \multicolumn{8}{l}{\textit{Brier score (lower is better)}} \\
 \midrule
@@ -88,7 +95,15 @@ Avg-Seq-CB & 0.609 & 0.444 & 0.738 & 0.707 & 0.572 & 0.548 & 0.602 \\
 Avg-Seq-BLEU & 0.609 & 0.443 & 0.737 & 0.708 & 0.570 & 0.553 & 0.602 \\
 Avg-Seq-UX & 0.609 & 0.444 & 0.737 & 0.707 & 0.571 & 0.547 & 0.602 \\
 \addlinespace
-OCS & \textbf{0.079} & \textbf{0.096} & \textbf{0.028} & \textbf{0.077} & \textbf{0.113} & \textbf{0.121} & \textbf{0.078} \\
+OT$-4$ & 0.082 & 0.122 & 0.030 & 0.086 & 0.128 & 0.135 & 0.089 \\
+OT$-3$ & 0.081 & 0.113 & 0.030 & 0.080 & 0.128 & 0.135 & 0.085 \\
+OT$-2$ & 0.080 & 0.108 & 0.030 & 0.078 & 0.121 & 0.128 & 0.082 \\
+OT$-1$ & \textbf{0.079} & \textbf{0.096} & \textbf{0.028} & \textbf{0.077} & \textbf{0.113} & \textbf{0.121} & \textbf{0.078} \\
+OT0 & 0.223 & 0.478 & 0.068 & 0.222 & 0.375 & 0.375 & 0.277 \\
+OT3 & 0.105 & 0.161 & 0.036 & 0.099 & 0.223 & 0.269 & 0.120 \\
+OT6 & 0.083 & 0.139 & 0.030 & 0.094 & 0.176 & 0.225 & 0.102 \\
+OT9 & 0.081 & 0.126 & 0.030 & 0.094 & 0.173 & 0.185 & 0.096 \\
+OT12 & 0.081 & 0.116 & 0.030 & 0.083 & 0.128 & 0.135 & 0.086 \\
 \midrule
 \multicolumn{8}{l}{\textit{Skill score (higher is better)}} \\
 \midrule
@@ -125,7 +140,15 @@ Avg-Seq-CB & -1.981 & -0.776 & -4.417 & -3.008 & -1.399 & -1.279 & -1.780 \\
 Avg-Seq-BLEU & -1.980 & -0.775 & -4.406 & -3.013 & -1.390 & -1.302 & -1.779 \\
 Avg-Seq-UX & -1.981 & -0.776 & -4.413 & -3.006 & -1.396 & -1.278 & -1.778 \\
 \addlinespace
-OCS & \textbf{\phantom{-}0.611} & \textbf{\phantom{-}0.616} & \textbf{\phantom{-}0.794} & \textbf{\phantom{-}0.564} & \textbf{\phantom{-}0.527} & \textbf{\phantom{-}0.496} & \textbf{\phantom{-}0.642} \\
+OT$-4$ & \phantom{-}0.597 & \phantom{-}0.510 & \phantom{-}0.780 & \phantom{-}0.515 & \phantom{-}0.463 & \phantom{-}0.438 & \phantom{-}0.590 \\
+OT$-3$ & \phantom{-}0.603 & \phantom{-}0.549 & \phantom{-}0.780 & \phantom{-}0.547 & \phantom{-}0.463 & \phantom{-}0.438 & \phantom{-}0.608 \\
+OT$-2$ & \phantom{-}0.609 & \phantom{-}0.568 & \phantom{-}0.780 & \phantom{-}0.557 & \phantom{-}0.494 & \phantom{-}0.466 & \phantom{-}0.620 \\
+OT$-1$ & \textbf{\phantom{-}0.611} & \textbf{\phantom{-}0.616} & \textbf{\phantom{-}0.794} & \textbf{\phantom{-}0.564} & \textbf{\phantom{-}0.527} & \textbf{\phantom{-}0.496} & \textbf{\phantom{-}0.642} \\
+OT0 & -0.090 & -0.914 & \phantom{-}0.498 & -0.257 & -0.572 & -0.560 & -0.280 \\
+OT3 & \phantom{-}0.485 & \phantom{-}0.354 & \phantom{-}0.734 & \phantom{-}0.438 & \phantom{-}0.064 & -0.118 & \phantom{-}0.446 \\
+OT6 & \phantom{-}0.592 & \phantom{-}0.445 & \phantom{-}0.780 & \phantom{-}0.466 & \phantom{-}0.260 & \phantom{-}0.065 & \phantom{-}0.530 \\
+OT9 & \phantom{-}0.602 & \phantom{-}0.495 & \phantom{-}0.780 & \phantom{-}0.469 & \phantom{-}0.275 & \phantom{-}0.228 & \phantom{-}0.558 \\
+OT12 & \phantom{-}0.604 & \phantom{-}0.535 & \phantom{-}0.780 & \phantom{-}0.532 & \phantom{-}0.463 & \phantom{-}0.438 & \phantom{-}0.602 \\
 \end{longtable}
 }
 
@@ -134,7 +157,7 @@ OCS & \textbf{\phantom{-}0.611} & \textbf{\phantom{-}0.616} & \textbf{\phantom{-
 \renewcommand{\arraystretch}{0.95}
 \begin{table}[t]
 \centering
-\caption{AUROC of confidence methods for code translation. Translation accuracy: C++$\rightarrow$Java 71.38\% ($n=615$); C++$\rightarrow$Python 51.38\% ($n=615$); Java$\rightarrow$C++ 83.73\% ($n=424$); Java$\rightarrow$Python 77.12\% ($n=424$); Python$\rightarrow$C++ 60.71\% ($n=112$); Python$\rightarrow$Java 59.82\% ($n=112$); Overall 68.29\% ($n=2302$). Higher is better; the best value in each column is bold. Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric mean token probability; Seq = sequence probability; Avg- = mean over perturbations; CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse. J = Java, P = Python, All = all pairs pooled.}
+\caption{AUROC of confidence methods for code translation. Translation accuracy: C++$\rightarrow$Java 71.38\% ($n=615$); C++$\rightarrow$Python 51.38\% ($n=615$); Java$\rightarrow$C++ 83.73\% ($n=424$); Java$\rightarrow$Python 77.12\% ($n=424$); Python$\rightarrow$C++ 60.71\% ($n=112$); Python$\rightarrow$Java 59.82\% ($n=112$); Overall 68.29\% ($n=2302$). Higher is better; the best value in each column is bold. Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric mean token probability; Seq = sequence probability; Avg- = mean over perturbations; CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse; OT$k$ = original-test output consistency on $k$ tests ($k<0$ uses $1/|k|$ of the tests). J = Java, P = Python, All = all pairs pooled.}
 \label{tab:translation-auroc}
 \begin{tabular}{@{}lrrrrrrr@{}}
 \toprule
@@ -173,7 +196,15 @@ Avg-Seq-CB & 0.678 & 0.713 & 0.636 & 0.735 & 0.429 & 0.428 & 0.675 \\
 Avg-Seq-BLEU & 0.694 & 0.715 & 0.660 & 0.741 & 0.436 & 0.440 & 0.684 \\
 Avg-Seq-UX & 0.680 & 0.713 & 0.645 & 0.735 & 0.427 & 0.431 & 0.676 \\
 \addlinespace
-OCS & \textbf{0.983} & \textbf{0.950} & \textbf{0.996} & \textbf{0.905} & \textbf{0.949} & \textbf{0.916} & \textbf{0.964} \\
+OT$-4$ & 0.963 & 0.900 & 0.987 & 0.875 & 0.902 & 0.886 & 0.933 \\
+OT$-3$ & 0.971 & 0.921 & 0.987 & 0.897 & 0.902 & 0.886 & 0.946 \\
+OT$-2$ & 0.977 & 0.929 & 0.987 & 0.899 & 0.929 & 0.899 & 0.953 \\
+OT$-1$ & \textbf{0.983} & \textbf{0.950} & \textbf{0.996} & \textbf{0.905} & \textbf{0.949} & \textbf{0.916} & \textbf{0.964} \\
+OT0 & 0.611 & 0.508 & 0.790 & 0.515 & 0.523 & 0.533 & 0.563 \\
+OT3 & 0.869 & 0.848 & 0.953 & 0.829 & 0.646 & 0.614 & 0.850 \\
+OT6 & 0.942 & 0.878 & 0.987 & 0.841 & 0.782 & 0.718 & 0.902 \\
+OT9 & 0.953 & 0.897 & 0.987 & 0.843 & 0.809 & 0.803 & 0.918 \\
+OT12 & 0.969 & 0.912 & 0.987 & 0.879 & 0.902 & 0.886 & 0.940 \\
 \bottomrule
 \end{tabular}
 \end{table}
