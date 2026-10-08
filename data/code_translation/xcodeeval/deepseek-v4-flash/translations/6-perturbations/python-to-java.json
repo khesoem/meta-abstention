@@ -96,7 +96,8 @@
                             "orginal_test_3_output_consistency_score": 0,
                             "orginal_test_6_output_consistency_score": 0,
                             "orginal_test_9_output_consistency_score": 0,
-                            "orginal_test_12_output_consistency_score": 0
+                            "orginal_test_12_output_consistency_score": 0,
+                            "generated_test_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -174,7 +175,8 @@
                             "orginal_test_3_output_consistency_score": 0.75,
                             "orginal_test_6_output_consistency_score": 0.75,
                             "orginal_test_9_output_consistency_score": 0.75,
-                            "orginal_test_12_output_consistency_score": 0.75
+                            "orginal_test_12_output_consistency_score": 0.75,
+                            "generated_test_output_consistency_score": 0.25
                         },
                         "exec_result": {
                             "data": [
@@ -644,7 +646,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -1114,7 +1117,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -1584,7 +1588,8 @@
                             "orginal_test_3_output_consistency_score": 0.75,
                             "orginal_test_6_output_consistency_score": 0.75,
                             "orginal_test_9_output_consistency_score": 0.75,
-                            "orginal_test_12_output_consistency_score": 0.75
+                            "orginal_test_12_output_consistency_score": 0.75,
+                            "generated_test_output_consistency_score": 0.75
                         },
                         "exec_result": {
                             "data": [
@@ -2054,7 +2059,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.5
                         },
                         "exec_result": {
                             "data": [
@@ -2524,7 +2530,8 @@
                             "orginal_test_3_output_consistency_score": 0.75,
                             "orginal_test_6_output_consistency_score": 0.75,
                             "orginal_test_9_output_consistency_score": 0.75,
-                            "orginal_test_12_output_consistency_score": 0.75
+                            "orginal_test_12_output_consistency_score": 0.75,
+                            "generated_test_output_consistency_score": 0.5
                         },
                         "exec_result": {
                             "data": [
@@ -2994,7 +3001,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -3740,7 +3748,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -4136,7 +4145,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -4532,7 +4542,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -4928,7 +4939,8 @@
                             "orginal_test_3_output_consistency_score": 0.2,
                             "orginal_test_6_output_consistency_score": 0.2,
                             "orginal_test_9_output_consistency_score": 0.2,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -5324,7 +5336,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -5720,7 +5733,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -6116,7 +6130,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -6512,7 +6527,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -6908,7 +6924,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -7304,7 +7321,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -7700,7 +7718,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -8374,7 +8393,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -8984,7 +9004,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -9594,7 +9615,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -10203,7 +10225,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -10813,7 +10836,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -11422,7 +11446,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -12031,7 +12056,8 @@
                             "orginal_test_3_output_consistency_score": 0.2,
                             "orginal_test_6_output_consistency_score": 0.2,
                             "orginal_test_9_output_consistency_score": 0.2,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -12640,7 +12666,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -13249,7 +13276,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -13858,7 +13886,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -14467,7 +14496,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -15076,7 +15106,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -15686,7 +15717,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -16296,7 +16328,8 @@
                             "orginal_test_3_output_consistency_score": 0.6,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -16905,7 +16938,8 @@
                             "orginal_test_3_output_consistency_score": 0.4,
                             "orginal_test_6_output_consistency_score": 0.4,
                             "orginal_test_9_output_consistency_score": 0.4,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.4
                         },
                         "exec_result": {
                             "data": [
@@ -17873,7 +17907,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.2,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -18561,7 +18596,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.2,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -19249,7 +19285,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.4,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.4
                         },
                         "exec_result": {
                             "data": [
@@ -19937,7 +19974,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -20625,7 +20663,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -21313,7 +21352,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.2,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -22001,7 +22041,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.2,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -22689,7 +22730,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -23377,7 +23419,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.4,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.4
                         },
                         "exec_result": {
                             "data": [
@@ -24065,7 +24108,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -24753,7 +24797,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 0.4,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.4
                         },
                         "exec_result": {
                             "data": [
@@ -25845,7 +25890,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -26432,7 +26478,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -27019,7 +27066,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -27606,7 +27654,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -28193,7 +28242,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.4
                         },
                         "exec_result": {
                             "data": [
@@ -28780,7 +28830,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -29367,7 +29418,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.4
                         },
                         "exec_result": {
                             "data": [
@@ -29954,7 +30006,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -30541,7 +30594,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -31128,7 +31182,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -31715,7 +31770,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -32302,7 +32358,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -32889,7 +32946,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -33476,7 +33534,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -34063,7 +34122,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -34650,7 +34710,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -35237,7 +35298,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -35824,7 +35886,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.6
+                            "orginal_test_12_output_consistency_score": 0.6,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -36756,7 +36819,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -37194,7 +37258,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -37632,7 +37697,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -38070,7 +38136,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -38508,7 +38575,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -38946,7 +39014,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -39384,7 +39453,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.4
                         },
                         "exec_result": {
                             "data": [
@@ -39822,7 +39892,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -40260,7 +40331,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -40698,7 +40770,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -41390,7 +41463,8 @@
                             "orginal_test_3_output_consistency_score": 0,
                             "orginal_test_6_output_consistency_score": 0,
                             "orginal_test_9_output_consistency_score": 0,
-                            "orginal_test_12_output_consistency_score": 0
+                            "orginal_test_12_output_consistency_score": 0,
+                            "generated_test_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -41467,7 +41541,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -42264,7 +42339,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -43061,7 +43137,8 @@
                             "orginal_test_3_output_consistency_score": 0,
                             "orginal_test_6_output_consistency_score": 0,
                             "orginal_test_9_output_consistency_score": 0,
-                            "orginal_test_12_output_consistency_score": 0
+                            "orginal_test_12_output_consistency_score": 0,
+                            "generated_test_output_consistency_score": 0
                         },
                         "exec_result": {
                             "data": [
@@ -43138,7 +43215,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -43935,7 +44013,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -44732,7 +44811,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -45529,7 +45609,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -46326,7 +46407,8 @@
                             "orginal_test_3_output_consistency_score": 0.2,
                             "orginal_test_6_output_consistency_score": 0.2,
                             "orginal_test_9_output_consistency_score": 0.2,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.2
                         },
                         "exec_result": {
                             "data": [
@@ -47123,7 +47205,8 @@
                             "orginal_test_3_output_consistency_score": 0.25,
                             "orginal_test_6_output_consistency_score": 0.25,
                             "orginal_test_9_output_consistency_score": 0.25,
-                            "orginal_test_12_output_consistency_score": 0.25
+                            "orginal_test_12_output_consistency_score": 0.25,
+                            "generated_test_output_consistency_score": 0.25
                         },
                         "exec_result": {
                             "data": [
@@ -47920,7 +48003,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -49254,7 +49338,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -49843,7 +49928,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -50432,7 +50518,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -51021,7 +51108,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -51610,7 +51698,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -52199,7 +52288,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -52788,7 +52878,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -53377,7 +53468,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -53966,7 +54058,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -54555,7 +54648,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.6,
                             "orginal_test_9_output_consistency_score": 0.6,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -55144,7 +55238,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -55733,7 +55828,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -56322,7 +56418,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 0.8
+                            "orginal_test_12_output_consistency_score": 0.8,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -56911,7 +57008,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 0.4
+                            "orginal_test_12_output_consistency_score": 0.4,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -57500,7 +57598,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -58089,7 +58188,8 @@
                             "orginal_test_3_output_consistency_score": 0.0,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -58678,7 +58778,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 0.8,
                             "orginal_test_9_output_consistency_score": 0.8,
-                            "orginal_test_12_output_consistency_score": 0.2
+                            "orginal_test_12_output_consistency_score": 0.2,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -59267,7 +59368,8 @@
                             "orginal_test_3_output_consistency_score": 0.8,
                             "orginal_test_6_output_consistency_score": 0.0,
                             "orginal_test_9_output_consistency_score": 0.0,
-                            "orginal_test_12_output_consistency_score": 0.0
+                            "orginal_test_12_output_consistency_score": 0.0,
+                            "generated_test_output_consistency_score": 0.0
                         },
                         "exec_result": {
                             "data": [
@@ -60199,7 +60301,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -60747,7 +60850,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -61295,7 +61399,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.6
                         },
                         "exec_result": {
                             "data": [
@@ -61843,7 +61948,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -62391,7 +62497,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -62939,7 +63046,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -63487,7 +63595,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -64035,7 +64144,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 0.8
                         },
                         "exec_result": {
                             "data": [
@@ -64583,7 +64693,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [
@@ -65131,7 +65242,8 @@
                             "orginal_test_3_output_consistency_score": 1.0,
                             "orginal_test_6_output_consistency_score": 1.0,
                             "orginal_test_9_output_consistency_score": 1.0,
-                            "orginal_test_12_output_consistency_score": 1.0
+                            "orginal_test_12_output_consistency_score": 1.0,
+                            "generated_test_output_consistency_score": 1.0
                         },
                         "exec_result": {
                             "data": [

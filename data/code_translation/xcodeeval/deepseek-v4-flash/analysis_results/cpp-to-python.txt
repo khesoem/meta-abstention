@@ -208,6 +208,15 @@
   Pearson r      :  0.257   95% CI [ 0.183,  0.331]
 
 
+
+=== Generated Test Output Consistency Score  (n=615, accuracy=51.38%) ===
+  AUROC          :  0.822
+  Brier          :  0.194
+  Skill Score    :  0.224
+  ECE (10 bins)  :  0.162
+  Spearman rho   :  0.581
+  Pearson r      :  0.572
+
 === Original Test -4 Output Consistency Score  (n=615, accuracy=51.38%) ===
   AUROC          :  0.900
   Brier          :  0.122

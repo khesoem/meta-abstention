@@ -207,6 +207,7 @@
   Spearman rho   : -0.091   95% CI [-0.280,  0.099]
   Pearson r      : -0.152   95% CI [-0.324,  0.030]
 
+
 === Generated Test Output Consistency Score  (n=112, accuracy=50.00%) ===
   AUROC          :  0.694
   Brier          :  0.286

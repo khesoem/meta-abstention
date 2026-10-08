@@ -208,6 +208,7 @@
   Pearson r      :  0.162   95% CI [ 0.103,  0.213]
 
 
+
 === Generated Test Output Consistency Score  (n=424, accuracy=67.45%) ===
   AUROC          :  0.902
   Brier          :  0.174

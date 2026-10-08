@@ -209,6 +209,7 @@
 
 
 
+
 === Generated Test Output Consistency Score  (n=615, accuracy=57.72%) ===
   AUROC          :  0.885
   Brier          :  0.173
