@@ -125805,5 +125805,1537 @@
                 "exec_outcome": "PASSED"
             }
         ]
+    },
+    "827bc6f120aff6a6f04271bc84e863ee_54aa1dd817cea417f6f351a2e8023d23": {
+        "problem_description": {
+            "description": "You are given three positive integers x,\u2009y,\u2009n. Your task is to find the nearest fraction to fraction  whose denominator is no more than n. Formally, you should find such pair of integers a,\u2009b (1\u2009\u2264\u2009b\u2009\u2264\u2009n;\u00a00\u2009\u2264\u2009a) that the value  is as minimal as possible.If there are multiple \"nearest\" fractions, choose the one with the minimum denominator. If there are multiple \"nearest\" fractions with the minimum denominator, choose the one with the minimum numerator.",
+            "input_from": "standard input",
+            "output_to": "standard output",
+            "time_limit": "2 seconds",
+            "memory_limit": "256 megabytes",
+            "input_spec": "A single line contains three integers x,\u2009y,\u2009n (1\u2009\u2264\u2009x,\u2009y,\u2009n\u2009\u2264\u2009105).",
+            "output_spec": "Print the required fraction in the format \"a/b\" (without quotes).",
+            "notes": null,
+            "sample_inputs": [
+                "3 7 6",
+                "7 2 4"
+            ],
+            "sample_outputs": [
+                "2/5",
+                "7/2"
+            ],
+            "tags": [
+                "two pointers",
+                "implementation",
+                "brute force"
+            ],
+            "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+            "difficulty": 1700,
+            "created_at": 1362929400
+        },
+        "unittests": [
+            {
+                "input": "3 7 6\r\n",
+                "output": [
+                    "2/5"
+                ]
+            },
+            {
+                "input": "7 2 4\r\n",
+                "output": [
+                    "7/2"
+                ]
+            },
+            {
+                "input": "1 1 1\r\n",
+                "output": [
+                    "1/1"
+                ]
+            },
+            {
+                "input": "1 2 1\r\n",
+                "output": [
+                    "0/1"
+                ]
+            },
+            {
+                "input": "1 2 2\r\n",
+                "output": [
+                    "1/2"
+                ]
+            },
+            {
+                "input": "17708 35362 1558\r\n",
+                "output": [
+                    "328/655"
+                ]
+            },
+            {
+                "input": "72657 93778 50943\r\n",
+                "output": [
+                    "38236/49351"
+                ]
+            },
+            {
+                "input": "1000 7 3\r\n",
+                "output": [
+                    "143/1"
+                ]
+            },
+            {
+                "input": "1000 11 20\r\n",
+                "output": [
+                    "1000/11"
+                ]
+            },
+            {
+                "input": "100000 2 100000\r\n",
+                "output": [
+                    "50000/1"
+                ]
+            },
+            {
+                "input": "99999 2 1\r\n",
+                "output": [
+                    "49999/1"
+                ]
+            },
+            {
+                "input": "38133 49787 9840\r\n",
+                "output": [
+                    "3295/4302"
+                ]
+            },
+            {
+                "input": "76730 91851 71438\r\n",
+                "output": [
+                    "49039/58703"
+                ]
+            },
+            {
+                "input": "7487 17563 1102\r\n",
+                "output": [
+                    "107/251"
+                ]
+            },
+            {
+                "input": "46084 75979 30535\r\n",
+                "output": [
+                    "11637/19186"
+                ]
+            },
+            {
+                "input": "60489 34395 34632\r\n",
+                "output": [
+                    "20163/11465"
+                ]
+            },
+            {
+                "input": "91245 43755 27191\r\n",
+                "output": [
+                    "6083/2917"
+                ]
+            },
+            {
+                "input": "29842 2171 245\r\n",
+                "output": [
+                    "811/59"
+                ]
+            },
+            {
+                "input": "44247 27883 24673\r\n",
+                "output": [
+                    "34667/21846"
+                ]
+            },
+            {
+                "input": "89781 34400 19222\r\n",
+                "output": [
+                    "49972/19147"
+                ]
+            },
+            {
+                "input": "36890 92817 22772\r\n",
+                "output": [
+                    "5951/14973"
+                ]
+            },
+            {
+                "input": "75486 2177 1983\r\n",
+                "output": [
+                    "58877/1698"
+                ]
+            },
+            {
+                "input": "6243 60593 42244\r\n",
+                "output": [
+                    "3565/34601"
+                ]
+            },
+            {
+                "input": "20648 86305 73795\r\n",
+                "output": [
+                    "15543/64967"
+                ]
+            },
+            {
+                "input": "59245 44721 45425\r\n",
+                "output": [
+                    "59245/44721"
+                ]
+            },
+            {
+                "input": "90002 86785 57380\r\n",
+                "output": [
+                    "23109/22283"
+                ]
+            },
+            {
+                "input": "28598 12497 10464\r\n",
+                "output": [
+                    "23710/10361"
+                ]
+            },
+            {
+                "input": "43003 70913 71178\r\n",
+                "output": [
+                    "43003/70913"
+                ]
+            },
+            {
+                "input": "14304 96625 53803\r\n",
+                "output": [
+                    "7934/53595"
+                ]
+            },
+            {
+                "input": "35646 27334 23417\r\n",
+                "output": [
+                    "17823/13667"
+                ]
+            },
+            {
+                "input": "99997 99999 99996\r\n",
+                "output": [
+                    "49999/50000"
+                ]
+            },
+            {
+                "input": "100000 10 10\r\n",
+                "output": [
+                    "10000/1"
+                ]
+            },
+            {
+                "input": "7 6 3\r\n",
+                "output": [
+                    "1/1"
+                ]
+            }
+        ],
+        "submissions": [
+            {
+                "lang": "GNU C++11",
+                "source_code": "#include <bits/stdc++.h>\nusing namespace std;\n\n#define inf 99999999\n\nint main() \n{\n    int x,y,n;\n    cin>>x>>y>>n;\n    \n    double mn = inf;\n    int ra,rb;\n    \n    for(int i=1;i<=n;++i)\n    {\n        int tx = round(1.0*x*i/y-0.0000001);\n        if(fabs((1.0*x/y)-(1.0*tx/i)) < mn)\n        {\n            ra = tx;\n            rb = i;\n            mn = fabs((1.0*x/y)-(1.0*tx/i));\n            //cout<<mn<<\" \"<<ra<<\" \"<<rb<<endl;\n        }\n    }\n    \n    cout<<ra<<\"/\"<<rb;\n\t\t\n\treturn 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "two pointers",
+                    "implementation",
+                    "brute force"
+                ],
+                "code_uid": "54aa1dd817cea417f6f351a2e8023d23_0",
+                "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+                "difficulty": 1700.0,
+                "exec_outcome": "PASSED"
+            }
+        ]
+    },
+    "827bc6f120aff6a6f04271bc84e863ee_ca6b43cda348d13980df388f870c1fb2": {
+        "problem_description": {
+            "description": "You are given three positive integers x,\u2009y,\u2009n. Your task is to find the nearest fraction to fraction  whose denominator is no more than n. Formally, you should find such pair of integers a,\u2009b (1\u2009\u2264\u2009b\u2009\u2264\u2009n;\u00a00\u2009\u2264\u2009a) that the value  is as minimal as possible.If there are multiple \"nearest\" fractions, choose the one with the minimum denominator. If there are multiple \"nearest\" fractions with the minimum denominator, choose the one with the minimum numerator.",
+            "input_from": "standard input",
+            "output_to": "standard output",
+            "time_limit": "2 seconds",
+            "memory_limit": "256 megabytes",
+            "input_spec": "A single line contains three integers x,\u2009y,\u2009n (1\u2009\u2264\u2009x,\u2009y,\u2009n\u2009\u2264\u2009105).",
+            "output_spec": "Print the required fraction in the format \"a/b\" (without quotes).",
+            "notes": null,
+            "sample_inputs": [
+                "3 7 6",
+                "7 2 4"
+            ],
+            "sample_outputs": [
+                "2/5",
+                "7/2"
+            ],
+            "tags": [
+                "two pointers",
+                "implementation",
+                "brute force"
+            ],
+            "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+            "difficulty": 1700,
+            "created_at": 1362929400
+        },
+        "unittests": [
+            {
+                "input": "3 7 6\r\n",
+                "output": [
+                    "2/5"
+                ]
+            },
+            {
+                "input": "7 2 4\r\n",
+                "output": [
+                    "7/2"
+                ]
+            },
+            {
+                "input": "1 1 1\r\n",
+                "output": [
+                    "1/1"
+                ]
+            },
+            {
+                "input": "1 2 1\r\n",
+                "output": [
+                    "0/1"
+                ]
+            },
+            {
+                "input": "1 2 2\r\n",
+                "output": [
+                    "1/2"
+                ]
+            },
+            {
+                "input": "17708 35362 1558\r\n",
+                "output": [
+                    "328/655"
+                ]
+            },
+            {
+                "input": "72657 93778 50943\r\n",
+                "output": [
+                    "38236/49351"
+                ]
+            },
+            {
+                "input": "1000 7 3\r\n",
+                "output": [
+                    "143/1"
+                ]
+            },
+            {
+                "input": "1000 11 20\r\n",
+                "output": [
+                    "1000/11"
+                ]
+            },
+            {
+                "input": "100000 2 100000\r\n",
+                "output": [
+                    "50000/1"
+                ]
+            },
+            {
+                "input": "99999 2 1\r\n",
+                "output": [
+                    "49999/1"
+                ]
+            },
+            {
+                "input": "38133 49787 9840\r\n",
+                "output": [
+                    "3295/4302"
+                ]
+            },
+            {
+                "input": "76730 91851 71438\r\n",
+                "output": [
+                    "49039/58703"
+                ]
+            },
+            {
+                "input": "7487 17563 1102\r\n",
+                "output": [
+                    "107/251"
+                ]
+            },
+            {
+                "input": "46084 75979 30535\r\n",
+                "output": [
+                    "11637/19186"
+                ]
+            },
+            {
+                "input": "60489 34395 34632\r\n",
+                "output": [
+                    "20163/11465"
+                ]
+            },
+            {
+                "input": "91245 43755 27191\r\n",
+                "output": [
+                    "6083/2917"
+                ]
+            },
+            {
+                "input": "29842 2171 245\r\n",
+                "output": [
+                    "811/59"
+                ]
+            },
+            {
+                "input": "44247 27883 24673\r\n",
+                "output": [
+                    "34667/21846"
+                ]
+            },
+            {
+                "input": "89781 34400 19222\r\n",
+                "output": [
+                    "49972/19147"
+                ]
+            },
+            {
+                "input": "36890 92817 22772\r\n",
+                "output": [
+                    "5951/14973"
+                ]
+            },
+            {
+                "input": "75486 2177 1983\r\n",
+                "output": [
+                    "58877/1698"
+                ]
+            },
+            {
+                "input": "6243 60593 42244\r\n",
+                "output": [
+                    "3565/34601"
+                ]
+            },
+            {
+                "input": "20648 86305 73795\r\n",
+                "output": [
+                    "15543/64967"
+                ]
+            },
+            {
+                "input": "59245 44721 45425\r\n",
+                "output": [
+                    "59245/44721"
+                ]
+            },
+            {
+                "input": "90002 86785 57380\r\n",
+                "output": [
+                    "23109/22283"
+                ]
+            },
+            {
+                "input": "28598 12497 10464\r\n",
+                "output": [
+                    "23710/10361"
+                ]
+            },
+            {
+                "input": "43003 70913 71178\r\n",
+                "output": [
+                    "43003/70913"
+                ]
+            },
+            {
+                "input": "14304 96625 53803\r\n",
+                "output": [
+                    "7934/53595"
+                ]
+            },
+            {
+                "input": "35646 27334 23417\r\n",
+                "output": [
+                    "17823/13667"
+                ]
+            },
+            {
+                "input": "99997 99999 99996\r\n",
+                "output": [
+                    "49999/50000"
+                ]
+            },
+            {
+                "input": "100000 10 10\r\n",
+                "output": [
+                    "10000/1"
+                ]
+            },
+            {
+                "input": "7 6 3\r\n",
+                "output": [
+                    "1/1"
+                ]
+            }
+        ],
+        "submissions": [
+            {
+                "lang": "MS C++",
+                "source_code": "#include <cstdlib>\n#include <cmath>\n#include <map>\n#include <utility>\n#include <set>\n#include <sstream>\n#include <iostream>\n#include <iterator>\n#include <string>\n#include <vector>\n#include <list>\n#include <algorithm>\n#include <functional>\n#include <stack>\n#include <queue>\n#include <numeric>\nusing namespace std;\n\n#define mp                      make_pair\n#define pb                      push_back\n#define bg                      begin\n#define ed                      end\n#define fs                      first\n#define sc                      second\n#define sz(x)                   ((int)((x).size()))\n#define For(i,a,b)              for(LL  i=(a);i<(b);++i)\n#define rep(i,n)                For(i,0,(n))\n#define rFor(i,a,b)             for(int i=(a);i>=(b);--i)\n#define rrep(i,n)               rFor(i,(n),0)\n#define all(v)                  (v).begin(),(v).end()\n#define ITER(type)              type::iterator\n#define EACH(type,cont,it)      for(ITER(type) it=(cont).bg,s___=(cont).ed;it!=s___;++it)\n\ntypedef long long               LL;\ntypedef vector<int>             VI;\ntypedef vector<LL>              VLL;\ntypedef vector<vector<int> >    VVI;\ntypedef vector<bool>            VB;\ntypedef vector<string>          VS;\ntypedef list<int>               LI;\ntypedef list<LL>                LLL;\ntypedef list<string>            LS;\ntypedef pair<int,int>           PII;\n\n\nint main()\n{\n    LL  x, y, n;\n\n    cin >> x >> y >> n;\n\n    LL  rem = x;\n    LL  res_a = 0;\n    LL  res_b = 1;\n\n    For(b, 1, n + 1) {\n        LL  a = max(x * b / y - 10, (LL)0);\n\n        rep(j, 20) {\n            if(rem * b > abs(x * b - (a + j) * y) * res_b) {\n                rem = abs(x * b - (a + j) * y);\n                res_a = a + j;\n                res_b = b;\n            } else if(rem * b == abs(x * b - (a + j) * y) * res_b) {\n                if(res_b > b || (res_b == b && res_a > a + j)) {\n                    res_a = a + j;\n                    res_b = b;\n                }\n            }\n        }\n    }\n\n    cout << res_a << \"/\" << res_b << endl;\n}\n\n",
+                "lang_cluster": "C++",
+                "tags": [
+                    "two pointers",
+                    "implementation",
+                    "brute force"
+                ],
+                "code_uid": "ca6b43cda348d13980df388f870c1fb2_0",
+                "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+                "difficulty": 1700.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "MS C++",
+                "source_code": "#include <cstdlib>\n#include <cmath>\n#include <map>\n#include <utility>\n#include <set>\n#include <sstream>\n#include <iostream>\n#include <iterator>\n#include <string>\n#include <vector>\n#include <list>\n#include <algorithm>\n#include <functional>\n#include <stack>\n#include <queue>\n#include <numeric>\nusing namespace std;\n\n#define mp make_pair\n#define pb push_back\n#define bg begin\n#define ed end\n#define fs first\n#define sc second\n#define sz(x) ((int)((x).size()))\n#define For(i,a,b) for(LL i=(a);i<(b);++i)\n#define rep(i,n) For(i,0,(n))\n#define rFor(i,a,b) for(int i=(a);i>=(b);--i)\n#define rrep(i,n) rFor(i,(n),0)\n#define all(v) (v).begin(),(v).end()\n#define ITER(type) type::iterator\n#define EACH(type,cont,it) for(ITER(type) it=(cont).bg,s___=(cont).ed;it!=s___;++it)\n\ntypedef long long LL;\ntypedef vector<int> VI;\ntypedef vector<LL> VLL;\ntypedef vector<vector<int>> VVI;\ntypedef vector<bool> VB;\ntypedef vector<string> VS;\ntypedef list<int> LI;\ntypedef list<LL> LLL;\ntypedef list<string> LS;\ntypedef pair<int,int> PII;\n\nint main()\n{\n    LL x, y, n;\n    cin >> x >> y >> n;\n\n    LL best_num = 0;\n    LL best_den = 1;\n    LL best_diff = x;\n\n    for (LL b = 1; b <= n; ++b) {\n        LL a_start = max(x * b / y - 10, (LL)0);\n        for (LL j = 0; j < 20; ++j) {\n            LL a = a_start + j;\n            LL diff = abs(x * b - a * y);\n            if (best_diff * b > diff * best_den) {\n                best_diff = diff;\n                best_num = a;\n                best_den = b;\n            } else if (best_diff * b == diff * best_den) {\n                if (best_den > b || (best_den == b && best_num > a)) {\n                    best_num = a;\n                    best_den = b;\n                }\n            }\n        }\n    }\n\n    cout << best_num << \"/\" << best_den << endl;\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "two pointers",
+                    "implementation",
+                    "brute force"
+                ],
+                "code_uid": "ca6b43cda348d13980df388f870c1fb2_1",
+                "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+                "difficulty": 1700.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "MS C++",
+                "source_code": "#include <cstdlib>\n#include <cmath>\n#include <map>\n#include <utility>\n#include <set>\n#include <sstream>\n#include <iostream>\n#include <iterator>\n#include <string>\n#include <vector>\n#include <list>\n#include <algorithm>\n#include <functional>\n#include <stack>\n#include <queue>\n#include <numeric>\nusing namespace std;\n\ntypedef long long LL;\n\nint main()\n{\n    LL x, y, n;\n    cin >> x >> y >> n;\n\n    LL best_num = 0, best_den = 1, best_diff = x;\n\n    for (LL den = 1; den <= n; ++den) {\n        LL num_start = max(x * den / y - 10, (LL)0);\n        for (LL offset = 0; offset < 20; ++offset) {\n            LL num = num_start + offset;\n            LL diff = llabs(x * den - num * y);\n            if (best_diff * den > diff * best_den) {\n                best_diff = diff;\n                best_num = num;\n                best_den = den;\n            } else if (best_diff * den == diff * best_den) {\n                if (best_den > den || (best_den == den && best_num > num)) {\n                    best_num = num;\n                    best_den = den;\n                }\n            }\n        }\n    }\n\n    cout << best_num << \"/\" << best_den << endl;\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "two pointers",
+                    "implementation",
+                    "brute force"
+                ],
+                "code_uid": "ca6b43cda348d13980df388f870c1fb2_2",
+                "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+                "difficulty": 1700.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "MS C++",
+                "source_code": "#include <cstdlib>\n#include <cmath>\n#include <map>\n#include <utility>\n#include <set>\n#include <sstream>\n#include <iostream>\n#include <iterator>\n#include <string>\n#include <vector>\n#include <list>\n#include <algorithm>\n#include <functional>\n#include <stack>\n#include <queue>\n#include <numeric>\nusing namespace std;\n\ntypedef long long LL;\n\nint main()\n{\n    LL x, y, n;\n    cin >> x >> y >> n;\n\n    pair<LL, LL> best = {0, 1};\n    LL best_diff = x;\n\n    for (LL b = 1; b <= n; ++b) {\n        LL a0 = max(x * b / y - 10, (LL)0);\n        for (LL a = a0; a < a0 + 20; ++a) {\n            LL diff = abs(x * b - a * y);\n            if (best_diff * b > diff * best.second) {\n                best_diff = diff;\n                best = {a, b};\n            } else if (best_diff * b == diff * best.second) {\n                if (best.second > b || (best.second == b && best.first > a)) {\n                    best = {a, b};\n                }\n            }\n        }\n    }\n\n    cout << best.first << \"/\" << best.second << endl;\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "two pointers",
+                    "implementation",
+                    "brute force"
+                ],
+                "code_uid": "ca6b43cda348d13980df388f870c1fb2_3",
+                "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+                "difficulty": 1700.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "MS C++",
+                "source_code": "#include <cstdlib>\n#include <cmath>\n#include <map>\n#include <utility>\n#include <set>\n#include <sstream>\n#include <iostream>\n#include <iterator>\n#include <string>\n#include <vector>\n#include <list>\n#include <algorithm>\n#include <functional>\n#include <stack>\n#include <queue>\n#include <numeric>\nusing namespace std;\n\ntypedef long long LL;\n\nint main()\n{\n    LL x, y, n;\n    cin >> x >> y >> n;\n\n    LL best_num = 0, best_den = 1, best_diff = x;\n\n    for (LL den = 1; den <= n; ++den) {\n        LL num_base = max(x * den / y - 10, (LL)0);\n        for (LL i = 0; i < 20; ++i) {\n            LL num = num_base + i;\n            LL diff = (x * den > num * y) ? (x * den - num * y) : (num * y - x * den);\n            if (best_diff * den > diff * best_den) {\n                best_diff = diff;\n                best_num = num;\n                best_den = den;\n            } else if (best_diff * den == diff * best_den) {\n                if (best_den > den || (best_den == den && best_num > num)) {\n                    best_num = num;\n                    best_den = den;\n                }\n            }\n        }\n    }\n\n    cout << best_num << \"/\" << best_den << endl;\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "two pointers",
+                    "implementation",
+                    "brute force"
+                ],
+                "code_uid": "ca6b43cda348d13980df388f870c1fb2_4",
+                "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+                "difficulty": 1700.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "MS C++",
+                "source_code": "#include <cstdlib>\n#include <cmath>\n#include <map>\n#include <utility>\n#include <set>\n#include <sstream>\n#include <iostream>\n#include <iterator>\n#include <string>\n#include <vector>\n#include <list>\n#include <algorithm>\n#include <functional>\n#include <stack>\n#include <queue>\n#include <numeric>\nusing namespace std;\n\ntypedef long long LL;\n\nint main()\n{\n    LL x, y, n;\n    cin >> x >> y >> n;\n\n    struct Fraction {\n        LL num, den;\n    } best = {0, 1};\n    LL best_diff = x;\n\n    for (LL d = 1; d <= n; ++d) {\n        LL n_start = max(x * d / y - 10, (LL)0);\n        for (LL k = 0; k < 20; ++k) {\n            LL n = n_start + k;\n            LL diff = abs(x * d - n * y);\n            if (best_diff * d > diff * best.den) {\n                best_diff = diff;\n                best = {n, d};\n            } else if (best_diff * d == diff * best.den) {\n                if (best.den > d || (best.den == d && best.num > n)) {\n                    best = {n, d};\n                }\n            }\n        }\n    }\n\n    cout << best.num << \"/\" << best.den << endl;\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "two pointers",
+                    "implementation",
+                    "brute force"
+                ],
+                "code_uid": "ca6b43cda348d13980df388f870c1fb2_5",
+                "src_uid": "827bc6f120aff6a6f04271bc84e863ee",
+                "difficulty": 1700.0,
+                "exec_outcome": "PASSED"
+            }
+        ]
+    },
+    "2c70ae38f91ab739621a31b897b8fbf3_f8e1d161e0209142f479bdb699a4912f": {
+        "problem_description": {
+            "description": "Integers from $$$1$$$ to $$$n$$$ (inclusive) were sorted lexicographically (considering integers as strings). As a result, array $$$a_1, a_2, \\dots, a_n$$$ was obtained.Calculate value of $$$(\\sum_{i = 1}^n ((i - a_i) \\mod 998244353)) \\mod 10^9 + 7$$$.$$$x \\mod y$$$ here means the remainder after division $$$x$$$ by $$$y$$$. This remainder is always non-negative and doesn't exceed $$$y - 1$$$. For example, $$$5 \\mod 3 = 2$$$, $$$(-1) \\mod 6 = 5$$$. ",
+            "input_from": "standard input",
+            "output_to": "standard output",
+            "time_limit": "4 seconds",
+            "memory_limit": "512 megabytes",
+            "input_spec": "The first line contains the single integer $$$n$$$ ($$$1 \\leq n \\leq 10^{12}$$$).",
+            "output_spec": "Print one integer\u00a0\u2014 the required sum.",
+            "notes": "NoteA string $$$a$$$ is lexicographically smaller than a string $$$b$$$ if and only if one of the following holds:  $$$a$$$ is a prefix of $$$b$$$, but $$$a \\ne b$$$;  in the first position where $$$a$$$ and $$$b$$$ differ, the string $$$a$$$ has a letter that appears earlier in the alphabet than the corresponding letter in $$$b$$$. For example, $$$42$$$ is lexicographically smaller than $$$6$$$, because they differ in the first digit, and $$$4 &lt; 6$$$; $$$42 &lt; 420$$$, because $$$42$$$ is a prefix of $$$420$$$.Let's denote $$$998244353$$$ as $$$M$$$.In the first example, array $$$a$$$ is equal to $$$[1, 2, 3]$$$.   $$$(1 - 1) \\mod M = 0 \\mod M = 0$$$  $$$(2 - 2) \\mod M = 0 \\mod M = 0$$$  $$$(3 - 3) \\mod M = 0 \\mod M = 0$$$ As a result, $$$(0 + 0 + 0) \\mod 10^9 + 7 = 0$$$In the second example, array $$$a$$$ is equal to $$$[1, 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9]$$$.   $$$(1 - 1) \\mod M = 0 \\mod M = 0$$$  $$$(2 - 10) \\mod M = (-8) \\mod M = 998244345$$$  $$$(3 - 11) \\mod M = (-8) \\mod M = 998244345$$$  $$$(4 - 12) \\mod M = (-8) \\mod M = 998244345$$$  $$$(5 - 2) \\mod M = 3 \\mod M = 3$$$  $$$(6 - 3) \\mod M = 3 \\mod M = 3$$$  $$$(7 - 4) \\mod M = 3 \\mod M = 3$$$  $$$(8 - 5) \\mod M = 3 \\mod M = 3$$$  $$$(9 - 6) \\mod M = 3 \\mod M = 3$$$  $$$(10 - 7) \\mod M = 3 \\mod M = 3$$$  $$$(11 - 8) \\mod M = 3 \\mod M = 3$$$  $$$(12 - 9) \\mod M = 3 \\mod M = 3$$$ As a result, $$$(0 + 998244345 + 998244345 + 998244345 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3) \\mod 10^9 + 7$$$ $$$=$$$ $$$2994733059 \\mod 10^9 + 7$$$ $$$=$$$ $$$994733045$$$",
+            "sample_inputs": [
+                "3",
+                "12",
+                "21",
+                "1000000000000"
+            ],
+            "sample_outputs": [
+                "0",
+                "994733045",
+                "978932159",
+                "289817887"
+            ],
+            "tags": [
+                "binary search",
+                "dfs and similar",
+                "math",
+                "meet-in-the-middle"
+            ],
+            "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
+            "difficulty": 3400,
+            "created_at": 1635143700
+        },
+        "unittests": [
+            {
+                "input": "3\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "12\n",
+                "output": [
+                    "994733045",
+                    "994733045\n"
+                ]
+            },
+            {
+                "input": "21\n",
+                "output": [
+                    "978932159\n",
+                    "978932159"
+                ]
+            },
+            {
+                "input": "1000000000000\n",
+                "output": [
+                    "289817887",
+                    "289817887\n"
+                ]
+            },
+            {
+                "input": "1\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "2\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "4\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "5\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "6\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "7\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "8\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "9\n",
+                "output": [
+                    "0\n",
+                    "0"
+                ]
+            },
+            {
+                "input": "10\n",
+                "output": [
+                    "998244353",
+                    "998244353\n"
+                ]
+            },
+            {
+                "input": "11\n",
+                "output": [
+                    "996488699\n",
+                    "996488699"
+                ]
+            },
+            {
+                "input": "1100000017\n",
+                "output": [
+                    "262194816\n",
+                    "262194816"
+                ]
+            },
+            {
+                "input": "4999999772\n",
+                "output": [
+                    "268322335",
+                    "268322335\n"
+                ]
+            },
+            {
+                "input": "5000000000\n",
+                "output": [
+                    "467123902",
+                    "467123902\n"
+                ]
+            },
+            {
+                "input": "9999999999\n",
+                "output": [
+                    "721104268",
+                    "721104268\n"
+                ]
+            },
+            {
+                "input": "10000000000\n",
+                "output": [
+                    "736905154",
+                    "736905154\n"
+                ]
+            },
+            {
+                "input": "10000000001\n",
+                "output": [
+                    "754461694",
+                    "754461694\n"
+                ]
+            },
+            {
+                "input": "11000000017\n",
+                "output": [
+                    "373998013\n",
+                    "373998013"
+                ]
+            },
+            {
+                "input": "49999999772\n",
+                "output": [
+                    "900792008\n",
+                    "900792008"
+                ]
+            },
+            {
+                "input": "50000000000\n",
+                "output": [
+                    "335161312",
+                    "335161312\n"
+                ]
+            },
+            {
+                "input": "99999999999\n",
+                "output": [
+                    "431235549\n",
+                    "431235549"
+                ]
+            },
+            {
+                "input": "100000000000\n",
+                "output": [
+                    "440013819\n",
+                    "440013819"
+                ]
+            },
+            {
+                "input": "100000000001\n",
+                "output": [
+                    "478638207\n",
+                    "478638207"
+                ]
+            },
+            {
+                "input": "110000000017\n",
+                "output": [
+                    "585402415",
+                    "585402415\n"
+                ]
+            },
+            {
+                "input": "499999999772\n",
+                "output": [
+                    "414128261\n",
+                    "414128261"
+                ]
+            },
+            {
+                "input": "500000000000\n",
+                "output": [
+                    "224827737",
+                    "224827737\n"
+                ]
+            },
+            {
+                "input": "999999999990\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999991\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999992\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999993\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999994\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999995\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999996\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999997\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999998\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "999999999999\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            },
+            {
+                "input": "13\n",
+                "output": [
+                    "992977391",
+                    "992977391\n"
+                ]
+            },
+            {
+                "input": "14\n",
+                "output": [
+                    "991221737",
+                    "991221737\n"
+                ]
+            },
+            {
+                "input": "15\n",
+                "output": [
+                    "989466083",
+                    "989466083\n"
+                ]
+            },
+            {
+                "input": "16\n",
+                "output": [
+                    "987710429",
+                    "987710429\n"
+                ]
+            },
+            {
+                "input": "17\n",
+                "output": [
+                    "985954775",
+                    "985954775\n"
+                ]
+            },
+            {
+                "input": "18\n",
+                "output": [
+                    "984199121",
+                    "984199121\n"
+                ]
+            },
+            {
+                "input": "19\n",
+                "output": [
+                    "982443467",
+                    "982443467\n"
+                ]
+            },
+            {
+                "input": "20\n",
+                "output": [
+                    "980687813\n",
+                    "980687813"
+                ]
+            },
+            {
+                "input": "22\n",
+                "output": [
+                    "977176505",
+                    "977176505\n"
+                ]
+            },
+            {
+                "input": "23\n",
+                "output": [
+                    "975420851",
+                    "975420851\n"
+                ]
+            },
+            {
+                "input": "24\n",
+                "output": [
+                    "973665197\n",
+                    "973665197"
+                ]
+            },
+            {
+                "input": "25\n",
+                "output": [
+                    "971909543\n",
+                    "971909543"
+                ]
+            },
+            {
+                "input": "26\n",
+                "output": [
+                    "970153889",
+                    "970153889\n"
+                ]
+            },
+            {
+                "input": "27\n",
+                "output": [
+                    "968398235",
+                    "968398235\n"
+                ]
+            },
+            {
+                "input": "28\n",
+                "output": [
+                    "966642581",
+                    "966642581\n"
+                ]
+            },
+            {
+                "input": "29\n",
+                "output": [
+                    "964886927\n",
+                    "964886927"
+                ]
+            },
+            {
+                "input": "30\n",
+                "output": [
+                    "963131273\n",
+                    "963131273"
+                ]
+            },
+            {
+                "input": "50\n",
+                "output": [
+                    "928018193\n",
+                    "928018193"
+                ]
+            },
+            {
+                "input": "99\n",
+                "output": [
+                    "859547687",
+                    "859547687\n"
+                ]
+            },
+            {
+                "input": "100\n",
+                "output": [
+                    "875348573",
+                    "875348573\n"
+                ]
+            },
+            {
+                "input": "101\n",
+                "output": [
+                    "891149459\n",
+                    "891149459"
+                ]
+            },
+            {
+                "input": "127\n",
+                "output": [
+                    "949086041\n",
+                    "949086041"
+                ]
+            },
+            {
+                "input": "272\n",
+                "output": [
+                    "694516211",
+                    "694516211\n"
+                ]
+            },
+            {
+                "input": "500\n",
+                "output": [
+                    "294227099",
+                    "294227099\n"
+                ]
+            },
+            {
+                "input": "999\n",
+                "output": [
+                    "435712300\n",
+                    "435712300"
+                ]
+            },
+            {
+                "input": "1000\n",
+                "output": [
+                    "451513186",
+                    "451513186\n"
+                ]
+            },
+            {
+                "input": "1001\n",
+                "output": [
+                    "467314072",
+                    "467314072\n"
+                ]
+            },
+            {
+                "input": "1117\n",
+                "output": [
+                    "773520641",
+                    "773520641\n"
+                ]
+            },
+            {
+                "input": "4772\n",
+                "output": [
+                    "356605313\n",
+                    "356605313"
+                ]
+            },
+            {
+                "input": "5000\n",
+                "output": [
+                    "956316208",
+                    "956316208\n"
+                ]
+            },
+            {
+                "input": "9999\n",
+                "output": [
+                    "197358458\n",
+                    "197358458"
+                ]
+            },
+            {
+                "input": "10000\n",
+                "output": [
+                    "213159344",
+                    "213159344\n"
+                ]
+            },
+            {
+                "input": "10001\n",
+                "output": [
+                    "228960230",
+                    "228960230\n"
+                ]
+            },
+            {
+                "input": "11017\n",
+                "output": [
+                    "35423188\n",
+                    "35423188"
+                ]
+            },
+            {
+                "input": "49772\n",
+                "output": [
+                    "995052901",
+                    "995052901\n"
+                ]
+            },
+            {
+                "input": "50000\n",
+                "output": [
+                    "594763789",
+                    "594763789\n"
+                ]
+            },
+            {
+                "input": "99999\n",
+                "output": [
+                    "831376599",
+                    "831376599\n"
+                ]
+            },
+            {
+                "input": "100000\n",
+                "output": [
+                    "847177485",
+                    "847177485\n"
+                ]
+            },
+            {
+                "input": "100001\n",
+                "output": [
+                    "862978371\n",
+                    "862978371"
+                ]
+            },
+            {
+                "input": "110017\n",
+                "output": [
+                    "654448714\n",
+                    "654448714"
+                ]
+            },
+            {
+                "input": "499772\n",
+                "output": [
+                    "379528732\n",
+                    "379528732"
+                ]
+            },
+            {
+                "input": "500000\n",
+                "output": [
+                    "979239627\n",
+                    "979239627"
+                ]
+            },
+            {
+                "input": "999999\n",
+                "output": [
+                    "171557960\n",
+                    "171557960"
+                ]
+            },
+            {
+                "input": "1000000\n",
+                "output": [
+                    "187358846\n",
+                    "187358846"
+                ]
+            },
+            {
+                "input": "1000001\n",
+                "output": [
+                    "203159732",
+                    "203159732\n"
+                ]
+            },
+            {
+                "input": "1100017\n",
+                "output": [
+                    "874550050\n",
+                    "874550050"
+                ]
+            },
+            {
+                "input": "4999772\n",
+                "output": [
+                    "254133202",
+                    "254133202\n"
+                ]
+            },
+            {
+                "input": "5000000\n",
+                "output": [
+                    "853844097\n",
+                    "853844097"
+                ]
+            },
+            {
+                "input": "9999999\n",
+                "output": [
+                    "603217737\n",
+                    "603217737"
+                ]
+            },
+            {
+                "input": "10000000\n",
+                "output": [
+                    "619018623",
+                    "619018623\n"
+                ]
+            },
+            {
+                "input": "10000001\n",
+                "output": [
+                    "634819509",
+                    "634819509\n"
+                ]
+            },
+            {
+                "input": "11000017\n",
+                "output": [
+                    "59762503\n",
+                    "59762503"
+                ]
+            },
+            {
+                "input": "49999772\n",
+                "output": [
+                    "984377030",
+                    "984377030\n"
+                ]
+            },
+            {
+                "input": "50000000\n",
+                "output": [
+                    "584087918",
+                    "584087918\n"
+                ]
+            },
+            {
+                "input": "99999999\n",
+                "output": [
+                    "904014593",
+                    "904014593\n"
+                ]
+            },
+            {
+                "input": "100000000\n",
+                "output": [
+                    "919815479\n",
+                    "919815479"
+                ]
+            },
+            {
+                "input": "100000001\n",
+                "output": [
+                    "935616365\n",
+                    "935616365"
+                ]
+            },
+            {
+                "input": "110000017\n",
+                "output": [
+                    "955778446\n",
+                    "955778446"
+                ]
+            },
+            {
+                "input": "499999772\n",
+                "output": [
+                    "330706604\n",
+                    "330706604"
+                ]
+            },
+            {
+                "input": "500000000\n",
+                "output": [
+                    "930417499\n",
+                    "930417499"
+                ]
+            },
+            {
+                "input": "999999999\n",
+                "output": [
+                    "439402098\n",
+                    "439402098"
+                ]
+            },
+            {
+                "input": "1000000000\n",
+                "output": [
+                    "453447330\n",
+                    "453447330"
+                ]
+            },
+            {
+                "input": "1000000001\n",
+                "output": [
+                    "467492562",
+                    "467492562\n"
+                ]
+            },
+            {
+                "input": "999999999971\n",
+                "output": [
+                    "333709237",
+                    "333709237\n"
+                ]
+            },
+            {
+                "input": "999999999972\n",
+                "output": [
+                    "331953583\n",
+                    "331953583"
+                ]
+            },
+            {
+                "input": "999999999973\n",
+                "output": [
+                    "330197929\n",
+                    "330197929"
+                ]
+            },
+            {
+                "input": "999999999974\n",
+                "output": [
+                    "328442275\n",
+                    "328442275"
+                ]
+            },
+            {
+                "input": "999999999975\n",
+                "output": [
+                    "326686621",
+                    "326686621\n"
+                ]
+            },
+            {
+                "input": "999999999976\n",
+                "output": [
+                    "324930967",
+                    "324930967\n"
+                ]
+            },
+            {
+                "input": "999999999977\n",
+                "output": [
+                    "323175313\n",
+                    "323175313"
+                ]
+            },
+            {
+                "input": "999999999978\n",
+                "output": [
+                    "321419659",
+                    "321419659\n"
+                ]
+            },
+            {
+                "input": "999999999979\n",
+                "output": [
+                    "319664005",
+                    "319664005\n"
+                ]
+            },
+            {
+                "input": "999999999980\n",
+                "output": [
+                    "317908351",
+                    "317908351\n"
+                ]
+            },
+            {
+                "input": "999999999981\n",
+                "output": [
+                    "316152697\n",
+                    "316152697"
+                ]
+            },
+            {
+                "input": "999999999982\n",
+                "output": [
+                    "314397043",
+                    "314397043\n"
+                ]
+            },
+            {
+                "input": "999999999983\n",
+                "output": [
+                    "312641389",
+                    "312641389\n"
+                ]
+            },
+            {
+                "input": "999999999984\n",
+                "output": [
+                    "310885735",
+                    "310885735\n"
+                ]
+            },
+            {
+                "input": "999999999985\n",
+                "output": [
+                    "309130081",
+                    "309130081\n"
+                ]
+            },
+            {
+                "input": "999999999986\n",
+                "output": [
+                    "307374427\n",
+                    "307374427"
+                ]
+            },
+            {
+                "input": "999999999987\n",
+                "output": [
+                    "305618773\n",
+                    "305618773"
+                ]
+            },
+            {
+                "input": "999999999988\n",
+                "output": [
+                    "303863119\n",
+                    "303863119"
+                ]
+            },
+            {
+                "input": "999999999989\n",
+                "output": [
+                    "302107465",
+                    "302107465\n"
+                ]
+            }
+        ],
+        "submissions": [
+            {
+                "lang": "GNU C++14",
+                "source_code": "#include<bits/stdc++.h>\r\nusing namespace std;\r\ntypedef long long ll;\r\nconst int mod1=998244353,mod2=1e9+7;\r\nconst int N=2e6,MX=1e6;\r\nll n,c;\r\nint tot,ans,lim,pw[N],sum[N];\r\nvector<int> ve[N];\r\ninline int dec(int x,int y,int mod){return (x-y<0)?x-y+mod:x-y;}\r\ninline int add(int x,int y,int mod){return (x+y>=mod)?x+y-mod:x+y;}\r\ninline void dfs(int pos,int now){\r\n\tif(now<=n){\r\n\t\t++tot;int x=dec(tot,now,mod1);\r\n\t\tve[pos-1].push_back(x);sum[pos-1]=add(sum[pos-1],x,mod2);\r\n\t}\r\n\tif(pos>6) return ;\r\n\tfor(int i=0;i<=9;++i) dfs(pos+1,now*10+i);\r\n}\r\ninline void solve(int pos,ll now){\r\n\tif(now>n) return ;\r\n\tif(pos>1){\r\n\t\tif(10ll*now*MX>n&&1ll*(now+1)*MX-1<=n){\r\n\t\t\tfor(int i=0;i<7;++i){\r\n\t\t\t\tint x=((c-1ll*now*pw[i])%mod1+mod1)%mod1;\r\n\t\t\t\tint p=lower_bound(ve[i].begin(),ve[i].end(),mod1-x)-ve[i].begin();\r\n\t\t\t\tans=add(ans,add(1ll*x*ve[i].size()%mod2,sum[i],mod2),mod2);\r\n\t\t\t\tans=dec(ans,1ll*mod1*(ve[i].size()-p)%mod2,mod2);\r\n\t\t\t}\r\n\t\t\tc+=tot;\r\n\t\t\treturn ;\r\n\t\t}\r\n\t\t++c,ans=add(ans,((c-now)%mod1+mod1)%mod1,mod2);\r\n\t}\r\n\tfor(int i=(pos==1?1:0);i<=9;++i) solve(pos+1,now*10+i);\r\n}\r\nint main(){\r\n\tscanf(\"%lld\",&n);\r\n\tpw[0]=1;for(int i=1;i<9;++i) pw[i]=10*pw[i-1];\r\n\tdfs(1,0);\r\n\tfor(int i=0;i<7;++i)\r\n\t\tsort(ve[i].begin(),ve[i].end()); \r\n\tsolve(1,0);\r\n\tprintf(\"%d\\n\",ans);\r\n\treturn 0;\r\n}\r\n",
+                "lang_cluster": "C++",
+                "tags": [
+                    "dfs and similar",
+                    "math",
+                    "meet-in-the-middle",
+                    "binary search"
+                ],
+                "code_uid": "f8e1d161e0209142f479bdb699a4912f_0",
+                "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
+                "difficulty": 3400.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "GNU C++14",
+                "source_code": "#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int mod1=998244353,mod2=1e9+7;\nconst int N=2e6,MX=1e6;\nll n,c;\nint tot,ans,lim,pw[N],sum[N];\nvector<int> ve[N];\ninline int dec(int x,int y,int mod){return (x-y<0)?x-y+mod:x-y;}\ninline int add(int x,int y,int mod){return (x+y>=mod)?x+y-mod:x+y;}\ninline void dfs(int pos,int now){\n    if(now<=n){\n        ++tot;int x=dec(tot,now,mod1);\n        ve[pos-1].push_back(x);sum[pos-1]=add(sum[pos-1],x,mod2);\n    }\n    if(pos>6) return ;\n    for(int i=0;i<=9;++i) dfs(pos+1,now*10+i);\n}\ninline void solve(int pos,ll now){\n    if(now>n) return ;\n    if(pos>1){\n        if(10ll*now*MX>n&&1ll*(now+1)*MX-1<=n){\n            for(int i=0;i<7;++i){\n                int x=((c-1ll*now*pw[i])%mod1+mod1)%mod1;\n                int p=lower_bound(ve[i].begin(),ve[i].end(),mod1-x)-ve[i].begin();\n                ans=add(ans,add(1ll*x*ve[i].size()%mod2,sum[i],mod2),mod2);\n                ans=dec(ans,1ll*mod1*(ve[i].size()-p)%mod2,mod2);\n            }\n            c+=tot;\n            return ;\n        }\n        ++c,ans=add(ans,((c-now)%mod1+mod1)%mod1,mod2);\n    }\n    for(int i=(pos==1?1:0);i<=9;++i) solve(pos+1,now*10+i);\n}\nint main(){\n    scanf(\"%lld\",&n);\n    pw[0]=1;for(int i=1;i<9;++i) pw[i]=10*pw[i-1];\n    dfs(1,0);\n    for(int i=0;i<7;++i)\n        sort(ve[i].begin(),ve[i].end()); \n    solve(1,0);\n    printf(\"%d\\n\",ans);\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "dfs and similar",
+                    "math",
+                    "meet-in-the-middle",
+                    "binary search"
+                ],
+                "code_uid": "f8e1d161e0209142f479bdb699a4912f_1",
+                "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
+                "difficulty": 3400.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "GNU C++14",
+                "source_code": "#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int mod1=998244353,mod2=1e9+7;\nconst int N=2e6,MX=1e6;\nll n,c;\nint tot,ans,lim,pw[N],sum[N];\nvector<int> ve[N];\ninline int dec(int x,int y,int mod){return (x-y<0)?x-y+mod:x-y;}\ninline int add(int x,int y,int mod){return (x+y>=mod)?x+y-mod:x+y;}\ninline void dfs(int pos,int now){\n    if(now<=n){\n        ++tot;int x=dec(tot,now,mod1);\n        ve[pos-1].push_back(x);sum[pos-1]=add(sum[pos-1],x,mod2);\n    }\n    if(pos>6) return ;\n    for(int i=0;i<=9;++i) dfs(pos+1,now*10+i);\n}\ninline void solve(int pos,ll now){\n    if(now>n) return ;\n    if(pos>1){\n        if(10ll*now*MX>n&&1ll*(now+1)*MX-1<=n){\n            for(int i=0;i<7;++i){\n                int x=((c-1ll*now*pw[i])%mod1+mod1)%mod1;\n                int p=lower_bound(ve[i].begin(),ve[i].end(),mod1-x)-ve[i].begin();\n                ans=add(ans,add(1ll*x*ve[i].size()%mod2,sum[i],mod2),mod2);\n                ans=dec(ans,1ll*mod1*(ve[i].size()-p)%mod2,mod2);\n            }\n            c+=tot;\n            return ;\n        }\n        ++c,ans=add(ans,((c-now)%mod1+mod1)%mod1,mod2);\n    }\n    for(int i=(pos==1?1:0);i<=9;++i) solve(pos+1,now*10+i);\n}\nint main(){\n    scanf(\"%lld\",&n);\n    pw[0]=1;for(int i=1;i<9;++i) pw[i]=10*pw[i-1];\n    dfs(1,0);\n    for(int i=0;i<7;++i)\n        sort(ve[i].begin(),ve[i].end()); \n    solve(1,0);\n    printf(\"%d\\n\",ans);\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "dfs and similar",
+                    "math",
+                    "meet-in-the-middle",
+                    "binary search"
+                ],
+                "code_uid": "f8e1d161e0209142f479bdb699a4912f_2",
+                "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
+                "difficulty": 3400.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "GNU C++14",
+                "source_code": "#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int mod1=998244353,mod2=1e9+7;\nconst int N=2e6,MX=1e6;\nll n,c;\nint tot,ans,lim,pw[N],sum[N];\nvector<int> ve[N];\ninline int dec(int x,int y,int mod){return (x-y<0)?x-y+mod:x-y;}\ninline int add(int x,int y,int mod){return (x+y>=mod)?x+y-mod:x+y;}\ninline void dfs(int pos,int now){\n    if(now<=n){\n        ++tot;int x=dec(tot,now,mod1);\n        ve[pos-1].push_back(x);sum[pos-1]=add(sum[pos-1],x,mod2);\n    }\n    if(pos>6) return ;\n    for(int i=0;i<=9;++i) dfs(pos+1,now*10+i);\n}\ninline void solve(int pos,ll now){\n    if(now>n) return ;\n    if(pos>1){\n        if(10ll*now*MX>n&&1ll*(now+1)*MX-1<=n){\n            for(int i=0;i<7;++i){\n                int x=((c-1ll*now*pw[i])%mod1+mod1)%mod1;\n                int p=lower_bound(ve[i].begin(),ve[i].end(),mod1-x)-ve[i].begin();\n                ans=add(ans,add(1ll*x*ve[i].size()%mod2,sum[i],mod2),mod2);\n                ans=dec(ans,1ll*mod1*(ve[i].size()-p)%mod2,mod2);\n            }\n            c+=tot;\n            return ;\n        }\n        ++c,ans=add(ans,((c-now)%mod1+mod1)%mod1,mod2);\n    }\n    for(int i=(pos==1?1:0);i<=9;++i) solve(pos+1,now*10+i);\n}\nint main(){\n    scanf(\"%lld\",&n);\n    pw[0]=1;for(int i=1;i<9;++i) pw[i]=10*pw[i-1];\n    dfs(1,0);\n    for(int i=0;i<7;++i)\n        sort(ve[i].begin(),ve[i].end()); \n    solve(1,0);\n    printf(\"%d\\n\",ans);\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "dfs and similar",
+                    "math",
+                    "meet-in-the-middle",
+                    "binary search"
+                ],
+                "code_uid": "f8e1d161e0209142f479bdb699a4912f_3",
+                "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
+                "difficulty": 3400.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "GNU C++14",
+                "source_code": "#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int mod1=998244353,mod2=1e9+7;\nconst int N=2e6,MX=1e6;\nll n,c;\nint tot,ans,lim,pw[N],sum[N];\nvector<int> ve[N];\ninline int dec(int x,int y,int mod){return (x-y<0)?x-y+mod:x-y;}\ninline int add(int x,int y,int mod){return (x+y>=mod)?x+y-mod:x+y;}\ninline void dfs(int pos,int now){\n    if(now<=n){\n        ++tot;int x=dec(tot,now,mod1);\n        ve[pos-1].push_back(x);sum[pos-1]=add(sum[pos-1],x,mod2);\n    }\n    if(pos>6) return ;\n    for(int i=0;i<=9;++i) dfs(pos+1,now*10+i);\n}\ninline void solve(int pos,ll now){\n    if(now>n) return ;\n    if(pos>1){\n        if(10ll*now*MX>n&&1ll*(now+1)*MX-1<=n){\n            for(int i=0;i<7;++i){\n                int x=((c-1ll*now*pw[i])%mod1+mod1)%mod1;\n                int p=lower_bound(ve[i].begin(),ve[i].end(),mod1-x)-ve[i].begin();\n                ans=add(ans,add(1ll*x*ve[i].size()%mod2,sum[i],mod2),mod2);\n                ans=dec(ans,1ll*mod1*(ve[i].size()-p)%mod2,mod2);\n            }\n            c+=tot;\n            return ;\n        }\n        ++c,ans=add(ans,((c-now)%mod1+mod1)%mod1,mod2);\n    }\n    for(int i=(pos==1?1:0);i<=9;++i) solve(pos+1,now*10+i);\n}\nint main(){\n    scanf(\"%lld\",&n);\n    pw[0]=1;for(int i=1;i<9;++i) pw[i]=10*pw[i-1];\n    dfs(1,0);\n    for(int i=0;i<7;++i)\n        sort(ve[i].begin(),ve[i].end()); \n    solve(1,0);\n    printf(\"%d\\n\",ans);\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "dfs and similar",
+                    "math",
+                    "meet-in-the-middle",
+                    "binary search"
+                ],
+                "code_uid": "f8e1d161e0209142f479bdb699a4912f_4",
+                "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
+                "difficulty": 3400.0,
+                "exec_outcome": "PASSED"
+            },
+            {
+                "lang": "GNU C++14",
+                "source_code": "#include<bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\nconst int mod1=998244353,mod2=1e9+7;\nconst int N=2e6,MX=1e6;\nll n,c;\nint tot,ans,lim,pw[N],sum[N];\nvector<int> ve[N];\ninline int dec(int x,int y,int mod){return (x-y<0)?x-y+mod:x-y;}\ninline int add(int x,int y,int mod){return (x+y>=mod)?x+y-mod:x+y;}\ninline void dfs(int pos,int now){\n    if(now<=n){\n        ++tot;int x=dec(tot,now,mod1);\n        ve[pos-1].push_back(x);sum[pos-1]=add(sum[pos-1],x,mod2);\n    }\n    if(pos>6) return ;\n    for(int i=0;i<=9;++i) dfs(pos+1,now*10+i);\n}\ninline void solve(int pos,ll now){\n    if(now>n) return ;\n    if(pos>1){\n        if(10ll*now*MX>n&&1ll*(now+1)*MX-1<=n){\n            for(int i=0;i<7;++i){\n                int x=((c-1ll*now*pw[i])%mod1+mod1)%mod1;\n                int p=lower_bound(ve[i].begin(),ve[i].end(),mod1-x)-ve[i].begin();\n                ans=add(ans,add(1ll*x*ve[i].size()%mod2,sum[i],mod2),mod2);\n                ans=dec(ans,1ll*mod1*(ve[i].size()-p)%mod2,mod2);\n            }\n            c+=tot;\n            return ;\n        }\n        ++c,ans=add(ans,((c-now)%mod1+mod1)%mod1,mod2);\n    }\n    for(int i=(pos==1?1:0);i<=9;++i) solve(pos+1,now*10+i);\n}\nint main(){\n    scanf(\"%lld\",&n);\n    pw[0]=1;for(int i=1;i<9;++i) pw[i]=10*pw[i-1];\n    dfs(1,0);\n    for(int i=0;i<7;++i)\n        sort(ve[i].begin(),ve[i].end()); \n    solve(1,0);\n    printf(\"%d\\n\",ans);\n    return 0;\n}",
+                "lang_cluster": "C++",
+                "tags": [
+                    "dfs and similar",
+                    "math",
+                    "meet-in-the-middle",
+                    "binary search"
+                ],
+                "code_uid": "f8e1d161e0209142f479bdb699a4912f_5",
+                "src_uid": "2c70ae38f91ab739621a31b897b8fbf3",
+                "difficulty": 3400.0,
+                "exec_outcome": "PASSED"
+            }
+        ]
     }
 }
