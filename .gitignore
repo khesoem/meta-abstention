@@ -35,5 +35,8 @@ tmp/
 tmp*.py
 tmp_**
 
+# large files
+**llm-made-alternative-exec-results.json
+
 *.log
 *.err
