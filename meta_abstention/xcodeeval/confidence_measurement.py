@@ -284,8 +284,8 @@ def _add_original_test_execution_based_confidence(submission: dict, filtered_sub
             submission['translation'][translation_index]['confidence'][f'orginal_test_{test_cnt}_output_consistency_score'] = consistent_translations / valid_other_translations
 
 def compute_confidence(similarities_path: str, generated_test_execution_results_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = conf.translation['seed']):
-    with open(similarities_path, 'r') as s:
-        similarities = json.load(s)
+    # with open(similarities_path, 'r') as s:
+    #     similarities = json.load(s)
     with open(generated_test_execution_results_path, 'r') as e:
         generated_test_execution_results = json.load(e)
     with open(exec_results_path, 'r') as e:
@@ -301,7 +301,7 @@ def compute_confidence(similarities_path: str, generated_test_execution_results_
             code_uid = submission['code_uid']
             filtered_submissions = [s for s in submissions if s['code_uid'] != code_uid][:n_perturbations]
 
-            _add_similarity_based_confidence(similarities, submission, filtered_submissions, translation_index)
+            # _add_similarity_based_confidence(similarities, submission, filtered_submissions, translation_index)
 
             _add_original_test_execution_based_confidence(submission, filtered_submissions, translation_index)
 

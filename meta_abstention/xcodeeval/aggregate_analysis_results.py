@@ -8,15 +8,18 @@ source-target pair, plus ``overall_results.txt``) and writes:
 * one chart per language pair (and one for the pooled results) comparing
   every method on those four metrics
 
-Spearman and Pearson correlations are ignored. The best value in each table
-column is bold: higher is better for AUROC and skill score, lower is better
-for ECE and Brier.
+Each metric line is a point estimate. A trailing 95% interval, when still
+present on an older line, is ignored. Spearman and Pearson correlations are
+ignored. The best value in each table column is bold: higher is better for
+AUROC and skill score, lower is better for ECE and Brier.
+
+Generated-test output consistency is reported only for some models (currently
+qwen3-coder-next) and is included only when that block is in the reports.
 """
 
 import argparse
 import colorsys
 import re
-from dataclasses import dataclass
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -28,7 +31,8 @@ HEADER_RE = re.compile(
 )
 METRIC_RE = re.compile(
     r"^\s+(?P<name>AUROC|Brier|Skill Score|ECE \(10 bins\)|Spearman rho|Pearson r)\s*:\s*"
-    r"(?P<value>-?\d+\.\d+)\s+95% CI\s*\[\s*(?P<lo>-?\d+\.\d+),\s*(?P<hi>-?\d+\.\d+)\]\s*$"
+    r"(?P<value>-?\d+\.\d+)"
+    r"(?:\s+95% CI\s*\[\s*-?\d+\.\d+,\s*-?\d+\.\d+\])?\s*$"
 )
 
 SKIPPED_METRICS = {"Spearman rho", "Pearson r"}
@@ -50,7 +54,6 @@ METHOD_ABBREV = {
     "SPUQ CodeBLEU Reverse": "SPUQ-BLEU-R",
     "SPUQ Unixcoder": "SPUQ-UX",
     "SPUQ Unixcoder Reverse": "SPUQ-UX-R",
-    "Output Consistency Score": "OCS",
     "Average Verbalized": "Avg-Verb",
     "Average Verbalized CodeBERT Score": "Avg-Verb-CB",
     "Average Verbalized CodeBLEU": "Avg-Verb-BLEU",
@@ -67,13 +70,32 @@ METHOD_ABBREV = {
     "Average Generated Sequence Probability CodeBERT Score": "Avg-Seq-CB",
     "Average Generated Sequence Probability CodeBLEU": "Avg-Seq-BLEU",
     "Average Generated Sequence Probability Unixcoder": "Avg-Seq-UX",
+    "Generated Test Output Consistency Score": "GTOC",
+    "Original Test -4 Output Consistency Score": r"OT$-4$",
+    "Original Test -3 Output Consistency Score": r"OT$-3$",
+    "Original Test -2 Output Consistency Score": r"OT$-2$",
+    "Original Test -1 Output Consistency Score": r"OT$-1$",
+    "Original Test 0 Output Consistency Score": "OT0",
+    "Original Test 3 Output Consistency Score": "OT3",
+    "Original Test 6 Output Consistency Score": "OT6",
+    "Original Test 9 Output Consistency Score": "OT9",
+    "Original Test 12 Output Consistency Score": "OT12",
 }
-ABBREV_NOTE = (
-    r"Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric "
-    r"mean token probability; Seq = sequence probability; Avg- = mean over perturbations; "
-    r"CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse. "
-    r"J = Java, P = Python, All = all pairs pooled."
-)
+
+
+def abbrev_note(methods: list[str]) -> str:
+    note = (
+        r"Abbreviations: Verb = simple verbalized; Tok / Tok-G = arithmetic / geometric "
+        r"mean token probability; Seq = sequence probability; Avg- = mean over perturbations; "
+        r"CB / BLEU / UX = CodeBERT, CodeBLEU, UniXcoder weighting; R = reverse; "
+        r"OT$k$ = original-test output consistency on $k$ tests "
+        r"($k<0$ uses $1/|k|$ of the tests). "
+    )
+    if "Generated Test Output Consistency Score" in methods:
+        note += r"GTOC = generated-test output consistency. "
+    note += r"J = Java, P = Python, All = all pairs pooled."
+    return note
+
 
 GROUP_ORDER = (
     "verbalized",
@@ -83,6 +105,8 @@ GROUP_ORDER = (
     "avg_verbalized",
     "avg_token",
     "avg_sequence",
+    "gen_test",
+    "orig_test",
     "other",
 )
 GROUP_LABELS = {
@@ -93,6 +117,8 @@ GROUP_LABELS = {
     "avg_verbalized": "Average verbalized",
     "avg_token": "Average token probability",
     "avg_sequence": "Average sequence probability",
+    "gen_test": "Generated-test consistency",
+    "orig_test": "Original-test consistency",
     "other": "Other",
 }
 GROUP_COLORS = {
@@ -103,15 +129,10 @@ GROUP_COLORS = {
     "avg_verbalized": "#56B4E9",
     "avg_token": "#D55E00",
     "avg_sequence": "#882255",
+    "gen_test": "#332288",
+    "orig_test": "#44AA99",
     "other": "#7F7F7F",
 }
-
-
-@dataclass(frozen=True)
-class Estimate:
-    value: float
-    lo: float
-    hi: float
 
 
 def method_group(name: str) -> str:
@@ -129,6 +150,10 @@ def method_group(name: str) -> str:
         return "sequence"
     if name == "Simple Verbalized":
         return "verbalized"
+    if name == "Generated Test Output Consistency Score":
+        return "gen_test"
+    if name.startswith("Original Test "):
+        return "orig_test"
     return "other"
 
 
@@ -167,7 +192,7 @@ def display_pair_label(pair: str) -> str:
 
 
 def parse_report(path: Path) -> tuple[dict, list[str], int, float]:
-    methods: dict[str, dict[str, Estimate]] = {}
+    methods: dict[str, dict[str, float]] = {}
     order: list[str] = []
     current = None
     sample_size = None
@@ -195,11 +220,7 @@ def parse_report(path: Path) -> tuple[dict, list[str], int, float]:
         name = metric.group("name")
         if name in SKIPPED_METRICS:
             continue
-        methods[current][name] = Estimate(
-            float(metric.group("value")),
-            float(metric.group("lo")),
-            float(metric.group("hi")),
-        )
+        methods[current][name] = float(metric.group("value"))
 
     if not order or sample_size is None or accuracy is None:
         raise ValueError(f"{path}: no method blocks found")
@@ -239,20 +260,20 @@ def load_results(results_dir: Path) -> tuple[dict, list[str], dict]:
     return data, method_order, meta
 
 
-def _cell(estimate: Estimate, metric: str, best_text: str) -> str:
-    text = f"{estimate.value:.3f}"
-    if metric == "Skill Score" and estimate.value >= 0:
+def _cell(value: float, metric: str, best_text: str) -> str:
+    text = f"{value:.3f}"
+    if metric == "Skill Score" and value >= 0:
         text = r"\phantom{-}" + text
     if text.replace(r"\phantom{-}", "") == best_text:
         text = r"\textbf{" + text + "}"
     return text
 
 
-def _best_text(estimates: list[Estimate], metric: str) -> str:
-    values = [f"{estimate.value:.3f}" for estimate in estimates]
+def _best_text(values: list[float], metric: str) -> str:
+    formatted = [f"{value:.3f}" for value in values]
     if metric in HIGHER_IS_BETTER:
-        return max(values, key=float)
-    return min(values, key=float)
+        return max(formatted, key=float)
+    return min(formatted, key=float)
 
 
 def _grouped(methods: list[str]) -> list[list[str]]:
@@ -295,6 +316,7 @@ def _accuracy_sentence(pairs: list[str], meta: dict) -> str:
 def write_tables(data: dict, methods: list[str], meta: dict, path: Path) -> None:
     pairs = sorted(data, key=pair_sort_key)
     accuracy = _accuracy_sentence(pairs, meta)
+    note = abbrev_note(methods)
     header = _column_header(pairs)
     column_spec = "@{}l" + "r" * len(pairs) + "@{}"
     sections = [
@@ -306,7 +328,6 @@ def write_tables(data: dict, methods: list[str], meta: dict, path: Path) -> None
     lines = [
         "% Requires \\usepackage{booktabs,longtable}",
         "% Point estimates. The best value in each column of a block is bold.",
-        "% 95% confidence intervals are drawn on the accompanying charts.",
         r"{\scriptsize",
         r"\setlength{\tabcolsep}{2.5pt}",
         r"\renewcommand{\arraystretch}{0.95}",
@@ -314,7 +335,7 @@ def write_tables(data: dict, methods: list[str], meta: dict, path: Path) -> None
         r"\caption{ECE, Brier score, and skill score of confidence methods for code translation. "
         + accuracy
         + " "
-        + ABBREV_NOTE
+        + note
         + r"\label{tab:translation-calibration}}\\",
         r"\toprule",
         header,
@@ -347,7 +368,7 @@ def write_tables(data: dict, methods: list[str], meta: dict, path: Path) -> None
         r"\caption{AUROC of confidence methods for code translation. "
         + accuracy
         + r" Higher is better; the best value in each column is bold. "
-        + ABBREV_NOTE
+        + note
         + "}",
         r"\label{tab:translation-auroc}",
         r"\begin{tabular}{" + column_spec + "}",
@@ -391,28 +412,19 @@ def method_colors(methods: list[str]) -> list[str]:
 
 def plot_pair(pair: str, data: dict, methods: list[str], meta: dict, out_dir: Path) -> None:
     metrics = (
-        ("AUROC", "AUROC (higher is better)", True),
-        ("Brier", "Brier (lower is better)", False),
-        ("Skill Score", "Skill score (higher is better)", True),
-        ("ECE (10 bins)", "ECE (lower is better)", False),
+        ("AUROC", "AUROC (higher is better)"),
+        ("Brier", "Brier (lower is better)"),
+        ("Skill Score", "Skill score (higher is better)"),
+        ("ECE (10 bins)", "ECE (lower is better)"),
     )
-    fig, axes = plt.subplots(2, 2, figsize=(15, 13), sharey=True, constrained_layout=True)
+    fig_height = max(13.0, 0.38 * len(methods) + 2)
+    fig, axes = plt.subplots(2, 2, figsize=(15, fig_height), sharey=True, constrained_layout=True)
     positions = np.arange(len(methods))
     colors = method_colors(methods)
 
-    for ax, (metric, title, _) in zip(axes.ravel(), metrics):
-        estimates = [data[pair][method][metric] for method in methods]
-        values = np.array([item.value for item in estimates])
-        lower = np.maximum(values - np.array([item.lo for item in estimates]), 0)
-        upper = np.maximum(np.array([item.hi for item in estimates]) - values, 0)
-        ax.barh(
-            positions,
-            values,
-            color=colors,
-            height=0.78,
-            xerr=np.vstack([lower, upper]),
-            error_kw={"elinewidth": 0.6, "capthick": 0.6, "capsize": 1.4, "ecolor": "#333333"},
-        )
+    for ax, (metric, title) in zip(axes.ravel(), metrics):
+        values = np.array([data[pair][method][metric] for method in methods])
+        ax.barh(positions, values, color=colors, height=0.78)
         if metric in {"AUROC", "Brier", "ECE (10 bins)"}:
             ax.set_xlim(left=0)
         if metric == "AUROC":
@@ -426,14 +438,14 @@ def plot_pair(pair: str, data: dict, methods: list[str], meta: dict, out_dir: Pa
         ax.spines["right"].set_visible(False)
 
     axes[0, 0].set_yticks(positions)
-    axes[0, 0].set_yticklabels(methods, fontsize=8)
+    axes[0, 0].set_yticklabels(methods, fontsize=7 if len(methods) > 28 else 8)
     axes[0, 0].invert_yaxis()
 
     handles = [
         Patch(facecolor=GROUP_COLORS[method_group(group[0])], label=GROUP_LABELS[method_group(group[0])])
         for group in _grouped(methods)
     ]
-    fig.legend(handles=handles, loc="outside lower center", ncol=4, frameon=False)
+    fig.legend(handles=handles, loc="outside lower center", ncol=3, frameon=False)
     info = meta[pair]
     fig.suptitle(f"{display_pair_label(pair)}   (n={info['n']}, accuracy={info['accuracy']:.2f}%)")
 

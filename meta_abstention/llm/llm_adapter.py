@@ -32,9 +32,10 @@ class LLMAdapter:
         }
         if prompt.logprobs:
             create_kwargs['logprobs'] = True
-            create_kwargs['extra_body'] = {
-                'provider': {'require_parameters': True},
-            }
+            if prompt.logprobs:
+                create_kwargs['extra_body'] = {
+                    'provider': {'require_parameters': True},
+                }
 
 
         completion = self.client.chat.completions.create(**create_kwargs)

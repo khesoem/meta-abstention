@@ -60,12 +60,25 @@ def execute_generated_tests(translated_code_path: str, generated_tests_path: str
         submissions = copy.deepcopy(item['submissions'])
 
         for submission in item['submissions']:
-            test_inputs = generated_tests[submission['code_uid']]
-            
             code_uid = submission['code_uid']
+
+            if alternative_type == 'developer-made':
+                test_inputs = generated_tests[code_uid]
+            elif alternative_type == 'llm-made':
+                original_submission_id = code_uid.split('_')[0]
+                test_inputs = generated_tests[original_submission_id]
+            
+            if alternative_type == 'llm-made':
+                if f'{original_submission_id}_0' in execution_results and len(execution_results[f'{original_submission_id}_0']) == conf.translation['number-of-perturbations'] + 1:
+                    execution_results[code_uid] = execution_results[f'{original_submission_id}_0']
+                    continue
+
             rand.shuffle(submissions)
             if alternative_type == 'developer-made':
                 considered_submissions = [s for s in submissions if s['code_uid'] != code_uid][:conf.translation['number-of-perturbations']]
+                considered_submissions.append(submission)
+            elif alternative_type == 'llm-made':
+                considered_submissions = [s for s in submissions if s['code_uid'] != code_uid]
                 considered_submissions.append(submission)
 
             if not code_uid in execution_results:
@@ -99,3 +112,6 @@ def execute_generated_tests(translated_code_path: str, generated_tests_path: str
 
                 with open(output_path, 'w') as f:
                     json.dump(execution_results, f, indent=4)
+                
+    with open(output_path, 'w') as f:
+        json.dump(execution_results, f, indent=4)

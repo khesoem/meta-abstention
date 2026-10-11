@@ -193021,7 +193021,19 @@
                 "code_uid": "02c893fda605070f68e1f20b47686fb3_0",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef solve():\n    shift = 15\n    maxn = 60\n    INF = 10**9\n\n    # dp[plus][minus][carry]\n    dp = [[[INF] * (2 * shift + 1) for _ in range(maxn + 1)] for _ in range(maxn + 1)]\n    dp[maxn][maxn][shift] = 0\n\n    data = sys.stdin.read().split()\n    if not data:\n        return\n    s = data[0]\n    d = \"000\" + s\n    d = list(d)\n\n    for i in range(len(d) - 1, -1, -1):\n        digit = ord(d[i]) - ord('0')\n\n        # relaxation step\n        for plus in range(maxn, -1, -1):\n            for minus in range(maxn, -1, -1):\n                for carry in range(2 * shift + 1):\n                    if plus + 1 <= maxn:\n                        dp[plus][minus][carry] = min(dp[plus][minus][carry], dp[plus + 1][minus][carry])\n                    if minus + 1 <= maxn:\n                        dp[plus][minus][carry] = min(dp[plus][minus][carry], dp[plus][minus + 1][carry])\n\n        # next dp\n        next_dp = [[[INF] * (2 * shift + 1) for _ in range(maxn + 1)] for _ in range(maxn + 1)]\n\n        for plus in range(maxn, -1, -1):\n            for minus in range(maxn, -1, -1):\n                for carry in range(2 * shift + 1):\n                    val = dp[plus][minus][carry]\n                    if val == INF:\n                        continue\n                    real_carry = carry - shift\n                    curN = plus - minus + real_carry\n                    curD = curN % 10\n                    # In Python, % already gives non-negative remainder, so no adjustment needed\n                    new_carry = (curN - curD) // 10\n                    if curD != digit:\n                        continue\n                    next_dp[plus][minus][new_carry + shift] = min(\n                        next_dp[plus][minus][new_carry + shift],\n                        plus + minus + val\n                    )\n\n        dp = next_dp\n\n    ans = INF\n    for i in range(maxn + 1):\n        for j in range(maxn + 1):\n            ans = min(ans, dp[i][j][shift])\n    print(ans)\n\nif __name__ == \"__main__\":\n    solve()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9774704305968208,
+                            "average_token_probability_geometric": 0.9719184311084438,
+                            "generated_sequence_probability": 8.399547680582212e-08
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193035,7 +193047,19 @@
                 "code_uid": "02c893fda605070f68e1f20b47686fb3_1",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef solve():\n    shift = 15\n    maxn = 60\n    INF = 10**9\n\n    # dp[plus][minus][carry] where carry index = actual_carry + shift\n    dp = [[[INF] * (2 * shift + 1) for _ in range(maxn + 1)] for __ in range(maxn + 1)]\n    dp[maxn][maxn][shift] = 0\n\n    s = sys.stdin.readline().strip()\n    d = \"000\" + s\n    # iterate from rightmost digit to leftmost\n    for i in range(len(d) - 1, -1, -1):\n        digit = ord(d[i]) - ord('0')\n        # first, propagate from higher plus/minus to lower\n        for plus in range(maxn, -1, -1):\n            for minus in range(maxn, -1, -1):\n                for carry in range(2 * shift + 1):\n                    if plus + 1 <= maxn:\n                        dp[plus][minus][carry] = min(dp[plus][minus][carry], dp[plus + 1][minus][carry])\n                    if minus + 1 <= maxn:\n                        dp[plus][minus][carry] = min(dp[plus][minus][carry], dp[plus][minus + 1][carry])\n        # build next dp\n        next_dp = [[[INF] * (2 * shift + 1) for _ in range(maxn + 1)] for __ in range(maxn + 1)]\n        for plus in range(maxn, -1, -1):\n            for minus in range(maxn, -1, -1):\n                for carry in range(2 * shift + 1):\n                    val = dp[plus][minus][carry]\n                    if val == INF:\n                        continue\n                    real_carry = carry - shift\n                    curN = plus - minus + real_carry\n                    curD = curN % 10\n                    if curD < 0:\n                        curD += 10\n                    new_carry = (curN - curD) // 10\n                    if curD != digit:\n                        continue\n                    new_carry_idx = new_carry + shift\n                    next_dp[plus][minus][new_carry_idx] = min(next_dp[plus][minus][new_carry_idx], plus + minus + val)\n        dp = next_dp\n\n    ans = INF\n    for i in range(maxn + 1):\n        for j in range(maxn + 1):\n            ans = min(ans, dp[i][j][shift])\n    print(ans)\n\nif __name__ == \"__main__\":\n    solve()",
+                        "confidence": {
+                            "verbalization": 0.99,
+                            "average_token_probability": 0.9786129976179279,
+                            "average_token_probability_geometric": 0.9734352837670904,
+                            "generated_sequence_probability": 1.483668939540766e-07
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193049,7 +193073,19 @@
                 "code_uid": "02c893fda605070f68e1f20b47686fb3_2",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef solve():\n    shift = 15\n    maxn = 60\n    size_plus = maxn + 1\n    size_minus = maxn + 1\n    size_carry = shift * 2 + 1\n    total_size = size_plus * size_minus * size_carry\n    INF = 10**18\n\n    dp = [INF] * total_size\n    dp[maxn * size_minus * size_carry + maxn * size_carry + shift] = 0\n\n    s = sys.stdin.readline().strip()\n    d = \"000\" + s\n    for i in range(len(d) - 1, -1, -1):\n        digit = ord(d[i]) - ord('0')\n\n        # propagation step\n        for plus in range(maxn, -1, -1):\n            for minus in range(maxn, -1, -1):\n                base = plus * size_minus * size_carry + minus * size_carry\n                for carry in range(size_carry):\n                    idx = base + carry\n                    if plus + 1 <= maxn:\n                        dp[idx] = min(dp[idx], dp[(plus + 1) * size_minus * size_carry + minus * size_carry + carry])\n                    if minus + 1 <= maxn:\n                        dp[idx] = min(dp[idx], dp[plus * size_minus * size_carry + (minus + 1) * size_carry + carry])\n\n        # compute next dp\n        next_dp = [INF] * total_size\n        for plus in range(maxn, -1, -1):\n            for minus in range(maxn, -1, -1):\n                base = plus * size_minus * size_carry + minus * size_carry\n                for carry in range(size_carry):\n                    idx = base + carry\n                    val = dp[idx]\n                    if val == INF:\n                        continue\n                    real_carry = carry - shift\n                    cur_n = plus - minus + real_carry\n                    cur_d = cur_n % 10\n                    if cur_d < 0:\n                        cur_d += 10\n                    new_carry = (cur_n - cur_d) // 10\n                    if cur_d != digit:\n                        continue\n                    nidx = plus * size_minus * size_carry + minus * size_carry + (new_carry + shift)\n                    next_dp[nidx] = min(next_dp[nidx], plus + minus + val)\n\n        dp = next_dp\n\n    ans = INF\n    for i in range(maxn + 1):\n        for j in range(maxn + 1):\n            ans = min(ans, dp[i * size_minus * size_carry + j * size_carry + shift])\n    print(ans)\n\nif __name__ == \"__main__\":\n    solve()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9926538071553838,
+                            "average_token_probability_geometric": 0.9913168365330467,
+                            "generated_sequence_probability": 0.005023157056706363
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193063,7 +193099,19 @@
                 "code_uid": "02c893fda605070f68e1f20b47686fb3_3",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef solve():\n    shift = 15\n    maxn = 60\n    maxTotal = 2 * maxn\n    maxDiff = maxn\n    sizeCarry = 2 * shift + 1\n    INF = 10**9\n\n    # read input\n    s = sys.stdin.readline().strip()\n    d = \"000\" + s\n    n = len(d)\n\n    # dp[total][diff_idx][carry_idx]\n    dp = [[[INF] * sizeCarry for _ in range(2 * maxDiff + 1)] for _ in range(maxTotal + 1)]\n    dp[maxTotal][maxDiff][shift] = 0\n\n    for i in range(n - 1, -1, -1):\n        digit = int(d[i])\n\n        # first phase: propagate from higher total to lower total\n        for total in range(maxTotal, -1, -1):\n            if total + 1 <= maxTotal:\n                for diff in range(-maxDiff, maxDiff + 1):\n                    diff_idx = diff + maxDiff\n                    for carry in range(sizeCarry):\n                        # increase plus: total+1, diff+1\n                        if diff + 1 <= maxDiff:\n                            val = dp[total + 1][diff + 1 + maxDiff][carry]\n                            if val < dp[total][diff_idx][carry]:\n                                dp[total][diff_idx][carry] = val\n                        # increase minus: total+1, diff-1\n                        if diff - 1 >= -maxDiff:\n                            val = dp[total + 1][diff - 1 + maxDiff][carry]\n                            if val < dp[total][diff_idx][carry]:\n                                dp[total][diff_idx][carry] = val\n\n        # second phase: build next dp\n        next_dp = [[[INF] * sizeCarry for _ in range(2 * maxDiff + 1)] for _ in range(maxTotal + 1)]\n        for total in range(maxTotal, -1, -1):\n            for diff in range(-maxDiff, maxDiff + 1):\n                diff_idx = diff + maxDiff\n                for carry in range(sizeCarry):\n                    val = dp[total][diff_idx][carry]\n                    if val == INF:\n                        continue\n                    real_carry = carry - shift\n                    curN = diff + real_carry\n                    curD = curN % 10\n                    if curD < 0:\n                        curD += 10\n                    # integer division truncating toward zero (like Java)\n                    if curN - curD >= 0:\n                        new_carry = (curN - curD) // 10\n                    else:\n                        new_carry = -((- (curN - curD)) // 10)\n                    if curD != digit:\n                        continue\n                    new_carry_idx = new_carry + shift\n                    if 0 <= new_carry_idx < sizeCarry:\n                        new_val = total + val\n                        if new_val < next_dp[total][diff_idx][new_carry_idx]:\n                            next_dp[total][diff_idx][new_carry_idx] = new_val\n        dp = next_dp\n\n    ans = INF\n    for total in range(maxTotal + 1):\n        for diff in range(-maxDiff, maxDiff + 1):\n            val = dp[total][diff + maxDiff][shift]\n            if val < ans:\n                ans = val\n    print(ans)\n\nif __name__ == \"__main__\":\n    solve()",
+                        "confidence": {
+                            "verbalization": 0.9,
+                            "average_token_probability": 0.9823382323793143,
+                            "average_token_probability_geometric": 0.9778612012349047,
+                            "generated_sequence_probability": 3.73071591002976e-08
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193077,7 +193125,19 @@
                 "code_uid": "02c893fda605070f68e1f20b47686fb3_4",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\nINF = 1_000_000_000\n\ndef solve():\n    data = sys.stdin.read().strip()\n    if not data:\n        return\n    # The input is a single token (the number string)\n    s = data.split()[0]\n    shift = 15\n    maxn = 60\n    # dp[plus][minus][carry] where carry index from 0 to 2*shift\n    dp = [[[INF] * (2 * shift + 1) for _ in range(maxn + 1)] for __ in range(maxn + 1)]\n    dp[maxn][maxn][shift] = 0\n    # Prepend \"000\"\n    d = \"000\" + s\n    # Iterate from rightmost digit to leftmost\n    for i in range(len(d) - 1, -1, -1):\n        digit = ord(d[i]) - 48  # '0' -> 48\n        # Relaxation step: propagate from higher plus/minus\n        for plus in range(maxn, -1, -1):\n            for minus in range(maxn, -1, -1):\n                for carry in range(2 * shift + 1):\n                    if plus + 1 <= maxn:\n                        dp[plus][minus][carry] = min(dp[plus][minus][carry], dp[plus + 1][minus][carry])\n                    if minus + 1 <= maxn:\n                        dp[plus][minus][carry] = min(dp[plus][minus][carry], dp[plus][minus + 1][carry])\n        # Build next DP\n        next_dp = [[[INF] * (2 * shift + 1) for _ in range(maxn + 1)] for __ in range(maxn + 1)]\n        for plus in range(maxn + 1):\n            for minus in range(maxn + 1):\n                for carry in range(2 * shift + 1):\n                    val = dp[plus][minus][carry]\n                    if val == INF:\n                        continue\n                    real_carry = carry - shift\n                    curN = plus - minus + real_carry\n                    curD = curN % 10\n                    new_carry = (curN - curD) // 10\n                    if curD != digit:\n                        continue\n                    new_carry_idx = new_carry + shift\n                    if 0 <= new_carry_idx <= 2 * shift:\n                        next_dp[plus][minus][new_carry_idx] = min(next_dp[plus][minus][new_carry_idx], plus + minus + val)\n        dp = next_dp\n    ans = INF\n    for i in range(maxn + 1):\n        for j in range(maxn + 1):\n            ans = min(ans, dp[i][j][shift])\n    print(ans)\n\nif __name__ == \"__main__\":\n    solve()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9709793434733522,
+                            "average_token_probability_geometric": 0.9646317979594309,
+                            "generated_sequence_probability": 1.5656936581142008e-10
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193091,7 +193151,19 @@
                 "code_uid": "02c893fda605070f68e1f20b47686fb3_5",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\nclass TaskC:\n    def solve(self):\n        shift = 15\n        maxn = 60\n        d = \"000\" + sys.stdin.readline().strip()\n        length = len(d)\n        INF = 10**9\n\n        # memo[pos][plus][minus][carry]\n        memo = [[[[-1 for _ in range(2*shift+1)] for _ in range(maxn+1)] for _ in range(maxn+1)] for _ in range(length+1)]\n\n        def dfs(pos, plus, minus, carry):\n            if pos == length:\n                return 0 if (plus == maxn and minus == maxn and carry == shift) else INF\n            if memo[pos][plus][minus][carry] != -1:\n                return memo[pos][plus][minus][carry]\n            best = INF\n            if plus < maxn:\n                best = min(best, dfs(pos, plus+1, minus, carry))\n            if minus < maxn:\n                best = min(best, dfs(pos, plus, minus+1, carry))\n            digit = ord(d[pos]) - ord('0')\n            real_carry = carry - shift\n            curN = plus - minus + real_carry\n            curD = curN % 10\n            if curD < 0:\n                curD += 10\n            new_carry = (curN - curD) // 10\n            if curD == digit:\n                next_val = dfs(pos+1, plus, minus, new_carry + shift)\n                if next_val != INF:\n                    best = min(best, plus + minus + next_val)\n            memo[pos][plus][minus][carry] = best\n            return best\n\n        ans = dfs(0, maxn, maxn, shift)\n        print(ans)\n\nif __name__ == \"__main__\":\n    TaskC().solve()",
+                        "confidence": {
+                            "verbalization": 1.0,
+                            "average_token_probability": 0.9833986270168986,
+                            "average_token_probability_geometric": 0.9796053643327616,
+                            "generated_sequence_probability": 0.00024247472943719894
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -193501,7 +193573,19 @@
                 "code_uid": "609746572147752184e921fab2eda93d_0",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import math\n\ndef genUnos(n):\n    # Mimic Java's (long)(Math.pow(10,n)-1)/9 with truncation toward zero\n    return int((math.pow(10, n) - 1) / 9)\n\ndef prog(n, tam):\n    unos = genUnos(1 + tam)\n    # Integer division truncating toward zero (like Java)\n    veces = int(n / unos) * (1 + tam)\n    # Remainder with sign of dividend (like Java's %)\n    n = n - int(n / unos) * unos\n    if n == 0:\n        return veces\n    else:\n        return veces + min((1 + tam) + prog(unos - n, tam - 1), prog(n, tam - 1))\n\ndef main():\n    num = int(input().strip())\n    if num == 0:\n        # Java: (int)Math.log10(0) = Integer.MIN_VALUE, then +1\n        tam = -2147483647  # Integer.MIN_VALUE + 1\n    else:\n        tam = int(math.log10(abs(num))) + 1\n    print(prog(num, tam))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9738372818124937,
+                            "average_token_probability_geometric": 0.9689796103997381,
+                            "generated_sequence_probability": 0.0002516227734500062
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193515,7 +193599,19 @@
                 "code_uid": "609746572147752184e921fab2eda93d_1",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import math\nimport sys\n\ndef gen_unos(n):\n    # Replicate Java's (long)(Math.pow(10, n) - 1) / 9\n    return int(math.pow(10, n) - 1) // 9\n\ndef prog_iter(n, tam):\n    stack = []\n    stack.append((n, tam))\n    result = 0\n    while stack:\n        cur_n, cur_tam = stack.pop()\n        unos = gen_unos(1 + cur_tam)\n        veces = (cur_n // unos) * (1 + cur_tam)\n        cur_n %= unos\n        if cur_n == 0:\n            result += veces\n        else:\n            # Incomplete branch: does nothing, as in original Java code\n            pass\n    return result\n\ndef main():\n    num = int(sys.stdin.readline().strip())\n    # Assume num != 0; otherwise math.log10(0) raises ValueError\n    tam = int(math.log10(abs(num))) + 1\n    print(prog_iter(num, tam))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9604569358746463,
+                            "average_token_probability_geometric": 0.9483076448120222,
+                            "generated_sequence_probability": 3.6309760965999307e-06
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193529,7 +193625,19 @@
                 "code_uid": "609746572147752184e921fab2eda93d_2",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\ndef gen_unos(n):\n    return (10**n - 1) // 9\n\ndef prog_memo(n, tam, memo):\n    key = f\"{n},{tam}\"\n    if key in memo:\n        return memo[key]\n    unos = gen_unos(1 + tam)\n    veces = (n // unos) * (1 + tam)\n    n %= unos\n    if n == 0:\n        result = veces\n    else:\n        result = veces + min((1 + tam) + prog_memo(unos - n, tam - 1, memo),\n                             prog_memo(n, tam - 1, memo))\n    memo[key] = result\n    return result\n\ndef main():\n    num = int(sys.stdin.readline().strip())\n    tam = int(math.log10(abs(num))) + 1\n    print(prog_memo(num, tam, {}))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 1.0,
+                            "average_token_probability": 0.9873652893313728,
+                            "average_token_probability_geometric": 0.9845089581887303,
+                            "generated_sequence_probability": 0.03948863715010146
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193543,7 +193651,19 @@
                 "code_uid": "609746572147752184e921fab2eda93d_3",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\ndef repunit(k):\n    return (10**k - 1) // 9\n\ndef compute(n, d):\n    r = repunit(1 + d)\n    # Integer division truncating toward zero (Java semantics)\n    if n >= 0:\n        q = n // r\n        rem = n % r\n    else:\n        q = -(-n // r)  # trunc toward zero for negative\n        rem = n - q * r\n    base = q * (1 + d)\n    if rem == 0:\n        return base\n    option1 = (1 + d) + compute(r - rem, d - 1)\n    option2 = compute(rem, d - 1)\n    return base + (option1 if option1 < option2 else option2)\n\ndef main():\n    data = sys.stdin.read().strip()\n    if not data:\n        return\n    num = int(data)\n    tam = int(math.log10(abs(num))) + 1\n    result = compute(num, tam)\n    print(result)\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9814975794191538,
+                            "average_token_probability_geometric": 0.977321258050189,
+                            "generated_sequence_probability": 0.004254888619486827
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193557,7 +193677,19 @@
                 "code_uid": "609746572147752184e921fab2eda93d_4",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\ndef gen_unos(n):\n    return (10**n - 1) // 9\n\ndef prog(n, tam):\n    unos = gen_unos(1 + tam)\n    veces = (n // unos) * (1 + tam)\n    n %= unos\n    if n == 0:\n        return veces\n    else:\n        return veces + min((1 + tam) + prog(unos - n, tam - 1), prog(n, tam - 1))\n\ndef main():\n    data = sys.stdin.read().strip()\n    if not data:\n        return\n    num = int(data)\n    tam = len(str(abs(num)))\n    result = prog(num, tam)\n    print(result)\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 1.0,
+                            "average_token_probability": 0.9826368716212247,
+                            "average_token_probability_geometric": 0.980152326012778,
+                            "generated_sequence_probability": 0.03659652553792811
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193571,7 +193703,19 @@
                 "code_uid": "609746572147752184e921fab2eda93d_5",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import math\nimport sys\n\ndef gen_unos(n):\n    return int(math.pow(10, n) - 1) // 9\n\ndef prog(n, tam):\n    unos = gen_unos(1 + tam)\n    veces = n // unos * (1 + tam)\n    n = n % unos\n    if n == 0:\n        return veces\n    return veces + min((1 + tam) + prog(unos - n, tam - 1), prog(n, tam - 1))\n\ndef main():\n    line = sys.stdin.readline().strip()\n    if not line:\n        return\n    num = int(line.split()[0])\n    tam = int(math.log10(abs(num))) + 1\n    print(prog(num, tam))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9986849357311218,
+                            "average_token_probability_geometric": 0.998573584563939,
+                            "generated_sequence_probability": 0.7834162079789231
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -193981,7 +194125,19 @@
                 "code_uid": "def1a1e54e0e162eae20f216b6f16e64_0",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nfrom functools import lru_cache\n\ndef main():\n    n = int(sys.stdin.readline().strip())\n    size = 50\n    inf = int(1e6)\n    number = str(n).zfill(17)[::-1]  # pad to 17 digits and reverse\n\n    @lru_cache(maxsize=None)\n    def get(index, pos, neg, carry):\n        tru_carry = carry - 50\n        if index == 17:\n            if pos + neg + tru_carry == 0:\n                return 0\n            else:\n                return inf\n        res = inf\n        for p in range(min(15, pos) + 1):\n            for n in range(min(15, neg) + 1):\n                s = pos - neg + tru_carry\n                current_bit = (s % 10 + 10) % 10\n                if current_bit != int(number[index]):\n                    continue\n                if s > 0:\n                    next_carry = s // 10\n                else:\n                    next_carry = int((s - 9) / 10)  # truncates toward zero like Java\n                res = min(res,\n                          get(index + 1, pos - p, neg - n, next_carry + 50)\n                          + (p + n) * (index + 1))\n        return res\n\n    ans = inf\n    for pos in range(size):\n        for neg in range(size):\n            ans = min(ans, get(0, pos, neg, 50))\n    print(ans)\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.982395237140836,
+                            "average_token_probability_geometric": 0.9787628410272884,
+                            "generated_sequence_probability": 0.0006344146499520385
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -193995,7 +194151,19 @@
                 "code_uid": "def1a1e54e0e162eae20f216b6f16e64_1",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef main():\n    inf = 10**6\n    size = 50\n    # DP[index][pos][neg][carry]  (carry from 0 to 99)\n    DP = [[[[-1 for _ in range(100)] for _ in range(size)] for _ in range(size)] for _ in range(20)]\n\n    n = int(sys.stdin.readline().strip())\n    # format as 17-digit with leading zeros, then reverse\n    number = f\"{n:017d}\"[::-1]\n\n    def get(index, pos, neg, carry):\n        truCarry = carry - 50\n        if index == 17:\n            return 0 if (pos + neg + truCarry == 0) else inf\n        if DP[index][pos][neg][carry] != -1:\n            return DP[index][pos][neg][carry]\n        res = inf\n        maxP = min(15, pos)\n        maxN = min(15, neg)\n        for p in range(maxP + 1):\n            for n in range(maxN + 1):\n                s = pos - neg + truCarry\n                currentBit = s % 10  # Python's % always non-negative\n                nextCarry = (s - currentBit) // 10\n                if currentBit != int(number[index]):\n                    continue\n                res = min(res,\n                          get(index + 1, pos - p, neg - n, nextCarry + 50)\n                          + (p + n) * (index + 1))\n        DP[index][pos][neg][carry] = res\n        return res\n\n    res = inf\n    for pos in range(size):\n        for neg in range(size):\n            res = min(res, get(0, pos, neg, 50))\n    print(res)\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9703525898390902,
+                            "average_token_probability_geometric": 0.9630612891825738,
+                            "generated_sequence_probability": 2.585427563628143e-07
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194009,7 +194177,19 @@
                 "code_uid": "def1a1e54e0e162eae20f216b6f16e64_2",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef solve():\n    n = int(sys.stdin.readline().strip())\n    memo = {}\n    number = str(n).zfill(17)[::-1]  # pad to 17 digits and reverse\n    inf = 10**9\n\n    def get(index, pos, neg, carry):\n        truCarry = carry - 50\n        if index == 17:\n            return 0 if (pos + neg + truCarry == 0) else inf\n        key = (index, pos, neg, carry)\n        if key in memo:\n            return memo[key]\n        res = inf\n        max_p = min(15, pos)\n        max_n = min(15, neg)\n        for p in range(max_p + 1):\n            for n in range(max_n + 1):\n                sum_val = pos - neg + truCarry\n                currentBit = (sum_val % 10 + 10) % 10\n                if sum_val > 0:\n                    nextCarry = sum_val // 10\n                else:\n                    nextCarry = int((sum_val - 9) / 10)\n                if currentBit != int(number[index]):\n                    continue\n                res = min(res,\n                          get(index + 1, pos - p, neg - n, nextCarry + 50)\n                          + (p + n) * (index + 1))\n        memo[key] = res\n        return res\n\n    res = inf\n    for pos in range(50):\n        for neg in range(50):\n            res = min(res, get(0, pos, neg, 50))\n    print(res)\n\nif __name__ == \"__main__\":\n    solve()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9920676510204564,
+                            "average_token_probability_geometric": 0.9911819738123965,
+                            "generated_sequence_probability": 0.04196772740805699
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194023,7 +194203,19 @@
                 "code_uid": "def1a1e54e0e162eae20f216b6f16e64_3",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ninf = 10**9\nDP = None\nnumber = \"\"\n\ndef get(index, pos, neg, carry):\n    truCarry = carry - 50\n    if index == 17:\n        if pos + neg + truCarry == 0:\n            return 0\n        else:\n            return inf\n    if DP[index][pos][neg][carry] != -1:\n        return DP[index][pos][neg][carry]\n    res = inf\n    maxP = min(15, pos)\n    maxN = min(15, neg)\n    for p in range(maxP + 1):\n        for n in range(maxN + 1):\n            s = pos - neg + truCarry\n            currentBit = s % 10\n            nextCarry = (s - currentBit) // 10\n            if currentBit != int(number[index]):\n                continue\n            res = min(res,\n                      get(index + 1, pos - p, neg - n, nextCarry + 50)\n                      + (p + n) * (index + 1))\n    DP[index][pos][neg][carry] = res\n    return res\n\ndef main():\n    global DP, number\n    n = int(sys.stdin.readline().strip())\n    size = 50\n    DP = [[[[-1 for _ in range(100)] for _ in range(size)] for _ in range(size)] for _ in range(20)]\n    number = str(n)\n    while len(number) < 17:\n        number = \"0\" + number\n    number = number[::-1]\n    res = inf\n    for pos in range(size):\n        for neg in range(size):\n            res = min(res, get(0, pos, neg, 50))\n    print(res)\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9910897648237927,
+                            "average_token_probability_geometric": 0.9897594522412446,
+                            "generated_sequence_probability": 0.017504736733552854
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194037,7 +194229,19 @@
                 "code_uid": "def1a1e54e0e162eae20f216b6f16e64_4",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ninf = 1000000\nDP = None\nnumber = \"\"\nweight = []\n\ndef get(index, pos, neg, carry):\n    true_carry = carry - 50\n    if index == 17:\n        return 0 if (pos + neg + true_carry == 0) else inf\n    if DP[index][pos][neg][carry] != -1:\n        return DP[index][pos][neg][carry]\n    res = inf\n    digit = int(number[index])\n    max_p = min(15, pos)\n    max_n = min(15, neg)\n    for p in range(max_p + 1):\n        for n in range(max_n + 1):\n            s = pos - neg + true_carry\n            current_bit = (s % 10 + 10) % 10\n            next_carry = s // 10 if s > 0 else (s - 9) // 10\n            if current_bit != digit:\n                continue\n            cost = (p + n) * weight[index]\n            res = min(res, get(index + 1, pos - p, neg - n, next_carry + 50) + cost)\n    DP[index][pos][neg][carry] = res\n    return res\n\ndef main():\n    global DP, number, weight\n    n = int(sys.stdin.readline().strip())\n    size = 50\n    DP = [[[[-1 for _ in range(100)] for _ in range(size)] for _ in range(size)] for _ in range(20)]\n    number = str(n)\n    while len(number) < 17:\n        number = \"0\" + number\n    number = number[::-1]\n    weight = [i + 1 for i in range(17)]\n    res = inf\n    for pos in range(size):\n        for neg in range(size):\n            res = min(res, get(0, pos, neg, 50))\n    print(res)\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9878056429037841,
+                            "average_token_probability_geometric": 0.9781249712741742,
+                            "generated_sequence_probability": 7.405748904361257e-05
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194051,7 +194255,19 @@
                 "code_uid": "def1a1e54e0e162eae20f216b6f16e64_5",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef solve():\n    inf = 10**6\n    n = int(sys.stdin.readline().strip())\n    size = 50\n    # DP: [index][pos][neg][carry] where carry is 0..99 (offset by 50)\n    DP = [[[[-1 for _ in range(100)] for _ in range(size)] for _ in range(size)] for _ in range(20)]\n    number = str(n).zfill(17)[::-1]  # pad to 17 digits and reverse\n\n    def get(index, pos, neg, carry):\n        truCarry = carry - 50\n        if index == 17:\n            return 0 if (pos + neg + truCarry == 0) else inf\n        if DP[index][pos][neg][carry] != -1:\n            return DP[index][pos][neg][carry]\n        res = inf\n        digit = int(number[index])\n        maxP = min(15, pos)\n        maxN = min(15, neg)\n        for p in range(maxP + 1):\n            for n in range(maxN + 1):\n                s = pos - neg + truCarry\n                currentBit = s % 10  # Python modulo always non-negative\n                nextCarry = (s - currentBit) // 10\n                if currentBit != digit:\n                    continue\n                cost = (p + n) * (index + 1)\n                sub = get(index + 1, pos - p, neg - n, nextCarry + 50)\n                if sub < inf:\n                    res = min(res, sub + cost)\n        DP[index][pos][neg][carry] = res\n        return res\n\n    ans = inf\n    for pos in range(size):\n        for neg in range(size):\n            ans = min(ans, get(0, pos, neg, 50))\n    print(ans)\n\nif __name__ == \"__main__\":\n    solve()",
+                        "confidence": {
+                            "verbalization": 1.0,
+                            "average_token_probability": 0.9766147491948992,
+                            "average_token_probability_geometric": 0.9707932640825702,
+                            "generated_sequence_probability": 3.8050779235322093e-06
+                        }
+                    }
+                ]
             }
         ]
     },

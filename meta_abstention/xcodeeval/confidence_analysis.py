@@ -121,8 +121,7 @@ _CONFIDENCE_METRICS = [
 
 
 def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None):
-    # remove all lines that come after "Output Consistency Score" in the output file
-    if output_file:
+    if os.path.exists(output_file):
         with open(output_file, 'r') as f:
             lines = f.readlines()
         with open(output_file, 'w') as f:
@@ -140,6 +139,9 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
             execution_results = json.load(f)
         for _, item in execution_results.items():
             for submission in item['submissions']:
+                if '_' in submission['code_uid'] and submission['code_uid'].split('_')[1] != '0': # Skip LLM-made submissions
+                    continue
+
                 translation = submission['translation'][translation_index]
                 conf = translation['confidence']
                 for key, _ in _CONFIDENCE_METRICS:
@@ -149,6 +151,7 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
                 correctness = 1 if all(item['exec_outcome'] == 'PASSED' for item in translation['exec_result']['data']) else 0
                 correctness_scores.append(correctness)
 
+
     for key, name in _CONFIDENCE_METRICS:
         calibration_report(scores[key], correctness_scores, name, output_file=output_file)
 
@@ -156,6 +159,8 @@ def run_confidence_analysis_for_batch(execution_results_dir: str, translation_in
     execution_results_paths = []
 
     for file in os.listdir(execution_results_dir):
+        if 'perturbation' in file:
+            continue
         execution_results_paths.append(os.path.join(execution_results_dir, file))
 
     run_confidence_analysis(execution_results_paths, translation_index, output_file=output_file)
