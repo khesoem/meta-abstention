@@ -303,7 +303,7 @@ def compute_confidence(similarities_path: str, generated_test_execution_results_
 
             # _add_similarity_based_confidence(similarities, submission, filtered_submissions, translation_index)
 
-            _add_original_test_execution_based_confidence(submission, filtered_submissions, translation_index)
+            # _add_original_test_execution_based_confidence(submission, filtered_submissions, translation_index)
 
             _add_generated_test_execution_based_confidence(submission, filtered_submissions, translation_index, generated_test_execution_results)
 
