@@ -194677,7 +194677,19 @@
                 "code_uid": "9495e9b4c647f03d8167d314ec6fc40a_0",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\ndef digs(n):\n    return int(math.log10(n)) + 1\n\ndef fillOne(n):\n    return int('1' * n)\n\ndef ones(n):\n    if n <= 6:\n        return n\n    dig = digs(n)\n    aux = fillOne(dig)\n    one = aux\n    c = 0\n    diff = n\n    while aux < n:\n        c += 1\n        diff = n - aux\n        aux += one\n    if c > 0:\n        res = min(c * dig + ones(diff), (c + 1) * dig + ones(aux - n))\n    else:\n        res = (c + 1) * dig + ones(aux - n)\n    aux = fillOne(dig + 1)\n    if aux - n < n:\n        res = min(res, dig + 1 + ones(aux - n))\n    return res\n\ndef main():\n    n = int(sys.stdin.readline().strip())\n    print(ones(n))\n\nif __name__ == '__main__':\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9974806584626734,
+                            "average_token_probability_geometric": 0.9970422230697136,
+                            "generated_sequence_probability": 0.5044639427006714
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194691,7 +194703,19 @@
                 "code_uid": "9495e9b4c647f03d8167d314ec6fc40a_1",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\ndef digs(n):\n    return int(math.log10(n)) + 1\n\ndef fillOne(n):\n    res = 1\n    for i in range(1, n):\n        res = res * 10 + 1\n    return res\n\ndef ones(n):\n    if n <= 6:\n        return n\n    dig = digs(n)\n    aux = fillOne(dig)\n    one = aux\n    diff = n\n    c = 0\n    while aux < n:\n        c += 1\n        diff = n - aux\n        aux += one\n    if c > 0:\n        res = min(c * dig + ones(diff), (c + 1) * dig + ones(aux - n))\n    else:\n        res = (c + 1) * dig + ones(aux - n)\n    aux = fillOne(dig + 1)\n    if aux - n < n:\n        res = min(res, dig + 1 + ones(aux - n))\n    return res\n\ndef main():\n    n = int(sys.stdin.readline().strip())\n    print(ones(n))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9962191797188831,
+                            "average_token_probability_geometric": 0.9958372855021481,
+                            "generated_sequence_probability": 0.3480653997816638
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194705,7 +194729,19 @@
                 "code_uid": "9495e9b4c647f03d8167d314ec6fc40a_2",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "def digit_count(n: int) -> int:\n    return len(str(n))\n\ndef build_ones(length: int) -> int:\n    result = 1\n    i = length\n    while i > 1:\n        result = result * 10 + 1\n        i -= 1\n    return result\n\ndef compute_ones(n: int) -> int:\n    if n <= 6:\n        return n\n    d = digit_count(n)\n    base = build_ones(d)\n    step = base\n    diff = n\n    cnt = 0\n    while base < n:\n        cnt += 1\n        diff = n - base\n        base += step\n    if cnt > 0:\n        ans = min(cnt * d + compute_ones(diff), (cnt + 1) * d + compute_ones(base - n))\n    else:\n        ans = (cnt + 1) * d + compute_ones(base - n)\n    next_base = build_ones(d + 1)\n    if next_base - n < n:\n        ans = min(ans, d + 1 + compute_ones(next_base - n))\n    return ans\n\ndef main():\n    n = int(input().strip())\n    print(compute_ones(n))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 1.0,
+                            "average_token_probability": 0.9911189488487812,
+                            "average_token_probability_geometric": 0.9761857311513902,
+                            "generated_sequence_probability": 0.001260346968065539
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194719,7 +194755,19 @@
                 "code_uid": "9495e9b4c647f03d8167d314ec6fc40a_3",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\n\ndef digits(n: int) -> int:\n    return len(str(n))\n\ndef make_ones(k: int) -> int:\n    return int('1' * k)\n\ndef f(n: int) -> int:\n    if n <= 6:\n        return n\n    d = digits(n)\n    a = make_ones(d)\n    inc = a\n    diff = n\n    c = 0\n    while a < n:\n        c += 1\n        diff = n - a\n        a += inc\n    if c > 0:\n        res = min(c * d + f(diff), (c + 1) * d + f(a - n))\n    else:\n        res = (c + 1) * d + f(a - n)\n    next_val = make_ones(d + 1)\n    if next_val - n < n:\n        res = min(res, d + 1 + f(next_val - n))\n    return res\n\ndef main():\n    n = int(sys.stdin.readline().strip())\n    print(f(n))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 1.0,
+                            "average_token_probability": 0.9924813381015343,
+                            "average_token_probability_geometric": 0.9908519239265678,
+                            "generated_sequence_probability": 0.11325969937119804
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194733,7 +194781,19 @@
                 "code_uid": "9495e9b4c647f03d8167d314ec6fc40a_4",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\ndef digs(n):\n    return int(math.log10(n)) + 1\n\ndef fillOne(n):\n    res = 1\n    for i in range(1, n):\n        res = res * 10 + 1\n    return res\n\ndef ones(n):\n    if n <= 6:\n        return n\n    dig = digs(n)\n    one = fillOne(dig)\n    aux = one\n    diff = n\n    c = 0\n    while aux < n:\n        diff = n - aux\n        aux += one\n        c += 1\n    if c > 0:\n        res = min(c * dig + ones(diff), (c + 1) * dig + ones(aux - n))\n    else:\n        res = (c + 1) * dig + ones(aux - n)\n    aux = fillOne(dig + 1)\n    if aux - n < n:\n        res = min(res, dig + 1 + ones(aux - n))\n    return res\n\ndef main():\n    n = int(sys.stdin.readline().strip())\n    print(ones(n))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.995727649880631,
+                            "average_token_probability_geometric": 0.9946713796741378,
+                            "generated_sequence_probability": 0.2587881206522671
+                        }
+                    }
+                ]
             },
             {
                 "lang": "Java 8",
@@ -194747,7 +194807,19 @@
                 "code_uid": "9495e9b4c647f03d8167d314ec6fc40a_5",
                 "src_uid": "1b17a7b3b41077843ee1d6e0607720d6",
                 "difficulty": 1800.0,
-                "exec_outcome": "PASSED"
+                "exec_outcome": "PASSED",
+                "translation": [
+                    {
+                        "lang": "Python 3",
+                        "translated_code": "import sys\nimport math\n\ndef len_x(x):\n    return int(math.log10(x)) + 1\n\ndef rep(k):\n    return int('1' * k)\n\ndef calc(n):\n    if n <= 6:\n        return n\n    d = len_x(n)\n    a = rep(d)\n    s = a\n    dif = n\n    c = 0\n    while a < n:\n        c += 1\n        dif = n - a\n        a += s\n    if c > 0:\n        ans = min(c * d + calc(dif), (c + 1) * d + calc(a - n))\n    else:\n        ans = (c + 1) * d + calc(a - n)\n    b = rep(d + 1)\n    if b - n < n:\n        ans = min(ans, d + 1 + calc(b - n))\n    return ans\n\ndef main():\n    n = int(sys.stdin.readline().strip())\n    print(calc(n))\n\nif __name__ == \"__main__\":\n    main()",
+                        "confidence": {
+                            "verbalization": 0.95,
+                            "average_token_probability": 0.9935867036628527,
+                            "average_token_probability_geometric": 0.9919018642724636,
+                            "generated_sequence_probability": 0.16049406095321733
+                        }
+                    }
+                ]
             }
         ]
     },
