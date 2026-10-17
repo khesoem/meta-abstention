@@ -18,11 +18,11 @@ from meta_abstention.xcodeeval.confidence_measurement import compute_confidence 
 from meta_abstention.xcodeeval.extract_submissions import run_select_submissions as run_select_submissions
 from meta_abstention.xcodeeval.test_generation import run_test_generation as run_test_generation
 
-# logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
-#                     filemode='a',
-#                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-#                     datefmt='%H:%M:%S',
-#                     level=logging.INFO)
+logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.INFO)
 
 def run_perturbation_by_llms() -> None:
     pool = mp.Pool(processes=conf.translation['num-execution-processes'])
@@ -226,7 +226,7 @@ def _execute_generated_tests_for_perturbations() -> None:
                 if s_lang == t_lang:
                     continue
                 
-                if (s_lang == 'python' and t_lang == 'java'):
+                if (s_lang == 'python') or (s_lang == 'java' and t_lang == 'cpp'):
                     continue
 
                 pool.apply_async(execute_generated_tests, args=(
@@ -254,7 +254,7 @@ def main() -> None:
 
     # _execute_generated_tests()
 
-    # _execute_generated_tests_for_perturbations()
+    _execute_generated_tests_for_perturbations()
 
     # for s_lang in conf.translation['langs'].keys():
     #     for t_lang in conf.translation['langs'].keys():
@@ -264,7 +264,7 @@ def main() -> None:
     
     # run_analysis()
 
-    _run_analysis_for_perturbations()
+    # _run_analysis_for_perturbations()
 
 if __name__ == "__main__":
     main()

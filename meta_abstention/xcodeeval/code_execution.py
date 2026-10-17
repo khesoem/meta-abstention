@@ -41,7 +41,7 @@ def execute_translated_code(translated_code_path: str, output_path: str, repeat_
 def execute_generated_tests(translated_code_path: str, generated_tests_path: str, output_path: str, number_of_considered_generated_tests: int = conf.translation['number-of-considered-generated-tests'], 
     repeat_execution: bool = False, lang: str = None, alternative_type: str = 'developer-made', translation_index: int = 0):
 
-    logging.info(f'Executing generated tests for {generated_tests_path} with lang {lang} and alternative type {alternative_type}')
+    logging.info(f'Executing generated tests for {generated_tests_path} on {translated_code_path} with alternative type {alternative_type}')
 
     if os.path.exists(output_path):
         with open(output_path, 'r') as f:
