@@ -36,8 +36,7 @@ tmp*.py
 tmp_**
 
 # large files
-**llm-made-alternative-exec-results.json
-**/qwen3-coder-next/**/*perturbations-to-*.json
+data/
 
 *.log
 *.err
