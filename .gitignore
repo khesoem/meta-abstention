@@ -37,6 +37,7 @@ tmp_**
 
 # large files
 data/
+data_bak/
 
 *.log
 *.err

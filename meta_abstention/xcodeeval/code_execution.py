@@ -13,7 +13,12 @@ def execute_translated_code(translated_code_path: str, output_path: str, repeat_
         data = json.load(f)
 
     for _, item in data.items():
+        updated = False
         for submission in item['submissions']:
+
+            if not 'translation' in submission or len(submission['translation']) == 0:
+                logging.error(f'No translation for {submission['code_uid']}')
+                continue
 
             for translation in submission['translation']:
                 if 'exec_result' in translation and not isinstance(translation['exec_result'], str) and not repeat_execution:
@@ -21,6 +26,7 @@ def execute_translated_code(translated_code_path: str, output_path: str, repeat_
 
                 lang = lang if lang else translation['lang']
                 translated_code = translation['translated_code']
+                updated = True
                 try:
                     exec_result = execute_code(lang, translated_code, item['unittests'], max(600, len(item['unittests']) * 5))
                     translation['exec_result'] = exec_result
@@ -35,8 +41,9 @@ def execute_translated_code(translated_code_path: str, output_path: str, repeat_
                         translation['exec_result'] = f'Error: {str(e)}'
                         logging.error(f'Error executing code for {submission['code_uid']} to {lang}: {e}')
 
-                with open(output_path, 'w') as f:
-                    json.dump(data, f, indent=4)
+        if updated:
+            with open(output_path, 'w') as f:
+                json.dump(data, f, indent=4)
 
 def execute_generated_tests(translated_code_path: str, generated_tests_path: str, output_path: str, number_of_considered_generated_tests: int = conf.translation['number-of-considered-generated-tests'], 
     repeat_execution: bool = False, lang: str = None, alternative_type: str = 'developer-made', translation_index: int = 0):
@@ -44,11 +51,15 @@ def execute_generated_tests(translated_code_path: str, generated_tests_path: str
     logging.info(f'Executing generated tests for {generated_tests_path} on {translated_code_path} with alternative type {alternative_type}')
 
     if os.path.exists(output_path):
-        with open(output_path, 'r') as f:
-            execution_results = json.load(f)
+        try:
+            with open(output_path, 'r') as f:
+                execution_results = json.load(f)
+        except Exception as e:
+            logging.error(f'Error loading execution results from {output_path}: {e}')
+            execution_results = {}
     else:
         execution_results = {}
-
+        
     with open(translated_code_path, 'r') as f:
         data = json.load(f)
 
@@ -86,8 +97,25 @@ def execute_generated_tests(translated_code_path: str, generated_tests_path: str
             
             for executable_submission in considered_submissions:
                 s_code_uid = executable_submission['code_uid']
+
+                if not 'translation' in executable_submission or len(executable_submission['translation']) == 0:
+                    logging.warning(f'No translation for {s_code_uid}')
+                    continue
+
                 if s_code_uid in execution_results[code_uid] and not isinstance(execution_results[code_uid][s_code_uid], str) and not repeat_execution:
                     continue
+
+                if alternative_type == 'llm-made':
+                    key = f'{original_submission_id}_0'
+                    if (
+                        key in execution_results
+                        and s_code_uid in execution_results[key]
+                        and not isinstance(execution_results[key][s_code_uid], str)
+                        and not repeat_execution
+                    ):
+                        execution_results[code_uid][s_code_uid] = execution_results[key][s_code_uid]
+                        logging.info(f'Executed generated tests for {code_uid} for {lang} from original submission {key}')
+                        continue
 
                 translation = executable_submission['translation'][translation_index]
                 lang = lang if lang else translation['lang']

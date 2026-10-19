@@ -25,13 +25,14 @@ logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetim
                     level=logging.INFO)
 
 def run_perturbation_by_llms() -> None:
-    pool = mp.Pool(processes=conf.translation['num-execution-processes'])
-    # pool = mp.Pool(processes=1)
-    for model in ['qwen/qwen3-coder-next', 'openai/gpt-4.1-nano', 'deepseek/deepseek-v4-flash']:
+    # pool = mp.Pool(processes=conf.translation['num-execution-processes'])
+    pool = mp.Pool(processes=1)
+    for model in ['qwen/qwen3-coder-next', 'openai/gpt-4.1-nano', 'deepseek/deepseek-v4-flash', 'meta-llama/llama-3.1-8b-instruct']:
+        if 'llama-3.1-8b-instruct' not in model:
+            continue
+
         dir = model.split('/')[1]
         for s_lang in conf.translation['langs'].keys():
-            if s_lang == 'python':
-                continue
 
             pool.apply_async(
                 run_llm_perturbation,
@@ -60,7 +61,7 @@ def _run_code_translation() -> None:
 
 def _run_code_translation_for_perturbations() -> None:
     for model in ['qwen/qwen3-coder-next', 'openai/gpt-4.1-nano', 'deepseek/deepseek-v4-flash']:
-        if 'deepseek-v4-flash' not in model:
+        if 'gpt-4.1-nano' not in model:
             continue
 
         for s_lang in conf.translation['langs'].keys():
@@ -71,13 +72,12 @@ def _run_code_translation_for_perturbations() -> None:
                 dir = model.split('/')[1]
                 perturbations_file = f'data/code_translation/xcodeeval/{dir}/perturbations/{s_lang}-perturbations.json'
                 perturbations_execution_file = f'data/code_translation/xcodeeval/{dir}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'
-                if os.path.exists(perturbations_execution_file):
-                    continue
-                new_translations = run_code_translation(perturbations_file, perturbations_execution_file, conf.translation['langs'][t_lang], model=model)
+                
+                new_translations = run_code_translation(perturbations_file, perturbations_execution_file, conf.translation['langs'][t_lang], model=model, get_logprobs=False)
                 
                 tries = 1
                 while new_translations and tries < conf.translation['max-tries']:
-                    new_translations = run_code_translation(perturbations_execution_file, perturbations_execution_file, conf.translation['langs'][t_lang], model=model, temp=1.0)
+                    new_translations = run_code_translation(perturbations_execution_file, perturbations_execution_file, conf.translation['langs'][t_lang], model=model, temp=1.0, get_logprobs=False)
                     tries += 1
 
 def run_analysis() -> None:
@@ -126,16 +126,16 @@ def _run_analysis_for_perturbations() -> None:
                     f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json', 
                     f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json')
         
-        # for s_lang in conf.translation['langs'].keys():
-        #     for t_lang in conf.translation['langs'].keys():
-        #         if s_lang == t_lang:
-        #             continue
+        for s_lang in conf.translation['langs'].keys():
+            for t_lang in conf.translation['langs'].keys():
+                if s_lang == t_lang:
+                    continue
 
-        #         if s_lang != 'cpp' or t_lang != 'python':
-        #             continue
+                if s_lang != 'cpp' or t_lang != 'java':
+                    continue
 
-        #         run_confidence_analysis([f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'],
-        #             output_file=f'data/code_translation/xcodeeval/{model}/analysis_results/{s_lang}-perturbations-to-{t_lang}.txt')
+                run_confidence_analysis([f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'],
+                    output_file=f'data/code_translation/xcodeeval/{model}/analysis_results/{s_lang}-perturbations-to-{t_lang}.txt')
 
         # run_confidence_analysis_for_batch(f'data/code_translation/xcodeeval/{model}/translations/6-perturbations', output_file=f'data/code_translation/xcodeeval/{model}/analysis_results/overall_perturbations_results.txt')
 
@@ -173,16 +173,17 @@ def _execute_translated_code_for_perturbations() -> None:
     # pool = mp.Pool(processes=conf.translation['num-execution-processes'])
     pool = mp.Pool(processes=2)
     for model in ['qwen3-coder-next', 'gpt-4.1-nano', 'deepseek-v4-flash']:
+        if model != 'deepseek-v4-flash':
+            continue
+
         for s_lang in conf.translation['langs'].keys():
             for t_lang in conf.translation['langs'].keys():
                 if s_lang == t_lang:
                     continue
+
                 perturbations_execution_file = f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'
                 
                 if not os.path.exists(perturbations_execution_file):
-                    continue
-
-                if (s_lang == 'python' and t_lang == 'java') or (s_lang == 'python' and t_lang == 'cpp') or (s_lang == 'java' and t_lang == 'cpp'):
                     continue
                 
                 pool.apply_async(
@@ -216,7 +217,7 @@ def _execute_generated_tests() -> None:
 
 def _execute_generated_tests_for_perturbations() -> None:
     for model in ['qwen3-coder-next', 'gpt-4.1-nano', 'deepseek-v4-flash']:
-        if model != 'qwen3-coder-next':
+        if model != 'deepseek-v4-flash':
             continue
 
         # pool = mp.Pool(processes=conf.translation['num-execution-processes'])
@@ -224,9 +225,6 @@ def _execute_generated_tests_for_perturbations() -> None:
         for s_lang in conf.translation['langs'].keys():
             for t_lang in conf.translation['langs'].keys():
                 if s_lang == t_lang:
-                    continue
-                
-                if (s_lang == 'python') or (s_lang == 'java' and t_lang == 'cpp'):
                     continue
 
                 pool.apply_async(execute_generated_tests, args=(
@@ -244,7 +242,7 @@ def main() -> None:
 
     # _run_code_translation()
 
-    # _run_code_translation_for_perturbations()
+    _run_code_translation_for_perturbations()
 
     # generate_tests()
 
@@ -254,7 +252,7 @@ def main() -> None:
 
     # _execute_generated_tests()
 
-    _execute_generated_tests_for_perturbations()
+    # _execute_generated_tests_for_perturbations()
 
     # for s_lang in conf.translation['langs'].keys():
     #     for t_lang in conf.translation['langs'].keys():

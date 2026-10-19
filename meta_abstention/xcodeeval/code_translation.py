@@ -138,17 +138,18 @@ def _intrinsic_confidence(sample: Response.Sample) -> dict[str, float]:
     }
 
 
-def _translate_code(adapter: LLMAdapter, source_code: str, source_lang: str, source_lang_cluster: str, target_lang: str, temp: float) -> tuple[str, dict]:
+def _translate_code(adapter: LLMAdapter, source_code: str, source_lang: str, source_lang_cluster: str, target_lang: str, temp: float, get_logprobs: bool) -> tuple[str, dict]:
     messages = [
         Prompt.Message("system", _TRANSLATE_SYSTEM.format(source_lang_cluster=source_lang_cluster, target_lang=target_lang)),
         Prompt.Message("user", _TRANSLATE_USER_TEMPLATE.format(source_lang=source_lang, target_lang=target_lang, source_code=source_code)),
     ]
-    sample = adapter.get_response(Prompt(messages, logprobs=True, temp=temp)).first_sample
+    sample = adapter.get_response(Prompt(messages, logprobs=get_logprobs, temp=temp)).first_sample
     code, confidence = _parse_translation(sample.content)
-    confidence.update(_intrinsic_confidence(sample))
+    if get_logprobs:
+        confidence.update(_intrinsic_confidence(sample))
     return code, confidence
 
-def run_translation(selected_problems_path: str, output_file: str, target_lang: str, model: str = conf.translation['default-model'], temp: float = conf.translation['default-temp']) -> bool:
+def run_translation(selected_problems_path: str, output_file: str, target_lang: str, model: str = conf.translation['default-model'], temp: float = conf.translation['default-temp'], get_logprobs: bool = True) -> bool:
     logging.info(f"Running translation for {selected_problems_path} to {target_lang} with model {model} and temp {temp}")
 
     with open(selected_problems_path, 'r') as f:
@@ -164,7 +165,7 @@ def run_translation(selected_problems_path: str, output_file: str, target_lang: 
 
                 new_translations = True
 
-                translated_code, confidence = _translate_code(adapter, submission['source_code'], submission['lang'], submission['lang_cluster'], target_lang, temp=temp)
+                translated_code, confidence = _translate_code(adapter, submission['source_code'], submission['lang'], submission['lang_cluster'], target_lang, temp=temp, get_logprobs=get_logprobs)
                 if not 'translation' in submission:
                     submission['translation'] = []
                 
