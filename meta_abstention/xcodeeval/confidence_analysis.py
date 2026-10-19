@@ -155,11 +155,11 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
     for key, name in _CONFIDENCE_METRICS:
         calibration_report(scores[key], correctness_scores, name, output_file=output_file)
 
-def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None):
+def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None, perturbation: bool = False):
     execution_results_paths = []
 
     for file in os.listdir(execution_results_dir):
-        if 'perturbation' in file:
+        if ('perturbation' in file) != perturbation:
             continue
         execution_results_paths.append(os.path.join(execution_results_dir, file))
 

@@ -15,6 +15,12 @@ AUROC and skill score, lower is better for ECE and Brier.
 
 Generated-test output consistency is reported only for some models (currently
 qwen3-coder-next) and is included only when that block is in the reports.
+
+Perturbation reports (``*-perturbations-to-*.txt`` and
+``overall_perturbations_results.txt``) are optional and often cover only a
+subset of methods. When present, those methods are appended with a
+``(Perturbed)`` suffix so they appear alongside the normal metrics. Models
+without perturbation reports are left unchanged; missing cells are ``---``.
 """
 
 import argparse
@@ -38,6 +44,7 @@ METRIC_RE = re.compile(
 SKIPPED_METRICS = {"Spearman rho", "Pearson r"}
 CALIBRATION_METRICS = ("ECE (10 bins)", "Brier", "Skill Score")
 HIGHER_IS_BETTER = {"AUROC", "Skill Score"}
+PERTURBED_SUFFIX = " (Perturbed)"
 
 LANG_NAMES = {"cpp": "C++", "java": "Java", "python": "Python"}
 LANG_HEADER = {"cpp": "C++", "java": "J", "python": "P"}
@@ -91,8 +98,15 @@ def abbrev_note(methods: list[str]) -> str:
         r"OT$k$ = original-test output consistency on $k$ tests "
         r"($k<0$ uses $1/|k|$ of the tests). "
     )
-    if "Generated Test Output Consistency Score" in methods:
+    if "Generated Test Output Consistency Score" in methods or any(
+        base_method_name(m) == "Generated Test Output Consistency Score" for m in methods
+    ):
         note += r"GTOC = generated-test output consistency. "
+    if any(is_perturbed_method(m) for m in methods):
+        note += (
+            r"Suffix -P = same method evaluated on translations of LLM-perturbed "
+            r"source code (partial; missing cells are ---). "
+        )
     note += r"J = Java, P = Python, All = all pairs pooled."
     return note
 
@@ -107,6 +121,9 @@ GROUP_ORDER = (
     "avg_sequence",
     "gen_test",
     "orig_test",
+    "pert_gen_test",
+    "pert_orig_test",
+    "pert_other",
     "other",
 )
 GROUP_LABELS = {
@@ -119,6 +136,9 @@ GROUP_LABELS = {
     "avg_sequence": "Average sequence probability",
     "gen_test": "Generated-test consistency",
     "orig_test": "Original-test consistency",
+    "pert_gen_test": "Generated-test consistency (perturbed)",
+    "pert_orig_test": "Original-test consistency (perturbed)",
+    "pert_other": "Other (perturbed)",
     "other": "Other",
 }
 GROUP_COLORS = {
@@ -131,30 +151,59 @@ GROUP_COLORS = {
     "avg_sequence": "#882255",
     "gen_test": "#332288",
     "orig_test": "#44AA99",
+    "pert_gen_test": "#6A3D9A",
+    "pert_orig_test": "#B15928",
+    "pert_other": "#A6A6A6",
     "other": "#7F7F7F",
 }
 
 
+def is_perturbed_method(name: str) -> bool:
+    return name.endswith(PERTURBED_SUFFIX)
+
+
+def base_method_name(name: str) -> str:
+    if is_perturbed_method(name):
+        return name[: -len(PERTURBED_SUFFIX)]
+    return name
+
+
+def perturbed_method_name(name: str) -> str:
+    if is_perturbed_method(name):
+        return name
+    return name + PERTURBED_SUFFIX
+
+
 def method_group(name: str) -> str:
-    if name.startswith("SPUQ "):
-        return "spuq"
-    if name.startswith("Average Verbalized"):
-        return "avg_verbalized"
-    if name.startswith("Average of Average Token Probability"):
-        return "avg_token"
-    if name.startswith("Average Generated Sequence Probability"):
-        return "avg_sequence"
-    if name.startswith("Average Token Probability"):
-        return "token"
-    if name == "Generated Sequence Probability":
-        return "sequence"
-    if name == "Simple Verbalized":
-        return "verbalized"
-    if name == "Generated Test Output Consistency Score":
-        return "gen_test"
-    if name.startswith("Original Test "):
-        return "orig_test"
-    return "other"
+    perturbed = is_perturbed_method(name)
+    base = base_method_name(name)
+    if base.startswith("SPUQ "):
+        group = "spuq"
+    elif base.startswith("Average Verbalized"):
+        group = "avg_verbalized"
+    elif base.startswith("Average of Average Token Probability"):
+        group = "avg_token"
+    elif base.startswith("Average Generated Sequence Probability"):
+        group = "avg_sequence"
+    elif base.startswith("Average Token Probability"):
+        group = "token"
+    elif base == "Generated Sequence Probability":
+        group = "sequence"
+    elif base == "Simple Verbalized":
+        group = "verbalized"
+    elif base == "Generated Test Output Consistency Score":
+        group = "gen_test"
+    elif base.startswith("Original Test "):
+        group = "orig_test"
+    else:
+        group = "other"
+    if not perturbed:
+        return group
+    if group == "gen_test":
+        return "pert_gen_test"
+    if group == "orig_test":
+        return "pert_orig_test"
+    return "pert_other"
 
 
 def pair_sort_key(pair: str) -> tuple:
@@ -178,10 +227,14 @@ def latex_pair_header(pair: str) -> str:
 
 
 def method_abbrev(name: str) -> str:
+    base = base_method_name(name)
     try:
-        return METHOD_ABBREV[name]
+        abbrev = METHOD_ABBREV[base]
     except KeyError as exc:
         raise KeyError(f"No table abbreviation for method {name!r}") from exc
+    if is_perturbed_method(name):
+        return abbrev + "-P"
+    return abbrev
 
 
 def display_pair_label(pair: str) -> str:
@@ -189,6 +242,19 @@ def display_pair_label(pair: str) -> str:
         return "Overall"
     source, target = pair.split("-to-")
     return f"{LANG_NAMES[source]} → {LANG_NAMES[target]}"
+
+
+def classify_report(stem: str) -> tuple[str, str] | None:
+    """Return (kind, pair_key) for a report stem, or None if unrecognized."""
+    if stem == "overall_results":
+        return "normal", "overall"
+    if stem == "overall_perturbations_results":
+        return "perturbation", "overall"
+    if "-perturbations-to-" in stem:
+        return "perturbation", stem.replace("-perturbations-to-", "-to-")
+    if re.fullmatch(r"(cpp|java|python)-to-(cpp|java|python)", stem):
+        return "normal", stem
+    return None
 
 
 def parse_report(path: Path) -> tuple[dict, list[str], int, float]:
@@ -234,43 +300,102 @@ def parse_report(path: Path) -> tuple[dict, list[str], int, float]:
     return methods, order, sample_size, accuracy
 
 
-def load_results(results_dir: Path) -> tuple[dict, list[str], dict]:
-    reports = {}
+def _check_method_order(reports: dict, label: str) -> list[str]:
+    if not reports:
+        return []
+    first_key = next(iter(reports))
+    method_order = reports[first_key]["order"]
+    for key, report in reports.items():
+        if report["order"] != method_order:
+            raise ValueError(
+                f"Method list in {label} report {key!r} does not match the other {label} reports"
+            )
+    return method_order
+
+
+def _metric_value(data: dict, pair: str, method: str, metric: str) -> float | None:
+    methods = data.get(pair)
+    if methods is None:
+        return None
+    method_metrics = methods.get(method)
+    if method_metrics is None:
+        return None
+    return method_metrics.get(metric)
+
+
+def load_results(results_dir: Path) -> tuple[dict, list[str], dict, dict]:
+    normal_reports = {}
+    perturbation_reports = {}
     for path in sorted(results_dir.glob("*.txt")):
-        key = "overall" if path.stem == "overall_results" else path.stem
+        classified = classify_report(path.stem)
+        if classified is None:
+            continue
+        kind, key = classified
         methods, order, sample_size, accuracy = parse_report(path)
-        reports[key] = {
+        report = {
             "methods": methods,
             "order": order,
             "n": sample_size,
             "accuracy": accuracy,
         }
+        if kind == "normal":
+            normal_reports[key] = report
+        else:
+            perturbation_reports[key] = report
 
-    if "overall" not in reports:
+    if "overall" not in normal_reports:
         raise ValueError(f"No overall_results.txt in {results_dir}")
 
-    pair_reports = [reports[key] for key in reports if key != "overall"]
-    method_order = pair_reports[0]["order"]
-    for key, report in reports.items():
-        if report["order"] != method_order:
-            raise ValueError(f"Method list in {key} does not match the other reports")
+    pair_keys = [key for key in normal_reports if key != "overall"]
+    if not pair_keys:
+        raise ValueError(f"No per-pair reports in {results_dir}")
 
-    meta = {key: {"n": report["n"], "accuracy": report["accuracy"]} for key, report in reports.items()}
-    data = {key: report["methods"] for key, report in reports.items()}
-    return data, method_order, meta
+    method_order = _check_method_order(normal_reports, "normal")
+    pert_method_order = _check_method_order(perturbation_reports, "perturbation")
+
+    data = {key: dict(report["methods"]) for key, report in normal_reports.items()}
+    meta = {
+        key: {"n": report["n"], "accuracy": report["accuracy"]}
+        for key, report in normal_reports.items()
+    }
+    pert_meta = {
+        key: {"n": report["n"], "accuracy": report["accuracy"]}
+        for key, report in perturbation_reports.items()
+    }
+
+    if pert_method_order:
+        renamed = [perturbed_method_name(name) for name in pert_method_order]
+        for pair in data:
+            for method in renamed:
+                data[pair][method] = None
+        for pair, report in perturbation_reports.items():
+            if pair not in data:
+                raise ValueError(
+                    f"Perturbation report {pair!r} has no matching normal report in {results_dir}"
+                )
+            for name, metrics in report["methods"].items():
+                data[pair][perturbed_method_name(name)] = metrics
+        method_order = method_order + renamed
+
+    return data, method_order, meta, pert_meta
 
 
-def _cell(value: float, metric: str, best_text: str) -> str:
+def _cell(value: float | None, metric: str, best_text: str | None) -> str:
+    if value is None:
+        return "---"
     text = f"{value:.3f}"
     if metric == "Skill Score" and value >= 0:
         text = r"\phantom{-}" + text
-    if text.replace(r"\phantom{-}", "") == best_text:
+    if best_text is not None and text.replace(r"\phantom{-}", "") == best_text:
         text = r"\textbf{" + text + "}"
     return text
 
 
-def _best_text(values: list[float], metric: str) -> str:
-    formatted = [f"{value:.3f}" for value in values]
+def _best_text(values: list[float | None], metric: str) -> str | None:
+    present = [value for value in values if value is not None]
+    if not present:
+        return None
+    formatted = [f"{value:.3f}" for value in present]
     if metric in HIGHER_IS_BETTER:
         return max(formatted, key=float)
     return min(formatted, key=float)
@@ -290,7 +415,9 @@ def _column_header(pairs: list[str]) -> str:
 
 def _metric_rows(data: dict, pairs: list[str], methods: list[str], metric: str) -> list[str]:
     best_by_pair = {
-        pair: _best_text([data[pair][method][metric] for method in methods], metric)
+        pair: _best_text(
+            [_metric_value(data, pair, method, metric) for method in methods], metric
+        )
         for pair in pairs
     }
     rows = []
@@ -299,23 +426,39 @@ def _metric_rows(data: dict, pairs: list[str], methods: list[str], metric: str) 
             rows.append(r"\addlinespace")
         for method in group:
             cells = " & ".join(
-                _cell(data[pair][method][metric], metric, best_by_pair[pair]) for pair in pairs
+                _cell(_metric_value(data, pair, method, metric), metric, best_by_pair[pair])
+                for pair in pairs
             )
             rows.append(f"{method_abbrev(method)} & {cells} \\\\")
     return rows
 
 
-def _accuracy_sentence(pairs: list[str], meta: dict) -> str:
+def _accuracy_sentence(pairs: list[str], meta: dict, pert_meta: dict | None = None) -> str:
     parts = []
     for pair in pairs:
         info = meta[pair]
         parts.append(f"{latex_pair_label(pair)} {info['accuracy']:.2f}\\% ($n={info['n']}$)")
-    return "Translation accuracy: " + "; ".join(parts) + "."
+    sentence = "Translation accuracy: " + "; ".join(parts) + "."
+    if not pert_meta:
+        return sentence
+    pert_parts = []
+    for pair in pairs:
+        info = pert_meta.get(pair)
+        if info is None:
+            continue
+        pert_parts.append(
+            f"{latex_pair_label(pair)} {info['accuracy']:.2f}\\% ($n={info['n']}$)"
+        )
+    if pert_parts:
+        sentence += " Perturbation accuracy: " + "; ".join(pert_parts) + "."
+    return sentence
 
 
-def write_tables(data: dict, methods: list[str], meta: dict, path: Path) -> None:
+def write_tables(
+    data: dict, methods: list[str], meta: dict, path: Path, pert_meta: dict | None = None
+) -> None:
     pairs = sorted(data, key=pair_sort_key)
-    accuracy = _accuracy_sentence(pairs, meta)
+    accuracy = _accuracy_sentence(pairs, meta, pert_meta)
     note = abbrev_note(methods)
     header = _column_header(pairs)
     column_spec = "@{}l" + "r" * len(pairs) + "@{}"
@@ -363,24 +506,26 @@ def write_tables(data: dict, methods: list[str], meta: dict, path: Path) -> None
         r"{\scriptsize",
         r"\setlength{\tabcolsep}{2.5pt}",
         r"\renewcommand{\arraystretch}{0.95}",
-        r"\begin{table}[t]",
-        r"\centering",
+        r"\begin{longtable}{" + column_spec + "}",
         r"\caption{AUROC of confidence methods for code translation. "
         + accuracy
         + r" Higher is better; the best value in each column is bold. "
         + note
-        + "}",
-        r"\label{tab:translation-auroc}",
-        r"\begin{tabular}{" + column_spec + "}",
+        + r"\label{tab:translation-auroc}}\\",
         r"\toprule",
         header,
         r"\midrule",
+        r"\endfirsthead",
+        r"\toprule",
+        header,
+        r"\midrule",
+        r"\endhead",
+        r"\bottomrule",
+        r"\endfoot",
     ])
     lines.extend(_metric_rows(data, pairs, methods, "AUROC"))
     lines.extend([
-        r"\bottomrule",
-        r"\end{tabular}",
-        r"\end{table}",
+        r"\end{longtable}",
         r"}",
         "",
     ])
@@ -410,7 +555,14 @@ def method_colors(methods: list[str]) -> list[str]:
     return [colors[method] for method in methods]
 
 
-def plot_pair(pair: str, data: dict, methods: list[str], meta: dict, out_dir: Path) -> None:
+def plot_pair(
+    pair: str,
+    data: dict,
+    methods: list[str],
+    meta: dict,
+    out_dir: Path,
+    pert_meta: dict | None = None,
+) -> None:
     metrics = (
         ("AUROC", "AUROC (higher is better)"),
         ("Brier", "Brier (lower is better)"),
@@ -421,10 +573,22 @@ def plot_pair(pair: str, data: dict, methods: list[str], meta: dict, out_dir: Pa
     fig, axes = plt.subplots(2, 2, figsize=(15, fig_height), sharey=True, constrained_layout=True)
     positions = np.arange(len(methods))
     colors = method_colors(methods)
+    hatches = ["///" if is_perturbed_method(method) else None for method in methods]
 
     for ax, (metric, title) in zip(axes.ravel(), metrics):
-        values = np.array([data[pair][method][metric] for method in methods])
-        ax.barh(positions, values, color=colors, height=0.78)
+        values = np.array(
+            [
+                np.nan if (v := _metric_value(data, pair, method, metric)) is None else v
+                for method in methods
+            ],
+            dtype=float,
+        )
+        bars = ax.barh(positions, values, color=colors, height=0.78)
+        for bar, hatch in zip(bars, hatches):
+            if hatch is not None:
+                bar.set_hatch(hatch)
+                bar.set_edgecolor("white")
+                bar.set_linewidth(0.4)
         if metric in {"AUROC", "Brier", "ECE (10 bins)"}:
             ax.set_xlim(left=0)
         if metric == "AUROC":
@@ -445,9 +609,14 @@ def plot_pair(pair: str, data: dict, methods: list[str], meta: dict, out_dir: Pa
         Patch(facecolor=GROUP_COLORS[method_group(group[0])], label=GROUP_LABELS[method_group(group[0])])
         for group in _grouped(methods)
     ]
-    fig.legend(handles=handles, loc="outside lower center", ncol=3, frameon=False)
+    ncol = 3 if len(handles) <= 9 else 4
+    fig.legend(handles=handles, loc="outside lower center", ncol=ncol, frameon=False)
     info = meta[pair]
-    fig.suptitle(f"{display_pair_label(pair)}   (n={info['n']}, accuracy={info['accuracy']:.2f}%)")
+    title = f"{display_pair_label(pair)}   (n={info['n']}, accuracy={info['accuracy']:.2f}%)"
+    if pert_meta and pair in pert_meta:
+        pinfo = pert_meta[pair]
+        title += f"\nperturbed: n={pinfo['n']}, accuracy={pinfo['accuracy']:.2f}%"
+    fig.suptitle(title)
 
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = out_dir / pair
@@ -457,15 +626,19 @@ def plot_pair(pair: str, data: dict, methods: list[str], meta: dict, out_dir: Pa
 
 
 def aggregate(results_dir: Path, output_dir: Path) -> None:
-    data, methods, meta = load_results(results_dir)
+    data, methods, meta, pert_meta = load_results(results_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     tables_path = output_dir / "tables.tex"
-    write_tables(data, methods, meta, tables_path)
+    write_tables(data, methods, meta, tables_path, pert_meta)
     chart_dir = output_dir / "charts"
     for pair in sorted(data, key=pair_sort_key):
-        plot_pair(pair, data, methods, meta, chart_dir)
+        plot_pair(pair, data, methods, meta, chart_dir, pert_meta)
     print(f"Wrote {tables_path}")
     print(f"Wrote charts to {chart_dir}")
+    if pert_meta:
+        print(f"Included perturbation methods for {len(pert_meta)} report(s)")
+    else:
+        print("No perturbation reports found; wrote normal metrics only")
 
 
 def main() -> None:
@@ -473,13 +646,13 @@ def main() -> None:
     parser.add_argument(
         "--results-dir",
         type=Path,
-        default=Path("data/code_translation/xcodeeval/gpt-4.1-nano/analysis_results"),
+        default=Path("data/code_translation/xcodeeval/qwen3-coder-next/analysis_results"),
         help="Directory of per-pair and overall analysis reports",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("data/code_translation/xcodeeval/gpt-4.1-nano/analysis_results/aggregated"),
+        default=Path("data/code_translation/xcodeeval/qwen3-coder-next/analysis_results/aggregated"),
         help="Directory for tables.tex and charts/",
     )
     args = parser.parse_args()
