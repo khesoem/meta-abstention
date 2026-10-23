@@ -138,8 +138,8 @@ def execute_generated_tests(translated_code_path: str, generated_tests_path: str
                         execution_results[code_uid][s_code_uid] = f'Error: {str(e)}'
                         logging.error(f'Error executing code for {code_uid} to {lang}: {e}')
 
-                with open(output_path, 'w') as f:
-                    json.dump(execution_results, f, indent=4)
+        with open(output_path, 'w') as f:
+            json.dump(execution_results, f, indent=4)
                 
     with open(output_path, 'w') as f:
         json.dump(execution_results, f, indent=4)

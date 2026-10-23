@@ -4,7 +4,10 @@ import random
 import scipy.stats
 import os
 import numpy as np
+from scipy.special import logit
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score, brier_score_loss
+from sklearn.model_selection import KFold
 from scipy import stats
 import logging
 
@@ -51,6 +54,12 @@ def _safe_metric(y, c, fn):
     return fn(y, c)
 
 
+def _correlation(confidences, correctness, fn):
+    if np.unique(confidences).size < 2 or np.unique(correctness).size < 2:
+        return np.nan
+    return fn(confidences, correctness).statistic
+
+
 def calibration_report(confidences, correctness, name="method", output_file=None,
                        n_bins=10):
     confidences = np.asarray(confidences, dtype=float)
@@ -62,8 +71,8 @@ def calibration_report(confidences, correctness, name="method", output_file=None
         "Brier":         brier_score_loss(correctness, confidences),
         "Skill Score":   skill_score(confidences, correctness),
         f"ECE ({n_bins} bins)": expected_calibration_error(confidences, correctness, n_bins),
-        "Spearman rho":  stats.spearmanr(confidences, correctness).statistic,
-        "Pearson r":     stats.pearsonr(confidences, correctness).statistic,
+        "Spearman rho":  _correlation(confidences, correctness, stats.spearmanr),
+        "Pearson r":     _correlation(confidences, correctness, stats.pearsonr),
     }
 
     lines = [f"\n=== {name}  (n={n}, accuracy={correctness.mean():.2%}) ==="]
@@ -79,12 +88,156 @@ def calibration_report(confidences, correctness, name="method", output_file=None
 
     return point
 
+
+# Spiess et al., "Calibration and Correctness of Language Models for Code":
+# fit a logistic regression to logit(confidence), five folds, each fifth
+# scaled by a model fit on the other four fifths. The split is shuffled with
+# a fixed seed so repeated runs of the same file stay comparable.
+_PLATT_FOLDS = 5
+_PLATT_SEED = 0
+PLATT_SUFFIX = " (Platt)"
+
+# (confidence dict key, report display name). Raw and Platt-scaled versions
+# are both reported.
+_BASELINE_METRICS = [
+    ('verbalization', 'Simple Verbalized'),
+    ('average_token_probability', 'Average Token Probability'),
+    ('average_token_probability_geometric', 'Average Token Probability Geometric'),
+    ('generated_sequence_probability', 'Generated Sequence Probability'),
+]
+
+
+def _confidence_logits(confidences: np.ndarray) -> np.ndarray:
+    """Logit of each confidence, with exact 0 and 1 kept in order.
+
+    Logit is undefined at 0 and 1. Those scores stay strictly below every
+    interior score, or strictly above it, so a positive slope cannot swap
+    them with a real intermediate value. The gap is one nat beyond the
+    nearest interior logit. When the sample is only 0s and 1s, the two
+    levels are -1 and +1.
+    """
+    probabilities = np.clip(np.asarray(confidences, dtype=float), 0.0, 1.0)
+    if not np.isfinite(probabilities).all():
+        raise ValueError("confidence scores must be finite")
+
+    logits = np.empty(probabilities.shape, dtype=float)
+    interior = (probabilities > 0.0) & (probabilities < 1.0)
+    if interior.any():
+        logits[interior] = logit(probabilities[interior])
+        if np.any(probabilities == 0.0):
+            logits[probabilities == 0.0] = float(logits[interior].min()) - 1.0
+        if np.any(probabilities == 1.0):
+            logits[probabilities == 1.0] = float(logits[interior].max()) + 1.0
+        return logits
+
+    logits[probabilities == 0.0] = -1.0
+    logits[probabilities == 1.0] = 1.0
+    return logits
+
+
+def platt_scale(confidences, correctness, n_folds: int = _PLATT_FOLDS,
+                seed: int = _PLATT_SEED) -> np.ndarray:
+    """Five-fold Platt scaling of a confidence score.
+
+    For each fold, an unregularized logistic regression is fit on the logit
+    of the other folds' confidences and applied to the held-out fold. The
+    returned scores are out-of-fold probabilities in the original order, so
+    calibration metrics are not computed on the data used to fit the scaler.
+    """
+    confidences = np.asarray(confidences, dtype=float)
+    correctness = np.asarray(correctness, dtype=int)
+    n = len(confidences)
+    if n != len(correctness):
+        raise ValueError("confidences and correctness must have the same length")
+    if n == 0:
+        return confidences.copy()
+
+    scaled = np.empty(n, dtype=float)
+    base_rate = float(correctness.mean())
+    logits = _confidence_logits(confidences).reshape(-1, 1)
+    n_splits = min(n_folds, n)
+    if n_splits < 2 or np.unique(logits).size < 2 or np.unique(correctness).size < 2:
+        scaled[:] = base_rate
+        return scaled
+
+    splitter = KFold(n_splits=n_splits, shuffle=True, random_state=seed)
+    for train_idx, test_idx in splitter.split(logits):
+        y_train = correctness[train_idx]
+        x_train = logits[train_idx]
+        if np.unique(y_train).size < 2 or np.unique(x_train).size < 2:
+            scaled[test_idx] = float(y_train.mean())
+            continue
+        # C=inf is unregularized MLE: the two Platt parameters are a slope
+        # and an intercept on the logit, with no penalty pulling them to 0.
+        model = LogisticRegression(C=np.inf, solver="lbfgs", max_iter=1000)
+        model.fit(x_train, y_train)
+        scaled[test_idx] = model.predict_proba(logits[test_idx])[:, 1]
+    return scaled
+
+
+def _wants_platt(name: str) -> bool:
+    """Baselines and output-consistency scores are reported raw and Platt-scaled."""
+    if name in {display for _, display in _BASELINE_METRICS}:
+        return True
+    return "Output Consistency Score" in name
+
+
+def _scheduled_reports() -> list[tuple[str, str, str]]:
+    """(kind, confidence key, display name) in the order reports are written."""
+    items: list[tuple[str, str, str]] = []
+    raw_keys: set[str] = set()
+    platt_keys: set[str] = set()
+
+    def add(key: str, name: str) -> None:
+        if key not in raw_keys:
+            items.append(("raw", key, name))
+            raw_keys.add(key)
+        if _wants_platt(name) and key not in platt_keys:
+            items.append(("platt", key, f"{name}{PLATT_SUFFIX}"))
+            platt_keys.add(key)
+
+    for key, name in _CONFIDENCE_METRICS:
+        add(key, name)
+    for key, name in _BASELINE_METRICS:
+        add(key, name)
+    return items
+
+
+def _truncate_report(output_file: str | None) -> None:
+    """Drop the previous consistency block onward, keeping the preamble."""
+    if not output_file or not os.path.exists(output_file):
+        return
+    with open(output_file, 'r') as f:
+        lines = f.readlines()
+    kept = []
+    for line in lines:
+        # Consistency scores, and Platt blocks written after them, are
+        # regenerated below. Cut at whichever of those appears first.
+        if "Output Consistency Score" in line or PLATT_SUFFIX in line:
+            break
+        kept.append(line)
+    while kept and not kept[-1].strip():
+        kept.pop()
+    with open(output_file, 'w') as f:
+        f.writelines(kept)
+        if kept and not kept[-1].endswith("\n"):
+            f.write("\n")
+
+
+def _report_headers(output_file: str | None) -> set[str]:
+    if not output_file or not os.path.exists(output_file):
+        return set()
+    headers = set()
+    with open(output_file, 'r') as f:
+        for line in f:
+            marker = " (n="
+            if line.startswith("=== ") and marker in line:
+                headers.add(line[4:line.index(marker)].strip())
+    return headers
+
+
 # (confidence dict key, report display name)
 _CONFIDENCE_METRICS = [
-    # ('verbalization', 'Simple Verbalized'),
-    # ('average_token_probability', 'Average Token Probability'),
-    # ('average_token_probability_geometric', 'Average Token Probability Geometric'),
-    # ('generated_sequence_probability', 'Generated Sequence Probability'),
     # ('spuq_codebert_score', 'SPUQ CodeBERT Score'),
     # ('spuq_codebert_score_reverse', 'SPUQ CodeBERT Score Reverse'),
     # ('spuq_codebleu', 'SPUQ CodeBLEU'),
@@ -121,17 +274,18 @@ _CONFIDENCE_METRICS = [
 
 
 def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None):
-    if os.path.exists(output_file):
-        with open(output_file, 'r') as f:
-            lines = f.readlines()
-        with open(output_file, 'w') as f:
-            for line in lines:
-                if "Output Consistency Score" in line:
-                    break
-                f.write(line)
+    _truncate_report(output_file)
+    # Baselines already printed above the consistency block are left in place.
+    preserved_headers = _report_headers(output_file)
+    reports = [
+        (kind, key, name)
+        for kind, key, name in _scheduled_reports()
+        if not (kind == "raw" and name in preserved_headers)
+    ]
 
     logging.info(f"Running confidence analysis for {execution_results_paths}")
-    scores = {key: [] for key, _ in _CONFIDENCE_METRICS}
+    score_keys = list(dict.fromkeys(key for _, key, _ in reports))
+    scores = {key: [] for key in score_keys}
     correctness_scores = []
 
     for execution_results_path in execution_results_paths:
@@ -144,7 +298,7 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
 
                 translation = submission['translation'][translation_index]
                 conf = translation['confidence']
-                for key, _ in _CONFIDENCE_METRICS:
+                for key in score_keys:
                     scores[key].append(conf[key])
 
                 # It is correct if for all items in exec_result['data']['exec_outcome'] are 'PASSED'
@@ -152,8 +306,15 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
                 correctness_scores.append(correctness)
 
 
-    for key, name in _CONFIDENCE_METRICS:
-        calibration_report(scores[key], correctness_scores, name, output_file=output_file)
+    for kind, key, name in reports:
+        if kind == "platt":
+            logging.info(
+                "Platt scaling %s over %d folds (seed=%d)", name, _PLATT_FOLDS, _PLATT_SEED,
+            )
+            values = platt_scale(scores[key], correctness_scores)
+        else:
+            values = scores[key]
+        calibration_report(values, correctness_scores, name, output_file=output_file)
 
 def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None, perturbation: bool = False):
     execution_results_paths = []

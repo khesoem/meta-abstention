@@ -126,5 +126,5 @@ def run_llm_perturbation(original_submissions_path: str, output_file: str, model
                 submission_copy['source_code'] = perturbed_source_code
                 perturbed_submissions[new_src_uid]['submissions'].append(submission_copy)
 
-                with open(output_file, 'w') as f:
-                    json.dump(perturbed_submissions, f, indent=4)
+        with open(output_file, 'w') as f:
+            json.dump(perturbed_submissions, f, indent=4)

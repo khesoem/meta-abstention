@@ -81,61 +81,73 @@ def _run_code_translation_for_perturbations() -> None:
                     tries += 1
 
 def run_analysis() -> None:
-    for model in ['qwen3-coder-next', 'llama-3.1-8b-instruct', 'gpt-4.1-nano', 'deepseek-v4-flash']:
-        if model == 'llama-3.1-8b-instruct':
-            continue
+    for n_perturbations in range(1, 6):
+        for model in ['qwen3-coder-next', 'llama-3.1-8b-instruct', 'gpt-4.1-nano', 'deepseek-v4-flash']:
+            if model != 'qwen3-coder-next' and model != 'deepseek-v4-flash':
+                continue
 
-        for s_lang in conf.translation['langs'].keys():
-            for t_lang in conf.translation['langs'].keys():
-                if s_lang == t_lang:
-                    continue
-                compute_confidence(
-                    f'data/code_translation/xcodeeval/{model}/similarities/{s_lang}-to-{t_lang}-similarities.json',
-                    f'data/code_translation/xcodeeval/{model}/generated_tests/{s_lang}-to-{t_lang}-developer-made-alternative-exec-results.json', 
-                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-to-{t_lang}.json', 
-                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-to-{t_lang}.json')
-        
-        for s_lang in conf.translation['langs'].keys():
-            for t_lang in conf.translation['langs'].keys():
-                if s_lang == t_lang:
-                    continue
-                run_confidence_analysis([f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-to-{t_lang}.json'],
-                    output_file=f'data/code_translation/xcodeeval/{model}/analysis_results/{s_lang}-to-{t_lang}.txt')
+            perturbations_dir = f'data/code_translation/xcodeeval/{model}/translations/{n_perturbations}-perturbations'
+            if not os.path.exists(perturbations_dir):
+                os.makedirs(perturbations_dir)
+            analysis_dir = f'data/code_translation/xcodeeval/{model}/analysis_results/{n_perturbations}-perturbations'
+            if not os.path.exists(analysis_dir):
+                os.makedirs(analysis_dir)
 
-        run_confidence_analysis_for_batch(f'data/code_translation/xcodeeval/{model}/translations/6-perturbations', output_file=f'data/code_translation/xcodeeval/{model}/analysis_results/overall_results.txt')
+            for s_lang in conf.translation['langs'].keys():
+                for t_lang in conf.translation['langs'].keys():
+                    if s_lang == t_lang:
+                        continue
+                    compute_confidence(
+                        f'data/code_translation/xcodeeval/{model}/similarities/{s_lang}-to-{t_lang}-similarities.json',
+                        f'data/code_translation/xcodeeval/{model}/generated_tests/{s_lang}-to-{t_lang}-developer-made-alternative-exec-results.json', 
+                        f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-to-{t_lang}.json', 
+                        f'{perturbations_dir}/{s_lang}-to-{t_lang}.json',
+                        n_perturbations=n_perturbations)
+            
+            for s_lang in conf.translation['langs'].keys():
+                for t_lang in conf.translation['langs'].keys():
+                    if s_lang == t_lang:
+                        continue
+                    run_confidence_analysis([f'{perturbations_dir}/{s_lang}-to-{t_lang}.json'],
+                        output_file=f'{analysis_dir}/{s_lang}-to-{t_lang}.txt')
 
-    # run_confidence_analysis([f'data/code_translation/xcodeeval/qwen3-coder-next/translations/6-perturbations/python-to-java.json'])
-    # run_confidence_analysis_for_batch('data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations')
+            run_confidence_analysis_for_batch(perturbations_dir, output_file=f'{analysis_dir}/overall_results.txt')
 
 def _run_analysis_for_perturbations() -> None:
-    for model in ['qwen3-coder-next', 'llama-3.1-8b-instruct', 'gpt-4.1-nano', 'deepseek-v4-flash']:
-        if model != 'qwen3-coder-next':
-            continue
+    for n_perturbations in range(1, 6):
+        for model in ['qwen3-coder-next', 'llama-3.1-8b-instruct', 'gpt-4.1-nano', 'deepseek-v4-flash']:
+            if model != 'qwen3-coder-next' and model != 'deepseek-v4-flash':
+                continue
 
-        for s_lang in conf.translation['langs'].keys():
-            for t_lang in conf.translation['langs'].keys():
-                if s_lang == t_lang:
-                    continue
+            perturbations_dir = f'data/code_translation/xcodeeval/{model}/translations/{n_perturbations}-perturbations'
+            if not os.path.exists(perturbations_dir):
+                os.makedirs(perturbations_dir)
+            analysis_dir = f'data/code_translation/xcodeeval/{model}/analysis_results/{n_perturbations}-perturbations'
+            if not os.path.exists(analysis_dir):
+                os.makedirs(analysis_dir)
 
-                compute_confidence(
-                    f'data/code_translation/xcodeeval/{model}/similarities/{s_lang}-to-{t_lang}-similarities.json',
-                    f'data/code_translation/xcodeeval/{model}/generated_tests/{s_lang}-to-{t_lang}-llm-made-alternative-exec-results.json', 
-                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json', 
-                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json')
+            for s_lang in conf.translation['langs'].keys():
+                for t_lang in conf.translation['langs'].keys():
+                    if s_lang == t_lang:
+                        continue
+
+                    compute_confidence(
+                        f'data/code_translation/xcodeeval/{model}/similarities/{s_lang}-to-{t_lang}-similarities.json',
+                        f'data/code_translation/xcodeeval/{model}/generated_tests/{s_lang}-to-{t_lang}-llm-made-alternative-exec-results.json', 
+                        f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json', 
+                        f'{perturbations_dir}/{s_lang}-perturbations-to-{t_lang}.json',
+                        n_perturbations=n_perturbations)
 
 
-        for s_lang in conf.translation['langs'].keys():
-            for t_lang in conf.translation['langs'].keys():
-                if s_lang == t_lang:
-                    continue
+            for s_lang in conf.translation['langs'].keys():
+                for t_lang in conf.translation['langs'].keys():
+                    if s_lang == t_lang:
+                        continue
 
-                run_confidence_analysis([f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'],
-                    output_file=f'data/code_translation/xcodeeval/{model}/analysis_results/{s_lang}-perturbations-to-{t_lang}.txt')
+                    run_confidence_analysis([f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'],
+                        output_file=f'{analysis_dir}/{s_lang}-perturbations-to-{t_lang}.txt')
 
-        run_confidence_analysis_for_batch(f'data/code_translation/xcodeeval/{model}/translations/6-perturbations', output_file=f'data/code_translation/xcodeeval/{model}/analysis_results/overall_perturbations_results.txt', perturbation=True)
-
-    # run_confidence_analysis([f'data/code_translation/xcodeeval/qwen3-coder-next/translations/6-perturbations/python-to-java.json'])
-    # run_confidence_analysis_for_batch('data/code_translation/xcodeeval/gpt-4.1-nano/translations/6-perturbations')
+            run_confidence_analysis_for_batch(perturbations_dir, output_file=f'{analysis_dir}/overall_perturbations_results.txt', perturbation=True)
 
 def generate_tests() -> None:
     for model in ['qwen/qwen3-coder-next', 'openai/gpt-4.1-nano', 'deepseek/deepseek-v4-flash']:
@@ -166,9 +178,9 @@ def run_execute_translated_code() -> None:
 
 def _execute_translated_code_for_perturbations() -> None:
     # pool = mp.Pool(processes=conf.translation['num-execution-processes'])
-    pool = mp.Pool(processes=2)
+    pool = mp.Pool(processes=6)
     for model in ['qwen3-coder-next', 'gpt-4.1-nano', 'deepseek-v4-flash']:
-        if model != 'deepseek-v4-flash':
+        if model != 'gpt-4.1-nano':
             continue
 
         for s_lang in conf.translation['langs'].keys():
@@ -212,11 +224,11 @@ def _execute_generated_tests() -> None:
 
 def _execute_generated_tests_for_perturbations() -> None:
     for model in ['qwen3-coder-next', 'gpt-4.1-nano', 'deepseek-v4-flash']:
-        if model != 'deepseek-v4-flash':
+        if model != 'gpt-4.1-nano':
             continue
 
         # pool = mp.Pool(processes=conf.translation['num-execution-processes'])
-        pool = mp.Pool(processes=2)
+        pool = mp.Pool(processes=6)
         for s_lang in conf.translation['langs'].keys():
             for t_lang in conf.translation['langs'].keys():
                 if s_lang == t_lang:

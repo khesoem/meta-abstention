@@ -217,6 +217,11 @@ def _add_similarity_based_confidence(similarities: dict, submission: dict, filte
 
 def _add_generated_test_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int, generated_test_execution_results: dict):
     submission_code_uid = submission['code_uid']
+
+    if submission_code_uid not in generated_test_execution_results or submission_code_uid not in generated_test_execution_results[submission_code_uid]:
+        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = 0
+        return
+
     submission_exec_result = generated_test_execution_results[submission_code_uid][submission_code_uid]['data']
 
     if len(submission_exec_result) <= 1: # Compilation error or Timeout error
@@ -228,6 +233,9 @@ def _add_generated_test_execution_based_confidence(submission: dict, filtered_su
 
     for other in filtered_submissions:
         other_code_uid = other['code_uid']
+        if other_code_uid not in generated_test_execution_results[submission_code_uid]:
+            continue
+
         other_exec_result = generated_test_execution_results[submission_code_uid][other_code_uid]['data']
 
         if len(other_exec_result) <= 1: # Compilation error or Timeout error

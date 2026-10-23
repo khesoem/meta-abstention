@@ -8,6 +8,15 @@ source-target pair, plus ``overall_results.txt``) and writes:
 * one chart per language pair (and one for the pooled results) comparing
   every method on those four metrics
 
+Reports sit either directly in the results directory, or in one subdirectory
+per perturbation count (``1-perturbations``, ``2-perturbations``, ...). In
+the latter layout every count is included. Baseline methods from
+``confidence_analysis._BASELINE_METRICS`` — verbalized confidence and token
+and sequence probabilities, raw and Platt-scaled, on the original translations
+and on translations of perturbed source — do not depend on that count, so
+they are emitted once. Every other method is emitted once per count, with
+`` (n=k)`` inserted before any Platt or perturbed suffix.
+
 Each metric line is a point estimate. A trailing 95% interval, when still
 present on an older line, is ignored. Spearman and Pearson correlations are
 ignored. The best value in each table column is bold: higher is better for
@@ -32,12 +41,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Patch
 
+from meta_abstention.xcodeeval.confidence_analysis import PLATT_SUFFIX, _BASELINE_METRICS
+
 HEADER_RE = re.compile(
     r"^===\s+(.+?)\s+\(n=(\d+),\s*accuracy=([\d.]+)%\)\s+===\s*$"
 )
 METRIC_RE = re.compile(
     r"^\s+(?P<name>AUROC|Brier|Skill Score|ECE \(10 bins\)|Spearman rho|Pearson r)\s*:\s*"
-    r"(?P<value>-?\d+\.\d+)"
+    r"(?P<value>-?\d+\.\d+|nan)"
     r"(?:\s+95% CI\s*\[\s*-?\d+\.\d+,\s*-?\d+\.\d+\])?\s*$"
 )
 
@@ -45,6 +56,10 @@ SKIPPED_METRICS = {"Spearman rho", "Pearson r"}
 CALIBRATION_METRICS = ("ECE (10 bins)", "Brier", "Skill Score")
 HIGHER_IS_BETTER = {"AUROC", "Skill Score"}
 PERTURBED_SUFFIX = " (Perturbed)"
+# Inserted before the Platt and perturbed suffixes: "Method (n=3) (Platt)".
+_COUNT_SUFFIX_RE = re.compile(r" \(n=(\d+)\)$")
+_COUNT_DIR_RE = re.compile(r"\d+-perturbations")
+BASELINE_METHOD_NAMES = {name for _, name in _BASELINE_METRICS}
 
 LANG_NAMES = {"cpp": "C++", "java": "Java", "python": "Python"}
 LANG_HEADER = {"cpp": "C++", "java": "J", "python": "P"}
@@ -102,10 +117,20 @@ def abbrev_note(methods: list[str]) -> str:
         base_method_name(m) == "Generated Test Output Consistency Score" for m in methods
     ):
         note += r"GTOC = generated-test output consistency. "
+    if any(perturbation_count(m) is not None for m in methods):
+        note += (
+            r"Suffix n$k$ is the number of source perturbations used for that "
+            r"consistency score. "
+        )
     if any(is_perturbed_method(m) for m in methods):
         note += (
             r"Suffix -P = same method evaluated on translations of LLM-perturbed "
             r"source code (partial; missing cells are ---). "
+        )
+    if any(is_platt_method(m) for m in methods):
+        note += (
+            r"Suffix -Pl = five-fold Platt scaling of that confidence "
+            r"(Spiess et al.). "
         )
     note += r"J = Java, P = Python, All = all pairs pooled."
     return note
@@ -162,16 +187,69 @@ def is_perturbed_method(name: str) -> bool:
     return name.endswith(PERTURBED_SUFFIX)
 
 
-def base_method_name(name: str) -> str:
+def _without_perturbed(name: str) -> str:
     if is_perturbed_method(name):
         return name[: -len(PERTURBED_SUFFIX)]
     return name
+
+
+def is_platt_method(name: str) -> bool:
+    return _without_perturbed(name).endswith(PLATT_SUFFIX)
+
+
+def perturbation_count(name: str) -> int | None:
+    """Perturbation count encoded in a merged method name, if any."""
+    name = _without_perturbed(name)
+    if name.endswith(PLATT_SUFFIX):
+        name = name[: -len(PLATT_SUFFIX)]
+    match = _COUNT_SUFFIX_RE.search(name)
+    if match is None:
+        return None
+    return int(match.group(1))
+
+
+def base_method_name(name: str) -> str:
+    name = _without_perturbed(name)
+    if name.endswith(PLATT_SUFFIX):
+        name = name[: -len(PLATT_SUFFIX)]
+    return _COUNT_SUFFIX_RE.sub("", name)
+
+
+def is_baseline_method(name: str) -> bool:
+    """True for metrics that do not depend on the perturbation count.
+
+    That is the raw and Platt-scaled baselines from ``confidence_analysis``,
+    including the same scores on translations of perturbed source code.
+    """
+    return base_method_name(name) in BASELINE_METHOD_NAMES
 
 
 def perturbed_method_name(name: str) -> str:
     if is_perturbed_method(name):
         return name
     return name + PERTURBED_SUFFIX
+
+
+def with_perturbation_count(name: str, count: int) -> str:
+    """Label a count-dependent method with the perturbation count used."""
+    if perturbation_count(name) is not None:
+        raise ValueError(f"{name!r} already records a perturbation count")
+    renamed = f"{base_method_name(name)} (n={count})"
+    if is_platt_method(name):
+        renamed += PLATT_SUFFIX
+    if is_perturbed_method(name):
+        renamed += PERTURBED_SUFFIX
+    return renamed
+
+
+def _without_count(name: str) -> str:
+    """Drop an `` (n=k)`` label, keeping Platt and perturbed suffixes."""
+    restored = base_method_name(name)
+    if is_platt_method(name):
+        restored += PLATT_SUFFIX
+    if is_perturbed_method(name):
+        restored += PERTURBED_SUFFIX
+    return restored
 
 
 def method_group(name: str) -> str:
@@ -232,8 +310,13 @@ def method_abbrev(name: str) -> str:
         abbrev = METHOD_ABBREV[base]
     except KeyError as exc:
         raise KeyError(f"No table abbreviation for method {name!r}") from exc
+    count = perturbation_count(name)
+    if count is not None:
+        abbrev += f"-n{count}"
+    if is_platt_method(name):
+        abbrev += "-Pl"
     if is_perturbed_method(name):
-        return abbrev + "-P"
+        abbrev += "-P"
     return abbrev
 
 
@@ -378,6 +461,142 @@ def load_results(results_dir: Path) -> tuple[dict, list[str], dict, dict]:
         method_order = method_order + renamed
 
     return data, method_order, meta, pert_meta
+
+
+def _perturbation_count_dirs(results_dir: Path) -> list[Path]:
+    dirs = [
+        path for path in results_dir.iterdir()
+        if path.is_dir() and _COUNT_DIR_RE.fullmatch(path.name)
+    ]
+    return sorted(dirs, key=lambda path: int(path.name.split("-", 1)[0]))
+
+
+def _freeze_metrics(metrics: dict | None) -> tuple | None:
+    if metrics is None:
+        return None
+    frozen = []
+    for key, value in sorted(metrics.items()):
+        frozen.append((key, None if value != value else value))
+    return tuple(frozen)
+
+
+def _baseline_snapshot(data: dict) -> dict:
+    snapshot = {}
+    for pair, methods in data.items():
+        for method, metrics in methods.items():
+            if is_baseline_method(method):
+                snapshot[(pair, method)] = _freeze_metrics(metrics)
+    return snapshot
+
+
+def _assert_same_baselines(loaded: list[tuple]) -> None:
+    ref_count, ref_data, *_ = loaded[0]
+    ref = _baseline_snapshot(ref_data)
+    for count, data, *_rest in loaded[1:]:
+        snapshot = _baseline_snapshot(data)
+        if snapshot == ref:
+            continue
+        missing = sorted(set(ref) - set(snapshot))
+        extra = sorted(set(snapshot) - set(ref))
+        if missing or extra:
+            raise ValueError(
+                f"Baseline methods at {count} perturbations do not match "
+                f"{ref_count} perturbations (missing {missing[:3]}, extra {extra[:3]})"
+            )
+        for key, ref_metrics in ref.items():
+            if snapshot[key] != ref_metrics:
+                pair, method = key
+                raise ValueError(
+                    f"Baseline {method!r} for {pair} at {count} perturbations "
+                    f"differs from the same baseline at {ref_count} perturbations"
+                )
+
+
+def _assert_same_field(loaded: list[tuple], index: int, label: str) -> None:
+    ref_count = loaded[0][0]
+    ref = loaded[0][index]
+    for item in loaded[1:]:
+        if item[index] == ref:
+            continue
+        raise ValueError(
+            f"{label} at {item[0]} perturbations does not match {ref_count} perturbations"
+        )
+
+
+def _varying_methods(methods: list[str]) -> list[str]:
+    return [method for method in methods if not is_baseline_method(method)]
+
+
+def _merge_perturbation_counts(loaded: list[tuple]) -> tuple[dict, list[str], dict, dict]:
+    """Keep baselines once and repeat every other method for each count.
+
+    ``loaded`` entries are ``(count, data, methods, meta, pert_meta)`` as
+    returned by :func:`load_results`, ordered by increasing count.
+    """
+    _assert_same_baselines(loaded)
+    _assert_same_field(loaded, 3, "Translation accuracy")
+    _assert_same_field(loaded, 4, "Perturbation accuracy")
+
+    ref_count, ref_data, ref_methods, ref_meta, ref_pert_meta = loaded[0]
+    varying = _varying_methods(ref_methods)
+    for count, _data, methods, _meta, _pert_meta in loaded[1:]:
+        if _varying_methods(methods) != varying:
+            raise ValueError(
+                f"Non-baseline methods at {count} perturbations do not match "
+                f"{ref_count} perturbations"
+            )
+        if set(_data) != set(ref_data):
+            raise ValueError(
+                f"Language pairs at {count} perturbations do not match "
+                f"{ref_count} perturbations"
+            )
+
+    by_count = {count: data for count, data, *_rest in loaded}
+    merged_methods = [method for method in ref_methods if is_baseline_method(method)]
+    for method in varying:
+        for count in by_count:
+            merged_methods.append(with_perturbation_count(method, count))
+
+    merged = {}
+    for pair in ref_data:
+        merged[pair] = {}
+        for method in merged_methods:
+            if is_baseline_method(method):
+                merged[pair][method] = ref_data[pair].get(method)
+                continue
+            source = by_count[perturbation_count(method)]
+            merged[pair][method] = source[pair].get(_without_count(method))
+    return merged, merged_methods, ref_meta, ref_pert_meta
+
+
+def load_results_tree(results_dir: Path) -> tuple[dict, list[str], dict, dict]:
+    """Load one results directory, merging every ``k-perturbations`` subdirectory.
+
+    A directory with no such subdirectories is loaded as a single report set,
+    which is the layout used before counts were split apart.
+    """
+    if not results_dir.is_dir():
+        raise ValueError(f"No such results directory: {results_dir}")
+
+    count_dirs = _perturbation_count_dirs(results_dir)
+    flat_reports = [
+        path for path in sorted(results_dir.glob("*.txt"))
+        if classify_report(path.stem) is not None
+    ]
+    if count_dirs and flat_reports:
+        names = ", ".join(path.name for path in flat_reports)
+        raise ValueError(
+            f"{results_dir} has both perturbation-count subdirectories and "
+            f"top-level reports ({names})"
+        )
+    if not count_dirs:
+        return load_results(results_dir)
+
+    loaded = []
+    for path in count_dirs:
+        count = int(path.name.split("-", 1)[0])
+        loaded.append((count, *load_results(path)))
+    return _merge_perturbation_counts(loaded)
 
 
 def _cell(value: float | None, metric: str, best_text: str | None) -> str:
@@ -569,7 +788,8 @@ def plot_pair(
         ("Skill Score", "Skill score (higher is better)"),
         ("ECE (10 bins)", "ECE (lower is better)"),
     )
-    fig_height = max(13.0, 0.38 * len(methods) + 2)
+    row_height = 0.38 if len(methods) <= 40 else 0.16
+    fig_height = max(13.0, row_height * len(methods) + 2.2)
     fig, axes = plt.subplots(2, 2, figsize=(15, fig_height), sharey=True, constrained_layout=True)
     positions = np.arange(len(methods))
     colors = method_colors(methods)
@@ -602,7 +822,8 @@ def plot_pair(
         ax.spines["right"].set_visible(False)
 
     axes[0, 0].set_yticks(positions)
-    axes[0, 0].set_yticklabels(methods, fontsize=7 if len(methods) > 28 else 8)
+    label_size = 8 if len(methods) <= 28 else 6 if len(methods) > 40 else 7
+    axes[0, 0].set_yticklabels(methods, fontsize=label_size)
     axes[0, 0].invert_yaxis()
 
     handles = [
@@ -616,6 +837,9 @@ def plot_pair(
     if pert_meta and pair in pert_meta:
         pinfo = pert_meta[pair]
         title += f"\nperturbed: n={pinfo['n']}, accuracy={pinfo['accuracy']:.2f}%"
+    counts = sorted({c for method in methods if (c := perturbation_count(method)) is not None})
+    if counts:
+        title += "\nconsistency scores at " + ", ".join(str(c) for c in counts) + " perturbations"
     fig.suptitle(title)
 
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -626,7 +850,7 @@ def plot_pair(
 
 
 def aggregate(results_dir: Path, output_dir: Path) -> None:
-    data, methods, meta, pert_meta = load_results(results_dir)
+    data, methods, meta, pert_meta = load_results_tree(results_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     tables_path = output_dir / "tables.tex"
     write_tables(data, methods, meta, tables_path, pert_meta)
@@ -635,6 +859,9 @@ def aggregate(results_dir: Path, output_dir: Path) -> None:
         plot_pair(pair, data, methods, meta, chart_dir, pert_meta)
     print(f"Wrote {tables_path}")
     print(f"Wrote charts to {chart_dir}")
+    counts = sorted({c for method in methods if (c := perturbation_count(method)) is not None})
+    if counts:
+        print(f"Included consistency scores for perturbation counts {counts}")
     if pert_meta:
         print(f"Included perturbation methods for {len(pert_meta)} report(s)")
     else:
@@ -642,21 +869,10 @@ def aggregate(results_dir: Path, output_dir: Path) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--results-dir",
-        type=Path,
-        default=Path("data/code_translation/xcodeeval/qwen3-coder-next/analysis_results"),
-        help="Directory of per-pair and overall analysis reports",
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=Path,
-        default=Path("data/code_translation/xcodeeval/qwen3-coder-next/analysis_results/aggregated"),
-        help="Directory for tables.tex and charts/",
-    )
-    args = parser.parse_args()
-    aggregate(args.results_dir, args.output_dir)
+    for model in ['qwen3-coder-next', 'llama-3.1-8b-instruct', 'gpt-4.1-nano', 'deepseek-v4-flash']:
+        if model != 'qwen3-coder-next' and model != 'deepseek-v4-flash':
+            continue
+        aggregate(Path(f"data/code_translation/xcodeeval/{model}/analysis_results"), Path(f"data/code_translation/xcodeeval/{model}/analysis_results/aggregated"))
 
 
 if __name__ == "__main__":
