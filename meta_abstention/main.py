@@ -17,12 +17,13 @@ from meta_abstention.xcodeeval.confidence_measurement import compute_similaritie
 from meta_abstention.xcodeeval.confidence_measurement import compute_confidence as compute_confidence
 from meta_abstention.xcodeeval.extract_submissions import run_select_submissions as run_select_submissions
 from meta_abstention.xcodeeval.test_generation import run_test_generation as run_test_generation
+from meta_abstention.xcodeeval.data_cleaning import clean_non_translated_submissions as clean_non_translated_submissions
 
-# logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
-#                     filemode='a',
-#                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-#                     datefmt='%H:%M:%S',
-#                     level=logging.INFO)
+logging.basicConfig(filename='logs/logging_{:%Y-%m-%d-%H-%M}.log'.format(datetime.datetime.now()),
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.INFO)
 
 def run_perturbation_by_llms() -> None:
     # pool = mp.Pool(processes=conf.translation['num-execution-processes'])
@@ -80,10 +81,10 @@ def _run_code_translation_for_perturbations() -> None:
                     new_translations = run_code_translation(perturbations_execution_file, perturbations_execution_file, conf.translation['langs'][t_lang], model=model, temp=1.0, get_logprobs=False)
                     tries += 1
 
-def run_analysis() -> None:
+def _run_analysis() -> None:
     for n_perturbations in range(1, 6):
         for model in ['qwen3-coder-next', 'llama-3.1-8b-instruct', 'gpt-4.1-nano', 'deepseek-v4-flash']:
-            if model != 'qwen3-coder-next' and model != 'deepseek-v4-flash':
+            if model != 'gpt-4.1-nano':
                 continue
 
             perturbations_dir = f'data/code_translation/xcodeeval/{model}/translations/{n_perturbations}-perturbations'
@@ -116,7 +117,7 @@ def run_analysis() -> None:
 def _run_analysis_for_perturbations() -> None:
     for n_perturbations in range(1, 6):
         for model in ['qwen3-coder-next', 'llama-3.1-8b-instruct', 'gpt-4.1-nano', 'deepseek-v4-flash']:
-            if model != 'qwen3-coder-next' and model != 'deepseek-v4-flash':
+            if model != 'gpt-4.1-nano':
                 continue
 
             perturbations_dir = f'data/code_translation/xcodeeval/{model}/translations/{n_perturbations}-perturbations'
@@ -144,10 +145,16 @@ def _run_analysis_for_perturbations() -> None:
                     if s_lang == t_lang:
                         continue
 
-                    run_confidence_analysis([f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'],
-                        output_file=f'{analysis_dir}/{s_lang}-perturbations-to-{t_lang}.txt')
+                    run_confidence_analysis([f'{perturbations_dir}/{s_lang}-perturbations-to-{t_lang}.json'],
+                        output_file=f'{analysis_dir}/{s_lang}-perturbations-to-{t_lang}.txt',
+                        ignore_token_probability_metrics=model == 'gpt-4.1-nano')
 
-            run_confidence_analysis_for_batch(perturbations_dir, output_file=f'{analysis_dir}/overall_perturbations_results.txt', perturbation=True)
+            run_confidence_analysis_for_batch(
+                perturbations_dir,
+                output_file=f'{analysis_dir}/overall_perturbations_results.txt',
+                perturbation=True,
+                ignore_token_probability_metrics=model == 'gpt-4.1-nano',
+            )
 
 def generate_tests() -> None:
     for model in ['qwen/qwen3-coder-next', 'openai/gpt-4.1-nano', 'deepseek/deepseek-v4-flash']:
@@ -242,6 +249,36 @@ def _execute_generated_tests_for_perturbations() -> None:
         pool.close()
         pool.join()
 
+def _execute_submission_cleaning() -> None:
+    for model in ['qwen3-coder-next', 'gpt-4.1-nano', 'deepseek-v4-flash']:
+        if model != 'gpt-4.1-nano':
+            continue
+
+        for s_lang in conf.translation['langs'].keys():
+            for t_lang in conf.translation['langs'].keys():
+                if s_lang == t_lang:
+                    continue
+                clean_non_translated_submissions(
+                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-to-{t_lang}.json',
+                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json',
+                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}-perturbations-to-{t_lang}.json'
+                )
+
+def _execute_similarity_computation(perturbations: bool = False) -> None:
+    for model in ['qwen3-coder-next', 'gpt-4.1-nano', 'deepseek-v4-flash']:
+        for s_lang in conf.translation['langs'].keys():
+            for t_lang in conf.translation['langs'].keys():
+                if s_lang == t_lang:
+                    continue
+
+                compute_similarities(
+                    f'data/code_translation/xcodeeval/{model}/translations/6-perturbations/{s_lang}{"-perturbations" if perturbations else ""}-to-{t_lang}.json',
+                    f'data/code_translation/xcodeeval/{model}/similarities/{s_lang}{"-perturbations" if perturbations else ""}-to-{t_lang}-similarities.json',
+                    0,
+                    s_lang,
+                    t_lang
+                )
+
 def main() -> None:
     # run_select_submissions('java', 'data/code_translation/xcodeeval/java-original-submissions.json', 6)
 
@@ -261,15 +298,15 @@ def main() -> None:
 
     # _execute_generated_tests_for_perturbations()
 
-    # for s_lang in conf.translation['langs'].keys():
-    #     for t_lang in conf.translation['langs'].keys():
-    #         if s_lang == t_lang:
-    #             continue
-    #         compute_similarities(f'data/code_translation/xcodeeval/llama-3.1-8b-instruct/translations/6-perturbations/{s_lang}-to-{t_lang}.json', f'data/code_translation/xcodeeval/llama-3.1-8b-instruct/similarities/{s_lang}-to-{t_lang}-similarities.json', 0, s_lang, t_lang)
-    
-    # run_analysis()
+    # _execute_submission_cleaning()
 
-    _run_analysis_for_perturbations()
+    # _execute_similarity_computation(perturbations=False)
+    
+    _execute_similarity_computation(perturbations=True)
+
+    # _run_analysis()
+
+    # _run_analysis_for_perturbations()
 
 if __name__ == "__main__":
     main()

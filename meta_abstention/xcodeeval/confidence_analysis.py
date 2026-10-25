@@ -106,6 +106,14 @@ _BASELINE_METRICS = [
     ('generated_sequence_probability', 'Generated Sequence Probability'),
 ]
 
+# Intrinsic scores that some perturbed translations do not store, notably
+# gpt-4.1-nano. Callers can drop them without changing the other baselines.
+_TOKEN_PROBABILITY_METRICS = {
+    'average_token_probability',
+    'average_token_probability_geometric',
+    'generated_sequence_probability',
+}
+
 
 def _confidence_logits(confidences: np.ndarray) -> np.ndarray:
     """Logit of each confidence, with exact 0 and 1 kept in order.
@@ -182,7 +190,9 @@ def _wants_platt(name: str) -> bool:
     return "Output Consistency Score" in name
 
 
-def _scheduled_reports() -> list[tuple[str, str, str]]:
+def _scheduled_reports(
+    ignore_token_probability_metrics: bool = False,
+) -> list[tuple[str, str, str]]:
     """(kind, confidence key, display name) in the order reports are written."""
     items: list[tuple[str, str, str]] = []
     raw_keys: set[str] = set()
@@ -199,6 +209,8 @@ def _scheduled_reports() -> list[tuple[str, str, str]]:
     for key, name in _CONFIDENCE_METRICS:
         add(key, name)
     for key, name in _BASELINE_METRICS:
+        if ignore_token_probability_metrics and key in _TOKEN_PROBABILITY_METRICS:
+            continue
         add(key, name)
     return items
 
@@ -273,13 +285,13 @@ _CONFIDENCE_METRICS = [
 ]
 
 
-def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None):
+def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None, ignore_token_probability_metrics: bool = False):
     _truncate_report(output_file)
     # Baselines already printed above the consistency block are left in place.
     preserved_headers = _report_headers(output_file)
     reports = [
         (kind, key, name)
-        for kind, key, name in _scheduled_reports()
+        for kind, key, name in _scheduled_reports(ignore_token_probability_metrics)
         if not (kind == "raw" and name in preserved_headers)
     ]
 
@@ -316,7 +328,7 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
             values = scores[key]
         calibration_report(values, correctness_scores, name, output_file=output_file)
 
-def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None, perturbation: bool = False):
+def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None, perturbation: bool = False, ignore_token_probability_metrics: bool = False):
     execution_results_paths = []
 
     for file in os.listdir(execution_results_dir):
@@ -324,4 +336,9 @@ def run_confidence_analysis_for_batch(execution_results_dir: str, translation_in
             continue
         execution_results_paths.append(os.path.join(execution_results_dir, file))
 
-    run_confidence_analysis(execution_results_paths, translation_index, output_file=output_file)
+    run_confidence_analysis(
+        execution_results_paths,
+        translation_index,
+        output_file=output_file,
+        ignore_token_probability_metrics=ignore_token_probability_metrics,
+    )
