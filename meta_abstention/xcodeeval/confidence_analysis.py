@@ -10,6 +10,7 @@ from sklearn.metrics import roc_auc_score, brier_score_loss
 from sklearn.model_selection import KFold
 from scipy import stats
 import logging
+import collections
 
 
 def expected_calibration_error(confidences, correctness, n_bins=10):
@@ -266,6 +267,15 @@ _CONFIDENCE_METRICS = [
     ('orginal_test_6_output_consistency_score', 'Original Test 6 Output Consistency Score'),
     ('orginal_test_9_output_consistency_score', 'Original Test 9 Output Consistency Score'),
     ('orginal_test_12_output_consistency_score', 'Original Test 12 Output Consistency Score'),
+    ('orginal_test_-4_correct_output_score', 'Original Test -4 Correct Output Score'),
+    ('orginal_test_-3_correct_output_score', 'Original Test -3 Correct Output Score'),
+    ('orginal_test_-2_correct_output_score', 'Original Test -2 Correct Output Score'),
+    ('orginal_test_-1_correct_output_score', 'Original Test -1 Correct Output Score'),
+    ('orginal_test_0_correct_output_score', 'Original Test 0 Correct Output Score'),
+    ('orginal_test_3_correct_output_score', 'Original Test 3 Correct Output Score'),
+    ('orginal_test_6_correct_output_score', 'Original Test 6 Correct Output Score'),
+    ('orginal_test_9_correct_output_score', 'Original Test 9 Correct Output Score'),
+    ('orginal_test_12_correct_output_score', 'Original Test 12 Correct Output Score'),
     # ('average_verbalized_confidence', 'Average Verbalized'),
     # ('average_verbalized_confidence_codebert_score_weighted', 'Average Verbalized CodeBERT Score'),
     # ('average_verbalized_confidence_codebleu_weighted', 'Average Verbalized CodeBLEU'),
@@ -285,7 +295,7 @@ _CONFIDENCE_METRICS = [
 ]
 
 
-def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None, ignore_token_probability_metrics: bool = False):
+def run_confidence_analysis(execution_results_paths: list[str], translation_index: int = 0, output_file: str = None, ignore_token_probability_metrics: bool = False, use_repair: bool = False):
     _truncate_report(output_file)
     # Baselines already printed above the consistency block are left in place.
     preserved_headers = _report_headers(output_file)
@@ -308,15 +318,14 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
                 if '_' in submission['code_uid'] and submission['code_uid'].split('_')[1] != '0': # Skip LLM-made submissions
                     continue
 
-                translation = submission['translation'][translation_index]
-                conf = translation['confidence']
+                program = submission['repair'] if use_repair else submission['translation'][translation_index]
+                conf = program['confidence']
                 for key in score_keys:
                     scores[key].append(conf[key])
 
                 # It is correct if for all items in exec_result['data']['exec_outcome'] are 'PASSED'
-                correctness = 1 if all(item['exec_outcome'] == 'PASSED' for item in translation['exec_result']['data']) else 0
+                correctness = 1 if all(item['exec_outcome'] == 'PASSED' for item in program['exec_result']['data']) else 0
                 correctness_scores.append(correctness)
-
 
     for kind, key, name in reports:
         if kind == "platt":
@@ -328,7 +337,7 @@ def run_confidence_analysis(execution_results_paths: list[str], translation_inde
             values = scores[key]
         calibration_report(values, correctness_scores, name, output_file=output_file)
 
-def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None, perturbation: bool = False, ignore_token_probability_metrics: bool = False):
+def run_confidence_analysis_for_batch(execution_results_dir: str, translation_index: int = 0, output_file: str = None, perturbation: bool = False, ignore_token_probability_metrics: bool = False, use_repair: bool = False):
     execution_results_paths = []
 
     for file in os.listdir(execution_results_dir):
@@ -341,4 +350,5 @@ def run_confidence_analysis_for_batch(execution_results_dir: str, translation_in
         translation_index,
         output_file=output_file,
         ignore_token_probability_metrics=ignore_token_probability_metrics,
+        use_repair=use_repair,
     )

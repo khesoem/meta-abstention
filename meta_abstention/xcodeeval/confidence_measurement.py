@@ -215,17 +215,23 @@ def _add_similarity_based_confidence(similarities: dict, submission: dict, filte
                 translation_index, confidence_key
             )
 
-def _add_generated_test_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int, generated_test_execution_results: dict):
+def _program_record(submission: dict, translation_index: int, use_repair: bool) -> dict:
+    if use_repair:
+        return submission['repair']
+    return submission['translation'][translation_index]
+
+def _add_generated_test_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int, generated_test_execution_results: dict, use_repair: bool = False):
     submission_code_uid = submission['code_uid']
+    confidence = _program_record(submission, translation_index, use_repair)['confidence']
 
     if submission_code_uid not in generated_test_execution_results or submission_code_uid not in generated_test_execution_results[submission_code_uid]:
-        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = 0
+        confidence['generated_test_output_consistency_score'] = 0
         return
 
     submission_exec_result = generated_test_execution_results[submission_code_uid][submission_code_uid]['data']
 
     if len(submission_exec_result) <= 1: # Compilation error or Timeout error
-        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = 0
+        confidence['generated_test_output_consistency_score'] = 0
         return
     
     consistent_translations = 0
@@ -250,17 +256,18 @@ def _add_generated_test_execution_based_confidence(submission: dict, filtered_su
             consistent_translations += 1
 
     if valid_other_translations == 0:
-        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = 0
+        confidence['generated_test_output_consistency_score'] = 0
     else:
-        submission['translation'][translation_index]['confidence']['generated_test_output_consistency_score'] = consistent_translations / valid_other_translations
+        confidence['generated_test_output_consistency_score'] = consistent_translations / valid_other_translations
 
-def _add_original_test_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int):
+def _add_original_test_execution_based_confidence(submission: dict, filtered_submissions: list, translation_index: int, use_repair: bool = False):
+    confidence = _program_record(submission, translation_index, use_repair)['confidence']
     for test_cnt in [-4, -3, -2, -1, 0, 3, 6, 9, 12]:
 
-        submission_exec_result = submission['translation'][translation_index]['exec_result']['data']
+        submission_exec_result = _program_record(submission, translation_index, use_repair)['exec_result']['data']
 
         if len(submission_exec_result) <= 1: # Compilation error or Timeout error
-            submission['translation'][translation_index]['confidence'][f'orginal_test_{test_cnt}_output_consistency_score'] = 0
+            confidence[f'orginal_test_{test_cnt}_output_consistency_score'] = 0
             continue
 
         if test_cnt >= 0:
@@ -272,7 +279,7 @@ def _add_original_test_execution_based_confidence(submission: dict, filtered_sub
         valid_other_translations = 0
 
         for other in filtered_submissions:
-            other_exec_result = other['translation'][translation_index]['exec_result']['data']
+            other_exec_result = _program_record(other, translation_index, use_repair)['exec_result']['data']
 
             if len(other_exec_result) <= 1: # Compilation error or Timeout error
                 continue
@@ -287,11 +294,30 @@ def _add_original_test_execution_based_confidence(submission: dict, filtered_sub
 
 
         if valid_other_translations == 0:
-            submission['translation'][translation_index]['confidence'][f'orginal_test_{test_cnt}_output_consistency_score'] = 0
+            confidence[f'orginal_test_{test_cnt}_output_consistency_score'] = 0
         else:
-            submission['translation'][translation_index]['confidence'][f'orginal_test_{test_cnt}_output_consistency_score'] = consistent_translations / valid_other_translations
+            confidence[f'orginal_test_{test_cnt}_output_consistency_score'] = consistent_translations / valid_other_translations
 
-def compute_confidence(similarities_path: str, generated_test_execution_results_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = conf.translation['seed']):
+def _add_original_test_correct_output_confidence(submission: dict, translation_index: int, use_repair: bool = False):
+    confidence = _program_record(submission, translation_index, use_repair)['confidence']
+    for test_cnt in [-4, -3, -2, -1, 0, 3, 6, 9, 12]:
+        submission_exec_result = _program_record(submission, translation_index, use_repair)['exec_result']['data']
+
+        if len(submission_exec_result) <= 1: # Compilation error or Timeout error
+            confidence[f'orginal_test_{test_cnt}_correct_output_score'] = 0
+            continue
+
+        if test_cnt >= 0:
+            selected_indices = random.Random(conf.translation['seed']).sample(range(len(submission_exec_result)), len(submission_exec_result))[:test_cnt]
+        else:
+            selected_indices = random.Random(conf.translation['seed']).sample(range(len(submission_exec_result)), len(submission_exec_result))[:(len(submission_exec_result) // (-test_cnt))]
+
+        if all(submission_exec_result[i]['exec_outcome'] == 'PASSED' for i in selected_indices):
+            confidence[f'orginal_test_{test_cnt}_correct_output_score'] = 1
+        else:
+            confidence[f'orginal_test_{test_cnt}_correct_output_score'] = 0
+
+def compute_confidence(similarities_path: str, generated_test_execution_results_path: str, exec_results_path: str, output_path: str, translation_index: int = 0, n_perturbations: int = 5, seed: int = conf.translation['seed'], use_repair: bool = False):
     # with open(similarities_path, 'r') as s:
     #     similarities = json.load(s)
     with open(generated_test_execution_results_path, 'r') as e:
@@ -311,9 +337,11 @@ def compute_confidence(similarities_path: str, generated_test_execution_results_
 
             # _add_similarity_based_confidence(similarities, submission, filtered_submissions, translation_index)
 
-            _add_original_test_execution_based_confidence(submission, filtered_submissions, translation_index)
+            _add_original_test_execution_based_confidence(submission, filtered_submissions, translation_index, use_repair)
 
-            _add_generated_test_execution_based_confidence(submission, filtered_submissions, translation_index, generated_test_execution_results)
+            _add_generated_test_execution_based_confidence(submission, filtered_submissions, translation_index, generated_test_execution_results, use_repair)
+
+            _add_original_test_correct_output_confidence(submission, translation_index, use_repair)
 
     with open(output_path, 'w') as e:
         json.dump(translation_exec_results, e, indent=4)

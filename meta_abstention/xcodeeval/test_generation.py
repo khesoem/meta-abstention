@@ -139,7 +139,7 @@ def generate_test_inputs(source_code: str, problem_description: dict, model: str
         ),
     ]
     adapter = LLMAdapter(read_from_cache=True, save_to_cache=True, model=model)
-    raw = adapter.get_response(Prompt(messages, temp=temp)).first_content
+    raw = adapter.get_response(Prompt(messages, temp=temp, logprobs=False)).first_content
     test_inputs = _parse_test_inputs(raw)[:num_tests]
     return _keep_runnable_inputs(lang, source_code, test_inputs)
 
@@ -175,7 +175,7 @@ def run_test_generation(original_submission_path: str, output_path: str, model: 
                         problem_description,
                         model,
                         submission["lang"],
-                        temp=0 if not test_inputs else 1.0,
+                        temp=tries * 0.5,
                     )
                     test_inputs.extend(new_test_inputs)
                 except Exception as e:
@@ -188,6 +188,68 @@ def run_test_generation(original_submission_path: str, output_path: str, model: 
                 len(test_inputs),
                 submission["code_uid"],
             )
+
+        with open(output_path, "w") as f:
+            json.dump(generated_test_inputs, f, indent=4)
+
+
+def _is_original_submission(code_uid: str) -> bool:
+    return code_uid.endswith("_0")
+
+
+def run_apr_test_generation(repaired_submissions_path: str, output_path: str, model: str):
+    logging.info(f"Generating tests for {repaired_submissions_path} and saving to {output_path}")
+
+    if os.path.exists(output_path):
+        with open(output_path, "r") as f:
+            generated_test_inputs = json.load(f)
+    else:
+        generated_test_inputs = {}
+
+    with open(repaired_submissions_path, "r") as f:
+        repaired_submissions = json.load(f)
+
+    output_dir = os.path.dirname(output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
+    for _, item in repaired_submissions.items():
+        problem_description = item["problem_description"]
+        for submission in item["submissions"]:
+            code_uid = submission["code_uid"]
+            if not _is_original_submission(code_uid):
+                continue
+
+            repair = submission.get("repair") or {}
+            repaired_code = repair.get("repaired_code")
+            if not repaired_code:
+                logging.warning("Skipping %s: original submission has no repair", code_uid)
+                continue
+
+            if code_uid in generated_test_inputs:
+                test_inputs = generated_test_inputs[code_uid]
+            else:
+                test_inputs = []
+
+            lang = repair.get("lang") or submission["lang"]
+            tries = 0
+            while len(test_inputs) < conf.translation["number-of-considered-generated-tests"] and tries < conf.translation["max-tries"]:
+                tries += 1
+                try:
+                    new_test_inputs = generate_test_inputs(
+                        repaired_code,
+                        problem_description,
+                        model,
+                        lang,
+                        temp=tries * 0.5,
+                    )
+                    test_inputs.extend(new_test_inputs)
+                except Exception as e:
+                    logging.error("Error generating test inputs for %s: %s", code_uid, e)
+                    sleep(1)
+
+            generated_test_inputs[code_uid] = test_inputs
+            logging.info("Generated %s test inputs for repaired %s", len(test_inputs), code_uid)
 
         with open(output_path, "w") as f:
             json.dump(generated_test_inputs, f, indent=4)
