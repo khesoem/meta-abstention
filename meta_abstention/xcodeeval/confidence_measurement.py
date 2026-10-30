@@ -234,6 +234,10 @@ def _add_generated_test_execution_based_confidence(submission: dict, filtered_su
         confidence['generated_test_output_consistency_score'] = 0
         return
     
+    # if not any(e['exec_outcome'] == 'PASSED' or e['exec_outcome'] == 'WRONG_ANSWER' for e in submission_exec_result):
+    #     confidence['generated_test_output_consistency_score'] = 0
+    #     return
+
     consistent_translations = 0
     valid_other_translations = 0
 
@@ -269,6 +273,10 @@ def _add_original_test_execution_based_confidence(submission: dict, filtered_sub
         if len(submission_exec_result) <= 1: # Compilation error or Timeout error
             confidence[f'orginal_test_{test_cnt}_output_consistency_score'] = 0
             continue
+
+        # if any(e['exec_outcome'] != 'PASSED' and e['exec_outcome'] != 'WRONG_ANSWER' for e in submission_exec_result):
+        #     confidence[f'orginal_test_{test_cnt}_output_consistency_score'] = 0
+        #     continue
 
         if test_cnt >= 0:
             selected_indices = random.Random(conf.translation['seed']).sample(range(len(submission_exec_result)), len(submission_exec_result))[:test_cnt]

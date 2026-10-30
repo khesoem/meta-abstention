@@ -234,7 +234,6 @@ def run_apr_test_generation(repaired_submissions_path: str, output_path: str, mo
             lang = repair.get("lang") or submission["lang"]
             tries = 0
             while len(test_inputs) < conf.translation["number-of-considered-generated-tests"] and tries < conf.translation["max-tries"]:
-                tries += 1
                 try:
                     new_test_inputs = generate_test_inputs(
                         repaired_code,
@@ -244,6 +243,7 @@ def run_apr_test_generation(repaired_submissions_path: str, output_path: str, mo
                         temp=tries * 0.5,
                     )
                     test_inputs.extend(new_test_inputs)
+                    tries += 1
                 except Exception as e:
                     logging.error("Error generating test inputs for %s: %s", code_uid, e)
                     sleep(1)

@@ -185,7 +185,7 @@ def execute_generated_tests(translated_code_path: str, generated_tests_path: str
 def _original_submission_id(code_uid: str) -> str:
     return f"{code_uid.rsplit('_', 1)[0]}_0"
 
-def execute_repaired_generated_tests(repaired_code_path: str, generated_tests_path: str, output_path: str, minimum_number_of_tests: int = 1,
+def execute_repaired_generated_tests(repaired_code_path: str, generated_tests_path: str, output_path: str, minimum_number_of_tests: int = 0,
     repeat_execution: bool = False, lang: str = None):
 
     logging.info(f'Executing generated tests for {generated_tests_path} on repaired code in {repaired_code_path}')
